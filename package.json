@@ -5,9 +5,18 @@
   "keywords": [],
   "main": "src/index.js",
   "dependencies": {
+    "@atlaskit/css-reset": "3.0.3",
+    "@atlaskit/select": "6.1.7",
+    "flux-standard-action": "2.0.3",
+    "lodash": "4.17.11",
+    "prop-types": "15.6.2",
     "react": "16.7.0-alpha.2 - next",
     "react-dom": "16.7.0-alpha.2 - next",
-    "react-scripts": "2.1.1"
+    "react-redux": "5.1.1",
+    "react-scripts": "2.1.1",
+    "redux": "4.0.1",
+    "redux-thunk": "2.3.0",
+    "styled-components": "4.1.1"
   },
   "devDependencies": {},
   "scripts": {

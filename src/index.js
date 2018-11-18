@@ -1,19 +1,8 @@
-import React, { useState } from "react";
-import ReactDOM from "react-dom";
+import React from 'react';
+import ReactDOM from 'react-dom';
+import App from './App';
 
-import "./styles.css";
+import '@atlaskit/css-reset';
 
-function App() {
-  const [count, setCount] = useState(0);
-  return (
-    <div className="App">
-      <h1>Hello CodeSandbox</h1>
-      <div>
-        <button onClick={() => setCount(count + 1)}>{count}</button>
-      </div>
-    </div>
-  );
-}
-
-const rootElement = document.getElementById("root");
+const rootElement = document.getElementById('root');
 ReactDOM.render(<App />, rootElement);
