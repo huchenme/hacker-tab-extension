@@ -5,20 +5,34 @@
   "keywords": [],
   "main": "src/index.js",
   "dependencies": {
+    "@atlaskit/avatar": "14.1.3",
+    "@atlaskit/button": "10.1.0",
     "@atlaskit/css-reset": "3.0.3",
+    "@atlaskit/icon": "14.3.0",
     "@atlaskit/select": "6.1.7",
+    "@atlaskit/spinner": "9.0.10",
+    "@atlaskit/tooltip": "12.1.9",
+    "@huchenme/github-trending": "1.4.2",
+    "date-fns": "1.29.0",
     "flux-standard-action": "2.0.3",
     "lodash": "4.17.11",
+    "polished": "2.3.1",
     "prop-types": "15.6.2",
     "react": "16.7.0-alpha.2 - next",
     "react-dom": "16.7.0-alpha.2 - next",
+    "react-linkify": "0.2.2",
     "react-redux": "5.1.1",
     "react-scripts": "2.1.1",
     "redux": "4.0.1",
     "redux-thunk": "2.3.0",
-    "styled-components": "4.1.1"
+    "styled-components": "3.4.10",
+    "unique-name.macro": "1.2.0"
   },
-  "devDependencies": {},
+  "devDependencies": {
+    "@types/lodash": "4.14.118",
+    "typescript": "3.1.6",
+    "unique-name.macro": "1.2.0"
+  },
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
