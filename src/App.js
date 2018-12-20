@@ -1,20 +1,25 @@
 import React from 'react';
 import styled from 'styled-components';
 import { Provider } from 'react-redux';
-import store from './store';
-import Counter from './Counter';
-import LanguageSelect from './LanguageSelect';
+import configureStore from './store';
+import GitHub from './components/GitHub';
+
+const store = configureStore();
 
 export default function App() {
   return (
     <Provider store={store}>
       <Container>
-        <LanguageSelect />
+        <GitHub />
       </Container>
     </Provider>
   );
 }
 
 const Container = styled.div`
-  margin: 1em;
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  box-sizing: border-box;
+  display: flex;
 `;

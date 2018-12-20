@@ -1,16 +1,22 @@
-import { createStore, compose, applyMiddleware } from 'redux'; // add applyMiddleware
+import { createStore, compose, applyMiddleware } from 'redux';
 import thunk from 'redux-thunk';
-import rootReducer from './reducers';
+import { combineReducers } from 'redux';
+import github from './redux/github';
 
-const store = createStore(
-  rootReducer,
-  compose(
-    applyMiddleware(thunk),
-    typeof window === 'object' &&
-      typeof window.devToolsExtension !== 'undefined'
-      ? window.devToolsExtension()
-      : f => f
-  )
-);
+const rootReducer = combineReducers({
+  github,
+});
 
-export default store;
+export default function configureStore(preloadedState) {
+  return createStore(
+    rootReducer,
+    preloadedState,
+    compose(
+      applyMiddleware(thunk),
+      typeof window === 'object' &&
+        typeof window.devToolsExtension !== 'undefined'
+        ? window.devToolsExtension()
+        : f => f
+    )
+  );
+}
