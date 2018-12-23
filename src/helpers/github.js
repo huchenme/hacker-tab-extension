@@ -20,11 +20,11 @@ export const findLanguage = (allLanguages, language) => {
     return allLanguagesOption;
   } else if (allLanguages.length === 3) {
     return find(
-      {
+      [
         allLanguagesOption,
         ...allLanguages[1].options,
         ...allLanguages[2].options,
-      },
+      ],
       { value: language }
     );
   } else {

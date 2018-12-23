@@ -14,6 +14,9 @@ const LanguageSelect = ({ fetchAll, handleChange, selected, languages }) => {
   }, []);
   return (
     <Select
+      styles={{
+        control: base => ({ ...base, backgroundColor: '#EBECF0' }),
+      }}
       value={selected}
       onChange={handleChange}
       options={languages}

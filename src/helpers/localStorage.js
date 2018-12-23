@@ -4,6 +4,7 @@ import { isNil } from 'lodash';
 
 export const keys = {
   ALL_LANGUAGES: 'allLanguages',
+  REPOSITORIES: 'repositories',
   SELECTED_LANGUAGE: 'selectedLanguage',
   SELECTED_PERIOD: 'selectedPeriod',
 };
@@ -33,6 +34,14 @@ export const get = key => {
   return result;
 };
 
+export const getLastUpdated = key => {
+  const result = getObject(key);
+  if (result) {
+    return result.lastUpdated;
+  }
+  return result;
+};
+
 export const set = (key, data) =>
   setObject(key, {
     data,
@@ -43,7 +52,7 @@ export const has = key => !isNil(getItem(key));
 
 export const isDataExpired = (key, maxCacheInMinutes) => {
   const result = getObject(key);
-  if (!result) {
+  if (!result || result.length === 0) {
     return true;
   }
   const lastUpdated = result.lastUpdated;
@@ -52,5 +61,8 @@ export const isDataExpired = (key, maxCacheInMinutes) => {
 
 const WEEK = 7 * 24 * 60;
 
+const isEmptyLanguages = data => isNil(data) || data.length === 1;
+
 export const shouldRefetchLanguages = () =>
-  isDataExpired(keys.ALL_LANGUAGES, WEEK);
+  isDataExpired(keys.ALL_LANGUAGES, WEEK) ||
+  isEmptyLanguages(get(keys.ALL_LANGUAGES));

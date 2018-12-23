@@ -17,9 +17,7 @@ export default function App() {
 }
 
 const Container = styled.div`
-  position: absolute;
-  height: 100%;
-  width: 100%;
-  box-sizing: border-box;
-  display: flex;
+  background-color: #eee;
+  position: relative;
+  padding-top: 56px;
 `;

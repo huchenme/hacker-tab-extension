@@ -3,12 +3,17 @@ import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import { connect } from 'react-redux';
 import Spinner from '@atlaskit/spinner';
+import EmptyState from '@atlaskit/empty-state';
+import Button from '@atlaskit/button';
+
 import TopBar from './TopBar';
 import RepositoriesList from './RepositoriesList';
 import { loadRepositories } from '../../redux/github';
+import emptyImage from '../../images/empty.png';
 
 const GitHub = ({
   isLoading,
+  isLoaded,
   repositories,
   currentLanguage,
   currentPeriod,
@@ -18,23 +23,45 @@ const GitHub = ({
     fetchAll({ language: currentLanguage, since: currentPeriod });
   }, []);
 
+  let shouldShowEmptyState = false;
+  if (isLoaded && !isLoading) {
+    shouldShowEmptyState = !repositories || repositories.length === 0;
+  }
+
   return (
-    <Container>
+    <>
       <TopBarContainer>
-        <TopBar />
+        <TopBar
+          isLoading={isLoading}
+          onRefresh={() =>
+            fetchAll({ language: currentLanguage, since: currentPeriod })
+          }
+        />
       </TopBarContainer>
       <ListContainer>
         <RepositoriesList
           repositories={repositories}
           currentPeriod={currentPeriod}
         />
+        {shouldShowEmptyState ? (
+          <EmptyState
+            header="No data available"
+            description={`There are some issues loading data from GitHub, try again in a few minutes.`}
+            imageUrl={emptyImage}
+            secondaryAction={
+              <Button href="https://github.com/huchenme/hacker-bar-extension">
+                Raise GitHub issue
+              </Button>
+            }
+          />
+        ) : null}
       </ListContainer>
       {isLoading ? (
         <SpinnerContainer>
           <Spinner size="large" />
         </SpinnerContainer>
       ) : null}
-    </Container>
+    </>
   );
 };
 
@@ -50,6 +77,7 @@ const mapStateToProps = ({ github }) => ({
   currentLanguage: github.selectedLanguage,
   currentPeriod: github.selectedPeriod,
   isLoading: github.isLoading,
+  isLoaded: github.isLoaded,
 });
 
 const mapDispatchToProps = dispatch => ({
@@ -61,44 +89,23 @@ export default connect(
   mapDispatchToProps
 )(GitHub);
 
-const Container = styled.div`
-  display: flex;
-  flex-grow: 1;
-  flex-direction: column;
-  padding: 16px;
-  max-width: 100vw;
-  box-sizing: border-box;
-`;
-
 const TopBarContainer = styled.div`
-  margin-bottom: 8px;
+  position: fixed;
+  box-sizing: border-box;
+  top: 0;
+  width: 100%;
+  z-index: 20;
 `;
 
 const ListContainer = styled.div`
-  flex-grow: 1;
-  overflow-y: auto;
   position: relative;
-
-  &::-webkit-scrollbar {
-    -webkit-appearance: none;
-  }
-
-  &::-webkit-scrollbar:vertical {
-    width: 6px;
-  }
-
-  &::-webkit-scrollbar:horizontal {
-    height: 6px;
-  }
-
-  &::-webkit-scrollbar-thumb {
-    background-color: rgba(0, 0, 0, 0.1);
-    border-radius: 3px;
-  }
+  padding: 16px;
+  max-width: 1366px;
+  margin: auto;
 `;
 
 const SpinnerContainer = styled.div`
-  position: absolute;
+  position: fixed;
   top: 0;
   bottom: 0;
   left: 0;

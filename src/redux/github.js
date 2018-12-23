@@ -2,20 +2,23 @@ import {
   fetchRepositories,
   fetchAllLanguages,
 } from '@huchenme/github-trending';
-import { differenceBy, isEqual } from 'lodash';
+import { differenceWith, isEqual } from 'lodash';
 import { allLanguagesOption, allLanguagesValue } from '../helpers/github';
 import { get, set, keys } from '../helpers/localStorage';
 
 const LOAD_REPOSITORIES = 'github/LOAD_REPOSITORIES';
 const REPOSITORIES_LOADED = 'github/REPOSITORIES_LOADED';
+const REPOSITORIES_LOAD_ERROR = 'github/REPOSITORIES_LOAD_ERROR';
 const LANGUAGES_LOADED = 'github/LANGUAGES_LOADED';
+const LANGUAGES_LOAD_ERROR = 'github/LANGUAGES_LOAD_ERROR';
 const CHANGE_LANGUAGE = 'github/CHANGE_LANGUAGE';
 const CHANGE_PERIOD = 'github/CHANGE_PERIOD';
 
 export default function reducer(
   state = {
     isLoading: false,
-    repositories: [],
+    isLoaded: false,
+    repositories: get(keys.REPOSITORIES) || [],
     allLanguages: get(keys.ALL_LANGUAGES) || [allLanguagesOption],
     selectedLanguage: get(keys.SELECTED_LANGUAGE) || allLanguagesValue,
     selectedPeriod: get(keys.SELECTED_PERIOD) || 'daily',
@@ -29,16 +32,30 @@ export default function reducer(
         isLoading: true,
       };
     case REPOSITORIES_LOADED:
+      set(keys.REPOSITORIES, action.payload);
       return {
         ...state,
         isLoading: false,
+        isLoaded: true,
         repositories: action.payload,
+      };
+    case REPOSITORIES_LOAD_ERROR:
+      return {
+        ...state,
+        isLoading: false,
+        isLoaded: true,
+        repositories: [],
       };
     case LANGUAGES_LOADED:
       set(keys.ALL_LANGUAGES, action.payload);
       return {
         ...state,
         allLanguages: action.payload,
+      };
+    case LANGUAGES_LOAD_ERROR:
+      return {
+        ...state,
+        allLanguages: [allLanguagesOption],
       };
     case CHANGE_LANGUAGE:
       set(keys.SELECTED_LANGUAGE, action.payload);
@@ -58,7 +75,6 @@ export default function reducer(
 }
 
 export function loadRepositories({ language, since }) {
-  console.log(`loadRepositories ${language} ${since}`);
   return async (dispatch, getState) => {
     dispatch({ type: LOAD_REPOSITORIES });
     let options = { since };
@@ -68,7 +84,11 @@ export function loadRepositories({ language, since }) {
     const repositories = await fetchRepositories({
       ...options,
     });
-    dispatch({ type: REPOSITORIES_LOADED, payload: repositories });
+    if (repositories || repositories.length === 0) {
+      dispatch({ type: REPOSITORIES_LOADED, payload: repositories });
+    } else {
+      dispatch({ type: REPOSITORIES_LOAD_ERROR });
+    }
   };
 }
 
@@ -93,17 +113,23 @@ export function changePeriod(period) {
 }
 
 export function loadLanguages() {
-  console.log('loadLanguages');
   return async (dispatch, getState) => {
     const jsonResults = await fetchAllLanguages();
-    const languages = transformLanguages(jsonResults);
-    dispatch({ type: LANGUAGES_LOADED, payload: languages });
+    if (jsonResults) {
+      dispatch({
+        type: LANGUAGES_LOADED,
+        payload: transformLanguages(jsonResults),
+      });
+    } else {
+      dispatch({ type: LANGUAGES_LOAD_ERROR });
+    }
   };
 }
 
 function transformLanguages({ popular, all } = {}) {
   const popularOptions = popular.map(transformLanguage);
   const allOptions = all.map(transformLanguage);
+
   return [
     allLanguagesOption,
     {
@@ -112,7 +138,7 @@ function transformLanguages({ popular, all } = {}) {
     },
     {
       label: 'All Languages',
-      options: differenceBy(allOptions, popularOptions, isEqual),
+      options: differenceWith(allOptions, popularOptions, isEqual),
     },
   ];
 }

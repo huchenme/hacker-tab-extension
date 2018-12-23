@@ -8,6 +8,9 @@ import { periodOptions, findPeriod } from '../../helpers/github';
 const PeriodSelect = ({ handleChange, selected }) => {
   return (
     <Select
+      styles={{
+        control: base => ({ ...base, backgroundColor: '#EBECF0' }),
+      }}
       isSearchable={false}
       value={selected}
       onChange={handleChange}

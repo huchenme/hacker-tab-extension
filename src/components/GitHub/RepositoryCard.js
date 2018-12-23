@@ -4,6 +4,7 @@ import styled from 'styled-components';
 import { ellipsis } from 'polished';
 import { get } from 'lodash';
 import Linkify from 'react-linkify';
+import Paper from '@material-ui/core/Paper';
 
 import StarFilledIcon from '@atlaskit/icon/glyph/star-filled';
 import BitbucketForksIcon from '@atlaskit/icon/glyph/bitbucket/forks';
@@ -13,8 +14,16 @@ import { findPeriod } from '../../helpers/github';
 
 import InfoItem from './InfoItem';
 
+function getAvatarString(src) {
+  if (!src) {
+    return src;
+  }
+  return `${src}?s=50`;
+}
+
 const RepositoryCard = props => {
   const periodString = get(findPeriod(props.period), 'label', '');
+
   return (
     <Card>
       <div>
@@ -53,9 +62,9 @@ const RepositoryCard = props => {
                   <StyledAvatar
                     key={person.username}
                     name={person.username}
-                    size="xsmall"
+                    size="small"
                     href={person.href}
-                    src={person.avatar}
+                    src={getAvatarString(person.avatar)}
                   />
                 ))}
               </InfoItem>
@@ -102,14 +111,15 @@ RepositoryCard.defaultProps = {
 
 export default RepositoryCard;
 
-const Card = styled.div`
-  padding: 24px 0;
-  border-bottom: 1px solid #e1e4e8;
-  margin-right: 8px;
-
-  &:last-child {
-    border-bottom: none;
-  }
+const Card = styled(Paper)`
+  padding: 24px;
+  padding-bottom: 16px;
+  height: 100%;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  max-width: 675px;
+  margin: auto;
 `;
 
 const Title = styled.h3`
@@ -124,8 +134,8 @@ const Author = styled.span`
 `;
 
 const Description = styled.div`
-  margin: 4px 0;
-  padding-right: 100px;
+  margin: 4px 0 24px;
+  color: #555;
   display: -webkit-box;
   -webkit-line-clamp: 3;
   -webkit-box-orient: vertical;
@@ -136,6 +146,7 @@ const Description = styled.div`
   overflow: hidden;
   text-overflow: ellipsis;
   word-wrap: normal;
+  flex: 1;
 `;
 
 const AdditionalInfo = styled.div`
