@@ -62,6 +62,21 @@
     "@babel/runtime" "^7.0.0"
     babel-runtime "^6.26.0"
 
+"@atlaskit/flag@^9.1.10":
+  version "9.1.10"
+  resolved "https://registry.yarnpkg.com/@atlaskit/flag/-/flag-9.1.10.tgz#df60a7f14ff37ac82712e7f5dfe0e8eecb78c3a0"
+  integrity sha512-T2TNSvkMoGllj9jShWnP21gsMJCLjkh7pjEvoPnjTG49JX1M1HTimPkitHbIj9KE37btVILMgquYNe7LwyD5kA==
+  dependencies:
+    "@atlaskit/analytics-next" "^3.1.2"
+    "@atlaskit/button" "^10.1.2"
+    "@atlaskit/icon" "^16.0.0"
+    "@atlaskit/portal" "^0.1.0"
+    "@atlaskit/theme" "^7.0.1"
+    "@babel/runtime" "^7.0.0"
+    babel-runtime "^6.26.0"
+    react-transition-group "^2.2.1"
+    uuid "^3.1.0"
+
 "@atlaskit/icon@^16.0.0", "@atlaskit/icon@^16.0.1":
   version "16.0.1"
   resolved "https://registry.yarnpkg.com/@atlaskit/icon/-/icon-16.0.1.tgz#c8ad9cffff8f1e116dc5bfc31f98d6cf788eb6bb"
@@ -120,7 +135,7 @@
     babel-runtime "^6.26.0"
     react-transition-group "^2.2.1"
 
-"@atlaskit/theme@^7.0.1":
+"@atlaskit/theme@^7.0.1", "@atlaskit/theme@^7.0.4":
   version "7.0.4"
   resolved "https://registry.yarnpkg.com/@atlaskit/theme/-/theme-7.0.4.tgz#4f9a7568633a7e18bdcc121627e32916ee9ada66"
   integrity sha512-Pk7x8gwVyeEc7y7hhjeKfu26ykXl1CJfFSoLuxCIrELzNnx4LFxfAFmcoHgr09c8/nsT57vtxmcnmKkZkEJtJA==

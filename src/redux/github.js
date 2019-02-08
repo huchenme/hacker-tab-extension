@@ -18,6 +18,7 @@ export default function reducer(
   state = {
     isLoading: false,
     isLoaded: false,
+    error: null,
     repositories: get(keys.REPOSITORIES) || [],
     allLanguages: get(keys.ALL_LANGUAGES) || [allLanguagesOption],
     selectedLanguage: get(keys.SELECTED_LANGUAGE) || allLanguagesValue,
@@ -37,6 +38,7 @@ export default function reducer(
         ...state,
         isLoading: false,
         isLoaded: true,
+        error: null,
         repositories: action.payload,
       };
     case REPOSITORIES_LOAD_ERROR:
@@ -44,6 +46,7 @@ export default function reducer(
         ...state,
         isLoading: false,
         isLoaded: true,
+        error: Date.now(),
         repositories: [],
       };
     case LANGUAGES_LOADED:
@@ -81,13 +84,17 @@ export function loadRepositories({ language, since }) {
     if (language !== allLanguagesValue) {
       options = { ...options, language };
     }
-    const repositories = await fetchRepositories({
-      ...options,
-    });
-    if (repositories || repositories.length === 0) {
-      dispatch({ type: REPOSITORIES_LOADED, payload: repositories });
-    } else {
-      dispatch({ type: REPOSITORIES_LOAD_ERROR });
+    try {
+      const repositories = await fetchRepositories({
+        ...options,
+      });
+      if (repositories || repositories.length === 0) {
+        dispatch({ type: REPOSITORIES_LOADED, payload: repositories });
+      } else {
+        dispatch({ type: REPOSITORIES_LOAD_ERROR });
+      }
+    } catch (e) {
+      dispatch({ type: REPOSITORIES_LOAD_ERROR, payload: e });
     }
   };
 }

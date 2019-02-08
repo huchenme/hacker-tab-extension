@@ -1,10 +1,13 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import { connect } from 'react-redux';
 import Spinner from '@atlaskit/spinner';
 import EmptyState from '@atlaskit/empty-state';
 import Button from '@atlaskit/button';
+import Flag, { FlagGroup } from '@atlaskit/flag';
+import Warning from '@atlaskit/icon/glyph/warning';
+import { colors } from '@atlaskit/theme';
 
 import TopBar from './TopBar';
 import RepositoriesList from './RepositoriesList';
@@ -14,14 +17,54 @@ import emptyImage from '../../images/empty.png';
 const GitHub = ({
   isLoading,
   isLoaded,
+  error,
   repositories,
   currentLanguage,
   currentPeriod,
   fetchAll,
 }) => {
-  useEffect(() => {
+  const [flags, setFlags] = useState([]);
+
+  const dismissError = () => {
+    setFlags([]);
+  };
+
+  const fetchRepositories = () => {
     fetchAll({ language: currentLanguage, since: currentPeriod });
+    dismissError();
+  };
+
+  const displayError = () => {
+    setFlags([
+      {
+        id: 'NETWORK_ERROR',
+        appearance: 'warning',
+        icon: <Warning label="Warning icon" secondaryColor={colors.Y200} />,
+        title: (
+          <span>
+            Error loading content
+            {!isLoading ? (
+              <Button appearance="link" onClick={fetchRepositories}>
+                Refresh
+              </Button>
+            ) : null}
+          </span>
+        ),
+      },
+    ]);
+  };
+
+  useEffect(() => {
+    fetchRepositories();
   }, []);
+
+  useEffect(() => {
+    if (error) {
+      displayError();
+    } else {
+      dismissError();
+    }
+  }, [error]);
 
   let shouldShowEmptyState = false;
   if (isLoaded && !isLoading) {
@@ -30,6 +73,11 @@ const GitHub = ({
 
   return (
     <>
+      <FlagGroup onDismissed={dismissError}>
+        {flags.map(flag => (
+          <Flag key={flag.id} {...flag} />
+        ))}
+      </FlagGroup>
       <TopBarContainer>
         <TopBar
           isLoading={isLoading}
@@ -78,6 +126,7 @@ const mapStateToProps = ({ github }) => ({
   currentPeriod: github.selectedPeriod,
   isLoading: github.isLoading,
   isLoaded: github.isLoaded,
+  error: github.error,
 });
 
 const mapDispatchToProps = dispatch => ({
