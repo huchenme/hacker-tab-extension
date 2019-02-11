@@ -20,4 +20,5 @@ const Container = styled.div`
   background-color: #eee;
   position: relative;
   padding-top: 56px;
+  min-height: 100vh;
 `;

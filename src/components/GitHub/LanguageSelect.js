@@ -4,13 +4,10 @@ import Select from '@atlaskit/select';
 import { connect } from 'react-redux';
 import { loadLanguages, changeLanguage } from '../../redux/github';
 import { findLanguage } from '../../helpers/github';
-import { shouldRefetchLanguages } from '../../helpers/localStorage';
 
 const LanguageSelect = ({ fetchAll, handleChange, selected, languages }) => {
   useEffect(() => {
-    if (shouldRefetchLanguages()) {
-      fetchAll();
-    }
+    fetchAll();
   }, []);
   return (
     <Select

@@ -6,7 +6,7 @@
   "chrome_url_overrides": {
     "newtab": "index.html"
   },
-  "description": "Chrome New Tab extension for hackers",
+  "description": "View GitHub trending projects on new tab page, we will integrate more platforms soon.",
   "incognito": "split",
   "icons": {
     "16": "16.png",

@@ -20,7 +20,7 @@ export default function reducer(
     isLoaded: false,
     error: null,
     repositories: get(keys.REPOSITORIES) || [],
-    allLanguages: get(keys.ALL_LANGUAGES) || [allLanguagesOption],
+    allLanguages: [allLanguagesOption],
     selectedLanguage: get(keys.SELECTED_LANGUAGE) || allLanguagesValue,
     selectedPeriod: get(keys.SELECTED_PERIOD) || 'daily',
   },
@@ -47,7 +47,6 @@ export default function reducer(
         isLoading: false,
         isLoaded: true,
         error: Date.now(),
-        repositories: [],
       };
     case LANGUAGES_LOADED:
       set(keys.ALL_LANGUAGES, action.payload);

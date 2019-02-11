@@ -7,7 +7,9 @@ export default function TopBar({ isLoading, onRefresh }) {
   return (
     <Container>
       <Selectors />
-      {!isLoading ? <Button onClick={onRefresh}>Refresh</Button> : null}
+      <Button onClick={onRefresh} isLoading={isLoading}>
+        Refresh
+      </Button>
     </Container>
   );
 }

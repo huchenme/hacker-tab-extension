@@ -2,15 +2,14 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import { ellipsis } from 'polished';
-import { get } from 'lodash';
 import Linkify from 'react-linkify';
 import Paper from '@material-ui/core/Paper';
 
 import StarFilledIcon from '@atlaskit/icon/glyph/star-filled';
+import StarIcon from '@atlaskit/icon/glyph/star';
 import BitbucketForksIcon from '@atlaskit/icon/glyph/bitbucket/forks';
 import PersonIcon from '@atlaskit/icon/glyph/people';
 import Avatar from '@atlaskit/avatar';
-import { findPeriod } from '../../helpers/github';
 
 import InfoItem from './InfoItem';
 
@@ -21,67 +20,63 @@ function getAvatarString(src) {
   return `${src}?s=50`;
 }
 
-const RepositoryCard = props => {
-  const periodString = get(findPeriod(props.period), 'label', '');
-
-  return (
-    <Card>
-      <div>
-        <Title>
-          <a href={props.url}>
-            <Author>{props.author}</Author> / {props.name}
-          </a>
-        </Title>
-      </div>
-      <Description>
-        <Linkify>{props.description}</Linkify>
-      </Description>
-      <AdditionalInfo>
-        <AdditionalInfoSection>
-          {props.language ? (
-            <AdditionalInfoItem>
-              <InfoItem icon={<LanguageColor color={props.languageColor} />}>
-                {props.language}
-              </InfoItem>
-            </AdditionalInfoItem>
-          ) : null}
+const RepositoryCard = props => (
+  <Card>
+    <div>
+      <Title>
+        <a href={props.url}>
+          <Author>{props.author}</Author> / {props.name}
+        </a>
+      </Title>
+    </div>
+    <Description>
+      <Linkify>{props.description}</Linkify>
+    </Description>
+    <AdditionalInfo>
+      <AdditionalInfoSection>
+        {props.language ? (
           <AdditionalInfoItem>
-            <InfoItem icon={<StarFilledIcon label="Stars" size="small" />}>
-              {props.stars.toLocaleString()}
+            <InfoItem icon={<LanguageColor color={props.languageColor} />}>
+              {props.language}
             </InfoItem>
           </AdditionalInfoItem>
+        ) : null}
+        <AdditionalInfoItem>
+          <InfoItem icon={<StarFilledIcon label="Stars" size="small" />}>
+            {props.stars.toLocaleString()}
+          </InfoItem>
+        </AdditionalInfoItem>
+        <AdditionalInfoItem>
+          <InfoItem icon={<BitbucketForksIcon label="Forks" size="small" />}>
+            {props.forks.toLocaleString()}
+          </InfoItem>
+        </AdditionalInfoItem>
+        {props.builtBy.length > 0 ? (
           <AdditionalInfoItem>
-            <InfoItem icon={<BitbucketForksIcon label="Forks" size="small" />}>
-              {props.forks.toLocaleString()}
+            <InfoItem icon={<PersonIcon label="Built by" size="small" />}>
+              {props.builtBy.map(person => (
+                <StyledAvatar
+                  key={person.username}
+                  name={person.username}
+                  size="small"
+                  href={person.href}
+                  src={getAvatarString(person.avatar)}
+                />
+              ))}
             </InfoItem>
           </AdditionalInfoItem>
-          {props.builtBy.length > 0 ? (
-            <AdditionalInfoItem>
-              <InfoItem icon={<PersonIcon label="Built by" size="small" />}>
-                {props.builtBy.map(person => (
-                  <StyledAvatar
-                    key={person.username}
-                    name={person.username}
-                    size="small"
-                    href={person.href}
-                    src={getAvatarString(person.avatar)}
-                  />
-                ))}
-              </InfoItem>
-            </AdditionalInfoItem>
-          ) : null}
-        </AdditionalInfoSection>
-        <AdditionalInfoSection>
-          <AdditionalInfoItem>
-            <InfoItem icon={<StarFilledIcon label="Stars" size="small" />}>
-              {`${props.currentPeriodStars.toLocaleString()} stars ${periodString}`.trim()}
-            </InfoItem>
-          </AdditionalInfoItem>
-        </AdditionalInfoSection>
-      </AdditionalInfo>
-    </Card>
-  );
-};
+        ) : null}
+      </AdditionalInfoSection>
+      <AdditionalInfoSection>
+        <AdditionalInfoItem>
+          <InfoItem icon={<StarIcon label="Stars" size="small" />}>
+            {`${props.currentPeriodStars.toLocaleString()} Stars`.trim()}
+          </InfoItem>
+        </AdditionalInfoItem>
+      </AdditionalInfoSection>
+    </AdditionalInfo>
+  </Card>
+);
 
 RepositoryCard.propTypes = {
   author: PropTypes.string,

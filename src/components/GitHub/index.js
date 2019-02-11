@@ -5,7 +5,7 @@ import { connect } from 'react-redux';
 import Spinner from '@atlaskit/spinner';
 import EmptyState from '@atlaskit/empty-state';
 import Button from '@atlaskit/button';
-import Flag, { FlagGroup } from '@atlaskit/flag';
+import { AutoDismissFlag, FlagGroup } from '@atlaskit/flag';
 import Warning from '@atlaskit/icon/glyph/warning';
 import { colors } from '@atlaskit/theme';
 
@@ -75,7 +75,7 @@ const GitHub = ({
     <>
       <FlagGroup onDismissed={dismissError}>
         {flags.map(flag => (
-          <Flag key={flag.id} {...flag} />
+          <AutoDismissFlag key={flag.id} {...flag} />
         ))}
       </FlagGroup>
       <TopBarContainer>
@@ -93,7 +93,7 @@ const GitHub = ({
         />
         {shouldShowEmptyState ? (
           <EmptyState
-            header="No data available"
+            header="Nothing Here"
             description={`There are some issues loading data from GitHub, try again in a few minutes.`}
             imageUrl={emptyImage}
             secondaryAction={
@@ -104,7 +104,7 @@ const GitHub = ({
           />
         ) : null}
       </ListContainer>
-      {isLoading ? (
+      {isLoaded && isLoading ? (
         <SpinnerContainer>
           <Spinner size="large" />
         </SpinnerContainer>
