@@ -97,7 +97,7 @@ const GitHub = ({
             description={`There are some issues loading data from GitHub, try again in a few minutes.`}
             imageUrl={emptyImage}
             secondaryAction={
-              <Button href="https://github.com/huchenme/hacker-bar-extension">
+              <Button href="https://github.com/huchenme/hacker-tab-extension">
                 Raise GitHub issue
               </Button>
             }

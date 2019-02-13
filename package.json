@@ -1,6 +1,6 @@
 {
-  "name": "hacker-bar-extension",
-  "version": "1.0.0",
+  "name": "hacker-tab-extension",
+  "version": "0.0.1",
   "description": "Chrome extension for hackers",
   "license": "MIT",
   "keywords": [
