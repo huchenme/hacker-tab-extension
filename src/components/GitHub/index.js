@@ -10,6 +10,7 @@ import Warning from '@atlaskit/icon/glyph/warning';
 import { colors } from '@atlaskit/theme';
 
 import TopBar from './TopBar';
+import Footer from './Footer';
 import RepositoriesList from './RepositoriesList';
 import { loadRepositories } from '../../redux/github';
 import emptyImage from '../../images/empty.png';
@@ -104,6 +105,7 @@ const GitHub = ({
           />
         ) : null}
       </ListContainer>
+      <Footer />
       {isLoaded && isLoading ? (
         <SpinnerContainer>
           <Spinner size="large" />

@@ -21,4 +21,6 @@ const Container = styled.div`
   position: relative;
   padding-top: 56px;
   min-height: 100vh;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
 `;

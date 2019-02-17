@@ -1,14 +1,27 @@
+/* global chrome */
 import React from 'react';
 import styled from 'styled-components';
 import Button from '@atlaskit/button';
+// import MediaServicesGridIcon from '@atlaskit/icon/glyph/media-services/grid';
+import { ReactComponent as ChromeIcon } from '../../images/chrome.svg';
 import Selectors from './Selectors';
 
 export default function TopBar({ isLoading, onRefresh }) {
   return (
     <Container>
       <Selectors />
-      <Button onClick={onRefresh} isLoading={isLoading}>
-        Refresh
+      <Button
+        appearance="subtle"
+        onClick={() => {
+          chrome.tabs.getCurrent(tab => {
+            chrome.tabs.update(tab.id, {
+              url: 'chrome-search://local-ntp/local-ntp.html',
+            });
+          });
+        }}
+        iconBefore={<ChromeIcon height={20} width={20} fill="currentColor" />}
+      >
+        Chrome Tab
       </Button>
     </Container>
   );
