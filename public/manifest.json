@@ -2,7 +2,7 @@
   "manifest_version": 2,
   "name": "Hacker Tab",
   "author": "Hu Chen",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "Replace new tab screen with GitHub trending projects.",
   "incognito": "split",
   "icons": {
@@ -13,5 +13,6 @@
   "chrome_url_overrides": {
     "newtab": "index.html"
   },
-  "permissions": ["tabs", "storage"]
+  "permissions": ["tabs", "storage"],
+  "content_security_policy": "script-src 'self' https://www.google-analytics.com; object-src 'self'"
 }
