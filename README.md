@@ -6,7 +6,7 @@
 
 > Replace new tab screen with GitHub trending projects.
 
-**[It's on Product Hunt](https://www.producthunt.com/posts/fast-cli-2)**
+**[It's on Product Hunt](https://www.producthunt.com/posts/hacker-tab)**
 
 ![screenshot](./images/screenshot.jpg)
 
