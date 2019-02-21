@@ -4,7 +4,9 @@
 [![Chrome Web Store Rating](https://img.shields.io/chrome-web-store/stars/ibomigipadcieapbemkegkmadbbanbgm.svg?colorB=%234FC828&label=rating&style=flat)](https://chrome.google.com/webstore/detail/hacker-tab/ibomigipadcieapbemkegkmadbbanbgm/reviews)
 [![GitHub license](https://img.shields.io/badge/license-MIT-blue.svg?style=flat)](https://github.com/huchenme/hacker-tab-extension/blob/master/LICENSE)
 
-Replace new tab screen with GitHub trending projects.
+> Replace new tab screen with GitHub trending projects.
+
+**[It's on Product Hunt](https://www.producthunt.com/posts/fast-cli-2)**
 
 ![screenshot](./images/screenshot.jpg)
 
