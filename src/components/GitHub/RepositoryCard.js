@@ -26,7 +26,12 @@ const RepositoryCard = props => (
     <div>
       <Title>
         {props.url ? (
-          <a href={appendQuery(props.url, { ref: 'hacker_bar_extension' })}>
+          <a
+            href={appendQuery(
+              props.url,
+              'ref=hacker_bar_extension&utm_source=hacker_bar_extension'
+            )}
+          >
             <Author>{props.author}</Author> / {props.name}
           </a>
         ) : (
