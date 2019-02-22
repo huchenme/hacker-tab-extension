@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import { ellipsis } from 'polished';
 import Linkify from 'react-linkify';
+import appendQuery from 'append-query';
 import Paper from '@material-ui/core/Paper';
 
 import StarFilledIcon from '@atlaskit/icon/glyph/star-filled';
@@ -24,9 +25,15 @@ const RepositoryCard = props => (
   <Card>
     <div>
       <Title>
-        <a href={props.url}>
-          <Author>{props.author}</Author> / {props.name}
-        </a>
+        {props.url ? (
+          <a href={appendQuery(props.url, 'ref=hackerbar')}>
+            <Author>{props.author}</Author> / {props.name}
+          </a>
+        ) : (
+          <span>
+            <Author>{props.author}</Author> / {props.name}
+          </span>
+        )}
       </Title>
     </div>
     <Description>
