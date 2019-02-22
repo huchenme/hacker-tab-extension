@@ -8,6 +8,8 @@
 
 **[It's on Product Hunt](https://www.producthunt.com/posts/hacker-tab)**
 
+Also check [How to use React.js to create Chrome extension in 5 minutes](https://medium.com/@chen/how-to-use-react-js-to-create-chrome-extension-in-5-minutes-2ddb11899815) on Medium.
+
 ![screenshot](./images/screenshot.jpg)
 
 Download in Chrome Web Store:
