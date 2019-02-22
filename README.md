@@ -16,6 +16,8 @@ Download in Chrome Web Store:
 
 [![Chrome Web Store](./images/ChromeWebStore.png)](https://chrome.google.com/webstore/detail/hacker-tab/ibomigipadcieapbemkegkmadbbanbgm)
 
+API in use: [github-trending-api](https://github.com/huchenme/github-trending-api)
+
 ## License
 
 MIT
