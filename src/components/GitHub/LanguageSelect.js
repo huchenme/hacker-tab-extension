@@ -1,11 +1,8 @@
 import React, { useEffect } from 'react';
 import PropTypes from 'prop-types';
 import Select from '@atlaskit/select';
-import { connect } from 'react-redux';
-import { loadLanguages, changeLanguage } from '../../redux/github';
-import { findLanguage } from '../../helpers/github';
 
-const LanguageSelect = ({ fetchAll, handleChange, selected, languages }) => {
+const LanguageSelect = ({ fetchAll, onChange, selected, languages }) => {
   useEffect(() => {
     fetchAll();
   }, []);
@@ -15,7 +12,7 @@ const LanguageSelect = ({ fetchAll, handleChange, selected, languages }) => {
         control: base => ({ ...base, backgroundColor: '#EBECF0' }),
       }}
       value={selected}
-      onChange={handleChange}
+      onChange={onChange}
       options={languages}
       placeholder="All languages"
     />
@@ -39,27 +36,11 @@ LanguageSelect.propTypes = {
     value: PropTypes.string,
   }),
   fetchAll: PropTypes.func.isRequired,
-  handleChange: PropTypes.func.isRequired,
-  isDisabled: PropTypes.bool,
+  onChange: PropTypes.func.isRequired,
 };
 
 LanguageSelect.defaultProps = {
   languages: [],
-  isDisabled: false,
 };
 
-const mapStateToProps = ({ github }) => ({
-  languages: github.allLanguages,
-  selected: findLanguage(github.allLanguages, github.selectedLanguage),
-  isDisabled: github.isLoading,
-});
-
-const mapDispatchToProps = dispatch => ({
-  fetchAll: () => dispatch(loadLanguages()),
-  handleChange: lang => dispatch(changeLanguage(lang.value)),
-});
-
-export default connect(
-  mapStateToProps,
-  mapDispatchToProps
-)(LanguageSelect);
+export default React.memo(LanguageSelect);

@@ -1,4 +1,5 @@
-import { find } from 'lodash';
+import { find, sample } from 'lodash';
+import appendQuery from 'append-query';
 
 export const allLanguagesValue = '__ALL__';
 export const allLanguagesOption = {
@@ -31,3 +32,8 @@ export const findLanguage = (allLanguages, language) => {
     return find(allLanguages, { value: language });
   }
 };
+
+export const getRandomRepositories = (repositories = []) =>
+  sample(repositories);
+
+export const getRefUrl = (url = '') => appendQuery(url, 'ref=hackerbar');

@@ -3,7 +3,6 @@ import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import { ellipsis } from 'polished';
 import Linkify from 'react-linkify';
-import appendQuery from 'append-query';
 import Paper from '@material-ui/core/Paper';
 
 import StarFilledIcon from '@atlaskit/icon/glyph/star-filled';
@@ -13,6 +12,8 @@ import PersonIcon from '@atlaskit/icon/glyph/people';
 import Avatar from '@atlaskit/avatar';
 
 import InfoItem from './InfoItem';
+
+import { getRefUrl } from '../../helpers/github';
 
 function getAvatarString(src) {
   if (!src) {
@@ -26,7 +27,7 @@ const RepositoryCard = props => (
     <div>
       <Title>
         {props.url ? (
-          <a href={appendQuery(props.url, 'ref=hackerbar')}>
+          <a href={getRefUrl(props.url)}>
             <Author>{props.author}</Author> / {props.name}
           </a>
         ) : (

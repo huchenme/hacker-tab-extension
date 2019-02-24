@@ -1,23 +1,23 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import Select from '@atlaskit/select';
-import { connect } from 'react-redux';
-import { changePeriod } from '../../redux/github';
-import { periodOptions, findPeriod } from '../../helpers/github';
+import { periodOptions } from '../../helpers/github';
 
-const PeriodSelect = ({ handleChange, selected }) => {
+const changeLabel = option => ({
+  ...option,
+  label: `Trending ${option.label}`,
+});
+
+const PeriodSelect = ({ onChange, selected }) => {
   return (
     <Select
       styles={{
         control: base => ({ ...base, backgroundColor: '#EBECF0' }),
       }}
       isSearchable={false}
-      value={selected}
-      onChange={handleChange}
-      options={periodOptions.map(option => ({
-        ...option,
-        label: `Trending ${option.label}`,
-      }))}
+      value={changeLabel(selected)}
+      onChange={onChange}
+      options={periodOptions.map(changeLabel)}
       placeholder="Select period"
     />
   );
@@ -28,30 +28,7 @@ PeriodSelect.propTypes = {
     label: PropTypes.string,
     value: PropTypes.string,
   }),
-  handleChange: PropTypes.func.isRequired,
-  isDisabled: PropTypes.bool,
+  onChange: PropTypes.func.isRequired,
 };
 
-PeriodSelect.defaultProps = {
-  isDisabled: false,
-};
-
-const mapStateToProps = ({ github }) => {
-  const selected = findPeriod(github.selectedPeriod);
-  return {
-    selected: {
-      ...selected,
-      label: `Trending ${selected.label}`,
-    },
-    isDisabled: github.isLoading,
-  };
-};
-
-const mapDispatchToProps = dispatch => ({
-  handleChange: period => dispatch(changePeriod(period.value)),
-});
-
-export default connect(
-  mapStateToProps,
-  mapDispatchToProps
-)(PeriodSelect);
+export default React.memo(PeriodSelect);

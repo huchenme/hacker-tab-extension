@@ -15,6 +15,13 @@ import RepositoriesList from './RepositoriesList';
 import { loadRepositories } from '../../redux/github';
 import emptyImage from '../../images/empty.png';
 
+import {
+  loadLanguages,
+  changeLanguage,
+  changePeriod,
+} from '../../redux/github';
+import { findLanguage, findPeriod } from '../../helpers/github';
+
 const GitHub = ({
   isLoading,
   isLoaded,
@@ -23,6 +30,12 @@ const GitHub = ({
   currentLanguage,
   currentPeriod,
   fetchAll,
+  onChangeLanguage,
+  fetchAllLanguages,
+  selectedLanguage,
+  languages,
+  onChangePeriod,
+  selectedPeriod,
 }) => {
   const [flags, setFlags] = useState([]);
 
@@ -82,9 +95,13 @@ const GitHub = ({
       <TopBarContainer>
         <TopBar
           isLoading={isLoading}
-          onRefresh={() =>
-            fetchAll({ language: currentLanguage, since: currentPeriod })
-          }
+          onChangeLanguage={onChangeLanguage}
+          fetchAllLanguages={fetchAllLanguages}
+          selectedLanguage={selectedLanguage}
+          languages={languages}
+          repositories={repositories}
+          onChangePeriod={onChangePeriod}
+          selectedPeriod={selectedPeriod}
         />
       </TopBarContainer>
       <ListContainer>
@@ -129,10 +146,16 @@ const mapStateToProps = ({ github }) => ({
   isLoading: github.isLoading,
   isLoaded: github.isLoaded,
   error: github.error,
+  languages: github.allLanguages,
+  selectedLanguage: findLanguage(github.allLanguages, github.selectedLanguage),
+  selectedPeriod: findPeriod(github.selectedPeriod),
 });
 
 const mapDispatchToProps = dispatch => ({
   fetchAll: params => dispatch(loadRepositories(params)),
+  fetchAllLanguages: () => dispatch(loadLanguages()),
+  onChangeLanguage: lang => dispatch(changeLanguage(lang.value)),
+  onChangePeriod: period => dispatch(changePeriod(period.value)),
 });
 
 export default connect(

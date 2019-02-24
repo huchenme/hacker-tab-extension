@@ -2,7 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 import { Provider } from 'react-redux';
 import configureStore from './store';
-import GitHub from './components/GitHub';
+import GitHub from './components/GitHub/Container';
 
 const store = configureStore();
 
