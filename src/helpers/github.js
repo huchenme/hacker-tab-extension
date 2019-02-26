@@ -36,4 +36,4 @@ export const findLanguage = (allLanguages, language) => {
 export const getRandomRepositories = (repositories = []) =>
   sample(repositories);
 
-export const getRefUrl = (url = '') => appendQuery(url, 'ref=hackerbar');
+export const getRefUrl = (url = '') => appendQuery(url, 'ref=HackerTabExtension');
