@@ -13,7 +13,7 @@ export default function InfoItem({ children, icon }) {
       <iframe
         title="Github Star"
         src="https://ghbtns.com/github-btn.html?user=huchenme&repo=hacker-tab-extension&type=star"
-        frameborder="0"
+        frameBorder="0"
         scrolling="0"
         width="60px"
         height="20px"

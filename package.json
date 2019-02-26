@@ -19,7 +19,7 @@
     "@atlaskit/select": "^7.1.2",
     "@atlaskit/spinner": "^9.0.13",
     "@atlaskit/theme": "^7.0.5",
-    "@atlaskit/tooltip": "12.1.17",
+    "@atlaskit/tooltip": "^12.1.17",
     "@huchenme/github-trending": "^1.5.4",
     "@material-ui/core": "^3.7.1",
     "append-query": "^2.0.1",

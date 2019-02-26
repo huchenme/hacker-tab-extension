@@ -163,10 +163,10 @@
     exenv "^1.2.2"
     prop-types "^15.5.10"
 
-"@atlaskit/tooltip@12.1.17":
-  version "12.1.17"
-  resolved "https://registry.yarnpkg.com/@atlaskit/tooltip/-/tooltip-12.1.17.tgz#9fcccc78a4157d474d53bfcf390447b8a09c12e2"
-  integrity sha512-silujiMAssZv331EWok5G9iYF3jug8i0KTAeeqepyNLkEYo0hR94P1W8OWpgUKwItOuHVEE335Ht8aCW5l89XA==
+"@atlaskit/tooltip@^12.1.15":
+  version "12.1.16"
+  resolved "https://registry.yarnpkg.com/@atlaskit/tooltip/-/tooltip-12.1.16.tgz#9bcd2fb7cc3b0036fd8d4ecf6e04e91e83e73841"
+  integrity sha512-kZL/Ixoybsj7lSQ7coq0UFWnD2QYq87/aUkY/m0mCLLblfIjEVddHDrKBgWLmI4ed75Aa7IZvwTFUAXFnErzrQ==
   dependencies:
     "@atlaskit/analytics-next" "^3.1.2"
     "@atlaskit/popper" "^0.3.6"
@@ -177,10 +177,10 @@
     react-node-resolver "^1.0.1"
     react-transition-group "^2.2.1"
 
-"@atlaskit/tooltip@^12.1.15":
-  version "12.1.16"
-  resolved "https://registry.yarnpkg.com/@atlaskit/tooltip/-/tooltip-12.1.16.tgz#9bcd2fb7cc3b0036fd8d4ecf6e04e91e83e73841"
-  integrity sha512-kZL/Ixoybsj7lSQ7coq0UFWnD2QYq87/aUkY/m0mCLLblfIjEVddHDrKBgWLmI4ed75Aa7IZvwTFUAXFnErzrQ==
+"@atlaskit/tooltip@^12.1.17":
+  version "12.1.17"
+  resolved "https://registry.yarnpkg.com/@atlaskit/tooltip/-/tooltip-12.1.17.tgz#9fcccc78a4157d474d53bfcf390447b8a09c12e2"
+  integrity sha512-silujiMAssZv331EWok5G9iYF3jug8i0KTAeeqepyNLkEYo0hR94P1W8OWpgUKwItOuHVEE335Ht8aCW5l89XA==
   dependencies:
     "@atlaskit/analytics-next" "^3.1.2"
     "@atlaskit/popper" "^0.3.6"
