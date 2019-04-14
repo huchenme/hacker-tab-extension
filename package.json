@@ -1,12 +1,14 @@
 {
   "name": "hacker-tab-extension",
   "version": "0.0.0",
-  "description": "Chrome extension for hackers",
+  "description": "Browser extension for hackers",
   "license": "MIT",
   "keywords": [
     "react",
     "github",
-    "chrome extension"
+    "browser extension",
+    "chrome extension",
+    "firefox extension"
   ],
   "main": "src/index.js",
   "dependencies": {
@@ -22,6 +24,7 @@
     "@atlaskit/tooltip": "^12.1.17",
     "@huchenme/github-trending": "^1.5.4",
     "@material-ui/core": "^3.7.1",
+    "@quentin-sommer/react-useragent": "^2.0.0",
     "append-query": "^2.0.1",
     "date-fns": "^1.30.1",
     "lodash": "^4.17.11",
@@ -39,7 +42,6 @@
   "scripts": {
     "start": "react-scripts start",
     "build": "INLINE_RUNTIME_CHUNK=false react-scripts build",
-    "zip": "rm -f build.zip && zip build.zip -r build",
     "test": "react-scripts test --env=jsdom",
     "eject": "react-scripts eject"
   },
@@ -59,6 +61,7 @@
     "not op_mini all"
   ],
   "devDependencies": {
-    "eslint-plugin-react-hooks": "^1.2.0"
+    "eslint-plugin-react-hooks": "^1.2.0",
+    "npm-run-all": "^4.1.5"
   }
 }

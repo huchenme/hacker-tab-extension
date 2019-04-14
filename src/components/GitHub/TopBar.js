@@ -2,6 +2,7 @@
 import React from 'react';
 import styled from 'styled-components';
 import Button, { ButtonGroup } from '@atlaskit/button';
+import { UserAgent } from '@quentin-sommer/react-useragent';
 import LanguageSelect from './LanguageSelect';
 import PeriodSelect from './PeriodSelect';
 import { ReactComponent as ChromeIcon } from '../../images/chrome.svg';
@@ -34,19 +35,23 @@ const TopBar = ({
         </SelectWrapper>
       </SelectorsContainer>
       <ButtonGroup>
-        <Button
-          appearance="subtle"
-          onClick={() => {
-            chrome.tabs.getCurrent(tab => {
-              chrome.tabs.update(tab.id, {
-                url: 'chrome-search://local-ntp/local-ntp.html',
+        <UserAgent chrome>
+          <Button
+            appearance="subtle"
+            onClick={() => {
+              chrome.tabs.getCurrent(tab => {
+                chrome.tabs.update(tab.id, {
+                  url: 'chrome-search://local-ntp/local-ntp.html',
+                });
               });
-            });
-          }}
-          iconBefore={<ChromeIcon height={20} width={20} fill="currentColor" />}
-        >
-          Chrome Tab
-        </Button>
+            }}
+            iconBefore={
+              <ChromeIcon height={20} width={20} fill="currentColor" />
+            }
+          >
+            Chrome Tab
+          </Button>
+        </UserAgent>
         {randomRepo ? (
           <Button
             appearance="primary"
