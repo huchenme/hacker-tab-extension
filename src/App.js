@@ -1,6 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 import { Provider } from 'react-redux';
+import { UserAgentProvider } from '@quentin-sommer/react-useragent';
 import configureStore from './store';
 import GitHub from './components/GitHub/Container';
 
@@ -9,9 +10,11 @@ const store = configureStore();
 export default function App() {
   return (
     <Provider store={store}>
-      <Container>
-        <GitHub />
-      </Container>
+      <UserAgentProvider ua={window.navigator.userAgent}>
+        <Container>
+          <GitHub />
+        </Container>
+      </UserAgentProvider>
     </Provider>
   );
 }

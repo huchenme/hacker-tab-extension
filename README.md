@@ -1,8 +1,10 @@
 # Hacker Tab Chrome Extension
 
 [![Chrome Web Store](https://img.shields.io/chrome-web-store/v/ibomigipadcieapbemkegkmadbbanbgm.svg?colorB=%234FC828&style=flat)](https://chrome.google.com/webstore/detail/hacker-tab/ibomigipadcieapbemkegkmadbbanbgm)
+[![Firefox Addons](https://img.shields.io/amo/v/hacker-tab.svg?color=234FC828)](https://addons.mozilla.org/en-US/firefox/addon/hacker-tab/)
 [![Chrome Web Store Rating](https://img.shields.io/chrome-web-store/stars/ibomigipadcieapbemkegkmadbbanbgm.svg?colorB=%234FC828&label=rating&style=flat)](https://chrome.google.com/webstore/detail/hacker-tab/ibomigipadcieapbemkegkmadbbanbgm/reviews)
 [![GitHub license](https://img.shields.io/badge/license-MIT-blue.svg?style=flat)](https://github.com/huchenme/hacker-tab-extension/blob/master/LICENSE)
+
 
 > Replace new tab screen with GitHub trending projects.
 
@@ -15,6 +17,10 @@
 Download in Chrome Web Store:
 
 [![Chrome Web Store](./images/ChromeWebStore.png)](https://chrome.google.com/webstore/detail/hacker-tab/ibomigipadcieapbemkegkmadbbanbgm)
+
+Download in Firefox Addons:
+
+[![Firefox Addons](./images/firefox.jpg)](https://addons.mozilla.org/en-US/firefox/addon/hacker-tab/)
 
 API in use: [github-trending-api](https://github.com/huchenme/github-trending-api)
 
