@@ -10,7 +10,7 @@
 
 **[It's on Product Hunt](https://www.producthunt.com/posts/hacker-tab)**
 
-**Tutorial**: [How to use React.js to create Chrome extension in 5 minutes](https://levelup.gitconnected.com/how-to-use-react-js-to-create-chrome-extension-in-5-minutes-2ddb11899815?source=friends_link&sk=055e5c73e0dd11fd8cb25130242f388e).
+**Tutorial**: [How to use React.js to create a cross-browser extension in 5 minutes](https://levelup.gitconnected.com/how-to-use-react-js-to-create-chrome-extension-in-5-minutes-2ddb11899815?source=friends_link&sk=055e5c73e0dd11fd8cb25130242f388e).
 
 ![screenshot](./images/screenshot.jpg)
 
