@@ -5,6 +5,7 @@ import {
 import { differenceWith, isEqual } from 'lodash';
 import { allLanguagesOption, allLanguagesValue } from '../helpers/github';
 import { get, set, keys } from '../helpers/localStorage';
+import _ from 'lodash';
 
 const LOAD_REPOSITORIES = 'github/LOAD_REPOSITORIES';
 const REPOSITORIES_LOADED = 'github/REPOSITORIES_LOADED';
@@ -14,15 +15,25 @@ const LANGUAGES_LOAD_ERROR = 'github/LANGUAGES_LOAD_ERROR';
 const CHANGE_LANGUAGE = 'github/CHANGE_LANGUAGE';
 const CHANGE_PERIOD = 'github/CHANGE_PERIOD';
 
+const cache = {
+  repositories: get(keys.REPOSITORIES),
+  selectedLanguage: get(keys.SELECTED_LANGUAGE),
+  selectedPeriod: get(keys.SELECTED_PERIOD),
+};
+
 export default function reducer(
   state = {
     isLoading: false,
     isLoaded: false,
     error: null,
-    repositories: get(keys.REPOSITORIES) || [],
-    allLanguages: [allLanguagesOption],
-    selectedLanguage: get(keys.SELECTED_LANGUAGE) || allLanguagesValue,
-    selectedPeriod: get(keys.SELECTED_PERIOD) || 'daily',
+    repositories: cache.repositories || [],
+    allLanguages: _.get(cache, 'selectedLanguage.value')
+      ? [cache.selectedLanguage]
+      : [allLanguagesOption],
+    selectedLanguage: _.get(cache, 'selectedLanguage.value')
+      ? cache.selectedLanguage
+      : allLanguagesOption,
+    selectedPeriod: cache.selectedPeriod || 'daily',
   },
   action
 ) {
@@ -103,7 +114,10 @@ export function changeLanguage(language) {
     const { github } = getState();
     dispatch({ type: CHANGE_LANGUAGE, payload: language });
     return dispatch(
-      loadRepositories({ language, since: github.selectedPeriod })
+      loadRepositories({
+        language: language.value,
+        since: github.selectedPeriod,
+      })
     );
   };
 }

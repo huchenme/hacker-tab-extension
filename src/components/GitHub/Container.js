@@ -20,15 +20,13 @@ import {
   changeLanguage,
   changePeriod,
 } from '../../redux/github';
-import { findLanguage, findPeriod } from '../../helpers/github';
+import { findPeriod } from '../../helpers/github';
 
 const GitHub = ({
   isLoading,
   isLoaded,
   error,
   repositories,
-  currentLanguage,
-  currentPeriod,
   fetchAll,
   onChangeLanguage,
   fetchAllLanguages,
@@ -44,7 +42,7 @@ const GitHub = ({
   };
 
   const fetchRepositories = () => {
-    fetchAll({ language: currentLanguage, since: currentPeriod });
+    fetchAll({ language: selectedLanguage.value, since: selectedPeriod.value });
     dismissError();
   };
 
@@ -80,10 +78,12 @@ const GitHub = ({
     }
   }, [error]);
 
-  let shouldShowEmptyState = false;
-  if (isLoaded && !isLoading) {
-    shouldShowEmptyState = !repositories || repositories.length === 0;
-  }
+  const isEmptyRepo = !repositories || repositories.length === 0;
+
+  const shouldShowEmptyState = isLoaded && !isLoading && isEmptyRepo;
+
+  const shouldShowSpinner =
+    (isLoaded && isLoading) || (!isLoaded && isEmptyRepo && isLoading);
 
   return (
     <>
@@ -107,7 +107,7 @@ const GitHub = ({
       <ListContainer>
         <RepositoriesList
           repositories={repositories}
-          currentPeriod={currentPeriod}
+          currentPeriod={selectedPeriod.value}
         />
         {shouldShowEmptyState ? (
           <EmptyState
@@ -123,7 +123,7 @@ const GitHub = ({
         ) : null}
       </ListContainer>
       <Footer />
-      {isLoaded && isLoading ? (
+      {shouldShowSpinner ? (
         <SpinnerContainer>
           <Spinner size="large" />
         </SpinnerContainer>
@@ -134,27 +134,28 @@ const GitHub = ({
 
 GitHub.propTypes = {
   repositories: PropTypes.array,
-  currentLanguage: PropTypes.string,
+  selectedLanguage: PropTypes.shape({
+    value: PropTypes.string,
+    label: PropTypes.string,
+  }),
   fetchAll: PropTypes.func.isRequired,
   isLoading: PropTypes.bool,
 };
 
 const mapStateToProps = ({ github }) => ({
   repositories: github.repositories,
-  currentLanguage: github.selectedLanguage,
-  currentPeriod: github.selectedPeriod,
   isLoading: github.isLoading,
   isLoaded: github.isLoaded,
   error: github.error,
   languages: github.allLanguages,
-  selectedLanguage: findLanguage(github.allLanguages, github.selectedLanguage),
+  selectedLanguage: github.selectedLanguage,
   selectedPeriod: findPeriod(github.selectedPeriod),
 });
 
 const mapDispatchToProps = dispatch => ({
   fetchAll: params => dispatch(loadRepositories(params)),
   fetchAllLanguages: () => dispatch(loadLanguages()),
-  onChangeLanguage: lang => dispatch(changeLanguage(lang.value)),
+  onChangeLanguage: lang => dispatch(changeLanguage(lang)),
   onChangePeriod: period => dispatch(changePeriod(period.value)),
 });
 
@@ -176,6 +177,7 @@ const ListContainer = styled.div`
   padding: 16px;
   max-width: 1366px;
   margin: auto;
+  min-height: calc(100vh - 116px - 56px);
 `;
 
 const SpinnerContainer = styled.div`
