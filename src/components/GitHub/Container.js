@@ -80,8 +80,7 @@ const GitHub = ({
 
   const isEmptyRepo = !repositories || repositories.length === 0;
 
-  // const shouldShowEmptyState = isLoaded && !isLoading && isEmptyRepo;
-  const shouldShowEmptyState = true;
+  const shouldShowEmptyState = isLoaded && !isLoading && isEmptyRepo;
 
   const shouldShowSpinner =
     (isLoaded && isLoading) || (!isLoaded && isEmptyRepo && isLoading);
