@@ -127,7 +127,10 @@ export function changePeriod(period) {
     const { github } = getState();
     dispatch({ type: CHANGE_PERIOD, payload: period });
     return dispatch(
-      loadRepositories({ since: period, language: github.selectedLanguage })
+      loadRepositories({
+        since: period,
+        language: github.selectedLanguage.value,
+      })
     );
   };
 }

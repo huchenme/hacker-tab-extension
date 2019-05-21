@@ -80,7 +80,8 @@ const GitHub = ({
 
   const isEmptyRepo = !repositories || repositories.length === 0;
 
-  const shouldShowEmptyState = isLoaded && !isLoading && isEmptyRepo;
+  // const shouldShowEmptyState = isLoaded && !isLoading && isEmptyRepo;
+  const shouldShowEmptyState = true;
 
   const shouldShowSpinner =
     (isLoaded && isLoading) || (!isLoaded && isEmptyRepo && isLoading);
@@ -105,22 +106,25 @@ const GitHub = ({
         />
       </TopBarContainer>
       <ListContainer>
-        <RepositoriesList
-          repositories={repositories}
-          currentPeriod={selectedPeriod.value}
-        />
         {shouldShowEmptyState ? (
-          <EmptyState
-            header="Nothing Here"
-            description={`There are some issues loading data from GitHub, try again in a few minutes.`}
-            imageUrl={emptyImage}
-            secondaryAction={
-              <Button href="https://github.com/huchenme/hacker-tab-extension">
-                Raise GitHub issue
-              </Button>
-            }
+          <EmptyStateContainer>
+            <EmptyState
+              header="Nothing Here"
+              description={`GitHub trending page currently does not contains any repositories, try again in a few minutes.`}
+              imageUrl={emptyImage}
+              secondaryAction={
+                <Button href="https://github.com/huchenme/hacker-tab-extension">
+                  Raise Issue
+                </Button>
+              }
+            />
+          </EmptyStateContainer>
+        ) : (
+          <RepositoriesList
+            repositories={repositories}
+            currentPeriod={selectedPeriod.value}
           />
-        ) : null}
+        )}
       </ListContainer>
       <Footer />
       {shouldShowSpinner ? (
@@ -178,6 +182,10 @@ const ListContainer = styled.div`
   max-width: 1366px;
   margin: auto;
   min-height: calc(100vh - 116px - 56px);
+`;
+
+const EmptyStateContainer = styled.div`
+  margin-top: 150px;
 `;
 
 const SpinnerContainer = styled.div`
