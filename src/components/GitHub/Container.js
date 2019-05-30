@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import PropTypes from 'prop-types';
-import styled from 'styled-components';
+import styled from '@emotion/styled';
 import { connect } from 'react-redux';
 import Spinner from '@atlaskit/spinner';
 import EmptyState from '@atlaskit/empty-state';
@@ -42,28 +42,11 @@ const GitHub = ({
   };
 
   const fetchRepositories = () => {
-    fetchAll({ language: selectedLanguage.value, since: selectedPeriod.value });
+    fetchAll({
+      language: selectedLanguage.value,
+      since: selectedPeriod.value,
+    });
     dismissError();
-  };
-
-  const displayError = () => {
-    setFlags([
-      {
-        id: 'NETWORK_ERROR',
-        appearance: 'warning',
-        icon: <Warning label="Warning icon" secondaryColor={colors.Y200} />,
-        title: (
-          <span>
-            Error loading content
-            {!isLoading ? (
-              <Button appearance="link" onClick={fetchRepositories}>
-                Refresh
-              </Button>
-            ) : null}
-          </span>
-        ),
-      },
-    ]);
   };
 
   useEffect(() => {
@@ -71,6 +54,26 @@ const GitHub = ({
   }, []);
 
   useEffect(() => {
+    const displayError = () => {
+      setFlags([
+        {
+          id: 'NETWORK_ERROR',
+          appearance: 'warning',
+          icon: <Warning label="Warning icon" secondaryColor={colors.Y200} />,
+          title: (
+            <span>
+              Error loading content
+              {!isLoading ? (
+                <Button appearance="link" onClick={fetchRepositories}>
+                  Refresh
+                </Button>
+              ) : null}
+            </span>
+          ),
+        },
+      ]);
+    };
+
     if (error) {
       displayError();
     } else {

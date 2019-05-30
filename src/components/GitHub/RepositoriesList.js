@@ -5,7 +5,7 @@ import Grid from '@material-ui/core/Grid';
 import RepositoryCard from './RepositoryCard';
 
 const RepositoriesList = ({ repositories, currentPeriod }) => (
-  <Grid container spacing={16}>
+  <Grid container spacing={2}>
     {repositories.map(rep => (
       <Grid key={rep.url} item xs={12} md={6}>
         <RepositoryCard {...rep} period={currentPeriod} />

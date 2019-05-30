@@ -1,6 +1,6 @@
 /* global chrome */
 import React from 'react';
-import styled from 'styled-components';
+import styled from '@emotion/styled';
 import Button, { ButtonGroup } from '@atlaskit/button';
 import { UserAgent } from '@quentin-sommer/react-useragent';
 import LanguageSelect from './LanguageSelect';
