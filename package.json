@@ -15,7 +15,6 @@
     "@atlaskit/avatar": "^16.0.2",
     "@atlaskit/button": "^13.0.4",
     "@atlaskit/css-reset": "^4.0.1",
-    "@atlaskit/empty-state": "^5.0.1",
     "@atlaskit/flag": "^12.0.2",
     "@atlaskit/icon": "^17.1.2",
     "@atlaskit/select": "^9.1.2",

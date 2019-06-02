@@ -3,7 +3,6 @@ import PropTypes from 'prop-types';
 import styled from '@emotion/styled';
 import { connect } from 'react-redux';
 import Spinner from '@atlaskit/spinner';
-import EmptyState from '@atlaskit/empty-state';
 import Button from '@atlaskit/button';
 import { AutoDismissFlag, FlagGroup } from '@atlaskit/flag';
 import Warning from '@atlaskit/icon/glyph/warning';
@@ -12,8 +11,8 @@ import { colors } from '@atlaskit/theme';
 import TopBar from './components/TopBar';
 import Footer from './components/Footer';
 import RepositoriesList from './components/RepositoriesList';
+import EmptyState from './components/EmptyState';
 import { loadRepositories } from './redux';
-import emptyImage from './images/empty.png';
 
 import { loadLanguages, changeLanguage, changePeriod } from './redux';
 import { findPeriod } from './helpers/github';
@@ -105,18 +104,7 @@ const App = ({
       </TopBarContainer>
       <ListContainer>
         {shouldShowEmptyState ? (
-          <EmptyStateContainer>
-            <EmptyState
-              header="Nothing Here"
-              description={`GitHub trending page currently does not contains any repositories, try again in a few minutes.`}
-              imageUrl={emptyImage}
-              secondaryAction={
-                <Button href="https://github.com/huchenme/hacker-tab-extension">
-                  Raise Issue
-                </Button>
-              }
-            />
-          </EmptyStateContainer>
+          <EmptyState />
         ) : (
           <RepositoriesList
             repositories={repositories}
@@ -189,10 +177,6 @@ const ListContainer = styled.div`
   max-width: 1366px;
   margin: auto;
   min-height: calc(100vh - 116px - 56px);
-`;
-
-const EmptyStateContainer = styled.div`
-  margin-top: 150px;
 `;
 
 const SpinnerContainer = styled.div`

@@ -44,16 +44,6 @@
     fbjs "^1.0.0"
     mkdirp "^0.5.1"
 
-"@atlaskit/empty-state@^5.0.1":
-  version "5.0.1"
-  resolved "https://registry.yarnpkg.com/@atlaskit/empty-state/-/empty-state-5.0.1.tgz#0ec42718ad0492ba6d799c7fb5b9d22b3874f7ca"
-  integrity sha512-WfoZnWfc/hoWwZtzyU11QyFfiZQv4oarnT6P4m70mMvxGIRunMBq1ImTUgve3xSpxlS1q1uiIsuzoJAF1R0BIw==
-  dependencies:
-    "@atlaskit/button" "^13.0.4"
-    "@atlaskit/spinner" "^12.0.0"
-    "@atlaskit/theme" "^9.0.0"
-    "@babel/runtime" "^7.0.0"
-
 "@atlaskit/flag@^12.0.2":
   version "12.0.2"
   resolved "https://registry.yarnpkg.com/@atlaskit/flag/-/flag-12.0.2.tgz#640c64a3978e3c480c112e5d7c5b31dfb107bd75"
