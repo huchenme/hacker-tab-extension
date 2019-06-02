@@ -178,10 +178,12 @@ const LanguageColor = styled.div`
 const CurrentStar = styled.div`
   position: absolute;
   right: 16px;
-  bottom: 16px;
-  font-size: 48px;
+  bottom: 8px;
+  font-size: 56px;
   line-height: 1;
-  color: #eee;
-  letter-spacing: -1px;
-  font-weight: 300;
+  color: #ddd;
+  letter-spacing: -0.05em;
+  font-weight: 100;
+  font-style: italic;
+  font-family: 'Futura PT';
 `;

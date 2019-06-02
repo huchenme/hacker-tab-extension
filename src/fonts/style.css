@@ -1,0 +1,98 @@
+@font-face {
+  font-family: 'Futura Condensed PT';
+  font-style: normal;
+  font-weight: 500;
+  src: url('futura-condensed-pt-medium.woff') format('woff');
+}
+
+@font-face {
+  font-family: 'Futura Condensed PT';
+  font-style: italic;
+  font-weight: 500;
+  src: url('futura-condensed-pt-medium-oblique.woff') format('woff');
+}
+
+@font-face {
+  font-family: 'Futura PT';
+  font-style: normal;
+  font-weight: normal;
+  src: url('futura-pt-book.woff') format('woff');
+}
+
+@font-face {
+  font-family: 'Futura PT';
+  font-style: italic;
+  font-weight: normal;
+  src: url('futura-pt-book-oblique.woff') format('woff');
+}
+
+@font-face {
+  font-family: 'Futura PT';
+  font-style: normal;
+  font-weight: 300;
+  src: url('futura-pt-light.woff') format('woff');
+}
+
+@font-face {
+  font-family: 'Futura PT';
+  font-style: italic;
+  font-weight: 300;
+  src: url('futura-pt-light-oblique.woff') format('woff');
+}
+
+@font-face {
+  font-family: 'Futura PT';
+  font-style: normal;
+  font-weight: 500;
+  src: url('futura-pt-medium.woff') format('woff');
+}
+
+@font-face {
+  font-family: 'Futura PT';
+  font-style: italic;
+  font-weight: 500;
+  src: url('futura-pt-medium-oblique.woff') format('woff');
+}
+
+@font-face {
+  font-family: 'Futura PT';
+  font-style: normal;
+  font-weight: 600;
+  src: local('Futura PT DemiBold'),
+    url('futura-pt-demibold.woff') format('woff');
+}
+
+@font-face {
+  font-family: 'Futura PT';
+  font-style: italic;
+  font-weight: 600;
+  src: url('futura-pt-demibold-oblique.woff') format('woff');
+}
+
+@font-face {
+  font-family: 'Futura PT';
+  font-style: normal;
+  font-weight: 700;
+  src: local('Futura PT Bold'), url('futura-pt-bold.woff') format('woff');
+}
+
+@font-face {
+  font-family: 'Futura PT';
+  font-style: italic;
+  font-weight: 700;
+  src: url('futura-pt-bold-oblique.woff') format('woff');
+}
+
+@font-face {
+  font-family: 'Futura PT';
+  font-style: normal;
+  font-weight: 900;
+  src: url('futura-pt-heavy.woff') format('woff');
+}
+
+@font-face {
+  font-family: 'Futura PT';
+  font-style: italic;
+  font-weight: 900;
+  src: url('futura-pt-heavy-oblique.woff') format('woff');
+}
