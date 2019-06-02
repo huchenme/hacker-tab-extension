@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import Select from '@atlaskit/select';
-import { periodOptions } from '../../helpers/github';
+import { periodOptions } from '../helpers/github';
 
 const changeLabel = option => ({
   ...option,
