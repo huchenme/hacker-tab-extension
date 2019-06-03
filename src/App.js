@@ -1,115 +1,101 @@
-import React, { useEffect, useState } from 'react';
-import PropTypes from 'prop-types';
+import React, { useState, useEffect } from 'react';
 import styled from '@emotion/styled';
-import { connect } from 'react-redux';
 import Spinner from '@atlaskit/spinner';
 import Button from '@atlaskit/button';
 import { AutoDismissFlag, FlagGroup } from '@atlaskit/flag';
 import Warning from '@atlaskit/icon/glyph/warning';
 import { colors } from '@atlaskit/theme';
+import { get } from 'lodash';
 
 import TopBar from './components/TopBar';
 import Footer from './components/Footer';
 import RepositoriesList from './components/RepositoriesList';
 import EmptyState from './components/EmptyState';
-import { loadRepositories } from './reducer';
 
-import { changeLanguage, changePeriod } from './reducer';
-import { findPeriod } from './helpers/github';
+import { getRandomRepositories } from './helpers/github';
 
-const App = ({
-  isLoading,
-  isLoaded,
-  error,
-  repositories,
-  fetchAll,
-  onChangeLanguage,
-  selectedLanguage,
-  onChangePeriod,
-  selectedPeriod,
-}) => {
-  const [flags, setFlags] = useState([]);
+import {
+  useCheckLocalStorageSchema,
+  useRepositories,
+  useSelectedLanguageOption,
+  useSelectedPeriodValue,
+} from './hooks';
 
-  const dismissError = () => {
-    setFlags([]);
-  };
+const App = () => {
+  // Clear local storage is schema version not match
+  useCheckLocalStorageSchema();
 
-  const fetchRepositories = () => {
-    fetchAll({
-      language: selectedLanguage.value,
-      since: selectedPeriod.value,
-    });
-    dismissError();
-  };
+  const [
+    selectedLanguageOption,
+    setSelectedLanguageOption,
+  ] = useSelectedLanguageOption();
+  const [
+    selectedPeriodValue,
+    setSelectedPeriodValue,
+  ] = useSelectedPeriodValue();
+
+  const {
+    isLoading,
+    isEmptyState,
+    repositories,
+    error,
+    reload,
+  } = useRepositories({
+    selectedLanguageValue: get(selectedLanguageOption, 'value'),
+    selectedPeriodValue,
+  });
+
+  const [showError, setShowError] = useState(false);
 
   useEffect(() => {
-    fetchRepositories();
-  }, []);
-
-  useEffect(() => {
-    const displayError = () => {
-      setFlags([
-        {
-          id: 'NETWORK_ERROR',
-          appearance: 'warning',
-          icon: <Warning label="Warning icon" secondaryColor={colors.Y200} />,
-          title: (
-            <span>
-              Error loading content
-              {!isLoading ? (
-                <Button appearance="link" onClick={fetchRepositories}>
-                  Refresh
-                </Button>
-              ) : null}
-            </span>
-          ),
-        },
-      ]);
-    };
-
-    if (error) {
-      displayError();
-    } else {
-      dismissError();
-    }
+    setShowError(!!error);
   }, [error]);
-
-  const isEmptyRepo = !repositories || repositories.length === 0;
-
-  const shouldShowEmptyState = isLoaded && !isLoading && isEmptyRepo;
-
-  const shouldShowSpinner =
-    (isLoaded && isLoading) || (!isLoaded && isEmptyRepo && isLoading);
 
   return (
     <Container>
-      <FlagGroup onDismissed={dismissError}>
-        {flags.map(flag => (
-          <AutoDismissFlag key={flag.id} {...flag} />
-        ))}
+      <FlagGroup onDismissed={() => setShowError(false)}>
+        {showError ? (
+          <AutoDismissFlag
+            id="NETWORK_ERROR"
+            appearance="warning"
+            icon={<Warning label="Warning icon" secondaryColor={colors.Y200} />}
+            title={
+              <span>
+                Error loading content
+                {!isLoading ? (
+                  <Button
+                    appearance="link"
+                    onClick={() => {
+                      setShowError(false);
+                      reload();
+                    }}
+                  >
+                    Refresh
+                  </Button>
+                ) : null}
+              </span>
+            }
+          />
+        ) : null}
       </FlagGroup>
       <TopBarContainer>
         <TopBar
-          isLoading={isLoading}
-          onChangeLanguage={onChangeLanguage}
-          selectedLanguage={selectedLanguage}
-          repositories={repositories}
-          onChangePeriod={onChangePeriod}
-          selectedPeriod={selectedPeriod}
+          luckyRepository={getRandomRepositories(repositories)}
+          onChangeLanguageOption={setSelectedLanguageOption}
+          selectedLanguageOption={selectedLanguageOption}
+          onChangePeriodValue={setSelectedPeriodValue}
+          selectedPeriodValue={selectedPeriodValue}
         />
       </TopBarContainer>
       <ListContainer>
-        {shouldShowEmptyState ? (
+        {isEmptyState ? (
           <EmptyState />
         ) : (
-          <RepositoriesList
-            repositories={repositories}
-            currentPeriod={selectedPeriod.value}
-          />
+          <RepositoriesList repositories={repositories} />
         )}
       </ListContainer>
       <Footer />
-      {shouldShowSpinner ? (
+      {isLoading ? (
         <SpinnerContainer>
           <Spinner size="large" />
         </SpinnerContainer>
@@ -118,35 +104,7 @@ const App = ({
   );
 };
 
-App.propTypes = {
-  repositories: PropTypes.array,
-  selectedLanguage: PropTypes.shape({
-    value: PropTypes.string,
-    label: PropTypes.string,
-  }),
-  fetchAll: PropTypes.func.isRequired,
-  isLoading: PropTypes.bool,
-};
-
-const mapStateToProps = state => ({
-  repositories: state.repositories,
-  isLoading: state.isLoading,
-  isLoaded: state.isLoaded,
-  error: state.error,
-  selectedLanguage: state.selectedLanguage,
-  selectedPeriod: findPeriod(state.selectedPeriod),
-});
-
-const mapDispatchToProps = dispatch => ({
-  fetchAll: params => dispatch(loadRepositories(params)),
-  onChangeLanguage: lang => dispatch(changeLanguage(lang)),
-  onChangePeriod: period => dispatch(changePeriod(period.value)),
-});
-
-export default connect(
-  mapStateToProps,
-  mapDispatchToProps
-)(App);
+export default App;
 
 const Container = styled.div`
   background-color: #eee;
@@ -170,7 +128,7 @@ const ListContainer = styled.div`
   padding: 16px;
   max-width: 1366px;
   margin: auto;
-  min-height: calc(100vh - 116px - 56px);
+  min-height: calc(100vh - 161px - 56px);
 `;
 
 const SpinnerContainer = styled.div`

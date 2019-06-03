@@ -2,9 +2,9 @@ import { find, sample } from 'lodash';
 import appendQuery from 'append-query';
 
 export const periodOptions = [
-  { value: 'daily', label: 'today' },
-  { value: 'weekly', label: 'this week' },
-  { value: 'monthly', label: 'this month' },
+  { value: 'daily', label: 'Trending today' },
+  { value: 'weekly', label: 'Trending this week' },
+  { value: 'monthly', label: 'Trending this month' },
 ];
 
 export const findPeriod = periodValue =>

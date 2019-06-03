@@ -1,24 +1,17 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import Select from '@atlaskit/select';
-import { fetchAllLanguages } from '@huchenme/github-trending';
-import useAsync from 'react-use/lib/useAsync';
+import { useAllLanguages } from '../hooks';
 
-import {
-  defaultLanguagesOptions,
-  transformLanguages,
-} from '../helpers/language';
-
-const LanguageSelect = ({ onChange, selected }) => {
-  const { value } = useAsync(fetchAllLanguages);
-  const languages = value ? transformLanguages(value) : defaultLanguagesOptions;
+const LanguageSelect = ({ onChange, selectedOption }) => {
+  const languages = useAllLanguages();
 
   return (
     <Select
       styles={{
         control: base => ({ ...base, backgroundColor: '#EBECF0' }),
       }}
-      value={selected}
+      value={selectedOption}
       onChange={onChange}
       options={languages}
       placeholder="All languages"
@@ -27,7 +20,7 @@ const LanguageSelect = ({ onChange, selected }) => {
 };
 
 LanguageSelect.propTypes = {
-  selected: PropTypes.shape({
+  selectedOption: PropTypes.shape({
     label: PropTypes.string,
     value: PropTypes.string,
   }),

@@ -8,7 +8,7 @@ const RepositoriesList = ({ repositories, currentPeriod }) => (
   <Grid container spacing={2}>
     {repositories.map(rep => (
       <Grid key={rep.url} item xs={12} md={6}>
-        <RepositoryCard {...rep} period={currentPeriod} />
+        <RepositoryCard {...rep} />
       </Grid>
     ))}
   </Grid>
@@ -16,7 +16,10 @@ const RepositoriesList = ({ repositories, currentPeriod }) => (
 
 RepositoriesList.propTypes = {
   repositories: PropTypes.array,
-  currentPeriod: PropTypes.string,
+};
+
+RepositoriesList.defaultProps = {
+  repositories: [],
 };
 
 export default RepositoriesList;
