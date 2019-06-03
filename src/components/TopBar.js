@@ -1,12 +1,12 @@
 /* global chrome */
 import React from 'react';
-import styled from 'styled-components';
+import styled from '@emotion/styled';
 import Button, { ButtonGroup } from '@atlaskit/button';
 import { UserAgent } from '@quentin-sommer/react-useragent';
 import LanguageSelect from './LanguageSelect';
 import PeriodSelect from './PeriodSelect';
-import { ReactComponent as ChromeIcon } from '../../images/chrome.svg';
-import { getRandomRepositories, getRefUrl } from '../../helpers/github';
+import { ReactComponent as ChromeIcon } from '../images/chrome.svg';
+import { getRandomRepositories, getRefUrl } from '../helpers/github';
 
 const TopBar = ({
   isLoading,

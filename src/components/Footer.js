@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
-import styled from 'styled-components';
-import { ReactComponent as HeartIcon } from '../../images/heart.svg';
+import styled from '@emotion/styled';
+import { ReactComponent as HeartIcon } from '../images/heart.svg';
 
 export default function InfoItem({ children, icon }) {
   const [showEmail, setShowEmail] = useState(false);

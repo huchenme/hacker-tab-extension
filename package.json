@@ -12,29 +12,30 @@
   ],
   "main": "src/index.js",
   "dependencies": {
-    "@atlaskit/avatar": "^14.1.8",
-    "@atlaskit/button": "^10.1.2",
-    "@atlaskit/css-reset": "^3.0.5",
-    "@atlaskit/empty-state": "^3.1.4",
-    "@atlaskit/flag": "^9.1.10",
-    "@atlaskit/icon": "^16.0.3",
-    "@atlaskit/select": "^7.1.2",
-    "@atlaskit/spinner": "^9.0.13",
-    "@atlaskit/theme": "^7.0.5",
-    "@atlaskit/tooltip": "^12.1.17",
-    "@huchenme/github-trending": "^1.5.4",
-    "@material-ui/core": "^3.7.1",
+    "@atlaskit/avatar": "^16.0.2",
+    "@atlaskit/button": "^13.0.4",
+    "@atlaskit/css-reset": "^4.0.1",
+    "@atlaskit/flag": "^12.0.2",
+    "@atlaskit/icon": "^17.1.2",
+    "@atlaskit/select": "^9.1.2",
+    "@atlaskit/spinner": "^12.0.0",
+    "@atlaskit/theme": "^9.0.3",
+    "@atlaskit/tooltip": "^14.0.1",
+    "@emotion/core": "^10.0.10",
+    "@emotion/styled": "^10.0.11",
+    "@huchenme/github-trending": "^1.7.1",
+    "@material-ui/core": "^4.0.1",
     "@quentin-sommer/react-useragent": "^2.0.0",
     "append-query": "^2.0.1",
     "date-fns": "^1.30.1",
     "lodash": "^4.17.11",
-    "polished": "^3.0.0",
+    "polished": "^3.4.0",
     "prop-types": "^15.7.2",
-    "react": "^16.8.3",
-    "react-dom": "^16.8.3",
-    "react-linkify": "^0.2.2",
-    "react-redux": "^6.0.1",
-    "react-scripts": "^2.1.5",
+    "react": "^16.8.6",
+    "react-dom": "^16.8.6",
+    "react-linkify": "^1.0.0-alpha",
+    "react-redux": "^7.0.3",
+    "react-scripts": "^3.0.1",
     "redux": "^4.0.1",
     "redux-thunk": "^2.3.0",
     "styled-components": "^3.4.10"
@@ -48,8 +49,12 @@
   "eslintConfig": {
     "extends": "react-app",
     "plugins": [
-      "react-hooks"
+      "react-hooks",
+      "cypress"
     ],
+    "env": {
+      "cypress/globals": true
+    },
     "rules": {
       "react-hooks/rules-of-hooks": "error"
     }
@@ -61,7 +66,11 @@
     "not op_mini all"
   ],
   "devDependencies": {
-    "eslint-plugin-react-hooks": "^1.2.0",
-    "npm-run-all": "^4.1.5"
+    "cypress": "^3.3.1",
+    "cypress-testing-library": "^3.0.1",
+    "eslint-plugin-cypress": "^2.2.1",
+    "eslint-plugin-react-hooks": "^1.6.0",
+    "npm-run-all": "^4.1.5",
+    "react-testing-library": "^7.0.1"
   }
 }
