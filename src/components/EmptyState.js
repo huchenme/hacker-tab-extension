@@ -26,6 +26,7 @@ const Container = styled.div`
   border-radius: 3px;
   box-shadow: inset 0 0 10px rgba(27, 31, 35, 0.05);
   padding: 32px;
+  padding-bottom: 48px;
   text-align: center;
   max-width: 900px;
 `;

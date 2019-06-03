@@ -94,12 +94,10 @@ RepositoryCard.propTypes = {
       avatar: PropTypes.string,
     })
   ),
-  period: PropTypes.oneOf(['daily', 'weekly', 'monthly']),
 };
 
 RepositoryCard.defaultProps = {
   languageCode: '#586069',
-  period: 'daily',
   builtBy: [],
 };
 

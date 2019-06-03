@@ -1,37 +1,35 @@
 /* global chrome */
 import React from 'react';
+import PropTypes from 'prop-types';
 import styled from '@emotion/styled';
 import Button, { ButtonGroup } from '@atlaskit/button';
 import { UserAgent } from '@quentin-sommer/react-useragent';
 import LanguageSelect from './LanguageSelect';
 import PeriodSelect from './PeriodSelect';
 import { ReactComponent as ChromeIcon } from '../images/chrome.svg';
-import { getRandomRepositories, getRefUrl } from '../helpers/github';
+import { getRefUrl } from '../helpers/github';
 
 const TopBar = ({
-  isLoading,
-  onChangeLanguage,
-  fetchAllLanguages,
-  selectedLanguage,
-  languages,
-  repositories,
-  onChangePeriod,
-  selectedPeriod,
+  luckyRepository,
+  onChangeLanguageOption,
+  selectedLanguageOption,
+  onChangePeriodValue,
+  selectedPeriodValue,
 }) => {
-  const randomRepo = getRandomRepositories(repositories);
   return (
     <Container>
       <SelectorsContainer>
         <SelectWrapper>
           <LanguageSelect
-            fetchAll={fetchAllLanguages}
-            onChange={onChangeLanguage}
-            selected={selectedLanguage}
-            languages={languages}
+            selectedOption={selectedLanguageOption}
+            onChange={onChangeLanguageOption}
           />
         </SelectWrapper>
         <SelectWrapper width={180}>
-          <PeriodSelect selected={selectedPeriod} onChange={onChangePeriod} />
+          <PeriodSelect
+            selectedValue={selectedPeriodValue}
+            onChange={onChangePeriodValue}
+          />
         </SelectWrapper>
       </SelectorsContainer>
       <ButtonGroup>
@@ -52,13 +50,13 @@ const TopBar = ({
             Chrome Tab
           </Button>
         </UserAgent>
-        {randomRepo ? (
+        {luckyRepository ? (
           <Button
             appearance="primary"
             onClick={() => {
               chrome.tabs.getCurrent(tab => {
                 chrome.tabs.update(tab.id, {
-                  url: getRefUrl(randomRepo.url),
+                  url: getRefUrl(luckyRepository.url),
                 });
               });
             }}
@@ -69,6 +67,17 @@ const TopBar = ({
       </ButtonGroup>
     </Container>
   );
+};
+
+TopBar.propTypes = {
+  luckyRepository: PropTypes.object,
+  selectedLanguageOption: PropTypes.shape({
+    label: PropTypes.string,
+    value: PropTypes.string,
+  }),
+  onChangeLanguageOption: PropTypes.func.isRequired,
+  selectedPeriodValue: PropTypes.string,
+  onChangePeriodValue: PropTypes.func.isRequired,
 };
 
 export default React.memo(TopBar);

@@ -1,33 +1,25 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import Select from '@atlaskit/select';
-import { periodOptions } from '../helpers/github';
+import { periodOptions, findPeriod } from '../helpers/github';
 
-const changeLabel = option => ({
-  ...option,
-  label: `Trending ${option.label}`,
-});
-
-const PeriodSelect = ({ onChange, selected }) => {
+const PeriodSelect = ({ onChange, selectedValue }) => {
   return (
     <Select
       styles={{
         control: base => ({ ...base, backgroundColor: '#EBECF0' }),
       }}
       isSearchable={false}
-      value={changeLabel(selected)}
-      onChange={onChange}
-      options={periodOptions.map(changeLabel)}
+      value={findPeriod(selectedValue)}
+      onChange={({ label, value }) => onChange(value)}
+      options={periodOptions}
       placeholder="Select period"
     />
   );
 };
 
 PeriodSelect.propTypes = {
-  selected: PropTypes.shape({
-    label: PropTypes.string,
-    value: PropTypes.string,
-  }),
+  selectedValue: PropTypes.string,
   onChange: PropTypes.func.isRequired,
 };
 
