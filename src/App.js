@@ -12,9 +12,9 @@ import TopBar from './components/TopBar';
 import Footer from './components/Footer';
 import RepositoriesList from './components/RepositoriesList';
 import EmptyState from './components/EmptyState';
-import { loadRepositories } from './redux';
+import { loadRepositories } from './reducer';
 
-import { loadLanguages, changeLanguage, changePeriod } from './redux';
+import { changeLanguage, changePeriod } from './reducer';
 import { findPeriod } from './helpers/github';
 
 const App = ({
@@ -24,9 +24,7 @@ const App = ({
   repositories,
   fetchAll,
   onChangeLanguage,
-  fetchAllLanguages,
   selectedLanguage,
-  languages,
   onChangePeriod,
   selectedPeriod,
 }) => {
@@ -94,9 +92,7 @@ const App = ({
         <TopBar
           isLoading={isLoading}
           onChangeLanguage={onChangeLanguage}
-          fetchAllLanguages={fetchAllLanguages}
           selectedLanguage={selectedLanguage}
-          languages={languages}
           repositories={repositories}
           onChangePeriod={onChangePeriod}
           selectedPeriod={selectedPeriod}
@@ -132,19 +128,17 @@ App.propTypes = {
   isLoading: PropTypes.bool,
 };
 
-const mapStateToProps = ({ github }) => ({
-  repositories: github.repositories,
-  isLoading: github.isLoading,
-  isLoaded: github.isLoaded,
-  error: github.error,
-  languages: github.allLanguages,
-  selectedLanguage: github.selectedLanguage,
-  selectedPeriod: findPeriod(github.selectedPeriod),
+const mapStateToProps = state => ({
+  repositories: state.repositories,
+  isLoading: state.isLoading,
+  isLoaded: state.isLoaded,
+  error: state.error,
+  selectedLanguage: state.selectedLanguage,
+  selectedPeriod: findPeriod(state.selectedPeriod),
 });
 
 const mapDispatchToProps = dispatch => ({
   fetchAll: params => dispatch(loadRepositories(params)),
-  fetchAllLanguages: () => dispatch(loadLanguages()),
   onChangeLanguage: lang => dispatch(changeLanguage(lang)),
   onChangePeriod: period => dispatch(changePeriod(period.value)),
 });

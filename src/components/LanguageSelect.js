@@ -1,11 +1,18 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
 import Select from '@atlaskit/select';
+import { fetchAllLanguages } from '@huchenme/github-trending';
+import useAsync from 'react-use/lib/useAsync';
 
-const LanguageSelect = ({ fetchAll, onChange, selected, languages }) => {
-  useEffect(() => {
-    fetchAll();
-  }, []);
+import {
+  defaultLanguagesOptions,
+  transformLanguages,
+} from '../helpers/language';
+
+const LanguageSelect = ({ onChange, selected }) => {
+  const { value } = useAsync(fetchAllLanguages);
+  const languages = value ? transformLanguages(value) : defaultLanguagesOptions;
+
   return (
     <Select
       styles={{
@@ -20,22 +27,10 @@ const LanguageSelect = ({ fetchAll, onChange, selected, languages }) => {
 };
 
 LanguageSelect.propTypes = {
-  languages: PropTypes.arrayOf(
-    PropTypes.shape({
-      label: PropTypes.string,
-      options: PropTypes.arrayOf(
-        PropTypes.shape({
-          label: PropTypes.string,
-          value: PropTypes.string,
-        })
-      ),
-    })
-  ),
   selected: PropTypes.shape({
     label: PropTypes.string,
     value: PropTypes.string,
   }),
-  fetchAll: PropTypes.func.isRequired,
   onChange: PropTypes.func.isRequired,
 };
 

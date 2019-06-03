@@ -1,5 +1,3 @@
-import isPast from 'date-fns/is_past';
-import addMinutes from 'date-fns/add_minutes';
 import { isNil } from 'lodash';
 
 export const keys = {
@@ -48,21 +46,4 @@ export const set = (key, data) =>
     lastUpdated: new Date(),
   });
 
-export const has = key => !isNil(getItem(key));
-
-export const isDataExpired = (key, maxCacheInMinutes) => {
-  const result = getObject(key);
-  if (!result || result.length === 0) {
-    return true;
-  }
-  const lastUpdated = result.lastUpdated;
-  return isPast(addMinutes(lastUpdated, maxCacheInMinutes));
-};
-
-const WEEK = 7 * 24 * 60;
-
-const isEmptyLanguages = data => isNil(data) || data.length === 1;
-
-export const shouldRefetchLanguages = () =>
-  isDataExpired(keys.ALL_LANGUAGES, WEEK) ||
-  isEmptyLanguages(get(keys.ALL_LANGUAGES));
+export const hasKey = key => !isNil(getItem(key));

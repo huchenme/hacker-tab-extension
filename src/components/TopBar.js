@@ -9,11 +9,8 @@ import { ReactComponent as ChromeIcon } from '../images/chrome.svg';
 import { getRandomRepositories, getRefUrl } from '../helpers/github';
 
 const TopBar = ({
-  isLoading,
   onChangeLanguage,
-  fetchAllLanguages,
   selectedLanguage,
-  languages,
   repositories,
   onChangePeriod,
   selectedPeriod,
@@ -24,10 +21,8 @@ const TopBar = ({
       <SelectorsContainer>
         <SelectWrapper>
           <LanguageSelect
-            fetchAll={fetchAllLanguages}
             onChange={onChangeLanguage}
             selected={selectedLanguage}
-            languages={languages}
           />
         </SelectWrapper>
         <SelectWrapper width={180}>

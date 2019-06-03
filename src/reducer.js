@@ -1,17 +1,11 @@
-import {
-  fetchRepositories,
-  fetchAllLanguages,
-} from '@huchenme/github-trending';
-import { differenceWith, isEqual } from 'lodash';
-import { allLanguagesOption, allLanguagesValue } from '../helpers/github';
-import { get, set, keys } from '../helpers/localStorage';
+import { fetchRepositories } from '@huchenme/github-trending';
+import { allLanguagesOption, allLanguagesValue } from './helpers/language';
+import { get, set, keys } from './helpers/localStorage';
 import _ from 'lodash';
 
 const LOAD_REPOSITORIES = 'github/LOAD_REPOSITORIES';
 const REPOSITORIES_LOADED = 'github/REPOSITORIES_LOADED';
 const REPOSITORIES_LOAD_ERROR = 'github/REPOSITORIES_LOAD_ERROR';
-const LANGUAGES_LOADED = 'github/LANGUAGES_LOADED';
-const LANGUAGES_LOAD_ERROR = 'github/LANGUAGES_LOAD_ERROR';
 const CHANGE_LANGUAGE = 'github/CHANGE_LANGUAGE';
 const CHANGE_PERIOD = 'github/CHANGE_PERIOD';
 
@@ -27,9 +21,6 @@ export default function reducer(
     isLoaded: false,
     error: null,
     repositories: cache.repositories || [],
-    allLanguages: _.get(cache, 'selectedLanguage.value')
-      ? [cache.selectedLanguage]
-      : [allLanguagesOption],
     selectedLanguage: _.get(cache, 'selectedLanguage.value')
       ? cache.selectedLanguage
       : allLanguagesOption,
@@ -58,17 +49,6 @@ export default function reducer(
         isLoading: false,
         isLoaded: true,
         error: Date.now(),
-      };
-    case LANGUAGES_LOADED:
-      set(keys.ALL_LANGUAGES, action.payload);
-      return {
-        ...state,
-        allLanguages: action.payload,
-      };
-    case LANGUAGES_LOAD_ERROR:
-      return {
-        ...state,
-        allLanguages: [allLanguagesOption],
       };
     case CHANGE_LANGUAGE:
       set(keys.SELECTED_LANGUAGE, action.payload);
@@ -111,12 +91,12 @@ export function loadRepositories({ language, since }) {
 
 export function changeLanguage(language) {
   return async (dispatch, getState) => {
-    const { github } = getState();
+    const state = getState();
     dispatch({ type: CHANGE_LANGUAGE, payload: language });
     return dispatch(
       loadRepositories({
         language: language.value,
-        since: github.selectedPeriod,
+        since: state.selectedPeriod,
       })
     );
   };
@@ -124,51 +104,13 @@ export function changeLanguage(language) {
 
 export function changePeriod(period) {
   return async (dispatch, getState) => {
-    const { github } = getState();
+    const state = getState();
     dispatch({ type: CHANGE_PERIOD, payload: period });
     return dispatch(
       loadRepositories({
         since: period,
-        language: github.selectedLanguage.value,
+        language: state.selectedLanguage.value,
       })
     );
-  };
-}
-
-export function loadLanguages() {
-  return async (dispatch, getState) => {
-    const jsonResults = await fetchAllLanguages();
-    if (jsonResults) {
-      dispatch({
-        type: LANGUAGES_LOADED,
-        payload: transformLanguages(jsonResults),
-      });
-    } else {
-      dispatch({ type: LANGUAGES_LOAD_ERROR });
-    }
-  };
-}
-
-function transformLanguages({ popular, all } = {}) {
-  const popularOptions = popular.map(transformLanguage);
-  const allOptions = all.map(transformLanguage);
-
-  return [
-    allLanguagesOption,
-    {
-      label: 'Popular',
-      options: popularOptions,
-    },
-    {
-      label: 'All Languages',
-      options: differenceWith(allOptions, popularOptions, isEqual),
-    },
-  ];
-}
-
-function transformLanguage({ urlParam, name } = {}) {
-  return {
-    label: name,
-    value: urlParam,
   };
 }
