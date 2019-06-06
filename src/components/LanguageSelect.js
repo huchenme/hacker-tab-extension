@@ -1,17 +1,17 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
 import Select from '@atlaskit/select';
+import { useAllLanguages } from '../hooks';
 
-const LanguageSelect = ({ fetchAll, onChange, selected, languages }) => {
-  useEffect(() => {
-    fetchAll();
-  }, []);
+const LanguageSelect = ({ onChange, selectedOption }) => {
+  const languages = useAllLanguages();
+
   return (
     <Select
       styles={{
         control: base => ({ ...base, backgroundColor: '#EBECF0' }),
       }}
-      value={selected}
+      value={selectedOption}
       onChange={onChange}
       options={languages}
       placeholder="All languages"
@@ -20,22 +20,10 @@ const LanguageSelect = ({ fetchAll, onChange, selected, languages }) => {
 };
 
 LanguageSelect.propTypes = {
-  languages: PropTypes.arrayOf(
-    PropTypes.shape({
-      label: PropTypes.string,
-      options: PropTypes.arrayOf(
-        PropTypes.shape({
-          label: PropTypes.string,
-          value: PropTypes.string,
-        })
-      ),
-    })
-  ),
-  selected: PropTypes.shape({
+  selectedOption: PropTypes.shape({
     label: PropTypes.string,
     value: PropTypes.string,
   }),
-  fetchAll: PropTypes.func.isRequired,
   onChange: PropTypes.func.isRequired,
 };
 
