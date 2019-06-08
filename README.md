@@ -29,7 +29,7 @@ Download in Chrome Web Store:
 
 Download in Firefox Addons:
 
-[![Firefox Addons](./images/firefox.jpg)](https://addons.mozilla.org/en-US/firefox/addon/hacker-tab/)
+[![Firefox Addons](./images/firefox.jpg)](https://addons.mozilla.org/en-US/firefox/addon/hacker-tab/) [![Greenkeeper badge](https://badges.greenkeeper.io/huchenme/hacker-tab-extension.svg)](https://greenkeeper.io/)
 
 API in use: [github-trending-api](https://github.com/huchenme/github-trending-api)
 
