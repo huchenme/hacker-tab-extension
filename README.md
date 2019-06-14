@@ -1,7 +1,3 @@
-<h1 align="center">Hacker Tab Extension</h1>
-
-<p align="center">Replace new tab screen with GitHub trending projects.</p>
-
 <div align="center">
   <img src="images/hero.svg" alt="hero image" width="400"/>
   <br>
@@ -16,6 +12,10 @@
 [![Firefox Addons](https://img.shields.io/amo/v/hacker-tab.svg?color=234FC828)](https://addons.mozilla.org/en-US/firefox/addon/hacker-tab/)
 [![Chrome Web Store Rating](https://img.shields.io/chrome-web-store/stars/ibomigipadcieapbemkegkmadbbanbgm.svg?colorB=%234FC828&label=rating&style=flat)](https://chrome.google.com/webstore/detail/hacker-tab/ibomigipadcieapbemkegkmadbbanbgm/reviews)
 [![GitHub license](https://img.shields.io/badge/license-MIT-blue.svg?style=flat)](https://github.com/huchenme/hacker-tab-extension/blob/master/LICENSE)
+
+## What is Hacker Tab Extension?
+
+Hacker Tab replace browser new tab screen with GitHub trending projects, so that developer get to know trending repositories everyday.
 
 ![screenshot](./images/screenshot.jpg)
 
