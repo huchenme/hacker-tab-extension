@@ -12,16 +12,6 @@ export default function InfoItem({ children, icon }) {
           <StyledHeartIcon height={16} width={16} fill="#ED2939" />
           <span>in Singapore.</span>
         </LoveContainer>
-        <StyledStar>
-          <iframe
-            title="Github Star"
-            src="https://ghbtns.com/github-btn.html?user=huchenme&repo=hacker-tab-extension&type=star"
-            frameBorder="0"
-            scrolling="0"
-            width="60px"
-            height="20px"
-          />
-        </StyledStar>
       </Row>
       <Row>
         <StyleFeedback
@@ -32,7 +22,7 @@ export default function InfoItem({ children, icon }) {
         >
           {showEmail ? 'chen@huchen.dev' : 'Send Feedback'}
         </StyleFeedback>
-        <StyleLink
+        <StyledClick
           onClick={() => {
             const confirm = window.confirm(
               'Clear cache will clear your selected language and settings.'
@@ -43,7 +33,10 @@ export default function InfoItem({ children, icon }) {
           }}
         >
           Clear Cache
-        </StyleLink>
+        </StyledClick>
+        <StyledLink href="https://github.com/huchenme/hacker-tab-extension">
+          GitHub
+        </StyledLink>
       </Row>
     </Container>
   );
@@ -66,7 +59,6 @@ const LoveContainer = styled.div`
   color: #aaa;
   display: flex;
   align-items: center;
-  margin-right: 24px;
 `;
 
 const StyledHeartIcon = styled(HeartIcon)`
@@ -86,7 +78,7 @@ const StyleFeedback = styled.div`
   }
 `;
 
-const StyleLink = styled.div`
+const StyledClick = styled.div`
   color: #aaa;
   margin-right: 24px;
   transition: color 0.3s;
@@ -97,10 +89,10 @@ const StyleLink = styled.div`
   &:hover {
     color: #777;
   }
+
+  &:last-child {
+    margin: 0;
+  }
 `;
 
-const StyledStar = styled.div`
-  height: 32px;
-  display: flex;
-  align-items: center;
-`;
+const StyledLink = StyledClick.withComponent('a');
