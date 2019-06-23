@@ -16,6 +16,10 @@ Hacker Tab replace browser new tab screen with GitHub trending projects, so that
 
 Trusted by developers! Install Hacker Tab from [Chrome Web Store](https://chrome.google.com/webstore/detail/hacker-tab/ibomigipadcieapbemkegkmadbbanbgm) or [Mozilla Add-ons Store](https://addons.mozilla.org/en-US/firefox/addon/hacker-tab/).
 
+## View Online
+
+[View Online](https://hacker-tab-extension.now.sh) version of extension.
+
 ## Related
 
 - [github-trending-api](https://github.com/huchenme/github-trending-api): The missing APIs for GitHub trending projects and developers.
