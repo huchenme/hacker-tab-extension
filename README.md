@@ -1,13 +1,3 @@
-<div align="center">
-  <img src="images/hero.svg" alt="hero image" width="400"/>
-  <br>
-  <p>
-    <em>Credits: Illustration by <a href="https://undraw.co/">unDraw</a></em>
-  </p>
-</div>
-
-<br />
-
 [![Chrome Web Store](https://img.shields.io/chrome-web-store/v/ibomigipadcieapbemkegkmadbbanbgm.svg?colorB=%234FC828&style=flat)](https://chrome.google.com/webstore/detail/hacker-tab/ibomigipadcieapbemkegkmadbbanbgm)
 [![Firefox Addons](https://img.shields.io/amo/v/hacker-tab.svg?color=234FC828)](https://addons.mozilla.org/en-US/firefox/addon/hacker-tab/)
 [![Chrome Web Store Rating](https://img.shields.io/chrome-web-store/stars/ibomigipadcieapbemkegkmadbbanbgm.svg?colorB=%234FC828&label=rating&style=flat)](https://chrome.google.com/webstore/detail/hacker-tab/ibomigipadcieapbemkegkmadbbanbgm/reviews)
