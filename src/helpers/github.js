@@ -13,5 +13,8 @@ export const findPeriod = periodValue =>
 export const getRandomRepositories = (repositories = []) =>
   sample(repositories);
 
-export const getRefUrl = (url = '') =>
+export const getRefUrl = (url = '/') =>
   appendQuery(url, 'ref=HackerTabExtension');
+
+export const getAvatarString = (src, size = 160) =>
+  src ? `${src}?s=${size}` : undefined;

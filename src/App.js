@@ -91,7 +91,10 @@ const App = () => {
         {isEmptyState ? (
           <EmptyState />
         ) : (
-          <RepositoriesList repositories={repositories} />
+          <div>
+            <Title>{selectedLanguageOption.label || 'All languages'}</Title>
+            <RepositoriesList repositories={repositories} />
+          </div>
         )}
       </ListContainer>
       <Footer />
@@ -123,11 +126,22 @@ const TopBarContainer = styled.div`
   z-index: 20;
 `;
 
+const Title = styled.h1`
+  text-align: center;
+  font-size: 40px;
+  line-height: 1.4;
+  font-weight: 600;
+  margin-top: 64px;
+  margin-bottom: 16px;
+  color: rgba(0, 0, 0, 0.6);
+  font-family: 'Futura PT';
+`;
+
 const ListContainer = styled.div`
   position: relative;
-  padding: 16px;
-  max-width: 1366px;
+  max-width: 720px;
   margin: auto;
+  margin-top: 20px;
   min-height: calc(100vh - 161px - 56px);
 `;
 
