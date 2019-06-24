@@ -32,8 +32,17 @@
   },
   "scripts": {
     "start": "react-scripts start",
+    "storybook": "start-storybook -p 6006",
+    "test": "react-scripts test --env=jsdom",
+    "prebuild": "rimraf build",
     "build": "INLINE_RUNTIME_CHUNK=false react-scripts build",
-    "test": "react-scripts test --env=jsdom"
+    "prezip": "rimraf *.zip",
+    "zip": "npm-run-all zip:*",
+    "zip:build": "zip -rj build.zip build",
+    "zip:src": "zip -r src.zip src package.json README.md public",
+    "prebuild-storybook": "rimraf storybook-static",
+    "build-storybook": "build-storybook",
+    "release": "npm-run-all build zip"
   },
   "eslintConfig": {
     "extends": "react-app",
@@ -47,5 +56,13 @@
     "not ie <= 11",
     "not op_mini all"
   ],
-  "devDependencies": {}
+  "devDependencies": {
+    "@babel/core": "^7.4.5",
+    "@storybook/addon-actions": "^5.1.9",
+    "@storybook/addon-links": "^5.1.9",
+    "@storybook/addons": "^5.1.9",
+    "@storybook/react": "^5.1.9",
+    "npm-run-all": "^4.1.5",
+    "rimraf": "^2.6.3"
+  }
 }
