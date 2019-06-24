@@ -1,5 +1,5 @@
 [![Chrome Web Store](https://img.shields.io/chrome-web-store/v/ibomigipadcieapbemkegkmadbbanbgm.svg?colorB=%234FC828&style=flat)](https://chrome.google.com/webstore/detail/hacker-tab/ibomigipadcieapbemkegkmadbbanbgm)
-[![Firefox Addons](https://img.shields.io/amo/v/hacker-tab.svg?color=234FC828)](https://addons.mozilla.org/en-US/firefox/addon/hacker-tab/)
+[![Firefox Addons](https://img.shields.io/amo/v/hacker-tab.svg?color=234FC828)](https://addons.mozilla.org/firefox/addon/hacker-tab/)
 [![Chrome Web Store Rating](https://img.shields.io/chrome-web-store/stars/ibomigipadcieapbemkegkmadbbanbgm.svg?colorB=%234FC828&label=rating&style=flat)](https://chrome.google.com/webstore/detail/hacker-tab/ibomigipadcieapbemkegkmadbbanbgm/reviews)
 [![GitHub license](https://img.shields.io/badge/license-MIT-blue.svg?style=flat)](https://github.com/huchenme/hacker-tab-extension/blob/master/LICENSE)
 
@@ -12,7 +12,7 @@ Hacker Tab replace browser new tab screen with GitHub trending projects, so that
 ## Install
 
 <a href="https://chrome.google.com/webstore/detail/hacker-tab/ibomigipadcieapbemkegkmadbbanbgm"><img src="https://raw.githubusercontent.com/alrra/browser-logos/master/src/chrome/chrome_128x128.png" width="48" /></a>
-<a href="https://addons.mozilla.org/en-US/firefox/addon/hacker-tab/"><img src="https://raw.githubusercontent.com/alrra/browser-logos/master/src/firefox/firefox_128x128.png" width="48" /></a>
+<a href="https://addons.mozilla.org/firefox/addon/hacker-tab/"><img src="https://raw.githubusercontent.com/alrra/browser-logos/master/src/firefox/firefox_128x128.png" width="48" /></a>
 
 Trusted by developers! Install Hacker Tab from [Chrome Web Store](https://chrome.google.com/webstore/detail/hacker-tab/ibomigipadcieapbemkegkmadbbanbgm) or [Mozilla Add-ons Store](https://addons.mozilla.org/en-US/firefox/addon/hacker-tab/).
 
