@@ -12,41 +12,41 @@
   ],
   "main": "src/index.js",
   "dependencies": {
-    "@atlaskit/button": "^13.0.4",
-    "@atlaskit/flag": "^12.0.2",
-    "@atlaskit/icon": "^17.1.2",
-    "@atlaskit/select": "^9.1.2",
-    "@atlaskit/spinner": "^12.0.0",
-    "@atlaskit/theme": "^9.0.3",
+    "@atlaskit/button": "^13.0.8",
+    "@atlaskit/flag": "^12.0.8",
+    "@atlaskit/icon": "^18.0.5",
+    "@atlaskit/select": "^9.1.7",
+    "@atlaskit/spinner": "^12.0.3",
+    "@atlaskit/theme": "^9.1.1",
     "@emotion/core": "^10.0.10",
-    "@emotion/styled": "^10.0.11",
-    "@huchenme/github-trending": "^1.7.2",
+    "@emotion/styled": "^10.0.12",
+    "@huchenme/github-trending": "^1.8.0",
     "append-query": "^2.0.1",
     "lodash": "^4.17.11",
     "prop-types": "^15.7.2",
     "react": "^16.8.6",
     "react-dom": "^16.8.6",
     "react-scripts": "^3.0.1",
-    "react-use": "^9.3.0",
+    "react-use": "^9.7.1",
     "styled-components": "^3.4.10"
   },
   "scripts": {
     "start": "react-scripts start",
-    "build": "INLINE_RUNTIME_CHUNK=false react-scripts build",
+    "storybook": "start-storybook -p 6006",
     "test": "react-scripts test --env=jsdom",
-    "eject": "react-scripts eject"
+    "prebuild": "rimraf build",
+    "build": "INLINE_RUNTIME_CHUNK=false react-scripts build",
+    "prezip": "rimraf *.zip",
+    "zip": "npm-run-all zip:*",
+    "zip:build": "zip -rj build.zip build",
+    "zip:src": "zip -r src.zip src package.json README.md public",
+    "prebuild-storybook": "rimraf storybook-static",
+    "build-storybook": "build-storybook",
+    "release": "npm-run-all build zip"
   },
   "eslintConfig": {
     "extends": "react-app",
-    "plugins": [
-      "react-hooks",
-      "cypress"
-    ],
-    "env": {
-      "cypress/globals": true
-    },
     "rules": {
-      "react-hooks/rules-of-hooks": "error",
       "no-use-before-define": "off"
     }
   },
@@ -57,11 +57,12 @@
     "not op_mini all"
   ],
   "devDependencies": {
-    "cypress": "^3.3.1",
-    "cypress-testing-library": "^3.0.1",
-    "eslint-plugin-cypress": "^2.2.1",
-    "eslint-plugin-react-hooks": "^1.6.0",
+    "@babel/core": "^7.4.5",
+    "@storybook/addon-actions": "^5.1.9",
+    "@storybook/addon-links": "^5.1.9",
+    "@storybook/addons": "^5.1.9",
+    "@storybook/react": "^5.1.9",
     "npm-run-all": "^4.1.5",
-    "react-testing-library": "^7.0.1"
+    "rimraf": "^2.6.3"
   }
 }

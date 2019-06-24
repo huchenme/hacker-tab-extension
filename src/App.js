@@ -7,10 +7,7 @@ import Warning from '@atlaskit/icon/glyph/warning';
 import { colors } from '@atlaskit/theme';
 import { get } from 'lodash';
 
-import TopBar from './components/TopBar';
-import Footer from './components/Footer';
-import RepositoriesList from './components/RepositoriesList';
-import EmptyState from './components/EmptyState';
+import { TopBar, Footer, RepositoriesList, EmptyState } from './components';
 
 import { getRandomRepositories } from './helpers/github';
 
