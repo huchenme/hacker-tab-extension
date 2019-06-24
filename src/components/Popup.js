@@ -2,16 +2,16 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import PropTypes from 'prop-types';
 
-import { Manager, Reference, Popper } from '@scarf/popper';
-import { Transition } from 'react-spring';
-import ClickAwayListener from '@scarf/click-away-listener';
+import { Manager, Reference, Popper } from 'react-popper';
+import { Transition } from 'react-spring/renderprops';
+import ClickAwayListener from './ClickAwayListener';
 
 export class Popup extends React.Component {
   constructor(props) {
     super(props);
 
     this.state = {
-      isOpen: Boolean(props.isOpen)
+      isOpen: Boolean(props.isOpen),
     };
 
     this.isControlled = props.isOpen !== undefined;
@@ -21,18 +21,19 @@ export class Popup extends React.Component {
     /* istanbul ignore else */
     if (this.isControlled) {
       this.setState({
-        isOpen: nextProps.isOpen
+        isOpen: nextProps.isOpen,
       });
     }
   }
 
   handleToggle = () => {
-    const nextIsOpen = !this.state.isOpen;
     if (!this.isControlled) {
-      this.setState({ isOpen: nextIsOpen });
+      this.setState(state => ({
+        isOpen: !state.isOpen,
+      }));
     }
 
-    this.dispatchOnToggle(nextIsOpen);
+    this.dispatchOnToggle(!this.state.isOpen);
   };
 
   handleClose = () => {
@@ -72,7 +73,7 @@ export class Popup extends React.Component {
               children({
                 ref,
                 toggle: this.handleToggle,
-                isOpen: this.state.isOpen
+                isOpen: this.state.isOpen,
               })
             }
           </Reference>
@@ -98,7 +99,7 @@ export class Popup extends React.Component {
                         <div style={animationStyles}>
                           {content({
                             ...otherPopperProps,
-                            close: this.handleClose
+                            close: this.handleClose,
                           })}
                         </div>
                       </div>
@@ -153,12 +154,12 @@ Popup.propTypes = {
   /**
    * Content to show when popup is open.
    */
-  content: PropTypes.func.isRequired
+  content: PropTypes.func.isRequired,
 };
 
 Popup.defaultProps = {
   placement: 'bottom-start',
-  closeOnOutsideClick: true
+  closeOnOutsideClick: true,
 };
 
 export default Popup;
