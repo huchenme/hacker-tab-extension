@@ -1,5 +1,7 @@
-import React, { useState, useEffect } from 'react';
+/** @jsx jsx */
+import { useState, useEffect } from 'react';
 import styled from '@emotion/styled';
+import { css, jsx } from '@emotion/core';
 import Spinner from '@atlaskit/spinner';
 import Button from '@atlaskit/button';
 import { AutoDismissFlag, FlagGroup } from '@atlaskit/flag';
@@ -49,7 +51,15 @@ const App = () => {
   }, [error]);
 
   return (
-    <Container>
+    <div
+      css={css`
+        background-color: #eee;
+        position: relative;
+        min-height: 100vh;
+        text-rendering: optimizeLegibility;
+        -webkit-font-smoothing: antialiased;
+      `}
+    >
       <FlagGroup onDismissed={() => setShowError(false)}>
         {showError ? (
           <AutoDismissFlag
@@ -84,36 +94,44 @@ const App = () => {
           selectedPeriodValue={selectedPeriodValue}
         />
       </TopBarContainer>
-      <ListContainer>
+      <div
+        css={css`
+          position: relative;
+          padding-top: 56px;
+          min-height: calc(100vh - 161px - 56px);
+        `}
+      >
         {isEmptyState ? (
-          <EmptyState />
+          <div
+            css={css`
+              padding-top: 96px;
+            `}
+          >
+            <EmptyState />
+          </div>
         ) : (
-          <div>
+          <div
+            css={css`
+              margin: 0 auto;
+              max-width: 720px;
+            `}
+          >
             <Title>{selectedLanguageOption.label || 'All languages'}</Title>
             <RepositoriesList repositories={repositories} />
           </div>
         )}
-      </ListContainer>
+      </div>
       <Footer />
       {isLoading ? (
         <SpinnerContainer>
           <Spinner size="large" />
         </SpinnerContainer>
       ) : null}
-    </Container>
+    </div>
   );
 };
 
 export default App;
-
-const Container = styled.div`
-  background-color: #eee;
-  position: relative;
-  padding-top: 56px;
-  min-height: 100vh;
-  text-rendering: optimizeLegibility;
-  -webkit-font-smoothing: antialiased;
-`;
 
 const TopBarContainer = styled.div`
   position: fixed;
@@ -132,14 +150,6 @@ const Title = styled.h1`
   margin-bottom: 16px;
   color: rgba(0, 0, 0, 0.6);
   font-family: 'Futura PT';
-`;
-
-const ListContainer = styled.div`
-  position: relative;
-  max-width: 720px;
-  margin: auto;
-  margin-top: 20px;
-  min-height: calc(100vh - 161px - 56px);
 `;
 
 const SpinnerContainer = styled.div`

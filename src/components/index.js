@@ -6,3 +6,4 @@ export { default as PeriodSelect } from './PeriodSelect';
 export { default as RepositoriesList } from './RepositoriesList';
 export { default as RepositoryCard } from './RepositoryCard';
 export { default as TopBar } from './TopBar';
+export { default as ClickAwayListener } from './ClickAwayListener';

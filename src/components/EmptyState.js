@@ -20,7 +20,7 @@ export default function InfoItem({ children, icon }) {
 }
 
 const Container = styled.div`
-  margin: 96px auto 0 auto;
+  margin: auto;
   background-color: #fafbfc;
   border: 1px solid #e1e4e8;
   border-radius: 3px;
