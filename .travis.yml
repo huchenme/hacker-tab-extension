@@ -1,0 +1,16 @@
+language: node_js
+cache:
+  directories:
+    - ~/.npm
+notifications:
+  email: false
+node_js:
+  - '8'
+before_install:
+  - yarn global add codecov
+script: yarn test
+after_success:
+  - codecov
+branches:
+  only:
+    - master

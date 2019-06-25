@@ -1,8 +1,28 @@
-import Popup from './Popup';
-import { bindElementToQueries } from 'dom-testing-library';
-import { render, fireEvent, cleanup } from 'react-testing-library';
+import React from 'react';
+import {
+  render,
+  fireEvent,
+  cleanup,
+  bindElementToQueries,
+} from '@testing-library/react';
 
+import Popup from '../Popup';
 const bodyUtils = bindElementToQueries(document.body);
+
+jest.mock('react-spring/renderprops.cjs', () => {
+  const reactSpring = jest.genMockFromModule('react-spring');
+  reactSpring.Transition = ({ items, keys, children, enter }) => {
+    if (Array.isArray(items)) {
+      return items.length > 0
+        ? items.map(item => <div key={keys(item)}>{children(item)(enter)}</div>)
+        : null;
+    }
+
+    return items ? children(items)(enter) : null;
+  };
+
+  return reactSpring;
+});
 
 beforeEach(() => {
   jest.useFakeTimers();

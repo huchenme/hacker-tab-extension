@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom';
 import PropTypes from 'prop-types';
 
 import { Manager, Reference, Popper } from 'react-popper';
-import { Transition } from 'react-spring/renderprops';
+import { Transition } from 'react-spring/renderprops.cjs';
 import ClickAwayListener from './ClickAwayListener';
 
 export class Popup extends React.Component {

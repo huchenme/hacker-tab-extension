@@ -72,6 +72,7 @@ export default RepositoryCard;
 
 const Card = styled.a`
   position: relative;
+  width: 720px;
   padding: 20px;
   box-sizing: border-box;
   display: flex;

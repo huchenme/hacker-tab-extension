@@ -4,7 +4,13 @@ import { css, jsx } from '@emotion/core';
 import { storiesOf } from '@storybook/react';
 import { action } from '@storybook/addon-actions';
 
-import { EmptyState, Footer, ClickAwayListener, Popup } from '..';
+import {
+  EmptyState,
+  Footer,
+  ClickAwayListener,
+  Popup,
+  ContentPlaceholder,
+} from '..';
 
 import popupNotes from './Popup.md';
 
@@ -97,6 +103,10 @@ storiesOf('Popup', module)
       notes: { markdown: popupNotes },
     }
   );
+
+storiesOf('ContentPlaceholder', module)
+  .add('size 1', () => <ContentPlaceholder />)
+  .add('size 10', () => <ContentPlaceholder size={10} />);
 
 export const redBox = css`
   padding: 10px;

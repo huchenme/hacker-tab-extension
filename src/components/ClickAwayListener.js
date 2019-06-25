@@ -42,7 +42,9 @@ class ClickAwayListener extends React.Component {
       doc.documentElement.contains(event.target) &&
       !this.node.contains(event.target)
     ) {
-      this.props.onClickAway(event);
+      if (this.props.onClickAway) {
+        this.props.onClickAway(event);
+      }
     }
   };
 
@@ -93,7 +95,7 @@ ClickAwayListener.propTypes = {
   /**
    * Callback fired when a "click away" event is detected.
    */
-  onClickAway: PropTypes.func.isRequired,
+  onClickAway: PropTypes.func,
 
   /**
    * The touch event to listen to. You can disable the listener by providing `false`.

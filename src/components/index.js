@@ -8,3 +8,4 @@ export { default as RepositoryCard } from './RepositoryCard';
 export { default as TopBar } from './TopBar';
 export { default as ClickAwayListener } from './ClickAwayListener';
 export { default as Popup } from './Popup';
+export { default as ContentPlaceholder } from './ContentPlaceholder';

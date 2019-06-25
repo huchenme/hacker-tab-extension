@@ -113,7 +113,6 @@ const App = () => {
           <div
             css={css`
               margin: 0 auto;
-              max-width: 720px;
             `}
           >
             <Title>{selectedLanguageOption.label || 'All languages'}</Title>
