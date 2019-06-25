@@ -1,22 +1,30 @@
+/** @jsx jsx */
 import React from 'react';
-import styled from '@emotion/styled';
+import { css, jsx } from '@emotion/core';
 
 export default function InfoItem({ children, icon }) {
   return (
-    <Container>
-      {icon ? <IconContainer>{icon}</IconContainer> : null}
+    <div
+      css={css`
+        display: flex;
+        align-items: center;
+      `}
+    >
+      {icon ? (
+        <div
+          css={css`
+            margin-right: 3px;
+            display: flex;
+            align-items: center;
+          `}
+        >
+          {React.cloneElement(icon, {
+            size: 'small',
+            primaryColor: '#757575',
+          })}
+        </div>
+      ) : null}
       {children}
-    </Container>
+    </div>
   );
 }
-
-const Container = styled.div`
-  display: flex;
-  align-items: center;
-`;
-
-const IconContainer = styled.div`
-  margin-right: 3px;
-  display: flex;
-  align-items: center;
-`;

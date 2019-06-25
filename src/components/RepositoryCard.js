@@ -21,15 +21,7 @@ const RepositoryCard = props => (
       <AdditionalInfo>
         <AdditionalInfoSection>
           <AdditionalInfoItem>
-            <InfoItem
-              icon={
-                <BitbucketReposIcon
-                  label="Author"
-                  size="small"
-                  primaryColor="#757575"
-                />
-              }
-            >
+            <InfoItem icon={<BitbucketReposIcon label="Author" />}>
               {props.author}
             </InfoItem>
           </AdditionalInfoItem>
@@ -41,28 +33,12 @@ const RepositoryCard = props => (
             </AdditionalInfoItem>
           ) : null}
           <AdditionalInfoItem>
-            <InfoItem
-              icon={
-                <StarFilledIcon
-                  label="Stars"
-                  size="small"
-                  primaryColor="#757575"
-                />
-              }
-            >
+            <InfoItem icon={<StarFilledIcon label="Stars" />}>
               {props.stars.toLocaleString()}
             </InfoItem>
           </AdditionalInfoItem>
           <AdditionalInfoItem>
-            <InfoItem
-              icon={
-                <BitbucketForksIcon
-                  label="Forks"
-                  size="small"
-                  primaryColor="#757575"
-                />
-              }
-            >
+            <InfoItem icon={<BitbucketForksIcon label="Forks" />}>
               {props.forks.toLocaleString()}
             </InfoItem>
           </AdditionalInfoItem>
@@ -96,6 +72,7 @@ export default RepositoryCard;
 
 const Card = styled.a`
   position: relative;
+  width: 720px;
   padding: 20px;
   box-sizing: border-box;
   display: flex;
