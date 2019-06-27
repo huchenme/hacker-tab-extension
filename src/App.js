@@ -2,36 +2,34 @@
 import { useState, useEffect } from 'react';
 import styled from '@emotion/styled';
 import { css, jsx } from '@emotion/core';
-import Spinner from '@atlaskit/spinner';
 import Button from '@atlaskit/button';
 import { AutoDismissFlag, FlagGroup } from '@atlaskit/flag';
 import Warning from '@atlaskit/icon/glyph/warning';
-import { colors } from '@atlaskit/theme';
-import { get } from 'lodash';
 
-import { TopBar, Footer, RepositoriesList, EmptyState } from './components';
+import {
+  TopBar,
+  Footer,
+  RepositoriesList,
+  EmptyState,
+  ContentPlaceholder,
+} from './components';
 
-import { getRandomRepositories } from './helpers/github';
+import { getRandomRepositories, findLanguage } from './helpers/github';
 
 import {
   useCheckLocalStorageSchema,
   useRepositories,
-  useSelectedLanguageOption,
-  useSelectedPeriodValue,
+  useSelectedLanguage,
+  useSelectedPeriod,
 } from './hooks';
 
 const App = () => {
   // Clear local storage is schema version not match
   useCheckLocalStorageSchema();
 
-  const [
-    selectedLanguageOption,
-    setSelectedLanguageOption,
-  ] = useSelectedLanguageOption();
-  const [
-    selectedPeriodValue,
-    setSelectedPeriodValue,
-  ] = useSelectedPeriodValue();
+  const [selectedLanguage, setSelectedLanguage] = useSelectedLanguage();
+
+  const [selectedPeriod, setSelectedPeriod] = useSelectedPeriod();
 
   const {
     isLoading,
@@ -40,8 +38,8 @@ const App = () => {
     error,
     reload,
   } = useRepositories({
-    selectedLanguageValue: get(selectedLanguageOption, 'value'),
-    selectedPeriodValue,
+    selectedLanguage,
+    selectedPeriod,
   });
 
   const [showError, setShowError] = useState(false);
@@ -65,7 +63,7 @@ const App = () => {
           <AutoDismissFlag
             id="NETWORK_ERROR"
             appearance="warning"
-            icon={<Warning label="Warning icon" secondaryColor={colors.Y200} />}
+            icon={<Warning label="Warning icon" secondaryColor="#FFC400" />}
             title={
               <span>
                 Error loading content
@@ -88,10 +86,10 @@ const App = () => {
       <TopBarContainer>
         <TopBar
           luckyRepository={getRandomRepositories(repositories)}
-          onChangeLanguageOption={setSelectedLanguageOption}
-          selectedLanguageOption={selectedLanguageOption}
-          onChangePeriodValue={setSelectedPeriodValue}
-          selectedPeriodValue={selectedPeriodValue}
+          onChangeLanguage={setSelectedLanguage}
+          selectedLanguage={selectedLanguage}
+          onChangePeriod={setSelectedPeriod}
+          selectedPeriod={selectedPeriod}
         />
       </TopBarContainer>
       <div
@@ -116,17 +114,24 @@ const App = () => {
               width: 720px;
             `}
           >
-            <Title>{selectedLanguageOption.label || 'All languages'}</Title>
-            <RepositoriesList repositories={repositories} />
+            {isLoading ? (
+              <div
+                css={css`
+                  margin-top: 88px;
+                `}
+              >
+                <ContentPlaceholder size={10} />
+              </div>
+            ) : (
+              <div>
+                <Title>{findLanguage(selectedLanguage).label}</Title>
+                <RepositoriesList repositories={repositories} />
+              </div>
+            )}
           </div>
         )}
       </div>
       <Footer />
-      {isLoading ? (
-        <SpinnerContainer>
-          <Spinner size="large" />
-        </SpinnerContainer>
-      ) : null}
     </div>
   );
 };
@@ -143,23 +148,11 @@ const TopBarContainer = styled.div`
 
 const Title = styled.h1`
   text-align: center;
-  font-size: 40px;
+  font-size: 32px;
   line-height: 1.4;
   font-weight: 600;
-  margin-top: 64px;
-  margin-bottom: 16px;
-  color: rgba(0, 0, 0, 0.6);
+  margin-top: 48px;
+  margin-bottom: 8px;
+  color: rgba(0, 0, 0, 0.54);
   font-family: 'Futura PT';
-`;
-
-const SpinnerContainer = styled.div`
-  position: fixed;
-  top: 0;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  background-color: rgba(255, 255, 255, 0.6);
 `;

@@ -11,7 +11,7 @@ const PeriodSelect = ({ onChange, selectedValue }) => {
       }}
       isSearchable={false}
       value={findPeriod(selectedValue)}
-      onChange={({ label, value }) => onChange(value)}
+      onChange={({ value }) => onChange(value)}
       options={periodOptions}
       placeholder="Select period"
     />

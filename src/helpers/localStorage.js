@@ -1,4 +1,4 @@
-export const CURRENT_SCHEMA_VERSION = '1';
+export const CURRENT_SCHEMA_VERSION = '2';
 
 export const KEY_ALL_LANGUAGES = 'allLanguages';
 export const KEY_REPOSITORIES = 'repositories';

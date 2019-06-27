@@ -111,6 +111,7 @@ const ContentPlaceholder = ({ size = 1 }) => {
   return (
     <div
       css={css`
+        background: white;
         border-radius: 5px;
         overflow: hidden;
         border: 1px solid #e8e8e8;
@@ -139,11 +140,12 @@ const ContentPlaceholder = ({ size = 1 }) => {
 
 export default ContentPlaceholder;
 
-const Card = styled.a`
+const Card = styled.div`
   width: 720px;
   padding: 20px;
   box-sizing: border-box;
   display: flex;
+  user-select: none;
 `;
 
 const Left = styled.div`

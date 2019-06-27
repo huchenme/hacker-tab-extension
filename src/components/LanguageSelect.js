@@ -1,34 +1,23 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import Select from '@atlaskit/select';
-import { useAllLanguages } from '../hooks';
+import { languages, findLanguage } from '../helpers/github';
 
-const LanguageSelect = ({ onChange, selectedOption }) => {
-  const languages = useAllLanguages();
-
-  return (
-    <Select
-      styles={{
-        control: base => ({ ...base, backgroundColor: '#EBECF0' }),
-      }}
-      value={selectedOption}
-      onChange={onChange}
-      options={languages}
-      placeholder="All languages"
-    />
-  );
-};
+const LanguageSelect = ({ onChange, selectedValue }) => (
+  <Select
+    styles={{
+      control: base => ({ ...base, backgroundColor: '#EBECF0' }),
+    }}
+    value={findLanguage(selectedValue)}
+    onChange={({ value }) => onChange(value)}
+    options={languages}
+    placeholder="All languages"
+  />
+);
 
 LanguageSelect.propTypes = {
-  selectedOption: PropTypes.shape({
-    label: PropTypes.string,
-    value: PropTypes.string,
-  }),
+  selectedValue: PropTypes.string,
   onChange: PropTypes.func.isRequired,
-};
-
-LanguageSelect.defaultProps = {
-  languages: [],
 };
 
 export default React.memo(LanguageSelect);

@@ -1,18 +1,10 @@
 import { useMemo, useState, useEffect, useCallback } from 'react';
-import {
-  fetchAllLanguages,
-  fetchRepositories,
-} from '@huchenme/github-trending';
+import { fetchRepositories } from '@huchenme/github-trending';
 import useLocalStorage from 'react-use/lib/useLocalStorage';
 
-import {
-  transformLanguages,
-  allLanguagesValue,
-  allLanguagesOption,
-} from './helpers/language';
+import { allLanguagesValue } from './helpers/github';
 
 import {
-  KEY_ALL_LANGUAGES,
   KEY_REPOSITORIES,
   KEY_SELECTED_LANGUAGE,
   KEY_SELECTED_PERIOD,
@@ -53,38 +45,15 @@ export const useFetchRepositories = ({ language, since }) => {
   };
 };
 
-export const useAllLanguages = () => {
-  const [languages, setLanguages] = useLocalStorage(KEY_ALL_LANGUAGES);
-  const [selectedLanguage] = useSelectedLanguageOption();
-
-  useEffect(() => {
-    const fetchData = async () => {
-      const data = await fetchAllLanguages();
-      if (data) {
-        setLanguages(data);
-      }
-    };
-
-    if (!languages) {
-      fetchData();
-    }
-  }, [languages, setLanguages]);
-
-  return languages ? transformLanguages(languages) : [selectedLanguage];
-};
-
-export const useRepositories = ({
-  selectedLanguageValue,
-  selectedPeriodValue,
-} = {}) => {
+export const useRepositories = ({ selectedLanguage, selectedPeriod } = {}) => {
   const [repositories, setRepositories] = useLocalStorage(KEY_REPOSITORIES);
 
   let options = {};
-  if (selectedPeriodValue) {
-    options = { since: selectedPeriodValue };
+  if (selectedPeriod) {
+    options = { since: selectedPeriod };
   }
-  if (selectedLanguageValue && selectedLanguageValue !== allLanguagesValue) {
-    options = { ...options, language: selectedLanguageValue };
+  if (selectedLanguage && selectedLanguage !== allLanguagesValue) {
+    options = { ...options, language: selectedLanguage };
   }
 
   const {
@@ -116,23 +85,11 @@ export const useRepositories = ({
   };
 };
 
-export const useSelectedLanguageOption = () => {
-  const [selectedLanguage, setSelectedLanguage] = useLocalStorage(
-    KEY_SELECTED_LANGUAGE,
-    allLanguagesOption
-  );
+export const useSelectedLanguage = () =>
+  useLocalStorage(KEY_SELECTED_LANGUAGE, allLanguagesValue);
 
-  return [selectedLanguage, setSelectedLanguage];
-};
-
-export const useSelectedPeriodValue = () => {
-  const [selectedPeriod, setSelectedPeriod] = useLocalStorage(
-    KEY_SELECTED_PERIOD,
-    'daily'
-  );
-
-  return [selectedPeriod, setSelectedPeriod];
-};
+export const useSelectedPeriod = () =>
+  useLocalStorage(KEY_SELECTED_PERIOD, 'daily');
 
 export const useCheckLocalStorageSchema = () => {
   const [schemaVersion, setSchemaVersion] = useLocalStorage(KEY_SCHEMA_VERSION);

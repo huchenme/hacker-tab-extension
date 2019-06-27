@@ -6,24 +6,24 @@ import PeriodSelect from './PeriodSelect';
 
 const TopBar = ({
   luckyRepository,
-  onChangeLanguageOption,
-  selectedLanguageOption,
-  onChangePeriodValue,
-  selectedPeriodValue,
+  onChangeLanguage,
+  selectedLanguage,
+  onChangePeriod,
+  selectedPeriod,
 }) => {
   return (
     <Container>
       <SelectorsContainer>
         <SelectWrapper>
           <LanguageSelect
-            selectedOption={selectedLanguageOption}
-            onChange={onChangeLanguageOption}
+            selectedValue={selectedLanguage}
+            onChange={onChangeLanguage}
           />
         </SelectWrapper>
         <SelectWrapper width={180}>
           <PeriodSelect
-            selectedValue={selectedPeriodValue}
-            onChange={onChangePeriodValue}
+            selectedValue={selectedPeriod}
+            onChange={onChangePeriod}
           />
         </SelectWrapper>
       </SelectorsContainer>
@@ -33,13 +33,10 @@ const TopBar = ({
 
 TopBar.propTypes = {
   luckyRepository: PropTypes.object,
-  selectedLanguageOption: PropTypes.shape({
-    label: PropTypes.string,
-    value: PropTypes.string,
-  }),
-  onChangeLanguageOption: PropTypes.func.isRequired,
-  selectedPeriodValue: PropTypes.string,
-  onChangePeriodValue: PropTypes.func.isRequired,
+  selectedLanguage: PropTypes.string,
+  selectedPeriod: PropTypes.string,
+  onChangeLanguage: PropTypes.func.isRequired,
+  onChangePeriod: PropTypes.func.isRequired,
 };
 
 export default React.memo(TopBar);
