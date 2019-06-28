@@ -14,7 +14,6 @@ import {
 
 export const useFetchRepositories = ({ language, since }) => {
   const [isLoading, setLoading] = useState(false);
-  const [isFirstLoaded, setFirstLoaded] = useState(false);
   const [data, setData] = useState();
   const [error, setError] = useState(false);
 
@@ -24,7 +23,6 @@ export const useFetchRepositories = ({ language, since }) => {
       setError(false);
       const data = await fetchRepositories({ language, since });
       setData(data);
-      setFirstLoaded(true);
     } catch (e) {
       setError(true);
     } finally {
@@ -38,15 +36,18 @@ export const useFetchRepositories = ({ language, since }) => {
 
   return {
     isLoading,
-    isFirstLoaded,
     data,
     error,
     reload: fetchData,
   };
 };
 
-export const useRepositories = ({ selectedLanguage, selectedPeriod } = {}) => {
+export const useRepositories = () => {
   const [repositories, setRepositories] = useLocalStorage(KEY_REPOSITORIES);
+  const [selectedLanguage] = useSelectedLanguage();
+  const [selectedPeriod] = useSelectedPeriod();
+
+  const isEmpty = !repositories || repositories.length === 0;
 
   let options = {};
   if (selectedPeriod) {
@@ -56,13 +57,7 @@ export const useRepositories = ({ selectedLanguage, selectedPeriod } = {}) => {
     options = { ...options, language: selectedLanguage };
   }
 
-  const {
-    isLoading,
-    isFirstLoaded,
-    data,
-    error,
-    reload,
-  } = useFetchRepositories({
+  const { isLoading, data, error, reload } = useFetchRepositories({
     ...options,
   });
 
@@ -72,12 +67,8 @@ export const useRepositories = ({ selectedLanguage, selectedPeriod } = {}) => {
     }
   }, [data, error, isLoading, setRepositories]);
 
-  const isEmptyRepo = !repositories || repositories.length === 0;
-
-  const isEmptyState = isFirstLoaded && !isLoading && isEmptyRepo;
-
   return {
-    isEmptyState,
+    isEmpty,
     isLoading,
     repositories,
     error,

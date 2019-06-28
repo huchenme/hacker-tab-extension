@@ -31,16 +31,7 @@ const App = () => {
 
   const [selectedPeriod, setSelectedPeriod] = useSelectedPeriod();
 
-  const {
-    isLoading,
-    isEmptyState,
-    repositories,
-    error,
-    reload,
-  } = useRepositories({
-    selectedLanguage,
-    selectedPeriod,
-  });
+  const { isLoading, isEmpty, repositories, error, reload } = useRepositories();
 
   const [showError, setShowError] = useState(false);
 
@@ -99,7 +90,17 @@ const App = () => {
           min-height: calc(100vh - 161px - 56px);
         `}
       >
-        {isEmptyState ? (
+        {isLoading ? (
+          <Center>
+            <div
+              css={css`
+                margin-top: 88px;
+              `}
+            >
+              <ContentPlaceholder size={10} />
+            </div>
+          </Center>
+        ) : isEmpty ? (
           <div
             css={css`
               padding-top: 96px;
@@ -108,27 +109,10 @@ const App = () => {
             <EmptyState />
           </div>
         ) : (
-          <div
-            css={css`
-              margin: 0 auto;
-              width: 720px;
-            `}
-          >
-            {isLoading ? (
-              <div
-                css={css`
-                  margin-top: 88px;
-                `}
-              >
-                <ContentPlaceholder size={10} />
-              </div>
-            ) : (
-              <div>
-                <Title>{findLanguage(selectedLanguage).label}</Title>
-                <RepositoriesList repositories={repositories} />
-              </div>
-            )}
-          </div>
+          <Center>
+            <Title>{findLanguage(selectedLanguage).label}</Title>
+            <RepositoriesList repositories={repositories} />
+          </Center>
         )}
       </div>
       <Footer />
@@ -155,4 +139,9 @@ const Title = styled.h1`
   margin-bottom: 8px;
   color: rgba(0, 0, 0, 0.54);
   font-family: 'Futura PT';
+`;
+
+const Center = styled.div`
+  margin: 0 auto;
+  width: 720px;
 `;
