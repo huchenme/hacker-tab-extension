@@ -31,7 +31,10 @@ const App = () => {
 
   const [selectedPeriod, setSelectedPeriod] = useSelectedPeriod();
 
-  const { isLoading, isEmpty, repositories, error, reload } = useRepositories();
+  const { isLoading, isEmpty, repositories, error, reload } = useRepositories({
+    selectedLanguage,
+    selectedPeriod,
+  });
 
   const [showError, setShowError] = useState(false);
 

@@ -42,12 +42,8 @@ export const useFetchRepositories = ({ language, since }) => {
   };
 };
 
-export const useRepositories = () => {
+export const useRepositories = ({ selectedLanguage, selectedPeriod } = {}) => {
   const [repositories, setRepositories] = useLocalStorage(KEY_REPOSITORIES);
-  const [selectedLanguage] = useSelectedLanguage();
-  const [selectedPeriod] = useSelectedPeriod();
-
-  const isEmpty = !repositories || repositories.length === 0;
 
   let options = {};
   if (selectedPeriod) {
@@ -66,6 +62,8 @@ export const useRepositories = () => {
       setRepositories(data);
     }
   }, [data, error, isLoading, setRepositories]);
+
+  const isEmpty = !repositories || repositories.length === 0;
 
   return {
     isEmpty,
