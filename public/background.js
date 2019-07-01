@@ -5,8 +5,13 @@ const KEY_SELECTED_PERIOD = 'selectedPeriod';
 chrome.runtime.onInstalled.addListener(() => {
   console.log('onInstalled....');
   scheduleRequest();
-  chrome.alarms.create('watchdog', { periodInMinutes: 2 });
+  chrome.alarms.create('watchdog', { periodInMinutes: 5 });
+  startRequest();
 });
+
+function isEmpty(repositories) {
+  return !repositories || repositories.length === 0;
+}
 
 chrome.alarms.onAlarm.addListener(alarm => {
   console.log('Alarm triggered', alarm);
@@ -14,6 +19,11 @@ chrome.alarms.onAlarm.addListener(alarm => {
     chrome.alarms.get('refresh', alarm => {
       if (alarm) {
         console.log('Refresh alarm exists. Yay.');
+        const repos = JSON.parse(localStorage.getItem(KEY_REPOSITORIES));
+        if (isEmpty(repos)) {
+          console.log('Refetching because the repo was empty');
+          startRequest();
+        }
       } else {
         console.log("Refresh alarm doesn't exist, starting a new one");
         startRequest();
@@ -53,6 +63,7 @@ function buildUrl(baseUrl, params = {}) {
 }
 
 async function fetchRepositories(params) {
+  console.log(params);
   const res = await fetch(
     buildUrl(`https://github-trending-api.now.sh/repositories`, params)
   );
