@@ -1,8 +1,8 @@
 import { useMemo, useState, useEffect, useCallback, useRef } from 'react';
 import { fetchRepositories } from '@huchenme/github-trending';
-import useLocalStorage from 'react-use/lib/useLocalStorage';
+import useLocalStorage from './hooks/useLocalStorage';
 
-import { allLanguagesValue } from './helpers/github';
+import { allLanguagesValue, isEmptyList } from './helpers/github';
 
 import {
   KEY_REPOSITORIES,
@@ -38,7 +38,7 @@ export const useFetchRepositories = ({ language, since }) => {
   };
 };
 
-function usePrevious(value) {
+export function usePrevious(value) {
   const ref = useRef(value);
   useEffect(() => {
     ref.current = value;
@@ -57,7 +57,7 @@ export const useRepositories = () => {
     (prevLang && prevLang !== selectedLanguage) ||
     prevPeriod !== selectedPeriod;
 
-  const isEmpty = !repositories || repositories.length === 0;
+  const isEmpty = isEmptyList(repositories);
 
   const { isLoading, data, error, fetchData } = useFetchRepositories({
     since: selectedPeriod,
