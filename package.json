@@ -18,7 +18,7 @@
     "@atlaskit/select": "^9.1.7",
     "@emotion/core": "^10.0.10",
     "@emotion/styled": "^10.0.12",
-    "@huchenme/github-trending": "^1.8.0",
+    "@huchenme/github-trending": "^2.1.0",
     "append-query": "^2.0.1",
     "lodash": "^4.17.11",
     "polished": "^3.4.1",
@@ -33,7 +33,6 @@
   },
   "devDependencies": {
     "@babel/core": "^7.4.5",
-    "@reach/component-component": "^0.1.3",
     "@storybook/addon-actions": "^5.1.9",
     "@storybook/addon-centered": "^5.1.9",
     "@storybook/addon-links": "^5.1.9",
@@ -43,14 +42,18 @@
     "@testing-library/react": "^8.0.2",
     "jest-dom": "^3.5.0",
     "npm-run-all": "^4.1.5",
-    "rimraf": "^2.6.3"
+    "rimraf": "^2.6.3",
+    "webpack-cli": "^3.3.5"
   },
   "scripts": {
     "start": "react-scripts start",
     "storybook": "start-storybook -p 6006",
     "test": "react-scripts test --env=jsdom",
     "prebuild": "rimraf build",
-    "build": "INLINE_RUNTIME_CHUNK=false react-scripts build",
+    "build": "npm-run-all build:*",
+    "build:app": "INLINE_RUNTIME_CHUNK=false react-scripts build",
+    "build:bg": "webpack --mode production ./src/background.js --output ./build/background.js",
+    "build:bg:dev": "webpack --mode development ./src/background.js --output ./build/background.js",
     "prezip": "rimraf *.zip",
     "zip": "npm-run-all zip:*",
     "zip:build": "cd build; zip -r ../build.zip * -x '*.DS_Store'",
