@@ -16,6 +16,11 @@ chrome.runtime.onInstalled.addListener(() => {
   startRequest();
 });
 
+chrome.runtime.onStartup.addListener(() => {
+  console.log('onStartup....');
+  startRequest();
+});
+
 chrome.alarms.onAlarm.addListener(alarm => {
   console.log('Alarm triggered', alarm);
   if (alarm && alarm.name === 'watchdog') {
