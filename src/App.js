@@ -16,25 +16,23 @@ import {
 
 import { getRandomRepositories, findLanguage } from './helpers/github';
 
-import {
-  useCheckLocalStorageSchema,
-  useRepositories,
-  useSelectedLanguage,
-  useSelectedPeriod,
-} from './hooks';
+import { useCheckLocalStorageSchema, useRepositories } from './hooks';
 
 const App = () => {
   // Clear local storage is schema version not match
   useCheckLocalStorageSchema();
 
-  const [selectedLanguage, setSelectedLanguage] = useSelectedLanguage();
-
-  const [selectedPeriod, setSelectedPeriod] = useSelectedPeriod();
-
-  const { isLoading, isEmpty, repositories, error, reload } = useRepositories({
+  const {
+    isLoading,
+    isEmpty,
+    repositories,
+    error,
+    reload,
     selectedLanguage,
     selectedPeriod,
-  });
+    setSelectedLanguage,
+    setSelectedPeriod,
+  } = useRepositories();
 
   const [showError, setShowError] = useState(false);
 
@@ -95,13 +93,8 @@ const App = () => {
       >
         {isLoading ? (
           <Center>
-            <div
-              css={css`
-                margin-top: 88px;
-              `}
-            >
-              <ContentPlaceholder size={10} />
-            </div>
+            <Title>{findLanguage(selectedLanguage).label}</Title>
+            <ContentPlaceholder size={10} />
           </Center>
         ) : isEmpty ? (
           <div

@@ -1,4 +1,4 @@
-import { useMemo, useState, useEffect, useCallback } from 'react';
+import { useMemo, useState, useEffect, useCallback, useRef } from 'react';
 import { fetchRepositories } from '@huchenme/github-trending';
 import useLocalStorage from 'react-use/lib/useLocalStorage';
 
@@ -30,47 +30,65 @@ export const useFetchRepositories = ({ language, since }) => {
     }
   }, [language, since]);
 
-  useEffect(() => {
-    fetchData();
-  }, [fetchData]);
-
   return {
     isLoading,
     data,
     error,
-    reload: fetchData,
+    fetchData,
   };
 };
 
-export const useRepositories = ({ selectedLanguage, selectedPeriod } = {}) => {
-  const [repositories, setRepositories] = useLocalStorage(KEY_REPOSITORIES);
-
-  let options = {};
-  if (selectedPeriod) {
-    options = { since: selectedPeriod };
-  }
-  if (selectedLanguage && selectedLanguage !== allLanguagesValue) {
-    options = { ...options, language: selectedLanguage };
-  }
-
-  const { isLoading, data, error, reload } = useFetchRepositories({
-    ...options,
+function usePrevious(value) {
+  const ref = useRef(value);
+  useEffect(() => {
+    ref.current = value;
   });
+  return ref.current;
+}
+
+export const useRepositories = () => {
+  const [selectedLanguage, setSelectedLanguage] = useSelectedLanguage();
+  const [selectedPeriod, setSelectedPeriod] = useSelectedPeriod();
+  const [repositories, setRepositories] = useLocalStorage(KEY_REPOSITORIES, []);
+  const prevLang = usePrevious(selectedLanguage);
+  const prevPeriod = usePrevious(selectedPeriod);
+
+  const valueChanged =
+    (prevLang && prevLang !== selectedLanguage) ||
+    prevPeriod !== selectedPeriod;
+
+  const isEmpty = !repositories || repositories.length === 0;
+
+  const { isLoading, data, error, fetchData } = useFetchRepositories({
+    since: selectedPeriod,
+    language:
+      selectedLanguage !== allLanguagesValue ? selectedLanguage : undefined,
+  });
+
+  useEffect(() => {
+    if (isEmpty || valueChanged) {
+      fetchData();
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [valueChanged]);
 
   useMemo(() => {
     if (!isLoading && !error && data) {
       setRepositories(data);
     }
-  }, [data, error, isLoading, setRepositories]);
-
-  const isEmpty = !repositories || repositories.length === 0;
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [data, error, isLoading]);
 
   return {
     isEmpty,
     isLoading,
     repositories,
     error,
-    reload,
+    reload: fetchData,
+    selectedLanguage,
+    selectedPeriod,
+    setSelectedLanguage,
+    setSelectedPeriod,
   };
 };
 

@@ -53,7 +53,6 @@ function buildUrl(baseUrl, params = {}) {
 }
 
 async function fetchRepositories(params) {
-  console.log(params);
   const res = await fetch(
     buildUrl(`https://github-trending-api.now.sh/repositories`, params)
   );
