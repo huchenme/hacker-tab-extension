@@ -12,6 +12,10 @@
   "chrome_url_overrides": {
     "newtab": "index.html"
   },
-  "permissions": ["storage"],
+  "background": {
+    "scripts": ["background.js"],
+    "persistent": false
+  },
+  "permissions": ["storage", "alarms"],
   "content_security_policy": "script-src 'self' https://www.google-analytics.com; object-src 'self'"
 }
