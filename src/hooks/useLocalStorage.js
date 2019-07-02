@@ -31,6 +31,7 @@ const useLocalStorage = (key, initialValue, raw) => {
       // If user is in private mode or has storage restriction
       // localStorage can throw. Also JSON.stringify can throw.
     }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [state]);
 
   return [state, setState];

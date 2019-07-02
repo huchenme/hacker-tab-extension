@@ -1,4 +1,4 @@
-import { find, sample } from 'lodash';
+import { find, sample, uniqBy } from 'lodash';
 import appendQuery from 'append-query';
 import { languages as apiLanguages } from '@huchenme/github-trending';
 
@@ -28,9 +28,29 @@ export const allLanguagesOption = {
   value: allLanguagesValue,
 };
 
+const popularLanguages = [
+  'C++',
+  'HTML',
+  'Java',
+  'JavaScript',
+  'PHP',
+  'Python',
+  'Ruby',
+  'CSS',
+  'Objective-C',
+  'Swift',
+  'TypeScript',
+];
+
 export const languages = [
   allLanguagesOption,
-  ...apiLanguages.map(({ urlParam, name }) => ({
+  ...uniqBy(
+    [
+      ...popularLanguages.map(lang => find(apiLanguages, { name: lang })),
+      ...apiLanguages,
+    ],
+    'name'
+  ).map(({ urlParam, name }) => ({
     label: name,
     value: urlParam,
   })),
