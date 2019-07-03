@@ -66,6 +66,9 @@ RepositoryCard.propTypes = {
 
 RepositoryCard.defaultProps = {
   languageCode: '#586069',
+  stars: 0,
+  forks: 0,
+  currentPeriodStars: 0,
 };
 
 export default RepositoryCard;
