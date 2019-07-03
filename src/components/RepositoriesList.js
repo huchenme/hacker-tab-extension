@@ -24,7 +24,7 @@ const RepositoriesList = ({ repositories, isLoading }) => {
     changeRandom();
   }, [changeRandom]);
 
-  const transitions = useTransition(random, item => item.url, {
+  const transitions = useTransition(random, item => (item ? item.url : null), {
     from: { opacity: 0 },
     enter: { opacity: 1 },
     leave: { position: 'absolute', opacity: 0 },

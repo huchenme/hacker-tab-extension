@@ -91,11 +91,7 @@ const App = () => {
             <EmptyState />
           </div>
         ) : (
-          <RepositoriesList
-            isLoading={isLoading}
-            repositories={repositories}
-            selectedLanguage={selectedLanguage}
-          />
+          <RepositoriesList isLoading={isLoading} repositories={repositories} />
         )}
       </div>
       <Footer />

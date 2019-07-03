@@ -21,6 +21,14 @@ Trusted by developers! Install Hacker Tab from [Chrome Web Store](https://chrome
 
 [View Online](https://hacker-tab-extension.now.sh) version of extension.
 
+## Feedback
+
+Just write me an [email](mailto:chen@huchen.dev), or create an [issue](issues).
+
+## Give us a rating
+
+If you enjoy using it, please help to write a review at [Chrome Web Store](https://chrome.google.com/webstore/detail/hacker-tab/ibomigipadcieapbemkegkmadbbanbgm) or [Mozilla Add-ons Store](https://addons.mozilla.org/en-US/firefox/addon/hacker-tab/), and star this repo. This will motivate me a lot :)
+
 ## Related
 
 - [github-trending-api](https://github.com/huchenme/github-trending-api): The missing APIs for GitHub trending projects and developers.
