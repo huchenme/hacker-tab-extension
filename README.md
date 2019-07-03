@@ -21,6 +21,12 @@ Trusted by developers! Install Hacker Tab from [Chrome Web Store](https://chrome
 
 [View Online](https://hacker-tab-extension.now.sh) version of extension.
 
+## Backers
+
+Thank you to all our backers! 🙏
+
+<a href="https://www.buymeacoffee.com/huchenme" target="_blank"><img src="https://www.buymeacoffee.com/assets/img/custom_images/orange_img.png" alt="Buy Me A Coffee" style="height: auto !important;width: auto !important;" ></a>
+
 ## Feedback
 
 Just write me an [email](mailto:chen@huchen.dev), or create an [issue](issues).
