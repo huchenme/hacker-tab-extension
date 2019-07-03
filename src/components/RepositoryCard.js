@@ -66,6 +66,9 @@ RepositoryCard.propTypes = {
 
 RepositoryCard.defaultProps = {
   languageCode: '#586069',
+  stars: 0,
+  forks: 0,
+  currentPeriodStars: 0,
 };
 
 export default RepositoryCard;
@@ -176,10 +179,9 @@ const CurrentStar = styled.div`
   position: relative;
   left: -4px;
   top: 4px;
-  font-size: 48px;
+  font-size: 40px;
   line-height: 1;
   color: rgba(0, 0, 0, 0.38);
-  letter-spacing: -0.05em;
   font-weight: 100;
   font-family: 'Futura PT';
 `;
