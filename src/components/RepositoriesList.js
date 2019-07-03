@@ -1,26 +1,18 @@
-import React, { useMemo } from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
 import styled from '@emotion/styled';
-import { sortBy } from 'lodash';
 
 import RepositoryCard from './RepositoryCard';
 
-const sortRepos = repos =>
-  sortBy(repos, repo => 0 - repo.currentPeriodStars || 0);
-
-const RepositoriesList = ({ repositories }) => {
-  const sortedRepos = useMemo(() => sortRepos(repositories), [repositories]);
-
-  return (
-    <List>
-      {sortedRepos.map(rep => (
-        <Card key={rep.url}>
-          <RepositoryCard {...rep} />
-        </Card>
-      ))}
-    </List>
-  );
-};
+const RepositoriesList = ({ repositories }) => (
+  <List>
+    {repositories.map(rep => (
+      <Card key={rep.url}>
+        <RepositoryCard {...rep} />
+      </Card>
+    ))}
+  </List>
+);
 
 RepositoriesList.propTypes = {
   repositories: PropTypes.array,
