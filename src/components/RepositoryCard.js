@@ -179,7 +179,6 @@ const CurrentStar = styled.div`
   font-size: 40px;
   line-height: 1;
   color: rgba(0, 0, 0, 0.38);
-  letter-spacing: -0.05em;
   font-weight: 100;
   font-family: 'Futura PT';
 `;

@@ -1,8 +1,9 @@
 /** @jsx jsx */
-import { useState } from 'react';
+import { useState, useEffect, useCallback } from 'react';
 import styled from '@emotion/styled';
 import { css, jsx } from '@emotion/core';
 import PropTypes from 'prop-types';
+import { useTransition, animated } from 'react-spring';
 
 import RepositoryCard from './RepositoryCard';
 import ContentPlaceholder from './ContentPlaceholder';
@@ -14,28 +15,40 @@ const RepositoriesList = ({ repositories, isLoading }) => {
     getRandomRepositories(repositories)
   );
 
-  const changeRandom = () => {
+  const changeRandom = useCallback(() => {
     const newRandom = getRandomRepositories(repositories);
     setRandom(newRandom);
-  };
+  }, [repositories]);
+
+  useEffect(() => {
+    changeRandom();
+  }, [changeRandom]);
+
+  const transitions = useTransition(random, item => item.url, {
+    from: { opacity: 0 },
+    enter: { opacity: 1 },
+    leave: { position: 'absolute', opacity: 0 },
+  });
 
   return (
     <Container>
-      <Section>
-        <Title>I’m Feeling Lucky</Title>
-        {isLoading ? (
-          <ContentPlaceholder />
-        ) : (
+      {random ? (
+        <Section>
+          <Title isLoading={isLoading}>I’m Feeling Lucky</Title>
           <div
             css={css`
               position: relative;
             `}
           >
-            <List>
-              <Card key={random.url}>
-                <RepositoryCard {...random} />
-              </Card>
-            </List>
+            {transitions.map(({ item, props, key }) => (
+              <animated.div key={key} style={props}>
+                <List>
+                  <Card>
+                    <RepositoryCard {...item} />
+                  </Card>
+                </List>
+              </animated.div>
+            ))}
             <svg
               width={16}
               height={14}
@@ -52,10 +65,10 @@ const RepositoriesList = ({ repositories, isLoading }) => {
               <path d="M3.842 5.482l1.329-1.519L3.454 2H0v2h2.546zM12 10h-1.546L9.158 8.519l-1.329 1.519L9.546 12H12v2l4-3-4-3zm0-6v2l4-3-4-3v2H9.546l-7 8H0v2h3.454l7-8z" />
             </svg>
           </div>
-        )}
-      </Section>
+        </Section>
+      ) : null}
       <Section>
-        <Title>Trending Repositories</Title>
+        <Title isLoading={isLoading}>Trending Repositories</Title>
         {isLoading ? (
           <ContentPlaceholder size={10} />
         ) : (
@@ -104,7 +117,8 @@ const Title = styled.h1`
   font-family: 'Futura PT';
   margin-bottom: 16px;
   font-size: 20px;
-  color: rgba(0, 0, 0, 0.87);
+  transition: color 0.2s ease-in-out;
+  color: rgba(0, 0, 0, ${props => (props.isLoading ? '0.32' : '0.87')});
 `;
 
 const List = styled.div`
@@ -112,6 +126,7 @@ const List = styled.div`
   border-radius: 5px;
   overflow: hidden;
   box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.1);
+  min-height: 120px;
 `;
 
 const Card = styled.div`
