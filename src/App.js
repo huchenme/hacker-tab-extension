@@ -6,15 +6,7 @@ import Button from '@atlaskit/button';
 import { AutoDismissFlag, FlagGroup } from '@atlaskit/flag';
 import Warning from '@atlaskit/icon/glyph/warning';
 
-import {
-  TopBar,
-  Footer,
-  RepositoriesList,
-  EmptyState,
-  ContentPlaceholder,
-} from './components';
-
-import { getRandomRepositories, findLanguage } from './helpers/github';
+import { TopBar, Footer, RepositoriesList, EmptyState } from './components';
 
 import { useCheckLocalStorageSchema, useRepositories } from './hooks';
 
@@ -77,7 +69,6 @@ const App = () => {
       </FlagGroup>
       <TopBarContainer>
         <TopBar
-          luckyRepository={getRandomRepositories(repositories)}
           onChangeLanguage={setSelectedLanguage}
           selectedLanguage={selectedLanguage}
           onChangePeriod={setSelectedPeriod}
@@ -91,12 +82,7 @@ const App = () => {
           min-height: calc(100vh - 161px - 56px);
         `}
       >
-        {isLoading ? (
-          <Center>
-            <Title>{findLanguage(selectedLanguage).label}</Title>
-            <ContentPlaceholder size={10} />
-          </Center>
-        ) : isEmpty ? (
+        {!isLoading && isEmpty ? (
           <div
             css={css`
               padding-top: 96px;
@@ -105,10 +91,11 @@ const App = () => {
             <EmptyState />
           </div>
         ) : (
-          <Center>
-            <Title>{findLanguage(selectedLanguage).label}</Title>
-            <RepositoriesList repositories={repositories} />
-          </Center>
+          <RepositoriesList
+            isLoading={isLoading}
+            repositories={repositories}
+            selectedLanguage={selectedLanguage}
+          />
         )}
       </div>
       <Footer />
@@ -124,20 +111,4 @@ const TopBarContainer = styled.div`
   top: 0;
   width: 100%;
   z-index: 20;
-`;
-
-const Title = styled.h1`
-  text-align: center;
-  font-size: 32px;
-  line-height: 1.4;
-  font-weight: 600;
-  margin-top: 48px;
-  margin-bottom: 8px;
-  color: rgba(0, 0, 0, 0.54);
-  font-family: 'Futura PT';
-`;
-
-const Center = styled.div`
-  margin: 0 auto;
-  width: 720px;
 `;

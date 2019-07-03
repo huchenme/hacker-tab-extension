@@ -176,7 +176,7 @@ const CurrentStar = styled.div`
   position: relative;
   left: -4px;
   top: 4px;
-  font-size: 48px;
+  font-size: 40px;
   line-height: 1;
   color: rgba(0, 0, 0, 0.38);
   letter-spacing: -0.05em;
