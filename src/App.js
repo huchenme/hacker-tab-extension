@@ -2,11 +2,15 @@
 import { useState, useEffect } from 'react';
 import styled from '@emotion/styled';
 import { css, jsx } from '@emotion/core';
-import Button from '@atlaskit/button';
-import { AutoDismissFlag, FlagGroup } from '@atlaskit/flag';
-import Warning from '@atlaskit/icon/glyph/warning';
+import { useTransition, animated } from 'react-spring';
 
-import { TopBar, Footer, RepositoriesList, EmptyState } from './components';
+import {
+  TopBar,
+  Footer,
+  RepositoriesList,
+  EmptyState,
+  NetworkError,
+} from './components';
 
 import { useCheckLocalStorageSchema, useRepositories } from './hooks';
 
@@ -32,6 +36,12 @@ const App = () => {
     setShowError(!!error);
   }, [error]);
 
+  const transitions = useTransition(showError, null, {
+    from: { opacity: 0 },
+    enter: { opacity: 1 },
+    leave: { opacity: 0 },
+  });
+
   return (
     <div
       css={css`
@@ -42,31 +52,6 @@ const App = () => {
         -webkit-font-smoothing: antialiased;
       `}
     >
-      <FlagGroup onDismissed={() => setShowError(false)}>
-        {showError ? (
-          <AutoDismissFlag
-            id="NETWORK_ERROR"
-            appearance="warning"
-            icon={<Warning label="Warning icon" secondaryColor="#FFC400" />}
-            title={
-              <span>
-                Error loading content
-                {!isLoading ? (
-                  <Button
-                    appearance="link"
-                    onClick={() => {
-                      setShowError(false);
-                      reload();
-                    }}
-                  >
-                    Refresh
-                  </Button>
-                ) : null}
-              </span>
-            }
-          />
-        ) : null}
-      </FlagGroup>
       <TopBarContainer>
         <TopBar
           onChangeLanguage={setSelectedLanguage}
@@ -82,6 +67,29 @@ const App = () => {
           min-height: calc(100vh - 161px - 56px);
         `}
       >
+        {transitions.map(
+          ({ item, key, props }) =>
+            item && (
+              <animated.div key={key} style={props}>
+                <div
+                  css={css`
+                    margin: 0 auto;
+                    width: 720px;
+                    padding-top: 16px;
+                  `}
+                >
+                  <NetworkError
+                    onClose={() => setShowError(false)}
+                    onReload={() => {
+                      setShowError(false);
+                      reload();
+                    }}
+                  />
+                </div>
+              </animated.div>
+            )
+        )}
+
         {!isLoading && isEmpty ? (
           <div
             css={css`

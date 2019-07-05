@@ -7,6 +7,7 @@ import { useTransition, animated } from 'react-spring';
 
 import RepositoryCard from './RepositoryCard';
 import ContentPlaceholder from './ContentPlaceholder';
+import { ReactComponent as RandomIcon } from '../images/random.svg';
 
 import { getRandomRepositories } from '../helpers/github';
 
@@ -49,21 +50,22 @@ const RepositoriesList = ({ repositories, isLoading }) => {
                 </List>
               </animated.div>
             ))}
-            <svg
-              width={16}
-              height={14}
+            <RandomIcon
               css={css`
                 position: absolute;
                 right: 0;
                 top: 50%;
                 transform: translate(calc(100% + 20px), -50%);
                 cursor: pointer;
-                fill: #757575;
+                fill: #aaa;
+                transition: fill 0.3s;
+
+                &:hover {
+                  fill: #777;
+                }
               `}
               onClick={changeRandom}
-            >
-              <path d="M3.842 5.482l1.329-1.519L3.454 2H0v2h2.546zM12 10h-1.546L9.158 8.519l-1.329 1.519L9.546 12H12v2l4-3-4-3zm0-6v2l4-3-4-3v2H9.546l-7 8H0v2h3.454l7-8z" />
-            </svg>
+            />
           </div>
         </Section>
       ) : null}
