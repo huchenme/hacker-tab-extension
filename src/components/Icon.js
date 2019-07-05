@@ -14,6 +14,7 @@ export default function Icon({
   secondaryColor = '#fff',
   label,
   size = 'medium',
+  onClick,
 }) {
   const getSize = size
     ? css`
@@ -25,13 +26,14 @@ export default function Icon({
   return (
     <Glyph
       aria-label={label}
+      onClick={onClick}
       css={css`
         ${getSize};
         color: ${primaryColor};
-        display: inline-block;
         fill: ${secondaryColor};
         flex-shrink: 0;
         line-height: 1;
+        cursor: ${onClick ? 'pointer' : 'default'};
       `}
     />
   );
