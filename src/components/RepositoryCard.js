@@ -2,10 +2,11 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import styled from '@emotion/styled';
 
-import StarFilledIcon from '@atlaskit/icon/glyph/star-filled';
-import BitbucketForksIcon from '@atlaskit/icon/glyph/bitbucket/forks';
-import BitbucketReposIcon from '@atlaskit/icon/glyph/bitbucket/repos';
+import { ReactComponent as StarFilledIcon } from '../images/star-filled.svg';
+import { ReactComponent as BitbucketForksIcon } from '../images/forks.svg';
+import { ReactComponent as BitbucketReposIcon } from '../images/repos.svg';
 
+import Icon from './Icon';
 import InfoItem from './InfoItem';
 
 import { getRefUrl, getAvatarString } from '../helpers/github';
@@ -21,7 +22,7 @@ const RepositoryCard = props => (
       <AdditionalInfo>
         <AdditionalInfoSection>
           <AdditionalInfoItem>
-            <InfoItem icon={<BitbucketReposIcon label="Author" />}>
+            <InfoItem icon={<Icon glyph={BitbucketReposIcon} />}>
               {props.author}
             </InfoItem>
           </AdditionalInfoItem>
@@ -33,12 +34,12 @@ const RepositoryCard = props => (
             </AdditionalInfoItem>
           ) : null}
           <AdditionalInfoItem>
-            <InfoItem icon={<StarFilledIcon label="Stars" />}>
+            <InfoItem icon={<Icon glyph={StarFilledIcon} />}>
               {props.stars.toLocaleString()}
             </InfoItem>
           </AdditionalInfoItem>
           <AdditionalInfoItem>
-            <InfoItem icon={<BitbucketForksIcon label="Forks" />}>
+            <InfoItem icon={<Icon glyph={BitbucketForksIcon} />}>
               {props.forks.toLocaleString()}
             </InfoItem>
           </AdditionalInfoItem>

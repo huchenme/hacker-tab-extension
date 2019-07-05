@@ -12,9 +12,6 @@
   ],
   "main": "src/index.js",
   "dependencies": {
-    "@atlaskit/button": "^13.0.9",
-    "@atlaskit/flag": "^12.0.10",
-    "@atlaskit/icon": "^19.0.0",
     "@atlaskit/select": "^9.1.8",
     "@emotion/core": "^10.0.14",
     "@emotion/styled": "^10.0.14",
