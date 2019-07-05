@@ -11,3 +11,5 @@ export { default as Popup } from './Popup';
 export { default as ContentPlaceholder } from './ContentPlaceholder';
 export { default as Icon } from './Icon';
 export { default as NetworkError } from './NetworkError';
+export { default as ScrollTop } from './ScrollTop';
+export { default as Fade } from './Fade';

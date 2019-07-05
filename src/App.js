@@ -2,7 +2,6 @@
 import { useState, useEffect } from 'react';
 import styled from '@emotion/styled';
 import { css, jsx } from '@emotion/core';
-import { useTransition, animated } from 'react-spring';
 
 import {
   TopBar,
@@ -10,6 +9,8 @@ import {
   RepositoriesList,
   EmptyState,
   NetworkError,
+  ScrollTop,
+  Fade,
 } from './components';
 
 import { useCheckLocalStorageSchema, useRepositories } from './hooks';
@@ -36,12 +37,6 @@ const App = () => {
     setShowError(!!error);
   }, [error]);
 
-  const transitions = useTransition(showError, null, {
-    from: { opacity: 0 },
-    enter: { opacity: 1 },
-    leave: { opacity: 0 },
-  });
-
   return (
     <div
       css={css`
@@ -67,29 +62,23 @@ const App = () => {
           min-height: calc(100vh - 161px - 56px);
         `}
       >
-        {transitions.map(
-          ({ item, key, props }) =>
-            item && (
-              <animated.div key={key} style={props}>
-                <div
-                  css={css`
-                    margin: 0 auto;
-                    width: 720px;
-                    padding-top: 16px;
-                  `}
-                >
-                  <NetworkError
-                    onClose={() => setShowError(false)}
-                    onReload={() => {
-                      setShowError(false);
-                      reload();
-                    }}
-                  />
-                </div>
-              </animated.div>
-            )
-        )}
-
+        <Fade show={showError}>
+          <div
+            css={css`
+              margin: 0 auto;
+              width: 720px;
+              padding-top: 16px;
+            `}
+          >
+            <NetworkError
+              onClose={() => setShowError(false)}
+              onReload={() => {
+                setShowError(false);
+                reload();
+              }}
+            />
+          </div>
+        </Fade>
         {!isLoading && isEmpty ? (
           <div
             css={css`
@@ -103,6 +92,18 @@ const App = () => {
         )}
       </div>
       <Footer />
+      <div
+        css={css`
+          position: fixed;
+          right: 40px;
+          bottom: 40px;
+          opacity: 0.5;
+          height: 24px;
+          width: 24px;
+        `}
+      >
+        <ScrollTop />
+      </div>
     </div>
   );
 };
