@@ -7,7 +7,8 @@ const PeriodSelect = ({ onChange, selectedValue }) => {
   return (
     <Select
       styles={{
-        control: base => ({ ...base, backgroundColor: '#EBECF0' }),
+        control: base => ({ ...base, backgroundColor: '#eeeeee', borderColor: '#393e46', borderRadius: '5px' }),
+        color: '#d65a31'
       }}
       isSearchable={false}
       value={findPeriod(selectedValue)}

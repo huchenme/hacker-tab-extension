@@ -29,7 +29,7 @@ const TopBar = ({
         <Logo
           height={40}
           width={40}
-          fill="currentColor"
+          fill="white"
           css={css`
             position: absolute;
             left: 10px;
@@ -68,7 +68,7 @@ const Container = styled.div`
   position: relative;
   justify-content: center;
   align-items: center;
-  background-color: white;
+  background-color: #222831;
   padding: 0 16px;
   height: 56px;
   box-shadow: 0px 4px 5px 0px rgba(0, 0, 0, 0.14),
@@ -78,7 +78,7 @@ const Container = styled.div`
 const SelectWrapper = styled.div`
   width: ${props => (props.width ? props.width : 150)}px;
   margin-right: 24px;
-
+  border-color: #393e46;
   &:last-of-type {
     margin-right: 0;
   }

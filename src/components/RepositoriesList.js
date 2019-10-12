@@ -74,14 +74,14 @@ const RepositoriesList = ({ repositories, isLoading }) => {
         {isLoading ? (
           <ContentPlaceholder size={10} />
         ) : (
-          <List>
-            {repositories.map(rep => (
-              <Card key={rep.url}>
-                <RepositoryCard {...rep} />
-              </Card>
-            ))}
-          </List>
-        )}
+            <List>
+              {repositories.map(rep => (
+                <Card key={rep.url}>
+                  <RepositoryCard {...rep} />
+                </Card>
+              ))}
+            </List>
+          )}
       </Section>
     </Container>
   );
@@ -119,12 +119,11 @@ const Title = styled.h1`
   font-family: 'Futura PT';
   margin-bottom: 16px;
   font-size: 20px;
-  transition: color 0.2s ease-in-out;
-  color: rgba(0, 0, 0, ${props => (props.isLoading ? '0.32' : '0.87')});
+  color: #eeeeee;
 `;
 
 const List = styled.div`
-  background-color: #fff;
+  background-color: #f9f9f9;
   border-radius: 5px;
   overflow: hidden;
   box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.1);
