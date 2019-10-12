@@ -6,7 +6,7 @@ import { languages, findLanguage } from '../helpers/github';
 const LanguageSelect = ({ onChange, selectedValue }) => (
   <Select
     styles={{
-      control: base => ({ ...base, backgroundColor: '#EBECF0' }),
+      control: base => ({ ...base, backgroundColor: '#eeeeee', borderColor: '#393e46', borderRadius: '5px' }),
     }}
     value={findLanguage(selectedValue)}
     onChange={({ value }) => onChange(value)}

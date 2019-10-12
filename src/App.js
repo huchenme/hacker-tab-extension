@@ -40,7 +40,7 @@ const App = () => {
   return (
     <div
       css={css`
-        background-color: #eee;
+        background-color: #393e46;
         position: relative;
         min-height: 100vh;
         text-rendering: optimizeLegibility;
@@ -88,8 +88,8 @@ const App = () => {
             <EmptyState />
           </div>
         ) : (
-          <RepositoriesList isLoading={isLoading} repositories={repositories} />
-        )}
+            <RepositoriesList isLoading={isLoading} repositories={repositories} />
+          )}
       </div>
       <Footer />
       <div
