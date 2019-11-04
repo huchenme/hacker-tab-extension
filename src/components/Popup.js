@@ -7,47 +7,53 @@ import { Transition } from 'react-spring/renderprops.cjs';
 import ClickAwayListener from './ClickAwayListener';
 
 export class Popup extends React.Component {
-  constructor(props) {
-    super(props);
+  state = { isOpen: false };
 
-    this.state = {
-      isOpen: Boolean(props.isOpen),
-    };
-
-    this.isControlled = props.isOpen !== undefined;
+  isControlled(prop) {
+    return this.props[prop] !== undefined;
   }
 
-  componentWillReceiveProps(nextProps) {
-    /* istanbul ignore else */
-    if (this.isControlled) {
-      this.setState({
-        isOpen: nextProps.isOpen,
-      });
-    }
+  getState() {
+    return Object.entries(this.state).reduce((combinedState, [key, value]) => {
+      if (this.isControlled(key)) {
+        combinedState[key] = this.props[key];
+      } else {
+        combinedState[key] = value;
+      }
+      return combinedState;
+    }, {});
   }
 
   handleToggle = () => {
-    if (!this.isControlled) {
-      this.setState(state => ({
-        isOpen: !state.isOpen,
-      }));
+    if (this.isControlled('isOpen')) {
+      this.dispatchOnToggle(!this.getState().isOpen);
+    } else {
+      this.setState(
+        ({ isOpen }) => ({ isOpen: !isOpen }),
+        () => {
+          this.dispatchOnToggle(this.getState().isOpen);
+        }
+      );
     }
-
-    this.dispatchOnToggle(!this.state.isOpen);
   };
 
   handleClose = () => {
-    if (!this.isControlled) {
-      this.setState({ isOpen: false });
+    if (this.isControlled('isOpen')) {
+      this.dispatchOnToggle(false);
+    } else {
+      this.setState(
+        ({ isOpen }) => ({ isOpen: false }),
+        () => {
+          this.dispatchOnToggle(false);
+        }
+      );
     }
-
-    this.dispatchOnToggle(false);
   };
 
   handleClickAway = e => {
     /* istanbul ignore else */
-    if (this.state.isOpen) {
-      if (!this.isControlled && this.props.closeOnOutsideClick) {
+    if (this.getState().isOpen) {
+      if (!this.isControlled('isOpen') && this.props.closeOnOutsideClick) {
         this.setState({ isOpen: false });
       }
 
@@ -73,7 +79,7 @@ export class Popup extends React.Component {
               children({
                 ref,
                 toggle: this.handleToggle,
-                isOpen: this.state.isOpen,
+                isOpen: this.getState().isOpen,
               })
             }
           </Reference>
@@ -81,7 +87,7 @@ export class Popup extends React.Component {
             <Popper positionFixed placement={popupPlacement}>
               {({ ref, style: popperStyles, ...otherPopperProps }) => (
                 <Transition
-                  items={this.state.isOpen}
+                  items={this.getState().isOpen}
                   config={
                     /* istanbul ignore next */ () => key =>
                       key === 'opacity'
