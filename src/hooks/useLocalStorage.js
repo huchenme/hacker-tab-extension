@@ -5,10 +5,12 @@ const useLocalStorage = (key, initialValue, raw) => {
     try {
       const localStorageValue = localStorage.getItem(key);
       if (typeof localStorageValue !== 'string') {
-        localStorage.setItem(
-          key,
-          raw ? String(initialValue) : JSON.stringify(initialValue)
-        );
+        if (initialValue !== undefined) {
+          localStorage.setItem(
+            key,
+            raw ? String(initialValue) : JSON.stringify(initialValue)
+          );
+        }
         return initialValue;
       } else {
         return raw

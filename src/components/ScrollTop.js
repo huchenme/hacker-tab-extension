@@ -8,7 +8,7 @@ import Fade from './Fade';
 import { ReactComponent as TopIcon } from '../images/top.svg';
 import Icon from './Icon';
 
-export default function ScrollTop() {
+export default function ScrollTop(props) {
   const [, setY] = useSpring(() => ({ y: 0 }));
   const { y } = useWindowScroll();
   const [show, setShow] = useState(false);
@@ -34,11 +34,12 @@ export default function ScrollTop() {
     <Fade
       show={show}
       css={css`
-        position: absolute;
         font-size: 0;
       `}
     >
-      <Icon glyph={TopIcon} primaryColor="#3f3f3f" onClick={scrollTop} />
+      <button onClick={scrollTop} {...props}>
+        <Icon glyph={TopIcon} />
+      </button>
     </Fade>
   );
 }

@@ -1,8 +1,10 @@
 /** @jsx jsx */
 import React from 'react';
 import { css, jsx } from '@emotion/core';
+import { useTheme } from 'emotion-theming';
 
 export default function InfoItem({ children, icon }) {
+  const theme = useTheme();
   return (
     <div
       css={css`
@@ -20,7 +22,7 @@ export default function InfoItem({ children, icon }) {
         >
           {React.cloneElement(icon, {
             size: 'small',
-            primaryColor: '#757575',
+            primaryColor: theme.card.additional,
           })}
         </div>
       ) : null}

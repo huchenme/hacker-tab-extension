@@ -9,7 +9,7 @@
     <title>New Tab</title>
     <style>
       body {
-        background-color: rgb(238, 238, 238);
+        background-color: #eee;
       }
 
       .logo-container {
@@ -29,6 +29,16 @@
         background-image: url('512.png');
         background-repeat: no-repeat;
         background-size: 100%;
+      }
+
+      @media (prefers-color-scheme: dark) {
+        body {
+          background-color: #121212;
+        }
+
+        .logo {
+          background-image: url('512_dark.png');
+        }
       }
     </style>
     <script src="./ga.js"></script>

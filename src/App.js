@@ -2,6 +2,9 @@
 import { useState, useEffect } from 'react';
 import styled from '@emotion/styled';
 import { css, jsx } from '@emotion/core';
+import { ThemeProvider } from 'emotion-theming';
+import { ReactComponent as MoonIcon } from './images/moon.svg';
+import { ReactComponent as SunIcon } from './images/sun.svg';
 
 import {
   TopBar,
@@ -13,11 +16,20 @@ import {
   Fade,
 } from './components';
 
-import { useCheckLocalStorageSchema, useRepositories } from './hooks';
+import {
+  useCheckLocalStorageSchema,
+  useRepositories,
+  useDarkMode,
+} from './hooks';
+import { themeLight, themeDark } from './theme';
 
 const App = () => {
   // Clear local storage is schema version not match
   useCheckLocalStorageSchema();
+
+  const [isDark, setIsDark] = useDarkMode(
+    window.matchMedia('(prefers-color-scheme: dark)').matches
+  );
 
   const {
     isLoading,
@@ -38,73 +50,109 @@ const App = () => {
   }, [error]);
 
   return (
-    <div
-      css={css`
-        background-color: #eee;
-        position: relative;
-        min-height: 100vh;
-        text-rendering: optimizeLegibility;
-        -webkit-font-smoothing: antialiased;
-      `}
-    >
-      <TopBarContainer>
-        <TopBar
-          onChangeLanguage={setSelectedLanguage}
-          selectedLanguage={selectedLanguage}
-          onChangePeriod={setSelectedPeriod}
-          selectedPeriod={selectedPeriod}
-        />
-      </TopBarContainer>
+    <ThemeProvider theme={isDark ? themeDark : themeLight}>
       <div
-        css={css`
+        css={theme => css`
+          background-color: ${theme.bg};
+          transition: background-color ${theme.transition};
           position: relative;
-          padding-top: 56px;
-          min-height: calc(100vh - 161px - 56px);
+          min-height: 100vh;
+          text-rendering: optimizeLegibility;
+          -webkit-font-smoothing: antialiased;
         `}
       >
-        <Fade show={showError}>
+        <TopBarContainer>
+          <TopBar
+            onChangeLanguage={setSelectedLanguage}
+            selectedLanguage={selectedLanguage}
+            onChangePeriod={setSelectedPeriod}
+            selectedPeriod={selectedPeriod}
+          />
+        </TopBarContainer>
+        <div
+          css={css`
+            position: relative;
+            padding-top: 56px;
+            min-height: calc(100vh - 161px - 56px);
+          `}
+        >
+          <Fade show={showError}>
+            <div
+              css={css`
+                margin: 0 auto;
+                width: 720px;
+                padding-top: 16px;
+              `}
+            >
+              <NetworkError
+                onClose={() => setShowError(false)}
+                onReload={() => {
+                  setShowError(false);
+                  reload();
+                }}
+              />
+            </div>
+          </Fade>
+          {!isLoading && isEmpty ? (
+            <div
+              css={css`
+                padding-top: 96px;
+              `}
+            >
+              <EmptyState />
+            </div>
+          ) : (
+            <RepositoriesList
+              isLoading={isLoading}
+              repositories={repositories}
+            />
+          )}
+        </div>
+        <Footer />
+        <div
+          css={css`
+            position: fixed;
+            right: 40px;
+            bottom: 40px;
+            display: flex;
+          `}
+        >
           <div
             css={css`
-              margin: 0 auto;
-              width: 720px;
-              padding-top: 16px;
+              opacity: 0.5;
             `}
           >
-            <NetworkError
-              onClose={() => setShowError(false)}
-              onReload={() => {
-                setShowError(false);
-                reload();
-              }}
+            <ScrollTop
+              css={actionButtonStyle}
+              aria-label="Scroll to Top Button"
             />
           </div>
-        </Fade>
-        {!isLoading && isEmpty ? (
-          <div
-            css={css`
-              padding-top: 96px;
-            `}
+          <button
+            css={actionButtonStyle}
+            onClick={() => {
+              setIsDark(!isDark);
+            }}
+            aria-label="Toggle Dark Mode Button"
           >
-            <EmptyState />
-          </div>
-        ) : (
-          <RepositoriesList isLoading={isLoading} repositories={repositories} />
-        )}
+            {isDark ? (
+              <SunIcon
+                aria-label="Sun Icon"
+                css={css`
+                  fill: currentColor;
+                `}
+              />
+            ) : (
+              <MoonIcon
+                aria-label="Moon Icon"
+                css={css`
+                  fill: currentColor;
+                `}
+              />
+            )}
+          </button>
+        </div>
       </div>
-      <Footer />
-      <div
-        css={css`
-          position: fixed;
-          right: 40px;
-          bottom: 40px;
-          opacity: 0.5;
-          height: 24px;
-          width: 24px;
-        `}
-      >
-        <ScrollTop />
-      </div>
-    </div>
+    </ThemeProvider>
   );
 };
 
@@ -116,4 +164,18 @@ const TopBarContainer = styled.div`
   top: 0;
   width: 100%;
   z-index: 20;
+`;
+
+const actionButtonStyle = theme => css`
+  background-color: transparent;
+  transition: color 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+  cursor: pointer;
+  border: none;
+  height: 40px;
+  width: 40px;
+  outline: none;
+  color: ${theme.icon.color};
+  &:hover {
+    color: ${theme.icon.hoverColor};
+  }
 `;

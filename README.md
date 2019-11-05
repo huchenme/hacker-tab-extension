@@ -8,6 +8,8 @@
 
 Hacker Tab replace browser new tab screen with GitHub trending projects, so that developer get to know trending repositories everyday. It loads trending project periodically in background so you do not need to wait for loading every time you open a new tab.
 
+![screenshot](./images/1280x800_dark.jpg)
+
 ![screenshot](./images/1280x800.jpg)
 
 ## Install

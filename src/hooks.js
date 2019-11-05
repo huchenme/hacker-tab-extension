@@ -9,6 +9,7 @@ import {
   KEY_SELECTED_LANGUAGE,
   KEY_SELECTED_PERIOD,
   KEY_SCHEMA_VERSION,
+  KEY_DARK_MODE,
   CURRENT_SCHEMA_VERSION,
 } from './helpers/localStorage';
 
@@ -97,6 +98,10 @@ export const useSelectedLanguage = () =>
 
 export const useSelectedPeriod = () =>
   useLocalStorage(KEY_SELECTED_PERIOD, 'daily');
+
+export const useDarkMode = initialValue => {
+  return useLocalStorage(KEY_DARK_MODE, initialValue);
+};
 
 export const useCheckLocalStorageSchema = () => {
   const [schemaVersion, setSchemaVersion] = useLocalStorage(KEY_SCHEMA_VERSION);

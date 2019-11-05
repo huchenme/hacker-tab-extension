@@ -15,41 +15,50 @@ const TopBar = ({
 }) => {
   return (
     <Container>
-      <a
-        href="https://github.com/huchenme/hacker-tab-extension"
+      <div
         css={css`
-          color: rgba(0, 0, 0, 0.38);
-          transition: color 0.5s ease-out;
-
-          &:hover {
-            color: rgba(0, 0, 0);
-          }
+          max-width: 1366px;
+          display: flex;
+          margin: 0 auto;
+          width: 100%;
+          box-sizing: border-box;
+          align-items: center;
+          justify-content: space-between;
         `}
       >
-        <Logo
-          height={40}
-          width={40}
-          fill="currentColor"
-          css={css`
-            position: absolute;
-            left: 10px;
-            top: 50%;
-            transform: translate(0, -50%);
+        <a
+          href="https://github.com/huchenme/hacker-tab-extension"
+          css={theme => css`
+            display: block;
+            color: ${theme.rgba(0.38)};
+            transition: color 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+
+            &:hover {
+              color: ${theme.rgba(1)};
+            }
           `}
-        />
-      </a>
-      <SelectWrapper>
-        <LanguageSelect
-          selectedValue={selectedLanguage}
-          onChange={onChangeLanguage}
-        />
-      </SelectWrapper>
-      <SelectWrapper width={180}>
-        <PeriodSelect
-          selectedValue={selectedPeriod}
-          onChange={onChangePeriod}
-        />
-      </SelectWrapper>
+        >
+          <Logo height={40} width={40} fill="currentColor" />
+        </a>
+        <div
+          css={css`
+            display: flex;
+          `}
+        >
+          <SelectWrapper>
+            <LanguageSelect
+              selectedValue={selectedLanguage}
+              onChange={onChangeLanguage}
+            />
+          </SelectWrapper>
+          <SelectWrapper width={180}>
+            <PeriodSelect
+              selectedValue={selectedPeriod}
+              onChange={onChangePeriod}
+            />
+          </SelectWrapper>
+        </div>
+      </div>
     </Container>
   );
 };
@@ -65,14 +74,14 @@ export default React.memo(TopBar);
 
 const Container = styled.div`
   display: flex;
-  position: relative;
-  justify-content: center;
   align-items: center;
-  background-color: white;
+  position: relative;
+  background-color: ${props => props.theme.topBar.bg};
   padding: 0 16px;
   height: 56px;
   box-shadow: 0px 4px 5px 0px rgba(0, 0, 0, 0.14),
     0px 1px 10px 0px rgba(0, 0, 0, 0.12);
+  transition: background-color ${props => props.theme.transition};
 `;
 
 const SelectWrapper = styled.div`

@@ -1,13 +1,10 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import Select from '@atlaskit/select';
 import { languages, findLanguage } from '../helpers/github';
+import Select from './Select';
 
 const LanguageSelect = ({ onChange, selectedValue }) => (
   <Select
-    styles={{
-      control: base => ({ ...base, backgroundColor: '#EBECF0' }),
-    }}
     value={findLanguage(selectedValue)}
     onChange={({ value }) => onChange(value)}
     options={languages}

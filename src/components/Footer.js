@@ -2,10 +2,12 @@
 import { useState } from 'react';
 import styled from '@emotion/styled';
 import { css, jsx } from '@emotion/core';
+import { useTheme } from 'emotion-theming';
 import { ReactComponent as HeartIcon } from '../images/heart.svg';
 
 export default function InfoItem({ children, icon }) {
   const [showEmail, setShowEmail] = useState(false);
+  const theme = useTheme();
 
   return (
     <div
@@ -13,13 +15,14 @@ export default function InfoItem({ children, icon }) {
         max-width: 1366px;
         margin: 0 auto;
         padding: 48px 0;
+        margin-top: 32px;
       `}
     >
       <Row>
         <div
-          css={css`
-            font-size: 14px;
-            color: #aaa;
+          css={theme => css`
+            font-size: 16px;
+            color: ${theme.footer.text};
             display: flex;
             align-items: center;
           `}
@@ -31,7 +34,7 @@ export default function InfoItem({ children, icon }) {
             `}
             height={16}
             width={16}
-            fill="#ED2939"
+            fill={theme.footer.heart}
           />
           <span>in Singapore.</span>
         </div>
@@ -41,7 +44,13 @@ export default function InfoItem({ children, icon }) {
           {showEmail ? 'chen@huchen.dev' : 'Send Feedback'}
         </StyleFeedback>
         <div
-          css={link}
+          css={theme => css`
+            ${link};
+            color: ${theme.footer.link};
+            &:hover {
+              color: ${theme.footer.linkHover};
+            }
+          `}
           onClick={() => {
             const confirm = window.confirm(
               'Clear cache will clear your selected language and settings.'
@@ -53,7 +62,16 @@ export default function InfoItem({ children, icon }) {
         >
           Clear Cache
         </div>
-        <a css={link} href="https://github.com/huchenme/hacker-tab-extension">
+        <a
+          css={theme => css`
+            ${link};
+            color: ${theme.footer.link};
+            &:hover {
+              color: ${theme.footer.linkHover};
+            }
+          `}
+          href="https://github.com/huchenme/hacker-tab-extension"
+        >
           GitHub
         </a>
       </Row>
@@ -72,16 +90,11 @@ const Row = styled.div`
 `;
 
 const link = css`
-  color: #aaa;
   margin-right: 24px;
   transition: color 0.3s;
   cursor: pointer;
   font-size: 14px;
   text-decoration: underline;
-
-  &:hover {
-    color: #777;
-  }
 
   &:last-child {
     margin: 0;
@@ -90,10 +103,14 @@ const link = css`
 
 const StyleFeedback = styled.div`
   ${link};
-  color: ${props => (props.showEmail ? '#0052CC' : '#aaa')};
+  color: ${props =>
+    props.showEmail ? props.theme.footer.email : props.theme.footer.link};
   cursor: ${props => (props.showEmail ? 'auto' : 'pointer')};
 
   &:hover {
-    color: ${props => (props.showEmail ? '#0052CC' : '#777')};
+    color: ${props =>
+      props.showEmail
+        ? props.theme.footer.email
+        : props.theme.footer.linkHover};
   }
 `;

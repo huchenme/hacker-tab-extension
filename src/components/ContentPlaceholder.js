@@ -12,34 +12,30 @@ const placeHolderShimmer = keyframes`
   }
 `;
 
-const placeholderStyle = css`
-  display: inline-block;
-  border-radius: 5px;
-  animation-duration: 1.5s;
-  animation-fill-mode: forwards;
-  animation-iteration-count: infinite;
-  animation-name: ${placeHolderShimmer};
-  animation-timing-function: linear;
-  background-size: 800px 104px;
-  height: inherit;
-  position: relative;
-  ${linearGradient({
-    colorStops: [
-      'rgba(0,0,0,0.03) 8%',
-      'rgba(0,0,0,0.07) 18%',
-      'rgba(0,0,0,0.03) 33%',
-    ],
-    toDirection: 'to right',
-    fallback: '#f6f7f8',
-  })}
-`;
-
 const Placeholder = props => (
   <div
-    css={css`
-      ${placeholderStyle};
+    css={theme => css`
       width: 100%;
       display: inline-block;
+      display: inline-block;
+      border-radius: 5px;
+      animation-duration: 1.5s;
+      animation-fill-mode: forwards;
+      animation-iteration-count: infinite;
+      animation-name: ${placeHolderShimmer};
+      animation-timing-function: linear;
+      background-size: 800px 104px;
+      height: inherit;
+      position: relative;
+      ${linearGradient({
+        colorStops: [
+          `${theme.loader.stop1} 8%`,
+          `${theme.loader.stop2} 18%`,
+          `${theme.loader.stop3} 33%`,
+        ],
+        toDirection: 'to right',
+        fallback: theme.loader.fallback,
+      })}
     `}
     {...props}
   >
@@ -110,11 +106,11 @@ const PlaceholderCard = props => (
 const ContentPlaceholder = ({ size = 1 }) => {
   return (
     <div
-      css={css`
-        background: white;
+      css={theme => css`
+        background: ${theme.card.bg};
         border-radius: 5px;
         overflow: hidden;
-        border: 1px solid #e8e8e8;
+        border: 1px solid ${theme.card.border};
       `}
     >
       {Array(size)
@@ -122,8 +118,8 @@ const ContentPlaceholder = ({ size = 1 }) => {
         .map((_, index) => (
           <div
             key={index}
-            css={css`
-              border-bottom: 1px solid #e8e8e8;
+            css={theme => css`
+              border-bottom: 1px solid ${theme.card.divider};
               overflow: hidden;
 
               :last-of-type {

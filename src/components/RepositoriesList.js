@@ -51,17 +51,17 @@ const RepositoriesList = ({ repositories, isLoading }) => {
               </animated.div>
             ))}
             <RandomIcon
-              css={css`
+              css={theme => css`
                 position: absolute;
                 right: 0;
                 top: 50%;
                 transform: translate(calc(100% + 20px), -50%);
                 cursor: pointer;
-                fill: #aaa;
-                transition: fill 0.3s;
+                fill: ${theme.icon.color};
+                transition: fill ${theme.transition};
 
                 &:hover {
-                  fill: #777;
+                  fill: ${theme.icon.colorHover};
                 }
               `}
               onClick={changeRandom}
@@ -120,19 +120,25 @@ const Title = styled.h1`
   margin-bottom: 16px;
   font-size: 20px;
   transition: color 0.2s ease-in-out;
-  color: rgba(0, 0, 0, ${props => (props.isLoading ? '0.32' : '0.87')});
+  color: rgba(
+    ${props => (props.theme.isDark ? '255,255,255' : '0,0,0')},
+    ${props => (props.isLoading ? '0.38' : '0.87')}
+  );
 `;
 
 const List = styled.div`
-  background-color: #fff;
+  background-color: ${props => props.theme.card.bg};
+  transition: background-color ${props => props.theme.transition};
   border-radius: 5px;
   overflow: hidden;
   box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.1);
   min-height: 120px;
+  border: 1px solid ${props => props.theme.card.border};
 `;
 
 const Card = styled.div`
-  border-bottom: 1px solid #e8e8e8;
+  border-bottom: 1px solid ${props => props.theme.card.divider};
+  transition: border-color ${props => props.theme.transition};
   overflow: hidden;
   :last-of-type {
     border-bottom: 0;

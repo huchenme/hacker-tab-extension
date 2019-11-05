@@ -17,6 +17,7 @@
     "@emotion/styled": "^10.0.23",
     "@huchenme/github-trending": "^2.1.1",
     "append-query": "^2.1.0",
+    "emotion-theming": "^10.0.19",
     "lodash": "^4.17.15",
     "polished": "^3.4.2",
     "prop-types": "^15.7.2",

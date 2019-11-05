@@ -33,7 +33,7 @@ export default function Icon({
         fill: ${secondaryColor};
         flex-shrink: 0;
         line-height: 1;
-        cursor: ${onClick ? 'pointer' : 'default'};
+        ${onClick ? 'pointer' : undefined}
       `}
     />
   );

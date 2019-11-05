@@ -80,7 +80,7 @@ const Card = styled.a`
   padding: 20px;
   box-sizing: border-box;
   display: flex;
-  transition: background-color 0.2s;
+  transition: background-color ${props => props.theme.transition};
 
   &,
   &:hover,
@@ -91,7 +91,7 @@ const Card = styled.a`
   }
 
   &:hover {
-    background-color: rgba(0, 0, 0, 0.04);
+    background-color: ${props => props.theme.card.bgHover};
   }
 `;
 
@@ -122,18 +122,21 @@ const Avatar = styled.img`
 
 const Title = styled.h3`
   margin: 0;
-  font-size: 16px;
+  font-size: 18px;
   line-height: 24px;
   font-weight: 600;
-  color: rgba(0, 0, 0, 0.84);
+  color: ${props => props.theme.text.active};
+  transition: color ${props => props.theme.transition};
 `;
 
 const Description = styled.div`
+  margin-top: 5px;
   flex-grow: 1;
   font-size: 13px;
   line-height: 20px;
   font-weight: 400;
-  color: rgba(0, 0, 0, 0.54);
+  color: ${props => props.theme.text.helper};
+  transition: color ${props => props.theme.transition};
   display: -webkit-box;
   -webkit-line-clamp: 3;
   -webkit-box-orient: vertical;
@@ -150,7 +153,8 @@ const Description = styled.div`
 const AdditionalInfo = styled.div`
   display: flex;
   align-items: center;
-  color: #586069;
+  color: ${props => props.theme.card.additional};
+  transition: color ${props => props.theme.transition};
   font-size: 12px;
   margin-top: 14px;
   justify-content: space-between;
@@ -173,7 +177,7 @@ const LanguageColor = styled.div`
   height: 12px;
   width: 12px;
   border-radius: 50%;
-  background-color: ${props => props.color || '#586069'};
+  background-color: ${props => props.color || props.theme.card.additional};
 `;
 
 const CurrentStar = styled.div`
@@ -182,7 +186,8 @@ const CurrentStar = styled.div`
   top: 4px;
   font-size: 40px;
   line-height: 1;
-  color: rgba(0, 0, 0, 0.38);
+  color: ${props => props.theme.card.currentStar};
+  transition: color ${props => props.theme.transition};
   font-weight: 100;
   font-family: 'Futura PT';
 `;

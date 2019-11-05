@@ -1,14 +1,11 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import Select from '@atlaskit/select';
+import Select from './Select';
 import { periodOptions, findPeriod } from '../helpers/github';
 
 const PeriodSelect = ({ onChange, selectedValue }) => {
   return (
     <Select
-      styles={{
-        control: base => ({ ...base, backgroundColor: '#EBECF0' }),
-      }}
       isSearchable={false}
       value={findPeriod(selectedValue)}
       onChange={({ value }) => onChange(value)}

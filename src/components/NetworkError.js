@@ -1,15 +1,16 @@
 /** @jsx jsx */
 import { css, jsx } from '@emotion/core';
-
+import { useTheme } from 'emotion-theming';
 import { ReactComponent as Warning } from '../images/warning.svg';
 import { ReactComponent as Close } from '../images/cross.svg';
 import Icon from './Icon';
 
 export default function NetworkError({ onReload, onClose }) {
+  const theme = useTheme();
   return (
     <div
       css={css`
-        background-color: #ffa000;
+        background-color: ${theme.error.bg};
         border-radius: 5px;
         overflow: hidden;
         padding: 20px;
@@ -25,7 +26,7 @@ export default function NetworkError({ onReload, onClose }) {
           margin-right: 16px;
         `}
       >
-        <Icon glyph={Warning} label="Warning" secondaryColor="#ffa000" />
+        <Icon glyph={Warning} label="Warning" secondaryColor={theme.error.bg} />
       </div>
       <div
         css={css`
@@ -43,7 +44,7 @@ export default function NetworkError({ onReload, onClose }) {
           css={css`
             padding: 4px 8px;
             font-size: 0.8125rem;
-            color: rgb(220, 0, 78);
+            color: #cf6679;
             font-weight: 500;
             line-height: 1.75;
             border-radius: 4px;
