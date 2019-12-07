@@ -11,46 +11,53 @@ import InfoItem from './InfoItem';
 
 import { getRefUrl, getAvatarString } from '../helpers/github';
 
-const RepositoryCard = props => (
-  <Card href={getRefUrl(props.url)}>
-    <Left>
-      <Avatar src={getAvatarString(props.avatar, 160)} />
-    </Left>
-    <Middle>
-      <Title>{props.name}</Title>
-      <Description>{props.description}</Description>
-      <AdditionalInfo>
-        <AdditionalInfoSection>
-          <AdditionalInfoItem>
-            <InfoItem icon={<Icon glyph={BitbucketReposIcon} />}>
-              {props.author}
-            </InfoItem>
-          </AdditionalInfoItem>
-          {props.language ? (
+const RepositoryCard = props => {
+  let { stars, forks, currentPeriodStars } = props;
+  stars = stars || 0;
+  forks = forks || 0;
+  currentPeriodStars = currentPeriodStars || 0;
+
+  return (
+    <Card href={getRefUrl(props.url)}>
+      <Left>
+        <Avatar src={getAvatarString(props.avatar, 160)} />
+      </Left>
+      <Middle>
+        <Title>{props.name}</Title>
+        <Description>{props.description}</Description>
+        <AdditionalInfo>
+          <AdditionalInfoSection>
             <AdditionalInfoItem>
-              <InfoItem icon={<LanguageColor color={props.languageColor} />}>
-                {props.language}
+              <InfoItem icon={<Icon glyph={BitbucketReposIcon} />}>
+                {props.author}
               </InfoItem>
             </AdditionalInfoItem>
-          ) : null}
-          <AdditionalInfoItem>
-            <InfoItem icon={<Icon glyph={StarFilledIcon} />}>
-              {props.stars.toLocaleString()}
-            </InfoItem>
-          </AdditionalInfoItem>
-          <AdditionalInfoItem>
-            <InfoItem icon={<Icon glyph={BitbucketForksIcon} />}>
-              {props.forks.toLocaleString()}
-            </InfoItem>
-          </AdditionalInfoItem>
-        </AdditionalInfoSection>
-      </AdditionalInfo>
-    </Middle>
-    <Right>
-      <CurrentStar>{props.currentPeriodStars}</CurrentStar>
-    </Right>
-  </Card>
-);
+            {props.language ? (
+              <AdditionalInfoItem>
+                <InfoItem icon={<LanguageColor color={props.languageColor} />}>
+                  {props.language}
+                </InfoItem>
+              </AdditionalInfoItem>
+            ) : null}
+            <AdditionalInfoItem>
+              <InfoItem icon={<Icon glyph={StarFilledIcon} />}>
+                {stars.toLocaleString()}
+              </InfoItem>
+            </AdditionalInfoItem>
+            <AdditionalInfoItem>
+              <InfoItem icon={<Icon glyph={BitbucketForksIcon} />}>
+                {forks.toLocaleString()}
+              </InfoItem>
+            </AdditionalInfoItem>
+          </AdditionalInfoSection>
+        </AdditionalInfo>
+      </Middle>
+      <Right>
+        <CurrentStar>{currentPeriodStars.toLocaleString()}</CurrentStar>
+      </Right>
+    </Card>
+  );
+};
 
 RepositoryCard.propTypes = {
   author: PropTypes.string,
@@ -112,9 +119,9 @@ const Right = styled.div`
 `;
 
 const Avatar = styled.img`
-  height: 80px;
-  width: 80px;
-  border-radius: 5px;
+  height: 40px;
+  width: 40px;
+  border-radius: 2px;
   overflow: hidden;
   border: 0;
   vertical-align: bottom;
