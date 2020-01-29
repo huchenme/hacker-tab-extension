@@ -5,7 +5,7 @@ import { css, jsx } from '@emotion/core';
 import { useTheme } from 'emotion-theming';
 import { ReactComponent as HeartIcon } from '../images/heart.svg';
 
-export default function InfoItem({ children, icon }) {
+export default function Footer() {
   const [showEmail, setShowEmail] = useState(false);
   const theme = useTheme();
 

@@ -6,7 +6,8 @@ import { allLanguagesValue, isEmptyList } from './helpers/github';
 
 import {
   KEY_REPOSITORIES,
-  KEY_SELECTED_LANGUAGE,
+  KEY_LAST_UPDATED,
+  KEY_SELECTED_CODE_LANGUAGE,
   KEY_SELECTED_PERIOD,
   KEY_SCHEMA_VERSION,
   KEY_DARK_MODE,
@@ -51,6 +52,7 @@ export const useRepositories = () => {
   const [selectedLanguage, setSelectedLanguage] = useSelectedLanguage();
   const [selectedPeriod, setSelectedPeriod] = useSelectedPeriod();
   const [repositories, setRepositories] = useLocalStorage(KEY_REPOSITORIES, []);
+  const [lastUpdatedTime, setLastUpdatedTime] = useLastUpdatedTime();
   const prevLang = usePrevious(selectedLanguage);
   const prevPeriod = usePrevious(selectedPeriod);
 
@@ -76,6 +78,7 @@ export const useRepositories = () => {
   useMemo(() => {
     if (!isLoading && !error && data) {
       setRepositories(data);
+      setLastUpdatedTime();
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [data, error, isLoading]);
@@ -84,6 +87,7 @@ export const useRepositories = () => {
     isEmpty,
     isLoading,
     repositories,
+    lastUpdatedTime,
     error,
     reload: fetchData,
     selectedLanguage,
@@ -94,13 +98,24 @@ export const useRepositories = () => {
 };
 
 export const useSelectedLanguage = () =>
-  useLocalStorage(KEY_SELECTED_LANGUAGE, allLanguagesValue);
+  useLocalStorage(KEY_SELECTED_CODE_LANGUAGE, allLanguagesValue);
 
 export const useSelectedPeriod = () =>
   useLocalStorage(KEY_SELECTED_PERIOD, 'daily');
 
 export const useDarkMode = initialValue => {
   return useLocalStorage(KEY_DARK_MODE, initialValue);
+};
+
+export const useLastUpdatedTime = () => {
+  const [lastUpdatedTime, setLastUpdatedTime] = useLocalStorage(
+    KEY_LAST_UPDATED
+  );
+  function update() {
+    const newTime = new Date();
+    setLastUpdatedTime(newTime.getTime());
+  }
+  return [lastUpdatedTime, update];
 };
 
 export const useCheckLocalStorageSchema = () => {

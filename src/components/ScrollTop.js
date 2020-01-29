@@ -7,11 +7,13 @@ import Fade from './Fade';
 
 import { ReactComponent as TopIcon } from '../images/top.svg';
 import Icon from './Icon';
+import { useTheme } from 'emotion-theming';
 
 export default function ScrollTop(props) {
   const [, setY] = useSpring(() => ({ y: 0 }));
   const { y } = useWindowScroll();
   const [show, setShow] = useState(false);
+  const theme = useTheme();
 
   useEffect(() => {
     if (y > 200) {
@@ -37,7 +39,25 @@ export default function ScrollTop(props) {
         font-size: 0;
       `}
     >
-      <button onClick={scrollTop} {...props}>
+      <button
+        css={css`
+          background-color: transparent;
+          transition: color 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+          cursor: pointer;
+          border: none;
+          height: 40px;
+          width: 40px;
+          outline: none;
+          color: ${theme.icon.color};
+          opacity: 0.5;
+
+          &:hover {
+            color: ${theme.icon.hoverColor};
+          }
+        `}
+        onClick={scrollTop}
+        {...props}
+      >
         <Icon glyph={TopIcon} />
       </button>
     </Fade>

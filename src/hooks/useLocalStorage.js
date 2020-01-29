@@ -15,7 +15,7 @@ const useLocalStorage = (key, initialValue, raw) => {
       } else {
         return raw
           ? localStorageValue
-          : JSON.parse(localStorageValue || 'null');
+          : JSON.parse(localStorageValue ?? 'null');
       }
     } catch {
       // If user is in private mode or has storage restriction

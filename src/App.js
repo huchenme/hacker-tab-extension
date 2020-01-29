@@ -3,8 +3,6 @@ import { useState, useEffect } from 'react';
 import styled from '@emotion/styled';
 import { css, jsx } from '@emotion/core';
 import { ThemeProvider } from 'emotion-theming';
-import { ReactComponent as MoonIcon } from './images/moon.svg';
-import { ReactComponent as SunIcon } from './images/sun.svg';
 
 import {
   TopBar,
@@ -12,7 +10,7 @@ import {
   RepositoriesList,
   EmptyState,
   NetworkError,
-  ScrollTop,
+  BottomIcons,
   Fade,
 } from './components';
 
@@ -37,6 +35,7 @@ const App = () => {
     repositories,
     error,
     reload,
+    lastUpdatedTime,
     selectedLanguage,
     selectedPeriod,
     setSelectedLanguage,
@@ -99,58 +98,19 @@ const App = () => {
                 padding-top: 96px;
               `}
             >
-              <EmptyState />
+              <EmptyState onReload={reload} lastUpdatedTime={lastUpdatedTime} />
             </div>
           ) : (
             <RepositoriesList
               isLoading={isLoading}
               repositories={repositories}
+              onReload={reload}
+              lastUpdatedTime={lastUpdatedTime}
             />
           )}
         </div>
         <Footer />
-        <div
-          css={css`
-            position: fixed;
-            right: 40px;
-            bottom: 40px;
-            display: flex;
-          `}
-        >
-          <div
-            css={css`
-              opacity: 0.5;
-            `}
-          >
-            <ScrollTop
-              css={actionButtonStyle}
-              aria-label="Scroll to Top Button"
-            />
-          </div>
-          <button
-            css={actionButtonStyle}
-            onClick={() => {
-              setIsDark(!isDark);
-            }}
-            aria-label="Toggle Dark Mode Button"
-          >
-            {isDark ? (
-              <SunIcon
-                aria-label="Sun Icon"
-                css={css`
-                  fill: currentColor;
-                `}
-              />
-            ) : (
-              <MoonIcon
-                aria-label="Moon Icon"
-                css={css`
-                  fill: currentColor;
-                `}
-              />
-            )}
-          </button>
-        </div>
+        <BottomIcons isDark={isDark} setIsDark={setIsDark} />
       </div>
     </ThemeProvider>
   );
@@ -164,18 +124,4 @@ const TopBarContainer = styled.div`
   top: 0;
   width: 100%;
   z-index: 20;
-`;
-
-const actionButtonStyle = theme => css`
-  background-color: transparent;
-  transition: color 0.2s cubic-bezier(0.4, 0, 0.2, 1);
-  cursor: pointer;
-  border: none;
-  height: 40px;
-  width: 40px;
-  outline: none;
-  color: ${theme.icon.color};
-  &:hover {
-    color: ${theme.icon.hoverColor};
-  }
 `;

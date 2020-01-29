@@ -1,41 +1,85 @@
-import React from 'react';
+/** @jsx jsx */
 import PropTypes from 'prop-types';
 import styled from '@emotion/styled';
+import { css, jsx } from '@emotion/core';
+import { useTheme } from 'emotion-theming';
 
 import { ReactComponent as StarFilledIcon } from '../images/star-filled.svg';
 import { ReactComponent as BitbucketForksIcon } from '../images/forks.svg';
-import { ReactComponent as BitbucketReposIcon } from '../images/repos.svg';
+import { ReactComponent as AuthorIcon } from '../images/author.svg';
 
 import Icon from './Icon';
 import InfoItem from './InfoItem';
 
 import { getRefUrl, getAvatarString } from '../helpers/github';
 
-const RepositoryCard = props => {
-  let { stars, forks, currentPeriodStars } = props;
-  stars = stars || 0;
-  forks = forks || 0;
-  currentPeriodStars = currentPeriodStars || 0;
+const RepositoryCard = ({
+  stars = 0,
+  forks = 0,
+  currentPeriodStars = 0,
+  url,
+  avatar,
+  name,
+  author,
+  description,
+  language,
+  languageColor,
+}) => {
+  const theme = useTheme();
 
   return (
-    <Card href={getRefUrl(props.url)}>
+    <Card href={getRefUrl(url)}>
       <Left>
-        <Avatar src={getAvatarString(props.avatar, 160)} />
+        <Avatar src={getAvatarString(avatar, 160)} />
       </Left>
       <Middle>
-        <Title>{props.name}</Title>
-        <Description>{props.description}</Description>
+        <h3
+          css={css`
+            margin: 0;
+            font-size: 18px;
+            line-height: 24px;
+            font-weight: 300;
+            color: ${theme.text.active};
+            transition: color ${theme.transition};
+          `}
+        >
+          <AuthorIcon
+            css={css`
+              fill: ${theme.text.helper};
+              margin-right: 8px;
+              position: relative;
+              top: 3px;
+            `}
+          />
+          <span
+            css={css`
+              font-size: 0.9em;
+            `}
+          >
+            {author}
+          </span>
+          <span
+            css={css`
+              margin: 0 5px;
+            `}
+          >
+            /
+          </span>
+          <span
+            css={css`
+              font-weight: 600;
+            `}
+          >
+            {name}
+          </span>
+        </h3>
+        <Description>{description}</Description>
         <AdditionalInfo>
           <AdditionalInfoSection>
-            <AdditionalInfoItem>
-              <InfoItem icon={<Icon glyph={BitbucketReposIcon} />}>
-                {props.author}
-              </InfoItem>
-            </AdditionalInfoItem>
-            {props.language ? (
+            {language ? (
               <AdditionalInfoItem>
-                <InfoItem icon={<LanguageColor color={props.languageColor} />}>
-                  {props.language}
+                <InfoItem icon={<LanguageColor color={languageColor} />}>
+                  {language}
                 </InfoItem>
               </AdditionalInfoItem>
             ) : null}
@@ -125,15 +169,6 @@ const Avatar = styled.img`
   overflow: hidden;
   border: 0;
   vertical-align: bottom;
-`;
-
-const Title = styled.h3`
-  margin: 0;
-  font-size: 18px;
-  line-height: 24px;
-  font-weight: 600;
-  color: ${props => props.theme.text.active};
-  transition: color ${props => props.theme.transition};
 `;
 
 const Description = styled.div`

@@ -7,11 +7,17 @@ import { useTransition, animated } from 'react-spring';
 
 import RepositoryCard from './RepositoryCard';
 import ContentPlaceholder from './ContentPlaceholder';
+import LastUpdated from './LastUpdated';
 import { ReactComponent as RandomIcon } from '../images/random.svg';
 
 import { getRandomRepositories } from '../helpers/github';
 
-const RepositoriesList = ({ repositories, isLoading }) => {
+const RepositoriesList = ({
+  repositories,
+  isLoading,
+  lastUpdatedTime,
+  onReload,
+}) => {
   const [random, setRandom] = useState(() =>
     getRandomRepositories(repositories)
   );
@@ -34,7 +40,11 @@ const RepositoriesList = ({ repositories, isLoading }) => {
   return (
     <Container>
       {random ? (
-        <Section>
+        <div
+          css={css`
+            margin-bottom: 72px;
+          `}
+        >
           <Title isLoading={isLoading}>I’m Feeling Lucky</Title>
           <div
             css={css`
@@ -43,33 +53,48 @@ const RepositoriesList = ({ repositories, isLoading }) => {
           >
             {transitions.map(({ item, props, key }) => (
               <animated.div key={key} style={props}>
-                <List>
+                <List
+                  css={css`
+                    min-height: auto;
+                  `}
+                >
                   <Card>
                     <RepositoryCard {...item} />
                   </Card>
                 </List>
               </animated.div>
             ))}
-            <RandomIcon
+            <div
               css={theme => css`
                 position: absolute;
                 right: 0;
                 top: 50%;
-                transform: translate(calc(100% + 20px), -50%);
+                transform: translate(calc(100% + 10px), -50%);
                 cursor: pointer;
-                fill: ${theme.icon.color};
-                transition: fill ${theme.transition};
+                color: ${theme.icon.color};
+                transition: color ${theme.transition};
+                width: 40px;
+                height: 40px;
+                display: flex;
+                align-items: center;
+                justify-content: center;
 
                 &:hover {
-                  fill: ${theme.icon.colorHover};
+                  color: ${theme.icon.hoverColor};
                 }
               `}
               onClick={changeRandom}
-            />
+            >
+              <RandomIcon
+                css={css`
+                  fill: currentColor;
+                `}
+              />
+            </div>
           </div>
-        </Section>
+        </div>
       ) : null}
-      <Section>
+      <div>
         <Title isLoading={isLoading}>Trending Repositories</Title>
         {isLoading ? (
           <ContentPlaceholder size={10} />
@@ -82,7 +107,16 @@ const RepositoriesList = ({ repositories, isLoading }) => {
             ))}
           </List>
         )}
-      </Section>
+      </div>
+      {!isLoading ? (
+        <LastUpdated
+          css={css`
+            margin-top: 24px;
+          `}
+          lastUpdatedTime={lastUpdatedTime}
+          onReload={onReload}
+        />
+      ) : null}
     </Container>
   );
 };
@@ -90,6 +124,8 @@ const RepositoriesList = ({ repositories, isLoading }) => {
 RepositoriesList.propTypes = {
   repositories: PropTypes.array,
   isLoading: PropTypes.bool,
+  lastUpdatedTime: PropTypes.number,
+  onReload: PropTypes.func,
 };
 
 RepositoriesList.defaultProps = {
@@ -103,13 +139,6 @@ const Container = styled.div`
   margin: 0 auto;
   margin-top: 56px;
   width: 720px;
-`;
-
-const Section = styled.div`
-  margin-bottom: 72px;
-  :last-of-type {
-    margin-bottom: 0;
-  }
 `;
 
 const Title = styled.h1`

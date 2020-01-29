@@ -11,7 +11,7 @@ const sizes = {
 export default function Icon({
   glyph: Glyph,
   primaryColor = 'currentColor',
-  secondaryColor = '#fff',
+  secondaryColor = 'currentColor',
   label,
   size = 'medium',
   onClick,

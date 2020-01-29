@@ -3,9 +3,46 @@ import styled from '@emotion/styled';
 import { css, jsx } from '@emotion/core';
 import React from 'react';
 import PropTypes from 'prop-types';
+import { useTheme } from 'emotion-theming';
 import LanguageSelect from './LanguageSelect';
 import PeriodSelect from './PeriodSelect';
 import { ReactComponent as Logo } from '../images/logo.svg';
+
+const SelectItem = ({ title, children, width }) => {
+  const theme = useTheme();
+  return (
+    <div
+      css={css`
+        display: flex;
+        margin-right: 24px;
+        align-items: center;
+
+        &:last-of-type {
+          margin-right: 0;
+        }
+      `}
+    >
+      {title && (
+        <div
+          css={css`
+            color: ${theme.select.label};
+            margin-right: 16px;
+            align-items: center;
+          `}
+        >
+          {title}:
+        </div>
+      )}
+      <div
+        css={css`
+          width: ${width ? width : 150}px;
+        `}
+      >
+        {children}
+      </div>
+    </div>
+  );
+};
 
 const TopBar = ({
   onChangeLanguage,
@@ -45,18 +82,18 @@ const TopBar = ({
             display: flex;
           `}
         >
-          <SelectWrapper>
+          <SelectItem>
             <LanguageSelect
               selectedValue={selectedLanguage}
               onChange={onChangeLanguage}
             />
-          </SelectWrapper>
-          <SelectWrapper width={180}>
+          </SelectItem>
+          <SelectItem width={180}>
             <PeriodSelect
               selectedValue={selectedPeriod}
               onChange={onChangePeriod}
             />
-          </SelectWrapper>
+          </SelectItem>
         </div>
       </div>
     </Container>
@@ -82,13 +119,4 @@ const Container = styled.div`
   box-shadow: 0px 4px 5px 0px rgba(0, 0, 0, 0.14),
     0px 1px 10px 0px rgba(0, 0, 0, 0.12);
   transition: background-color ${props => props.theme.transition};
-`;
-
-const SelectWrapper = styled.div`
-  width: ${props => (props.width ? props.width : 150)}px;
-  margin-right: 24px;
-
-  &:last-of-type {
-    margin-right: 0;
-  }
 `;

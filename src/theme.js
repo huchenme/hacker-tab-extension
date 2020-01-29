@@ -49,6 +49,7 @@ export const themeLight = {
     bg: '#EBECF0',
     bgHover: '#EBECF0',
     text: 'rgba(0, 0, 0, 0.87)',
+    label: 'rgba(0, 0, 0, 0.60)',
     indicator: 'rgba(0, 0, 0, 0.60)',
     indicatorHover: 'rgba(0, 0, 0, 0.87)',
     menu: '#fff',
@@ -60,6 +61,13 @@ export const themeLight = {
     stop2: 'rgba(0,0,0,0.07)',
     stop3: 'rgba(0,0,0,0.03)',
     fallback: '#f6f7f8',
+  },
+  emptyState: {
+    bg: '#fafbfc',
+    border: '#e1e4e8',
+    icon: '#a3aab1',
+    title: 'rgba(0, 0, 0, 0.87)',
+    text: 'rgba(0, 0, 0, 0.60)',
   },
 };
 
@@ -103,6 +111,7 @@ export const themeDark = {
     bg: 'rgba(255, 255, 255, 0.05)',
     bgHover: 'rgba(255, 255, 255, 0.12)',
     text: 'rgba(255, 255, 255, 0.87)',
+    label: 'rgba(255, 255, 255, 0.38)',
     indicator: 'rgba(255, 255, 255, 0.60)',
     indicatorHover: 'rgba(255, 255, 255, 0.87)',
     menu: '#424242',
@@ -114,5 +123,12 @@ export const themeDark = {
     stop2: 'rgba(255,255,255,0.07)',
     stop3: 'rgba(255,255,255,0.03)',
     fallback: dark(14),
+  },
+  emptyState: {
+    bg: dark(5),
+    border: 'transparent',
+    icon: 'rgba(255, 255, 255, 0.60)',
+    title: 'rgba(255, 255, 255, 0.87)',
+    text: 'rgba(255, 255, 255, 0.60)',
   },
 };
