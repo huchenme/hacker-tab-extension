@@ -1,0 +1,720 @@
+[
+  {
+    "author": "pcm-dpc",
+    "name": "COVID-19",
+    "avatar": "https://github.com/pcm-dpc.png",
+    "url": "https://github.com/pcm-dpc/COVID-19",
+    "description": "COVID-19 Italia - Monitoraggio situazione",
+    "stars": 774,
+    "forks": 144,
+    "currentPeriodStars": 286,
+    "builtBy": [
+      {
+        "username": "brucellino",
+        "href": "https://github.com/brucellino",
+        "avatar": "https://avatars0.githubusercontent.com/u/2115428"
+      },
+      {
+        "username": "umbros",
+        "href": "https://github.com/umbros",
+        "avatar": "https://avatars1.githubusercontent.com/u/4085151"
+      }
+    ]
+  },
+  {
+    "author": "ouyanghuiyu",
+    "name": "chineseocr_lite",
+    "avatar": "https://github.com/ouyanghuiyu.png",
+    "url": "https://github.com/ouyanghuiyu/chineseocr_lite",
+    "description": "超轻量级中文ocr，支持竖排文字识别, 支持ncnn推理 , psenet(8.5M) + crnn(6.3M) + anglenet(1.5M) 总模型仅17M",
+    "language": "C++",
+    "languageColor": "#f34b7d",
+    "stars": 1753,
+    "forks": 215,
+    "currentPeriodStars": 400,
+    "builtBy": [
+      {
+        "username": "ouyanghuiyu",
+        "href": "https://github.com/ouyanghuiyu",
+        "avatar": "https://avatars3.githubusercontent.com/u/42023607"
+      }
+    ]
+  },
+  {
+    "author": "leelovejava",
+    "name": "cloud2020",
+    "avatar": "https://github.com/leelovejava.png",
+    "url": "https://github.com/leelovejava/cloud2020",
+    "description": "SpringCloud",
+    "language": "Java",
+    "languageColor": "#b07219",
+    "stars": 76,
+    "forks": 59,
+    "currentPeriodStars": 12,
+    "builtBy": [
+      {
+        "username": "leelovejava",
+        "href": "https://github.com/leelovejava",
+        "avatar": "https://avatars2.githubusercontent.com/u/20348936"
+      }
+    ]
+  },
+  {
+    "author": "AobingJava",
+    "name": "JavaFamily",
+    "avatar": "https://github.com/AobingJava.png",
+    "url": "https://github.com/AobingJava/JavaFamily",
+    "description": "【互联网一线大厂面试+学习指南】进阶知识完全扫盲：涵盖高并发、分布式、高可用、微服务等领域知识，作者风格幽默，看起来津津有味，把学习当做一种乐趣，何乐而不为，后端同学必看，前端同学我保证你也看得懂，看不懂你加我微信骂我渣男就好了。",
+    "stars": 7740,
+    "forks": 1384,
+    "currentPeriodStars": 143,
+    "builtBy": [
+      {
+        "username": "AobingJava",
+        "href": "https://github.com/AobingJava",
+        "avatar": "https://avatars3.githubusercontent.com/u/41898583"
+      }
+    ]
+  },
+  {
+    "author": "iikira",
+    "name": "BaiduPCS-Go",
+    "avatar": "https://github.com/iikira.png",
+    "url": "https://github.com/iikira/BaiduPCS-Go",
+    "description": "百度网盘客户端 - Go语言编写",
+    "language": "Go",
+    "languageColor": "#00ADD8",
+    "stars": 21262,
+    "forks": 3318,
+    "currentPeriodStars": 169,
+    "builtBy": [
+      {
+        "username": "iikira",
+        "href": "https://github.com/iikira",
+        "avatar": "https://avatars1.githubusercontent.com/u/19154488"
+      },
+      {
+        "username": "apocelipes",
+        "href": "https://github.com/apocelipes",
+        "avatar": "https://avatars3.githubusercontent.com/u/21255940"
+      },
+      {
+        "username": "daobee",
+        "href": "https://github.com/daobee",
+        "avatar": "https://avatars1.githubusercontent.com/u/21331325"
+      },
+      {
+        "username": "hianghokung",
+        "href": "https://github.com/hianghokung",
+        "avatar": "https://avatars2.githubusercontent.com/u/22436288"
+      },
+      {
+        "username": "88250",
+        "href": "https://github.com/88250",
+        "avatar": "https://avatars1.githubusercontent.com/u/873584"
+      }
+    ]
+  },
+  {
+    "author": "Snailclimb",
+    "name": "JavaGuide",
+    "avatar": "https://github.com/Snailclimb.png",
+    "url": "https://github.com/Snailclimb/JavaGuide",
+    "description": "【Java学习+面试指南】 一份涵盖大部分Java程序员所需要掌握的核心知识。",
+    "language": "Java",
+    "languageColor": "#b07219",
+    "stars": 71014,
+    "forks": 24346,
+    "currentPeriodStars": 219,
+    "builtBy": [
+      {
+        "username": "Snailclimb",
+        "href": "https://github.com/Snailclimb",
+        "avatar": "https://avatars0.githubusercontent.com/u/29880145"
+      },
+      {
+        "username": "Goose9527",
+        "href": "https://github.com/Goose9527",
+        "avatar": "https://avatars0.githubusercontent.com/u/43314997"
+      },
+      {
+        "username": "LiWenGu",
+        "href": "https://github.com/LiWenGu",
+        "avatar": "https://avatars0.githubusercontent.com/u/15909210"
+      },
+      {
+        "username": "Ryze-Zhao",
+        "href": "https://github.com/Ryze-Zhao",
+        "avatar": "https://avatars1.githubusercontent.com/u/38486503"
+      },
+      {
+        "username": "fanofxiaofeng",
+        "href": "https://github.com/fanofxiaofeng",
+        "avatar": "https://avatars3.githubusercontent.com/u/3983683"
+      }
+    ]
+  },
+  {
+    "author": "PizzaPokerGuy",
+    "name": "ultimate-coding-resources",
+    "avatar": "https://github.com/PizzaPokerGuy.png",
+    "url": "https://github.com/PizzaPokerGuy/ultimate-coding-resources",
+    "description": "A collection of the best resources for programming, web development, computer science and more.",
+    "stars": 944,
+    "forks": 97,
+    "currentPeriodStars": 469,
+    "builtBy": [
+      {
+        "username": "PizzaPokerGuy",
+        "href": "https://github.com/PizzaPokerGuy",
+        "avatar": "https://avatars0.githubusercontent.com/u/14266817"
+      },
+      {
+        "username": "samedwards1989",
+        "href": "https://github.com/samedwards1989",
+        "avatar": "https://avatars3.githubusercontent.com/u/11388164"
+      },
+      {
+        "username": "ahavensdaxko",
+        "href": "https://github.com/ahavensdaxko",
+        "avatar": "https://avatars0.githubusercontent.com/u/33287549"
+      }
+    ]
+  },
+  {
+    "author": "CSSEGISandData",
+    "name": "COVID-19",
+    "avatar": "https://github.com/CSSEGISandData.png",
+    "url": "https://github.com/CSSEGISandData/COVID-19",
+    "description": "Novel Coronavirus (COVID-19) Cases, provided by JHU CSSE",
+    "stars": 5609,
+    "forks": 1908,
+    "currentPeriodStars": 767,
+    "builtBy": [
+      {
+        "username": "CSSEGISandData",
+        "href": "https://github.com/CSSEGISandData",
+        "avatar": "https://avatars3.githubusercontent.com/u/60674295"
+      },
+      {
+        "username": "hongru94",
+        "href": "https://github.com/hongru94",
+        "avatar": "https://avatars3.githubusercontent.com/u/47940478"
+      },
+      {
+        "username": "enshengdong",
+        "href": "https://github.com/enshengdong",
+        "avatar": "https://avatars0.githubusercontent.com/u/10015024"
+      }
+    ]
+  },
+  {
+    "author": "amusi",
+    "name": "CVPR2020-Code",
+    "avatar": "https://github.com/amusi.png",
+    "url": "https://github.com/amusi/CVPR2020-Code",
+    "description": "CVPR 2020 论文开源项目合集",
+    "stars": 444,
+    "forks": 61,
+    "currentPeriodStars": 130,
+    "builtBy": [
+      {
+        "username": "amusi",
+        "href": "https://github.com/amusi",
+        "avatar": "https://avatars2.githubusercontent.com/u/22436957"
+      }
+    ]
+  },
+  {
+    "author": "subnub",
+    "name": "myDrive",
+    "avatar": "https://github.com/subnub.png",
+    "url": "https://github.com/subnub/myDrive",
+    "description": "Node.js and mongoDB Google Drive Clone",
+    "language": "JavaScript",
+    "languageColor": "#f1e05a",
+    "stars": 662,
+    "forks": 78,
+    "currentPeriodStars": 279,
+    "builtBy": [
+      {
+        "username": "subnub",
+        "href": "https://github.com/subnub",
+        "avatar": "https://avatars3.githubusercontent.com/u/44621867"
+      },
+      {
+        "username": "ImMaax",
+        "href": "https://github.com/ImMaax",
+        "avatar": "https://avatars2.githubusercontent.com/u/40642083"
+      }
+    ]
+  },
+  {
+    "author": "ziishaned",
+    "name": "learn-regex",
+    "avatar": "https://github.com/ziishaned.png",
+    "url": "https://github.com/ziishaned/learn-regex",
+    "description": "Learn regex the easy way",
+    "stars": 33842,
+    "forks": 4628,
+    "currentPeriodStars": 208,
+    "builtBy": [
+      {
+        "username": "ziishaned",
+        "href": "https://github.com/ziishaned",
+        "avatar": "https://avatars2.githubusercontent.com/u/16267321"
+      },
+      {
+        "username": "munkacsimark",
+        "href": "https://github.com/munkacsimark",
+        "avatar": "https://avatars2.githubusercontent.com/u/7120785"
+      },
+      {
+        "username": "hjavadish",
+        "href": "https://github.com/hjavadish",
+        "avatar": "https://avatars2.githubusercontent.com/u/8628797"
+      },
+      {
+        "username": "wicksome",
+        "href": "https://github.com/wicksome",
+        "avatar": "https://avatars2.githubusercontent.com/u/5036939"
+      },
+      {
+        "username": "ImKifu",
+        "href": "https://github.com/ImKifu",
+        "avatar": "https://avatars2.githubusercontent.com/u/37338905"
+      }
+    ]
+  },
+  {
+    "author": "Screetsec",
+    "name": "TheFatRat",
+    "avatar": "https://github.com/Screetsec.png",
+    "url": "https://github.com/Screetsec/TheFatRat",
+    "description": "Thefatrat a massive exploiting tool : Easy tool to generate backdoor and easy tool to post exploitation attack like browser attack and etc . This tool compiles a malware with popular payload and then the compiled malware can be execute on windows, android, mac . The malware that created with this tool also have an ability to bypass most AV softw…",
+    "language": "C",
+    "languageColor": "#555555",
+    "stars": 3850,
+    "forks": 1340,
+    "currentPeriodStars": 64,
+    "builtBy": [
+      {
+        "username": "Screetsec",
+        "href": "https://github.com/Screetsec",
+        "avatar": "https://avatars3.githubusercontent.com/u/17976841"
+      },
+      {
+        "username": "peterpt",
+        "href": "https://github.com/peterpt",
+        "avatar": "https://avatars3.githubusercontent.com/u/7487321"
+      },
+      {
+        "username": "mrusme",
+        "href": "https://github.com/mrusme",
+        "avatar": "https://avatars0.githubusercontent.com/u/151967"
+      },
+      {
+        "username": "n0login",
+        "href": "https://github.com/n0login",
+        "avatar": "https://avatars2.githubusercontent.com/u/21091592"
+      },
+      {
+        "username": "isfaaghyth",
+        "href": "https://github.com/isfaaghyth",
+        "avatar": "https://avatars2.githubusercontent.com/u/6775159"
+      }
+    ]
+  },
+  {
+    "author": "guidovranken",
+    "name": "vfuzz",
+    "avatar": "https://github.com/guidovranken.png",
+    "url": "https://github.com/guidovranken/vfuzz",
+    "description": "vfuzz",
+    "language": "C++",
+    "languageColor": "#f34b7d",
+    "stars": 119,
+    "forks": 22,
+    "currentPeriodStars": 44,
+    "builtBy": [
+      {
+        "username": "guidovranken",
+        "href": "https://github.com/guidovranken",
+        "avatar": "https://avatars1.githubusercontent.com/u/6846644"
+      }
+    ]
+  },
+  {
+    "author": "firstlookmedia",
+    "name": "dangerzone",
+    "avatar": "https://github.com/firstlookmedia.png",
+    "url": "https://github.com/firstlookmedia/dangerzone",
+    "description": "Take potentially dangerous PDFs, office documents, or images and convert them to a safe PDF",
+    "language": "Python",
+    "languageColor": "#3572A5",
+    "stars": 626,
+    "forks": 20,
+    "currentPeriodStars": 135,
+    "builtBy": [
+      {
+        "username": "micahflee",
+        "href": "https://github.com/micahflee",
+        "avatar": "https://avatars1.githubusercontent.com/u/156128"
+      }
+    ]
+  },
+  {
+    "author": "ajeetdsouza",
+    "name": "zoxide",
+    "avatar": "https://github.com/ajeetdsouza.png",
+    "url": "https://github.com/ajeetdsouza/zoxide",
+    "description": "A fast cd command that learns your habits",
+    "language": "Rust",
+    "languageColor": "#dea584",
+    "stars": 353,
+    "forks": 11,
+    "currentPeriodStars": 93,
+    "builtBy": [
+      {
+        "username": "ajeetdsouza",
+        "href": "https://github.com/ajeetdsouza",
+        "avatar": "https://avatars3.githubusercontent.com/u/1777663"
+      },
+      {
+        "username": "alin23",
+        "href": "https://github.com/alin23",
+        "avatar": "https://avatars1.githubusercontent.com/u/3819725"
+      },
+      {
+        "username": "crazystylus",
+        "href": "https://github.com/crazystylus",
+        "avatar": "https://avatars1.githubusercontent.com/u/29002863"
+      },
+      {
+        "username": "ErichDonGubler",
+        "href": "https://github.com/ErichDonGubler",
+        "avatar": "https://avatars0.githubusercontent.com/u/658538"
+      },
+      {
+        "username": "cust0dian",
+        "href": "https://github.com/cust0dian",
+        "avatar": "https://avatars0.githubusercontent.com/u/389387"
+      }
+    ]
+  },
+  {
+    "author": "six2dez",
+    "name": "wahh_extras",
+    "avatar": "https://github.com/six2dez.png",
+    "url": "https://github.com/six2dez/wahh_extras",
+    "description": "The Web Application Hacker's Handbook - Extra Content",
+    "language": "Java",
+    "languageColor": "#b07219",
+    "stars": 262,
+    "forks": 41,
+    "currentPeriodStars": 75,
+    "builtBy": [
+      {
+        "username": "six2dez",
+        "href": "https://github.com/six2dez",
+        "avatar": "https://avatars1.githubusercontent.com/u/24670991"
+      }
+    ]
+  },
+  {
+    "author": "KeenS",
+    "name": "webml",
+    "avatar": "https://github.com/KeenS.png",
+    "url": "https://github.com/KeenS/webml",
+    "description": "A Standard ML Compiler for the Web",
+    "language": "Rust",
+    "languageColor": "#dea584",
+    "stars": 212,
+    "forks": 7,
+    "currentPeriodStars": 31,
+    "builtBy": [
+      {
+        "username": "KeenS",
+        "href": "https://github.com/KeenS",
+        "avatar": "https://avatars2.githubusercontent.com/u/4434568"
+      }
+    ]
+  },
+  {
+    "author": "marcinguy",
+    "name": "CVE-2020-8597",
+    "avatar": "https://github.com/marcinguy.png",
+    "url": "https://github.com/marcinguy/CVE-2020-8597",
+    "description": "CVE-2020-8597",
+    "language": "Python",
+    "languageColor": "#3572A5",
+    "stars": 38,
+    "forks": 15,
+    "currentPeriodStars": 8,
+    "builtBy": [
+      {
+        "username": "marcinguy",
+        "href": "https://github.com/marcinguy",
+        "avatar": "https://avatars2.githubusercontent.com/u/20355405"
+      }
+    ]
+  },
+  {
+    "author": "Netflix",
+    "name": "dispatch",
+    "avatar": "https://github.com/Netflix.png",
+    "url": "https://github.com/Netflix/dispatch",
+    "description": "All of the ad-hoc things you're doing to manage incidents today, done for you, and much more!",
+    "language": "Python",
+    "languageColor": "#3572A5",
+    "stars": 1644,
+    "forks": 90,
+    "currentPeriodStars": 62,
+    "builtBy": [
+      {
+        "username": "kevgliss",
+        "href": "https://github.com/kevgliss",
+        "avatar": "https://avatars2.githubusercontent.com/u/2262214"
+      },
+      {
+        "username": "mvilanova",
+        "href": "https://github.com/mvilanova",
+        "avatar": "https://avatars0.githubusercontent.com/u/39573146"
+      },
+      {
+        "username": "TheDahv",
+        "href": "https://github.com/TheDahv",
+        "avatar": "https://avatars3.githubusercontent.com/u/73363"
+      },
+      {
+        "username": "daniel-gallagher",
+        "href": "https://github.com/daniel-gallagher",
+        "avatar": "https://avatars2.githubusercontent.com/u/17089890"
+      },
+      {
+        "username": "abdullahselek",
+        "href": "https://github.com/abdullahselek",
+        "avatar": "https://avatars0.githubusercontent.com/u/5083377"
+      }
+    ]
+  },
+  {
+    "author": "apache",
+    "name": "incubator-shardingsphere",
+    "avatar": "https://github.com/apache.png",
+    "url": "https://github.com/apache/incubator-shardingsphere",
+    "description": "Distributed database middleware",
+    "language": "Java",
+    "languageColor": "#b07219",
+    "stars": 10036,
+    "forks": 3417,
+    "currentPeriodStars": 44,
+    "builtBy": [
+      {
+        "username": "tristaZero",
+        "href": "https://github.com/tristaZero",
+        "avatar": "https://avatars2.githubusercontent.com/u/27757146"
+      },
+      {
+        "username": "terrymanu",
+        "href": "https://github.com/terrymanu",
+        "avatar": "https://avatars0.githubusercontent.com/u/5516298"
+      },
+      {
+        "username": "tuohai666",
+        "href": "https://github.com/tuohai666",
+        "avatar": "https://avatars2.githubusercontent.com/u/24643893"
+      },
+      {
+        "username": "cherrylzhao",
+        "href": "https://github.com/cherrylzhao",
+        "avatar": "https://avatars0.githubusercontent.com/u/8317649"
+      },
+      {
+        "username": "haocao",
+        "href": "https://github.com/haocao",
+        "avatar": "https://avatars0.githubusercontent.com/u/687732"
+      }
+    ]
+  },
+  {
+    "author": "dotnet",
+    "name": "aspnetcore",
+    "avatar": "https://github.com/dotnet.png",
+    "url": "https://github.com/dotnet/aspnetcore",
+    "description": "ASP.NET Core is a cross-platform .NET framework for building modern cloud-based web applications on Windows, Mac, or Linux.",
+    "language": "C#",
+    "languageColor": "#178600",
+    "stars": 16378,
+    "forks": 4367,
+    "currentPeriodStars": 41,
+    "builtBy": [
+      {
+        "username": "aspnetci",
+        "href": "https://github.com/aspnetci",
+        "avatar": "https://avatars3.githubusercontent.com/u/23037549"
+      },
+      {
+        "username": "pranavkm",
+        "href": "https://github.com/pranavkm",
+        "avatar": "https://avatars1.githubusercontent.com/u/174281"
+      },
+      {
+        "username": "SteveSandersonMS",
+        "href": "https://github.com/SteveSandersonMS",
+        "avatar": "https://avatars2.githubusercontent.com/u/1101362"
+      },
+      {
+        "username": "Tratcher",
+        "href": "https://github.com/Tratcher",
+        "avatar": "https://avatars1.githubusercontent.com/u/1821173"
+      },
+      {
+        "username": "rynowak",
+        "href": "https://github.com/rynowak",
+        "avatar": "https://avatars3.githubusercontent.com/u/1430011"
+      }
+    ]
+  },
+  {
+    "author": "HospitalRun",
+    "name": "hospitalrun-frontend",
+    "avatar": "https://github.com/HospitalRun.png",
+    "url": "https://github.com/HospitalRun/hospitalrun-frontend",
+    "description": "Frontend for HospitalRun",
+    "language": "TypeScript",
+    "languageColor": "#2b7489",
+    "stars": 5080,
+    "forks": 1555,
+    "currentPeriodStars": 39,
+    "builtBy": [
+      {
+        "username": "jkleinsc",
+        "href": "https://github.com/jkleinsc",
+        "avatar": "https://avatars2.githubusercontent.com/u/609052"
+      },
+      {
+        "username": "tangollama",
+        "href": "https://github.com/tangollama",
+        "avatar": "https://avatars3.githubusercontent.com/u/929261"
+      },
+      {
+        "username": "jglovier",
+        "href": "https://github.com/jglovier",
+        "avatar": "https://avatars2.githubusercontent.com/u/1319791"
+      },
+      {
+        "username": "tehKapa",
+        "href": "https://github.com/tehKapa",
+        "avatar": "https://avatars0.githubusercontent.com/u/6388707"
+      },
+      {
+        "username": "hospitalrunbot",
+        "href": "https://github.com/hospitalrunbot",
+        "avatar": "https://avatars3.githubusercontent.com/u/22404737"
+      }
+    ]
+  },
+  {
+    "author": "CyC2018",
+    "name": "CS-Notes",
+    "avatar": "https://github.com/CyC2018.png",
+    "url": "https://github.com/CyC2018/CS-Notes",
+    "description": "📚 技术面试必备基础知识、Leetcode、计算机操作系统、计算机网络、系统设计、Java、Python、C++",
+    "language": "Java",
+    "languageColor": "#b07219",
+    "stars": 93554,
+    "forks": 30326,
+    "currentPeriodStars": 280,
+    "builtBy": [
+      {
+        "username": "CyC2018",
+        "href": "https://github.com/CyC2018",
+        "avatar": "https://avatars1.githubusercontent.com/u/36260787"
+      },
+      {
+        "username": "kwongtailau",
+        "href": "https://github.com/kwongtailau",
+        "avatar": "https://avatars1.githubusercontent.com/u/22954582"
+      },
+      {
+        "username": "linehk",
+        "href": "https://github.com/linehk",
+        "avatar": "https://avatars0.githubusercontent.com/u/8375793"
+      },
+      {
+        "username": "crossoverJie",
+        "href": "https://github.com/crossoverJie",
+        "avatar": "https://avatars0.githubusercontent.com/u/15684156"
+      },
+      {
+        "username": "Lisanaaa",
+        "href": "https://github.com/Lisanaaa",
+        "avatar": "https://avatars1.githubusercontent.com/u/28261876"
+      }
+    ]
+  },
+  {
+    "author": "3b1b",
+    "name": "manim",
+    "avatar": "https://github.com/3b1b.png",
+    "url": "https://github.com/3b1b/manim",
+    "description": "Animation engine for explanatory math videos",
+    "language": "Python",
+    "languageColor": "#3572A5",
+    "stars": 17548,
+    "forks": 2108,
+    "currentPeriodStars": 70,
+    "builtBy": [
+      {
+        "username": "3b1b",
+        "href": "https://github.com/3b1b",
+        "avatar": "https://avatars2.githubusercontent.com/u/11601040"
+      },
+      {
+        "username": "bhbr",
+        "href": "https://github.com/bhbr",
+        "avatar": "https://avatars2.githubusercontent.com/u/13440601"
+      },
+      {
+        "username": "eulertour",
+        "href": "https://github.com/eulertour",
+        "avatar": "https://avatars1.githubusercontent.com/u/43117506"
+      },
+      {
+        "username": "Sridhar3b1b",
+        "href": "https://github.com/Sridhar3b1b",
+        "avatar": "https://avatars1.githubusercontent.com/u/35234358"
+      },
+      {
+        "username": "mirefek",
+        "href": "https://github.com/mirefek",
+        "avatar": "https://avatars3.githubusercontent.com/u/25885450"
+      }
+    ]
+  },
+  {
+    "author": "UniversalDataTool",
+    "name": "universal-data-tool",
+    "avatar": "https://github.com/UniversalDataTool.png",
+    "url": "https://github.com/UniversalDataTool/universal-data-tool",
+    "description": "Collaborate & label any type of data, images, text, or documents, in an easy web interface or desktop app.",
+    "language": "JavaScript",
+    "languageColor": "#f1e05a",
+    "stars": 281,
+    "forks": 12,
+    "currentPeriodStars": 41,
+    "builtBy": [
+      {
+        "username": "seveibar",
+        "href": "https://github.com/seveibar",
+        "avatar": "https://avatars3.githubusercontent.com/u/1910070"
+      },
+      {
+        "username": "puskuruk",
+        "href": "https://github.com/puskuruk",
+        "avatar": "https://avatars2.githubusercontent.com/u/22892227"
+      }
+    ]
+  }
+]

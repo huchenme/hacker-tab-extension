@@ -99,7 +99,7 @@ const RepositoriesList = ({
         {isLoading ? (
           <ContentPlaceholder size={10} />
         ) : (
-          <List>
+          <List data-test-id="loaded-repo-list">
             {repositories.map(rep => (
               <Card key={rep.url}>
                 <RepositoryCard {...rep} />

@@ -28,7 +28,7 @@ const RepositoryCard = ({
   const theme = useTheme();
 
   return (
-    <Card href={getRefUrl(url)}>
+    <Card data-test-id="repo-card" href={getRefUrl(url)}>
       <Left>
         <Avatar src={getAvatarString(avatar, 160)} />
       </Left>

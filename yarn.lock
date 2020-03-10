@@ -1865,7 +1865,7 @@
     "@babel/helper-plugin-utils" "^7.8.3"
     "@babel/plugin-transform-typescript" "^7.8.3"
 
-"@babel/runtime-corejs3@^7.7.4":
+"@babel/runtime-corejs3@^7.7.4", "@babel/runtime-corejs3@^7.8.4":
   version "7.8.7"
   resolved "https://registry.yarnpkg.com/@babel/runtime-corejs3/-/runtime-corejs3-7.8.7.tgz#8209d9dff2f33aa2616cb319c83fe159ffb07b8c"
   integrity sha512-sc7A+H4I8kTd7S61dgB9RomXu/C+F4IrRr4Ytze4dnfx7AXEpCrejSNpjx7vq6y/Bak9S6Kbk65a/WgMLtg43Q==
@@ -1908,7 +1908,7 @@
   dependencies:
     regenerator-runtime "^0.13.2"
 
-"@babel/runtime@^7.7.2", "@babel/runtime@^7.7.6", "@babel/runtime@^7.7.7":
+"@babel/runtime@^7.7.2", "@babel/runtime@^7.7.6":
   version "7.7.7"
   resolved "https://registry.yarnpkg.com/@babel/runtime/-/runtime-7.7.7.tgz#194769ca8d6d7790ec23605af9ee3e42a0aa79cf"
   integrity sha512-uCnC2JEVAu8AKB5do1WRIsvrdJ0flYx/A/9f/6chdacnEZ7LmavjdsDXr5ksYBegxtuTPR5Va9/+13QF/kFkCA==
@@ -2420,19 +2420,19 @@
   dependencies:
     "@hapi/hoek" "^8.3.0"
 
-"@huchenme/github-trending@^2.2.0":
-  version "2.2.0"
-  resolved "https://registry.yarnpkg.com/@huchenme/github-trending/-/github-trending-2.2.0.tgz#cdcd3259bbad74dc4863aa707ceb5babe318089e"
-  integrity sha512-Z0LYnG4kYeGjIOwQFa/2t2dn6jCG7fp6VJpShKwdq6FuHV9sVrdkGso1wQQ+D09tEHhvlTW0KS1LVjpmp8fmaw==
+"@huchenme/github-trending@^2.3.0":
+  version "2.3.0"
+  resolved "https://registry.yarnpkg.com/@huchenme/github-trending/-/github-trending-2.3.0.tgz#233a7ddf08bbc9081fda84b1098beaa438d56f31"
+  integrity sha512-9tWf7a5AnDo8wiLyi8AN2T0h4+x+fObWtfwQgrjADJUXTMPDuSoi2bmZYLMYJKRgp5g7CXA7GD3Xe9VTSI98mQ==
   dependencies:
-    "@babel/runtime" "^7.7.7"
+    "@babel/runtime-corejs3" "^7.8.4"
+    axios "^0.19.2"
     cheerio "^1.0.0-rc.3"
     cors "^2.8.5"
     express "^4.17.1"
     express-cache-controller "^1.1.0"
     lodash "^4.17.15"
     memory-cache "^0.2.0"
-    node-fetch "^2.6.0"
     opencollective-postinstall "^2.0.2"
 
 "@jest/console@^24.7.1":
@@ -4350,6 +4350,13 @@ axios@0.19.0:
   dependencies:
     follow-redirects "1.5.10"
     is-buffer "^2.0.2"
+
+axios@^0.19.2:
+  version "0.19.2"
+  resolved "https://registry.yarnpkg.com/axios/-/axios-0.19.2.tgz#3ea36c5d8818d0d5f8a8a97a6d36b86cdc00cb27"
+  integrity sha512-fjgm5MvRHLhx+osE2xoekY70AhARk3a6hkN+3Io1jc00jtquGvxYlKlsFUhmUET0V5te6CcZI7lcv2Ym61mjHA==
+  dependencies:
+    follow-redirects "1.5.10"
 
 axobject-query@^2.0.2:
   version "2.0.2"
