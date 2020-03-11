@@ -24,3 +24,39 @@
 // -- This will overwrite an existing command --
 // Cypress.Commands.overwrite("visit", (originalFn, url, options) => { ... })
 import '@testing-library/cypress/add-commands';
+
+Cypress.Commands.add(
+  'fetchRepos',
+  ({ fixture = 'fixture:trending', delay = 0 } = {}) => {
+    cy.server();
+    cy.route({
+      method: 'GET',
+      url: 'https://github-trending-api.now.sh/repositories*',
+      response: fixture,
+      delay,
+    }).as('fetchRepos');
+  }
+);
+
+Cypress.Commands.add(
+  'fetchReposAndWait',
+  ({ fixture = 'fixture:trending', delay = 0, darkMode = true } = {}) => {
+    cy.fetchRepos({ fixture, delay });
+    cy.visit('/', {
+      onBeforeLoad(win) {
+        cy.stub(win, 'matchMedia')
+          .withArgs('(prefers-color-scheme: dark)')
+          .returns({
+            matches: darkMode,
+          });
+      },
+    });
+    cy.wait('@fetchRepos');
+  }
+);
+
+Cypress.Commands.add('shouldHaveRepoCards', num => {
+  cy.findByTestId('loaded-repo-list')
+    .findAllByTestId('repo-card')
+    .should('have.length', num);
+});
