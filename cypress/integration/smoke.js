@@ -1,5 +1,4 @@
 describe('smoke', () => {
-  beforeEach(() => {});
   it('open the browser', () => {
     cy.server();
     cy.route(
