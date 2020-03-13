@@ -67,7 +67,11 @@ Cypress.Commands.add('shouldHaveRepoCards', num => {
 });
 
 Cypress.Commands.add('getLocalStorage', key =>
-  JSON.parse(localStorage.getItem(key))
+  cy
+    .window()
+    .its('localStorage')
+    .its(key)
+    .then((data = '') => JSON.parse(data))
 );
 
 Cypress.Commands.add('setLocalStorage', (key, value) =>

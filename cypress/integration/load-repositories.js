@@ -1,3 +1,5 @@
+// function getItem
+
 describe('Load Repositories', () => {
   it('load repo cards', () => {
     cy.fetchReposAndWait();
@@ -18,7 +20,6 @@ describe('Load Repositories', () => {
     const now = new Date('2020-01-01T08:30:00').getTime();
     cy.clock(now);
     cy.fetchReposAndWait();
-    cy.wait(100);
     cy.getLocalStorage('selectedLanguage').should('eq', '__ALL__');
     cy.getLocalStorage('selectedPeriod').should('eq', 'daily');
     cy.getLocalStorage('schemaVersion').should('eq', '2');
@@ -62,7 +63,6 @@ describe('Load Repositories', () => {
       response: 'fixture:trending-2',
     }).as('fetchRepos');
     cy.visit('/');
-    cy.wait(100);
     cy.findByTestId('last-updated-time').click();
     cy.waitResponse();
     cy.getLocalStorage('lastUpdatedTime').should('eq', now);
@@ -83,13 +83,12 @@ describe('Load Repositories', () => {
     });
 
     cy.fetchReposAndWait();
-    cy.wait(100);
+    cy.fixture('trending').then(json => {
+      cy.getLocalStorage('repositories').should('deep.eq', json);
+    });
     cy.getLocalStorage('selectedLanguage').should('eq', '__ALL__');
     cy.getLocalStorage('selectedPeriod').should('eq', 'daily');
     cy.getLocalStorage('schemaVersion').should('eq', '2');
     cy.getLocalStorage('lastUpdatedTime').should('eq', now);
-    cy.fixture('trending').then(json => {
-      cy.getLocalStorage('repositories').should('deep.eq', json);
-    });
   });
 });

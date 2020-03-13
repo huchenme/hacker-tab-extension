@@ -3,6 +3,11 @@ on: [push]
 jobs:
   cypress-run:
     runs-on: ubuntu-16.04
+    strategy:
+      fail-fast: false
+      matrix:
+        browser: ['chrome', 'firefox']
+        containers: [1, 2, 3]
     steps:
       - name: Checkout
         uses: actions/checkout@v1
@@ -10,7 +15,9 @@ jobs:
         uses: cypress-io/github-action@v1
         with:
           record: true
-          browser: chrome
+          parallel: true
+          group: ${{ matrix.browser }}
+          browser: ${{ matrix.browser }}
           start: yarn start:nobrowser
           wait-on: 'http://localhost:3000'
         env:
