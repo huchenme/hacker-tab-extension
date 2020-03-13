@@ -27,21 +27,26 @@ import '@testing-library/cypress/add-commands';
 
 Cypress.Commands.add(
   'fetchRepos',
-  ({ fixture = 'fixture:trending', delay = 0 } = {}) => {
+  ({ response = 'fixture:trending', delay = 0, status = 200 } = {}) => {
     cy.server();
     cy.route({
       method: 'GET',
       url: 'https://github-trending-api.now.sh/repositories*',
-      response: fixture,
+      response,
       delay,
+      status,
     }).as('fetchRepos');
   }
 );
 
+Cypress.Commands.add('waitResponse', () => {
+  cy.wait('@fetchRepos');
+});
+
 Cypress.Commands.add(
   'fetchReposAndWait',
-  ({ fixture = 'fixture:trending', delay = 0, darkMode = true } = {}) => {
-    cy.fetchRepos({ fixture, delay });
+  ({ response, delay, status, darkMode = true } = {}) => {
+    cy.fetchRepos({ response, delay, status });
     cy.visit('/', {
       onBeforeLoad(win) {
         cy.stub(win, 'matchMedia')
@@ -51,7 +56,7 @@ Cypress.Commands.add(
           });
       },
     });
-    cy.wait('@fetchRepos');
+    cy.waitResponse();
   }
 );
 
@@ -67,4 +72,40 @@ Cypress.Commands.add('getLocalStorage', key =>
 
 Cypress.Commands.add('setLocalStorage', (key, value) =>
   localStorage.setItem(key, JSON.stringify(value))
+);
+
+Cypress.Commands.add(
+  'seedLocalStorage',
+  ({
+    schemaVersion = '2',
+    selectedLanguage = '__ALL__',
+    selectedPeriod = 'daily',
+    repositories = 'trending',
+    now = '2020-01-01T08:30:00',
+    lastUpdatedTime = '2020-01-01T08:20:00',
+  } = {}) => {
+    if (typeof schemaVersion !== undefined) {
+      cy.setLocalStorage('schemaVersion', schemaVersion);
+    }
+    if (typeof selectedLanguage !== undefined) {
+      cy.setLocalStorage('selectedLanguage', selectedLanguage);
+    }
+    if (typeof selectedPeriod !== undefined) {
+      cy.setLocalStorage('selectedPeriod', selectedPeriod);
+    }
+    if (typeof repositories !== undefined) {
+      cy.fixture(repositories).then(json => {
+        cy.setLocalStorage('repositories', json);
+      });
+    }
+    if (typeof now !== undefined) {
+      cy.clock(new Date(now).getTime());
+    }
+    if (typeof lastUpdatedTime !== undefined) {
+      cy.setLocalStorage(
+        'lastUpdatedTime',
+        new Date(lastUpdatedTime).getTime()
+      );
+    }
+  }
 );

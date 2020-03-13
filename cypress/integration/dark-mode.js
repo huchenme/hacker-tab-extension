@@ -1,4 +1,4 @@
-describe('load repositories', () => {
+describe('Dark Mode', () => {
   it('set local storage preferDarkMode to true if in dark mode', () => {
     cy.fetchReposAndWait({ darkMode: true });
     cy.window()
