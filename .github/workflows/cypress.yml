@@ -4,10 +4,8 @@ jobs:
   cypress-run:
     runs-on: ubuntu-16.04
     strategy:
-      fail-fast: false
       matrix:
         browser: ['chrome', 'firefox']
-        containers: [1, 2, 3]
     steps:
       - name: Checkout
         uses: actions/checkout@v1
@@ -16,6 +14,7 @@ jobs:
         with:
           record: true
           parallel: true
+          headless: true
           group: ${{ matrix.browser }}
           browser: ${{ matrix.browser }}
           start: yarn start:nobrowser

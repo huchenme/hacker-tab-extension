@@ -81,7 +81,6 @@ describe('Load Repositories', () => {
       selectedLanguage: 'javascript',
       selectedPeriod: 'weekly',
     });
-
     cy.fetchReposAndWait();
     cy.fixture('trending').then(json => {
       cy.getLocalStorage('repositories').should('deep.eq', json);

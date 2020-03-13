@@ -41,6 +41,8 @@ Cypress.Commands.add(
 
 Cypress.Commands.add('waitResponse', () => {
   cy.wait('@fetchRepos');
+  // eslint-disable-next-line cypress/no-unnecessary-waiting
+  cy.wait(100); // wait localStorage update
 });
 
 Cypress.Commands.add(
@@ -71,7 +73,7 @@ Cypress.Commands.add('getLocalStorage', key =>
     .window()
     .its('localStorage')
     .its(key)
-    .then((data = '') => JSON.parse(data))
+    .then(data => JSON.parse(data))
 );
 
 Cypress.Commands.add('setLocalStorage', (key, value) =>
