@@ -22,14 +22,10 @@ describe('load repositories', () => {
     cy.queryByLabelText('Sun Icon').click();
     cy.queryByLabelText('Moon Icon').should('exist');
     cy.queryByLabelText('Sun Icon').should('not.exist');
-    cy.window()
-      .its('localStorage.preferDarkMode')
-      .should('eq', 'false');
+    cy.getLocalStorage('preferDarkMode').should('eq', false);
     cy.queryByLabelText('Moon Icon').click();
     cy.queryByLabelText('Moon Icon').should('not.exist');
     cy.queryByLabelText('Sun Icon').should('exist');
-    cy.window()
-      .its('localStorage.preferDarkMode')
-      .should('eq', 'true');
+    cy.getLocalStorage('preferDarkMode').should('eq', true);
   });
 });

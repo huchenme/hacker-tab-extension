@@ -60,3 +60,11 @@ Cypress.Commands.add('shouldHaveRepoCards', num => {
     .findAllByTestId('repo-card')
     .should('have.length', num);
 });
+
+Cypress.Commands.add('getLocalStorage', key =>
+  JSON.parse(localStorage.getItem(key))
+);
+
+Cypress.Commands.add('setLocalStorage', (key, value) =>
+  localStorage.setItem(key, JSON.stringify(value))
+);
