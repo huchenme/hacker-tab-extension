@@ -1,5 +1,3 @@
-// function getItem
-
 describe('Load Repositories', () => {
   it('load repo cards', () => {
     cy.fetchReposAndWait();

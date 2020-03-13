@@ -1,22 +1,15 @@
-name: E2E on Chrome
+name: Cypress Test
 on: [push]
 jobs:
   cypress-run:
     runs-on: ubuntu-16.04
-    strategy:
-      matrix:
-        browser: ['chrome', 'firefox']
     steps:
       - name: Checkout
         uses: actions/checkout@v1
-      - name: Cypress run Chrome
+      - name: Cypress run
         uses: cypress-io/github-action@v1
         with:
           record: true
-          parallel: true
-          headless: true
-          group: ${{ matrix.browser }}
-          browser: ${{ matrix.browser }}
           start: yarn start:nobrowser
           wait-on: 'http://localhost:3000'
         env:
