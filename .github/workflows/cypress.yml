@@ -6,14 +6,13 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v1
-      - name: Cypress run
+      - name: Cypress run Chrome
         uses: cypress-io/github-action@v1
         with:
           record: true
           browser: chrome
-          start: npm run start:nobrowser
-          # quote the url to be safe against YML parsing surprises
+          start: yarn start:nobrowser
           wait-on: 'http://localhost:3000'
         env:
-          # pass the Dashboard record key as an environment variable
           CYPRESS_RECORD_KEY: ${{ secrets.CYPRESS_RECORD_KEY }}
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

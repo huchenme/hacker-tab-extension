@@ -64,7 +64,6 @@
     "test:e2e:open": "start-test start:nobrowser 3000 cy:open",
     "cy:run": "cypress run",
     "cy:open": "cypress open",
-    "validate": "CI=true npm-run-all test test:e2e",
     "prebuild": "rimraf build",
     "build": "npm-run-all build:*",
     "build:app": "INLINE_RUNTIME_CHUNK=false react-scripts build",
@@ -100,7 +99,7 @@
   },
   "husky": {
     "hooks": {
-      "pre-commit": "lint-staged && npm run validate"
+      "pre-commit": "lint-staged"
     }
   },
   "lint-staged": {

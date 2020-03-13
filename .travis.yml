@@ -13,5 +13,5 @@ cache:
 notifications:
   email: false
 script:
-  - yarn validate
+  - yarn test
   - yarn build
