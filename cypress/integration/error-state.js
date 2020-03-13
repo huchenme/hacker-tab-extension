@@ -21,9 +21,8 @@ describe('Error state', () => {
     cy.seedLocalStorage();
     cy.fetchRepos({ status: 500 });
     cy.visit('/');
-    cy.findByText('10 minutes ago').click();
+    cy.findByTestId('last-updated-time').click();
     cy.waitResponse();
-    cy.tick(500);
     cy.findByTestId('network-error-banner').should('exist');
     cy.shouldHaveRepoCards(25);
   });

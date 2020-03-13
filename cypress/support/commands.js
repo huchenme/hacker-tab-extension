@@ -81,8 +81,7 @@ Cypress.Commands.add(
     selectedLanguage = '__ALL__',
     selectedPeriod = 'daily',
     repositories = 'trending',
-    now = '2020-01-01T08:30:00',
-    lastUpdatedTime = '2020-01-01T08:20:00',
+    lastUpdatedTime = new Date().getTime() - 10 * 60000,
   } = {}) => {
     if (typeof schemaVersion !== undefined) {
       cy.setLocalStorage('schemaVersion', schemaVersion);
@@ -98,14 +97,8 @@ Cypress.Commands.add(
         cy.setLocalStorage('repositories', json);
       });
     }
-    if (typeof now !== undefined) {
-      cy.clock(new Date(now).getTime());
-    }
     if (typeof lastUpdatedTime !== undefined) {
-      cy.setLocalStorage(
-        'lastUpdatedTime',
-        new Date(lastUpdatedTime).getTime()
-      );
+      cy.setLocalStorage('lastUpdatedTime', lastUpdatedTime);
     }
   }
 );

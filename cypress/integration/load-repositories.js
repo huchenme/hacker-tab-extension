@@ -39,14 +39,21 @@ describe('Load Repositories', () => {
   });
 
   it('should show last updated time', () => {
-    cy.seedLocalStorage();
+    const now = new Date('2020-01-01T08:30:00').getTime();
+    cy.clock(now);
+    cy.seedLocalStorage({
+      lastUpdatedTime: new Date('2020-01-01T08:20:00').getTime(),
+    });
     cy.visit('/');
     cy.queryByText('10 minutes ago').should('exist');
   });
 
   it('click last updated time should refetch repositories', () => {
-    const now = '2020-01-01T08:30:00';
-    cy.seedLocalStorage({ now });
+    const now = new Date('2020-01-01T08:30:00').getTime();
+    cy.clock(new Date(now).getTime());
+    cy.seedLocalStorage({
+      lastUpdatedTime: new Date('2020-01-01T08:20:00').getTime(),
+    });
     cy.server();
     cy.route({
       method: 'GET',
@@ -54,19 +61,19 @@ describe('Load Repositories', () => {
       response: 'fixture:trending-2',
     }).as('fetchRepos');
     cy.visit('/');
-    cy.findByText('10 minutes ago').click();
+    cy.findByTestId('last-updated-time').click();
     cy.waitResponse();
-    cy.getLocalStorage('lastUpdatedTime').should('eq', new Date(now).getTime());
+    cy.getLocalStorage('lastUpdatedTime').should('eq', now);
     cy.fixture('trending-2').then(json => {
       cy.getLocalStorage('repositories').should('deep.eq', json);
     });
   });
 
   it('clears localStorage if schema version is different', () => {
-    const now = '2020-01-01T08:30:00';
+    const now = new Date('2020-01-01T08:30:00').getTime();
+    cy.clock(now);
     cy.seedLocalStorage({
-      now,
-      lastUpdatedTime: '2020-01-01T08:20:00',
+      lastUpdatedTime: new Date('2020-01-01T08:20:00').getTime(),
       schemaVersion: '1',
       repositories: 'trending-2',
       selectedLanguage: 'javascript',
@@ -77,7 +84,7 @@ describe('Load Repositories', () => {
     cy.getLocalStorage('selectedLanguage').should('eq', '__ALL__');
     cy.getLocalStorage('selectedPeriod').should('eq', 'daily');
     cy.getLocalStorage('schemaVersion').should('eq', '2');
-    cy.getLocalStorage('lastUpdatedTime').should('eq', new Date(now).getTime());
+    cy.getLocalStorage('lastUpdatedTime').should('eq', now);
     cy.fixture('trending').then(json => {
       cy.getLocalStorage('repositories').should('deep.eq', json);
     });
