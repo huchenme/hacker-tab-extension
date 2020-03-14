@@ -52,6 +52,7 @@ const RepositoryCard = ({
             `}
           />
           <span
+            data-test-id="author"
             css={css`
               font-size: 0.9em;
             `}
@@ -66,6 +67,7 @@ const RepositoryCard = ({
             /
           </span>
           <span
+            data-test-id="name"
             css={css`
               font-weight: 600;
             `}

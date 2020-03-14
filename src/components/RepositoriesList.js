@@ -1,5 +1,5 @@
 /** @jsx jsx */
-import { useState, useEffect, useCallback } from 'react';
+import { useState, useEffect } from 'react';
 import styled from '@emotion/styled';
 import { css, jsx } from '@emotion/core';
 import PropTypes from 'prop-types';
@@ -22,14 +22,9 @@ const RepositoriesList = ({
     getRandomRepositories(repositories)
   );
 
-  const changeRandom = useCallback(() => {
-    const newRandom = getRandomRepositories(repositories);
-    setRandom(newRandom);
-  }, [repositories]);
-
   useEffect(() => {
-    changeRandom();
-  }, [changeRandom]);
+    setRandom(getRandomRepositories(repositories));
+  }, [repositories]);
 
   const transitions = useTransition(random, item => (item ? item.url : null), {
     from: { opacity: 0 },
@@ -47,6 +42,7 @@ const RepositoriesList = ({
         >
           <Title isLoading={isLoading}>I’m Feeling Lucky</Title>
           <div
+            data-test-id="random-repo-list"
             css={css`
               position: relative;
             `}
@@ -65,6 +61,7 @@ const RepositoriesList = ({
               </animated.div>
             ))}
             <div
+              aria-label="Random Pick Button"
               css={theme => css`
                 position: absolute;
                 right: 0;
@@ -83,7 +80,9 @@ const RepositoriesList = ({
                   color: ${theme.icon.hoverColor};
                 }
               `}
-              onClick={changeRandom}
+              onClick={() => {
+                setRandom(getRandomRepositories(repositories, random));
+              }}
             >
               <RandomIcon
                 css={css`
