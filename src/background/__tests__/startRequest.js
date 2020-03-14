@@ -5,7 +5,6 @@ import { when } from 'jest-when';
 
 jest.mock('../../helpers/localStorage');
 jest.mock('@huchenme/github-trending');
-jest.mock('axios');
 
 const RealDate = Date;
 
