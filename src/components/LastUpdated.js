@@ -46,6 +46,7 @@ const LastUpdated = ({ lastUpdatedTime, onReload, ...otherProps }) => {
     >
       Last updated
       <span
+        data-test-id="last-updated-time"
         css={css`
           cursor: pointer;
           transition: color 0.2s;

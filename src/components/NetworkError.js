@@ -9,6 +9,7 @@ export default function NetworkError({ onReload, onClose }) {
   const theme = useTheme();
   return (
     <div
+      data-test-id="network-error-banner"
       css={css`
         background-color: ${theme.error.bg};
         border-radius: 5px;

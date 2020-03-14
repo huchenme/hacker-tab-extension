@@ -106,6 +106,7 @@ const PlaceholderCard = props => (
 const ContentPlaceholder = ({ size = 1 }) => {
   return (
     <div
+      data-test-id="loading-list"
       css={theme => css`
         background: ${theme.card.bg};
         border-radius: 5px;
@@ -117,6 +118,7 @@ const ContentPlaceholder = ({ size = 1 }) => {
         .fill(null)
         .map((_, index) => (
           <div
+            data-test-id="loading-card"
             key={index}
             css={theme => css`
               border-bottom: 1px solid ${theme.card.divider};

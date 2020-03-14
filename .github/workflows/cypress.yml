@@ -1,4 +1,4 @@
-name: E2E on Chrome
+name: Cypress Test
 on: [push]
 jobs:
   cypress-run:
@@ -9,7 +9,9 @@ jobs:
       - name: Cypress run
         uses: cypress-io/github-action@v1
         with:
-          browser: chrome
-          start: npm run start:nobrowser
-          # quote the url to be safe against YML parsing surprises
+          record: true
+          start: yarn start:nobrowser
           wait-on: 'http://localhost:3000'
+        env:
+          CYPRESS_RECORD_KEY: ${{ secrets.CYPRESS_RECORD_KEY }}
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

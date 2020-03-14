@@ -1,12 +1,11 @@
 language: node_js
+node_js:
+  - 12
 cache:
   directories:
     - ~/.npm
 notifications:
   email: false
-node_js:
-  - '10'
-script: yarn test
-branches:
-  only:
-    - master
+script:
+  - yarn test
+  - yarn build

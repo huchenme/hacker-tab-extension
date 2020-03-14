@@ -1,4 +1,4 @@
-import { find, sample, uniqBy } from 'lodash';
+import { find, sample, uniqBy, compact } from 'lodash';
 import appendQuery from 'append-query';
 import { languages as apiLanguages } from '@huchenme/github-trending';
 
@@ -10,8 +10,15 @@ export const periodOptions = [
 
 export const findPeriod = Period => find(periodOptions, { value: Period });
 
-export const getRandomRepositories = (repositories = []) =>
-  sample(repositories);
+export const getRandomRepositories = (repositories = [], current) => {
+  if (repositories.length < 2 || !current) {
+    return sample(repositories);
+  }
+  const otherRepos = repositories.filter(
+    repo => repo.author !== current.author && repo.name !== current.name
+  );
+  return sample(otherRepos);
+};
 
 export const getRefUrl = (url = '/') =>
   appendQuery(url, 'ref=HackerTabExtension');
@@ -45,10 +52,10 @@ const popularLanguages = [
 export const languages = [
   allLanguagesOption,
   ...uniqBy(
-    [
+    compact([
       ...popularLanguages.map(lang => find(apiLanguages, { name: lang })),
       ...apiLanguages,
-    ],
+    ]),
     'name'
   ).map(({ urlParam, name }) => ({
     label: name,

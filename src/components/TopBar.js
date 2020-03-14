@@ -53,6 +53,7 @@ const TopBar = ({
   return (
     <Container>
       <div
+        data-test-id="top-bar"
         css={css`
           max-width: 1366px;
           display: flex;

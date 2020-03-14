@@ -1,13 +1,6 @@
-import { fetchRepositories } from '@huchenme/github-trending';
-import { allLanguagesValue, isEmptyList } from './helpers/github';
-import {
-  KEY_REPOSITORIES,
-  KEY_SELECTED_CODE_LANGUAGE,
-  KEY_SELECTED_PERIOD,
-  KEY_LAST_UPDATED,
-  getObject,
-  setObject,
-} from './helpers/localStorage';
+import { isEmptyList } from '../helpers/github';
+import { KEY_REPOSITORIES, getObject } from '../helpers/localStorage';
+import startRequest from './startRequest';
 
 chrome.runtime.onInstalled.addListener(() => {
   console.log('onInstalled....');
@@ -47,19 +40,4 @@ chrome.alarms.onAlarm.addListener(alarm => {
 function scheduleRequest() {
   console.log('schedule refresh alarm to 30 minutes...');
   chrome.alarms.create('refresh', { periodInMinutes: 30 });
-}
-
-async function startRequest() {
-  console.log('start HTTP Request...');
-  const period = getObject(KEY_SELECTED_PERIOD);
-  const lang = getObject(KEY_SELECTED_CODE_LANGUAGE);
-  const data = await fetchRepositories({
-    language: lang === allLanguagesValue ? undefined : lang,
-    since: period,
-  });
-  if (data && data.length > 0) {
-    console.log('received data', data);
-    setObject(KEY_REPOSITORIES, data);
-    setObject(KEY_LAST_UPDATED, new Date().getTime());
-  }
 }

@@ -1,8 +1,0 @@
-{
-  "version": 1,
-  "name": "hacker-tab-extension",
-  "alias": "hacker-tab-extension.now.sh",
-  "github": {
-    "silent": true
-  }
-}

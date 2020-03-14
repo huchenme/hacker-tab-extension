@@ -1,0 +1,757 @@
+[
+  {
+    "author": "bottlerocket-os",
+    "name": "bottlerocket",
+    "avatar": "https://github.com/bottlerocket-os.png",
+    "url": "https://github.com/bottlerocket-os/bottlerocket",
+    "description": "An operating system designed for hosting containers",
+    "language": "Rust",
+    "languageColor": "#dea584",
+    "stars": 1758,
+    "forks": 59,
+    "currentPeriodStars": 1094,
+    "builtBy": [
+      {
+        "username": "tjkirch",
+        "href": "https://github.com/tjkirch",
+        "avatar": "https://avatars3.githubusercontent.com/u/13994"
+      },
+      {
+        "username": "iliana",
+        "href": "https://github.com/iliana",
+        "avatar": "https://avatars3.githubusercontent.com/u/52814"
+      },
+      {
+        "username": "bcressey",
+        "href": "https://github.com/bcressey",
+        "avatar": "https://avatars1.githubusercontent.com/u/174814"
+      },
+      {
+        "username": "jahkeup",
+        "href": "https://github.com/jahkeup",
+        "avatar": "https://avatars2.githubusercontent.com/u/1139752"
+      },
+      {
+        "username": "etungsten",
+        "href": "https://github.com/etungsten",
+        "avatar": "https://avatars2.githubusercontent.com/u/52762042"
+      }
+    ]
+  },
+  {
+    "author": "maxvoltar",
+    "name": "photo-stream",
+    "avatar": "https://github.com/maxvoltar.png",
+    "url": "https://github.com/maxvoltar/photo-stream",
+    "description": "Self-hosted, super simple photo stream",
+    "language": "HTML",
+    "languageColor": "#e34c26",
+    "stars": 682,
+    "forks": 93,
+    "currentPeriodStars": 503,
+    "builtBy": [
+      {
+        "username": "maxvoltar",
+        "href": "https://github.com/maxvoltar",
+        "avatar": "https://avatars3.githubusercontent.com/u/125779"
+      },
+      {
+        "username": "benubois",
+        "href": "https://github.com/benubois",
+        "avatar": "https://avatars2.githubusercontent.com/u/133809"
+      },
+      {
+        "username": "jadlimcaco",
+        "href": "https://github.com/jadlimcaco",
+        "avatar": "https://avatars0.githubusercontent.com/u/949200"
+      },
+      {
+        "username": "mattsacks",
+        "href": "https://github.com/mattsacks",
+        "avatar": "https://avatars3.githubusercontent.com/u/194567"
+      },
+      {
+        "username": "mikedholt",
+        "href": "https://github.com/mikedholt",
+        "avatar": "https://avatars0.githubusercontent.com/u/5240429"
+      }
+    ]
+  },
+  {
+    "author": "pcm-dpc",
+    "name": "COVID-19",
+    "avatar": "https://github.com/pcm-dpc.png",
+    "url": "https://github.com/pcm-dpc/COVID-19",
+    "description": "COVID-19 Italia - Monitoraggio situazione",
+    "stars": 1486,
+    "forks": 284,
+    "currentPeriodStars": 340,
+    "builtBy": [
+      {
+        "username": "brucellino",
+        "href": "https://github.com/brucellino",
+        "avatar": "https://avatars0.githubusercontent.com/u/2115428"
+      },
+      {
+        "username": "umbros",
+        "href": "https://github.com/umbros",
+        "avatar": "https://avatars1.githubusercontent.com/u/4085151"
+      }
+    ]
+  },
+  {
+    "author": "redwoodjs",
+    "name": "redwood",
+    "avatar": "https://github.com/redwoodjs.png",
+    "url": "https://github.com/redwoodjs/redwood",
+    "description": "Bringing full-stack to the JAMstack.",
+    "language": "JavaScript",
+    "languageColor": "#f1e05a",
+    "stars": 1898,
+    "forks": 45,
+    "currentPeriodStars": 530,
+    "builtBy": [
+      {
+        "username": "peterp",
+        "href": "https://github.com/peterp",
+        "avatar": "https://avatars2.githubusercontent.com/u/44849"
+      },
+      {
+        "username": "thedavidprice",
+        "href": "https://github.com/thedavidprice",
+        "avatar": "https://avatars2.githubusercontent.com/u/2951"
+      },
+      {
+        "username": "mojombo",
+        "href": "https://github.com/mojombo",
+        "avatar": "https://avatars1.githubusercontent.com/u/1"
+      },
+      {
+        "username": "cannikin",
+        "href": "https://github.com/cannikin",
+        "avatar": "https://avatars0.githubusercontent.com/u/300"
+      },
+      {
+        "username": "adrianmg",
+        "href": "https://github.com/adrianmg",
+        "avatar": "https://avatars0.githubusercontent.com/u/589285"
+      }
+    ]
+  },
+  {
+    "author": "google-research",
+    "name": "google-research",
+    "avatar": "https://github.com/google-research.png",
+    "url": "https://github.com/google-research/google-research",
+    "description": "Google Research",
+    "language": "Jupyter Notebook",
+    "languageColor": "#DA5B0B",
+    "stars": 8356,
+    "forks": 1488,
+    "currentPeriodStars": 422,
+    "builtBy": [
+      {
+        "username": "pdpino",
+        "href": "https://github.com/pdpino",
+        "avatar": "https://avatars1.githubusercontent.com/u/20805451"
+      },
+      {
+        "username": "sun51",
+        "href": "https://github.com/sun51",
+        "avatar": "https://avatars3.githubusercontent.com/u/3901200"
+      },
+      {
+        "username": "agutkin",
+        "href": "https://github.com/agutkin",
+        "avatar": "https://avatars0.githubusercontent.com/u/35786058"
+      },
+      {
+        "username": "dustinvtran",
+        "href": "https://github.com/dustinvtran",
+        "avatar": "https://avatars2.githubusercontent.com/u/2569867"
+      },
+      {
+        "username": "andrewluchen",
+        "href": "https://github.com/andrewluchen",
+        "avatar": "https://avatars1.githubusercontent.com/u/6128079"
+      }
+    ]
+  },
+  {
+    "author": "tandasat",
+    "name": "MiniVisorPkg",
+    "avatar": "https://github.com/tandasat.png",
+    "url": "https://github.com/tandasat/MiniVisorPkg",
+    "description": "The research UEFI hypervisor that supports booting an operating system.",
+    "language": "C",
+    "languageColor": "#555555",
+    "stars": 95,
+    "forks": 26,
+    "currentPeriodStars": 36,
+    "builtBy": [
+      {
+        "username": "tandasat",
+        "href": "https://github.com/tandasat",
+        "avatar": "https://avatars1.githubusercontent.com/u/1620923"
+      },
+      {
+        "username": "brucedang",
+        "href": "https://github.com/brucedang",
+        "avatar": "https://avatars3.githubusercontent.com/u/943548"
+      }
+    ]
+  },
+  {
+    "author": "CSSEGISandData",
+    "name": "COVID-19",
+    "avatar": "https://github.com/CSSEGISandData.png",
+    "url": "https://github.com/CSSEGISandData/COVID-19",
+    "description": "Novel Coronavirus (COVID-19) Cases, provided by JHU CSSE",
+    "stars": 6953,
+    "forks": 2467,
+    "currentPeriodStars": 658,
+    "builtBy": [
+      {
+        "username": "CSSEGISandData",
+        "href": "https://github.com/CSSEGISandData",
+        "avatar": "https://avatars3.githubusercontent.com/u/60674295"
+      },
+      {
+        "username": "hongru94",
+        "href": "https://github.com/hongru94",
+        "avatar": "https://avatars3.githubusercontent.com/u/47940478"
+      },
+      {
+        "username": "enshengdong",
+        "href": "https://github.com/enshengdong",
+        "avatar": "https://avatars0.githubusercontent.com/u/10015024"
+      }
+    ]
+  },
+  {
+    "author": "nndl",
+    "name": "nndl.github.io",
+    "avatar": "https://github.com/nndl.png",
+    "url": "https://github.com/nndl/nndl.github.io",
+    "description": "《神经网络与深度学习》 邱锡鹏著 Neural Network and Deep Learning",
+    "language": "HTML",
+    "languageColor": "#e34c26",
+    "stars": 11097,
+    "forks": 2491,
+    "currentPeriodStars": 56,
+    "builtBy": [
+      {
+        "username": "xpqiu",
+        "href": "https://github.com/xpqiu",
+        "avatar": "https://avatars0.githubusercontent.com/u/6408146"
+      },
+      {
+        "username": "JerrikEph",
+        "href": "https://github.com/JerrikEph",
+        "avatar": "https://avatars0.githubusercontent.com/u/17830427"
+      },
+      {
+        "username": "QipengGuo",
+        "href": "https://github.com/QipengGuo",
+        "avatar": "https://avatars0.githubusercontent.com/u/8382210"
+      },
+      {
+        "username": "tys1998",
+        "href": "https://github.com/tys1998",
+        "avatar": "https://avatars0.githubusercontent.com/u/33472759"
+      },
+      {
+        "username": "chenkaiyu1997",
+        "href": "https://github.com/chenkaiyu1997",
+        "avatar": "https://avatars2.githubusercontent.com/u/16744047"
+      }
+    ]
+  },
+  {
+    "author": "meshtastic",
+    "name": "Meshtastic-esp32",
+    "avatar": "https://github.com/meshtastic.png",
+    "url": "https://github.com/meshtastic/Meshtastic-esp32",
+    "description": "Device code for the Meshtastic ski/hike/fly/Signal-chat GPS radio",
+    "language": "C++",
+    "languageColor": "#f34b7d",
+    "stars": 337,
+    "forks": 17,
+    "currentPeriodStars": 163,
+    "builtBy": [
+      {
+        "username": "geeksville",
+        "href": "https://github.com/geeksville",
+        "avatar": "https://avatars3.githubusercontent.com/u/225513"
+      },
+      {
+        "username": "claesg",
+        "href": "https://github.com/claesg",
+        "avatar": "https://avatars2.githubusercontent.com/u/13845590"
+      },
+      {
+        "username": "girtsf",
+        "href": "https://github.com/girtsf",
+        "avatar": "https://avatars0.githubusercontent.com/u/260191"
+      },
+      {
+        "username": "gitter-badger",
+        "href": "https://github.com/gitter-badger",
+        "avatar": "https://avatars3.githubusercontent.com/u/8518239"
+      }
+    ]
+  },
+  {
+    "author": "google-research",
+    "name": "electra",
+    "avatar": "https://github.com/google-research.png",
+    "url": "https://github.com/google-research/electra",
+    "description": "ELECTRA: Pre-training Text Encoders as Discriminators Rather Than Generators",
+    "language": "Python",
+    "languageColor": "#3572A5",
+    "stars": 355,
+    "forks": 31,
+    "currentPeriodStars": 96,
+    "builtBy": [
+      {
+        "username": "clarkkev",
+        "href": "https://github.com/clarkkev",
+        "avatar": "https://avatars3.githubusercontent.com/u/1091306"
+      },
+      {
+        "username": "stefan-it",
+        "href": "https://github.com/stefan-it",
+        "avatar": "https://avatars0.githubusercontent.com/u/20651387"
+      },
+      {
+        "username": "michelole",
+        "href": "https://github.com/michelole",
+        "avatar": "https://avatars1.githubusercontent.com/u/1688126"
+      }
+    ]
+  },
+  {
+    "author": "doocs",
+    "name": "advanced-java",
+    "avatar": "https://github.com/doocs.png",
+    "url": "https://github.com/doocs/advanced-java",
+    "description": "😮 互联网 Java 工程师进阶知识完全扫盲：涵盖高并发、分布式、高可用、微服务、海量数据处理等领域知识，后端同学必看，前端同学也可学习",
+    "language": "Java",
+    "languageColor": "#b07219",
+    "stars": 40079,
+    "forks": 11039,
+    "currentPeriodStars": 133,
+    "builtBy": [
+      {
+        "username": "yanglbme",
+        "href": "https://github.com/yanglbme",
+        "avatar": "https://avatars3.githubusercontent.com/u/21008209"
+      },
+      {
+        "username": "ImgBotApp",
+        "href": "https://github.com/ImgBotApp",
+        "avatar": "https://avatars2.githubusercontent.com/u/31427850"
+      },
+      {
+        "username": "lihangqi",
+        "href": "https://github.com/lihangqi",
+        "avatar": "https://avatars2.githubusercontent.com/u/26339055"
+      },
+      {
+        "username": "huifer",
+        "href": "https://github.com/huifer",
+        "avatar": "https://avatars0.githubusercontent.com/u/26766909"
+      },
+      {
+        "username": "chenqimiao",
+        "href": "https://github.com/chenqimiao",
+        "avatar": "https://avatars1.githubusercontent.com/u/15151483"
+      }
+    ]
+  },
+  {
+    "author": "pytorch",
+    "name": "pytorch",
+    "avatar": "https://github.com/pytorch.png",
+    "url": "https://github.com/pytorch/pytorch",
+    "description": "Tensors and Dynamic neural networks in Python with strong GPU acceleration",
+    "language": "C++",
+    "languageColor": "#f34b7d",
+    "stars": 36846,
+    "forks": 9358,
+    "currentPeriodStars": 55,
+    "builtBy": [
+      {
+        "username": "ezyang",
+        "href": "https://github.com/ezyang",
+        "avatar": "https://avatars0.githubusercontent.com/u/13564"
+      },
+      {
+        "username": "soumith",
+        "href": "https://github.com/soumith",
+        "avatar": "https://avatars1.githubusercontent.com/u/1310570"
+      },
+      {
+        "username": "gchanan",
+        "href": "https://github.com/gchanan",
+        "avatar": "https://avatars1.githubusercontent.com/u/3768583"
+      },
+      {
+        "username": "apaszke",
+        "href": "https://github.com/apaszke",
+        "avatar": "https://avatars0.githubusercontent.com/u/4583066"
+      },
+      {
+        "username": "Yangqing",
+        "href": "https://github.com/Yangqing",
+        "avatar": "https://avatars3.githubusercontent.com/u/551151"
+      }
+    ]
+  },
+  {
+    "author": "EvgenyKashin",
+    "name": "stylegan2-distillation",
+    "avatar": "https://github.com/EvgenyKashin.png",
+    "url": "https://github.com/EvgenyKashin/stylegan2-distillation",
+    "description": "",
+    "stars": 273,
+    "forks": 18,
+    "currentPeriodStars": 88,
+    "builtBy": [
+      {
+        "username": "EvgenyKashin",
+        "href": "https://github.com/EvgenyKashin",
+        "avatar": "https://avatars2.githubusercontent.com/u/21174773"
+      }
+    ]
+  },
+  {
+    "author": "mai-lang-chai",
+    "name": "Middleware-Vulnerability-detection",
+    "avatar": "https://github.com/mai-lang-chai.png",
+    "url": "https://github.com/mai-lang-chai/Middleware-Vulnerability-detection",
+    "description": "CVE、CMS、中间件漏洞检测利用合集 Since 2019-9-15",
+    "language": "Python",
+    "languageColor": "#3572A5",
+    "stars": 349,
+    "forks": 81,
+    "currentPeriodStars": 47,
+    "builtBy": [
+      {
+        "username": "mai-lang-chai",
+        "href": "https://github.com/mai-lang-chai",
+        "avatar": "https://avatars1.githubusercontent.com/u/36095584"
+      }
+    ]
+  },
+  {
+    "author": "MhdHejazi",
+    "name": "CoronaTracker",
+    "avatar": "https://github.com/MhdHejazi.png",
+    "url": "https://github.com/MhdHejazi/CoronaTracker",
+    "description": "Coronavirus tracker app for iOS & macOS with map & charts",
+    "language": "Swift",
+    "languageColor": "#ffac45",
+    "stars": 207,
+    "forks": 22,
+    "currentPeriodStars": 57,
+    "builtBy": [
+      {
+        "username": "MhdHejazi",
+        "href": "https://github.com/MhdHejazi",
+        "avatar": "https://avatars1.githubusercontent.com/u/121827"
+      }
+    ]
+  },
+  {
+    "author": "taviso",
+    "name": "avscript",
+    "avatar": "https://github.com/taviso.png",
+    "url": "https://github.com/taviso/avscript",
+    "description": "Avast JavaScript Interactive Shell",
+    "language": "C",
+    "languageColor": "#555555",
+    "stars": 485,
+    "forks": 32,
+    "currentPeriodStars": 171,
+    "builtBy": [
+      {
+        "username": "taviso",
+        "href": "https://github.com/taviso",
+        "avatar": "https://avatars0.githubusercontent.com/u/123814"
+      },
+      {
+        "username": "Vipul97",
+        "href": "https://github.com/Vipul97",
+        "avatar": "https://avatars2.githubusercontent.com/u/16150834"
+      }
+    ]
+  },
+  {
+    "author": "donnemartin",
+    "name": "system-design-primer",
+    "avatar": "https://github.com/donnemartin.png",
+    "url": "https://github.com/donnemartin/system-design-primer",
+    "description": "Learn how to design large-scale systems. Prep for the system design interview. Includes Anki flashcards.",
+    "language": "Python",
+    "languageColor": "#3572A5",
+    "stars": 84966,
+    "forks": 14435,
+    "currentPeriodStars": 148,
+    "builtBy": [
+      {
+        "username": "donnemartin",
+        "href": "https://github.com/donnemartin",
+        "avatar": "https://avatars0.githubusercontent.com/u/5458997"
+      },
+      {
+        "username": "satob",
+        "href": "https://github.com/satob",
+        "avatar": "https://avatars0.githubusercontent.com/u/171818"
+      },
+      {
+        "username": "fluency03",
+        "href": "https://github.com/fluency03",
+        "avatar": "https://avatars3.githubusercontent.com/u/7440735"
+      },
+      {
+        "username": "antongulikov",
+        "href": "https://github.com/antongulikov",
+        "avatar": "https://avatars1.githubusercontent.com/u/6084440"
+      },
+      {
+        "username": "fabriziocucci",
+        "href": "https://github.com/fabriziocucci",
+        "avatar": "https://avatars0.githubusercontent.com/u/8156463"
+      }
+    ]
+  },
+  {
+    "author": "CTF-MissFeng",
+    "name": "bayonet",
+    "avatar": "https://github.com/CTF-MissFeng.png",
+    "url": "https://github.com/CTF-MissFeng/bayonet",
+    "description": "bayonet是一款src资产管理系统，从子域名、端口服务、漏洞、爬虫等一体化的资产管理系统",
+    "language": "Python",
+    "languageColor": "#3572A5",
+    "stars": 272,
+    "forks": 42,
+    "currentPeriodStars": 48,
+    "builtBy": [
+      {
+        "username": "CTF-MissFeng",
+        "href": "https://github.com/CTF-MissFeng",
+        "avatar": "https://avatars0.githubusercontent.com/u/38177965"
+      }
+    ]
+  },
+  {
+    "author": "PizzaPokerGuy",
+    "name": "ultimate-coding-resources",
+    "avatar": "https://github.com/PizzaPokerGuy.png",
+    "url": "https://github.com/PizzaPokerGuy/ultimate-coding-resources",
+    "description": "A collection of the best resources for programming, web development, computer science and more.",
+    "stars": 1475,
+    "forks": 146,
+    "currentPeriodStars": 235,
+    "builtBy": [
+      {
+        "username": "PizzaPokerGuy",
+        "href": "https://github.com/PizzaPokerGuy",
+        "avatar": "https://avatars0.githubusercontent.com/u/14266817"
+      },
+      {
+        "username": "samedwards1989",
+        "href": "https://github.com/samedwards1989",
+        "avatar": "https://avatars3.githubusercontent.com/u/11388164"
+      },
+      {
+        "username": "ahavensdaxko",
+        "href": "https://github.com/ahavensdaxko",
+        "avatar": "https://avatars0.githubusercontent.com/u/33287549"
+      },
+      {
+        "username": "krishnadevz",
+        "href": "https://github.com/krishnadevz",
+        "avatar": "https://avatars2.githubusercontent.com/u/42638797"
+      }
+    ]
+  },
+  {
+    "author": "Tencent",
+    "name": "DVQA",
+    "avatar": "https://github.com/Tencent.png",
+    "url": "https://github.com/Tencent/DVQA",
+    "description": "Deep learning-based Video Quality Assessment",
+    "language": "Python",
+    "languageColor": "#3572A5",
+    "stars": 68,
+    "forks": 14,
+    "currentPeriodStars": 22,
+    "builtBy": [
+      {
+        "username": "tommyhq",
+        "href": "https://github.com/tommyhq",
+        "avatar": "https://avatars1.githubusercontent.com/u/61727295"
+      }
+    ]
+  },
+  {
+    "author": "emergenzeHack",
+    "name": "covid19italia",
+    "avatar": "https://github.com/emergenzeHack.png",
+    "url": "https://github.com/emergenzeHack/covid19italia",
+    "description": "Condividiamo informazioni e segnalazioni sul COVID19",
+    "language": "JavaScript",
+    "languageColor": "#f1e05a",
+    "stars": 25,
+    "forks": 17,
+    "currentPeriodStars": 8,
+    "builtBy": [
+      {
+        "username": "mfortini",
+        "href": "https://github.com/mfortini",
+        "avatar": "https://avatars0.githubusercontent.com/u/1104926"
+      },
+      {
+        "username": "iltempe",
+        "href": "https://github.com/iltempe",
+        "avatar": "https://avatars3.githubusercontent.com/u/6368214"
+      },
+      {
+        "username": "avivace",
+        "href": "https://github.com/avivace",
+        "avatar": "https://avatars2.githubusercontent.com/u/14352721"
+      },
+      {
+        "username": "tailot",
+        "href": "https://github.com/tailot",
+        "avatar": "https://avatars0.githubusercontent.com/u/40148896"
+      },
+      {
+        "username": "olistik",
+        "href": "https://github.com/olistik",
+        "avatar": "https://avatars0.githubusercontent.com/u/21038"
+      }
+    ]
+  },
+  {
+    "author": "iluwatar",
+    "name": "java-design-patterns",
+    "avatar": "https://github.com/iluwatar.png",
+    "url": "https://github.com/iluwatar/java-design-patterns",
+    "description": "Design patterns implemented in Java",
+    "language": "Java",
+    "languageColor": "#b07219",
+    "stars": 56063,
+    "forks": 18039,
+    "currentPeriodStars": 85,
+    "builtBy": [
+      {
+        "username": "iluwatar",
+        "href": "https://github.com/iluwatar",
+        "avatar": "https://avatars0.githubusercontent.com/u/582346"
+      },
+      {
+        "username": "npathai",
+        "href": "https://github.com/npathai",
+        "avatar": "https://avatars0.githubusercontent.com/u/1792515"
+      },
+      {
+        "username": "mikulucky",
+        "href": "https://github.com/mikulucky",
+        "avatar": "https://avatars2.githubusercontent.com/u/4526195"
+      },
+      {
+        "username": "fluxw42",
+        "href": "https://github.com/fluxw42",
+        "avatar": "https://avatars2.githubusercontent.com/u/1545460"
+      },
+      {
+        "username": "thomasoss",
+        "href": "https://github.com/thomasoss",
+        "avatar": "https://avatars2.githubusercontent.com/u/22516154"
+      }
+    ]
+  },
+  {
+    "author": "lemire",
+    "name": "fast_double_parser",
+    "avatar": "https://github.com/lemire.png",
+    "url": "https://github.com/lemire/fast_double_parser",
+    "description": "Fast function to parse strings into double (binary64) floating-point values",
+    "language": "C++",
+    "languageColor": "#f34b7d",
+    "stars": 221,
+    "forks": 9,
+    "currentPeriodStars": 70,
+    "builtBy": [
+      {
+        "username": "lemire",
+        "href": "https://github.com/lemire",
+        "avatar": "https://avatars2.githubusercontent.com/u/391987"
+      },
+      {
+        "username": "facontidavide",
+        "href": "https://github.com/facontidavide",
+        "avatar": "https://avatars1.githubusercontent.com/u/2822888"
+      }
+    ]
+  },
+  {
+    "author": "blaCCkHatHacEEkr",
+    "name": "PENTESTING-BIBLE",
+    "avatar": "https://github.com/blaCCkHatHacEEkr.png",
+    "url": "https://github.com/blaCCkHatHacEEkr/PENTESTING-BIBLE",
+    "description": "This repository was created and developed by Ammar Amer @cry__pto Only. Updates to this repository will continue to arrive until the number of links reaches 10000 links & 10000 pdf files .Learn Ethical Hacking and penetration testing .hundreds of ethical hacking & penetration testing & red team & cyber security & computer science resources.",
+    "stars": 4175,
+    "forks": 821,
+    "currentPeriodStars": 23,
+    "builtBy": [
+      {
+        "username": "blaCCkHatHacEEkr",
+        "href": "https://github.com/blaCCkHatHacEEkr",
+        "avatar": "https://avatars0.githubusercontent.com/u/51203763"
+      },
+      {
+        "username": "erjanmx",
+        "href": "https://github.com/erjanmx",
+        "avatar": "https://avatars3.githubusercontent.com/u/4899432"
+      }
+    ]
+  },
+  {
+    "author": "livewire",
+    "name": "livewire",
+    "avatar": "https://github.com/livewire.png",
+    "url": "https://github.com/livewire/livewire",
+    "description": "A full-stack framework for Laravel that takes the pain out of building dynamic UIs.",
+    "language": "PHP",
+    "languageColor": "#4F5D95",
+    "stars": 2354,
+    "forks": 172,
+    "currentPeriodStars": 36,
+    "builtBy": [
+      {
+        "username": "calebporzio",
+        "href": "https://github.com/calebporzio",
+        "avatar": "https://avatars3.githubusercontent.com/u/3670578"
+      },
+      {
+        "username": "lancepioch",
+        "href": "https://github.com/lancepioch",
+        "avatar": "https://avatars3.githubusercontent.com/u/1296882"
+      },
+      {
+        "username": "tillkruss",
+        "href": "https://github.com/tillkruss",
+        "avatar": "https://avatars3.githubusercontent.com/u/665029"
+      },
+      {
+        "username": "nuernbergerA",
+        "href": "https://github.com/nuernbergerA",
+        "avatar": "https://avatars2.githubusercontent.com/u/13331388"
+      }
+    ]
+  }
+]

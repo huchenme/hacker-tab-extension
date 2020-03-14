@@ -10,7 +10,7 @@ export default function EmptyState({ lastUpdatedTime, onReload }) {
   const theme = useTheme();
 
   return (
-    <div>
+    <div data-test-id="empty-state">
       <div
         css={css`
           margin: auto;

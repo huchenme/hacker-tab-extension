@@ -28,7 +28,7 @@ const RepositoryCard = ({
   const theme = useTheme();
 
   return (
-    <Card href={getRefUrl(url)}>
+    <Card data-test-id="repo-card" href={getRefUrl(url)}>
       <Left>
         <Avatar src={getAvatarString(avatar, 160)} />
       </Left>
@@ -52,6 +52,7 @@ const RepositoryCard = ({
             `}
           />
           <span
+            data-test-id="author"
             css={css`
               font-size: 0.9em;
             `}
@@ -66,6 +67,7 @@ const RepositoryCard = ({
             /
           </span>
           <span
+            data-test-id="name"
             css={css`
               font-weight: 600;
             `}

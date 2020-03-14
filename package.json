@@ -15,10 +15,12 @@
     "@atlaskit/select": "^11.0.7",
     "@emotion/core": "^10.0.28",
     "@emotion/styled": "^10.0.27",
-    "@huchenme/github-trending": "^2.2.0",
+    "@huchenme/github-trending": "^2.3.0",
     "append-query": "^2.1.0",
     "date-fns": "^2.10.0",
     "emotion-theming": "^10.0.27",
+    "husky": "^4.2.3",
+    "lint-staged": "^10.0.8",
     "lodash": "^4.17.15",
     "polished": "^3.4.4",
     "prop-types": "^15.7.2",
@@ -38,21 +40,35 @@
     "@storybook/addon-notes": "^5.3.14",
     "@storybook/addons": "^5.3.14",
     "@storybook/react": "^5.3.14",
+    "@testing-library/cypress": "^5.3.0",
     "@testing-library/jest-dom": "^5.1.1",
     "@testing-library/react": "^9.5.0",
+    "cypress": "^4.1.0",
+    "eslint-config-cypress": "^0.28.0",
+    "is-ci-cli": "^2.0.0",
+    "jest-when": "^2.7.0",
     "npm-run-all": "^4.1.5",
     "rimraf": "^3.0.2",
+    "start-server-and-test": "^1.10.9",
     "webpack-cli": "^3.3.11"
   },
   "scripts": {
     "start": "react-scripts start",
+    "start:nobrowser": "BROWSER=none react-scripts start",
     "storybook": "start-storybook -p 6006",
-    "test": "react-scripts test --env=jsdom",
+    "test": "is-ci test:coverage test:local",
+    "test:local": "react-scripts test",
+    "test:coverage": "react-scripts test --coverage",
+    "test:e2e": "is-ci test:e2e:run test:e2e:open",
+    "test:e2e:run": "start-test start:nobrowser 3000 cy:run",
+    "test:e2e:open": "start-test start:nobrowser 3000 cy:open",
+    "cy:run": "cypress run",
+    "cy:open": "cypress open",
     "prebuild": "rimraf build",
     "build": "npm-run-all build:*",
     "build:app": "INLINE_RUNTIME_CHUNK=false react-scripts build",
-    "build:bg": "webpack --mode production ./src/background.js --output ./build/background.js",
-    "build:bg:dev": "webpack --mode development ./src/background.js --output ./build/background.js",
+    "build:bg": "webpack --mode production ./src/background/index.js --output ./build/background.js",
+    "build:bg:dev": "webpack --mode development ./src/background/index.js --output ./build/background.js",
     "prezip": "rimraf *.zip",
     "zip": "npm-run-all zip:*",
     "zip:build": "cd build; zip -r ../build.zip * -x '*.DS_Store'",
@@ -80,5 +96,15 @@
   "prettier": {
     "trailingComma": "es5",
     "singleQuote": true
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
+  },
+  "lint-staged": {
+    "*.{js,jsx,ts,tsx,json,css,scss,md}": [
+      "prettier --write"
+    ]
   }
 }
