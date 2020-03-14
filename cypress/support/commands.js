@@ -68,6 +68,13 @@ Cypress.Commands.add('shouldHaveRepoCards', num => {
     .should('have.length', num);
 });
 
+Cypress.Commands.add('shouldHaveFirstCardContains', value => {
+  cy.findByTestId('loaded-repo-list')
+    .findAllByTestId('repo-card')
+    .first()
+    .contains(value);
+});
+
 Cypress.Commands.add('getLocalStorage', key => {
   cy.window()
     .its('localStorage')

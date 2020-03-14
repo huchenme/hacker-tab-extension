@@ -36,6 +36,7 @@ describe('Load Repositories', () => {
     cy.visit('/');
     cy.findByTestId('loading-card').should('not.exist');
     cy.shouldHaveRepoCards(25);
+    cy.shouldHaveFirstCardContains('COVID-19 Italia - Monitoraggio situazione');
   });
 
   it('should show last updated time', () => {
@@ -67,6 +68,9 @@ describe('Load Repositories', () => {
     cy.fixture('trending-2').then(json => {
       cy.getLocalStorage('repositories').should('deep.eq', json);
     });
+    cy.shouldHaveFirstCardContains(
+      'An operating system designed for hosting containers'
+    );
   });
 
   it('clears localStorage if schema version is different', () => {
