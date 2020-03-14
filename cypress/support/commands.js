@@ -41,6 +41,8 @@ Cypress.Commands.add(
 
 Cypress.Commands.add('waitResponse', () => {
   cy.wait('@fetchRepos');
+  // eslint-disable-next-line cypress/no-unnecessary-waiting
+  cy.wait(100); // for localstorage to set
 });
 
 Cypress.Commands.add(
@@ -67,13 +69,10 @@ Cypress.Commands.add('shouldHaveRepoCards', num => {
 });
 
 Cypress.Commands.add('getLocalStorage', key => {
-  const fn = data => {
-    return JSON.parse(data);
-  };
   cy.window()
     .its('localStorage')
     .its(key)
-    .then(data => cy.wrap({ parseJSON: fn }).invoke('parseJSON', data));
+    .then(JSON.parse);
 });
 
 Cypress.Commands.add('setLocalStorage', (key, value) =>
