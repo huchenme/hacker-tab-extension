@@ -8,9 +8,9 @@ describe('Load Repositories', () => {
   it('shows loading placeholder while loading', () => {
     cy.fetchRepos({ delay: 100 });
     cy.visit('/');
-    cy.queryAllByTestId('loading-card').should('have.length', 10);
+    cy.findAllByTestId('loading-card').should('have.length', 10);
     cy.wait('@fetchRepos');
-    cy.queryByTestId('loading-card').should('not.exist');
+    cy.findByTestId('loading-card').should('not.exist');
     cy.shouldHaveRepoCards(25);
   });
 
@@ -34,7 +34,7 @@ describe('Load Repositories', () => {
       cy.setLocalStorage('repositories', json);
     });
     cy.visit('/');
-    cy.queryByTestId('loading-card').should('not.exist');
+    cy.findByTestId('loading-card').should('not.exist');
     cy.shouldHaveRepoCards(25);
   });
 
@@ -45,7 +45,7 @@ describe('Load Repositories', () => {
       lastUpdatedTime: new Date('2020-01-01T08:20:00').getTime(),
     });
     cy.visit('/');
-    cy.queryByText('10 minutes ago').should('exist');
+    cy.findByText('10 minutes ago').should('exist');
   });
 
   it('click last updated time should refetch repositories', () => {
@@ -57,7 +57,7 @@ describe('Load Repositories', () => {
     cy.server();
     cy.route({
       method: 'GET',
-      url: 'https://github-trending-api.now.sh/repositories*',
+      url: 'https://github-trending-api.now.sh/repositories?since=daily',
       response: 'fixture:trending-2',
     }).as('fetchRepos');
     cy.visit('/');

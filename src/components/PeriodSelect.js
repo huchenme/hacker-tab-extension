@@ -5,13 +5,15 @@ import { periodOptions, findPeriod } from '../helpers/github';
 
 const PeriodSelect = ({ onChange, selectedValue }) => {
   return (
-    <Select
-      isSearchable={false}
-      value={findPeriod(selectedValue)}
-      onChange={({ value }) => onChange(value)}
-      options={periodOptions}
-      placeholder="Select period"
-    />
+    <div data-test-id="period-selector">
+      <Select
+        isSearchable={false}
+        value={findPeriod(selectedValue)}
+        onChange={({ value }) => onChange(value)}
+        options={periodOptions}
+        placeholder="Select period"
+      />
+    </div>
   );
 };
 

@@ -4,12 +4,14 @@ import { languages, findLanguage } from '../helpers/github';
 import Select from './Select';
 
 const LanguageSelect = ({ onChange, selectedValue }) => (
-  <Select
-    value={findLanguage(selectedValue)}
-    onChange={({ value }) => onChange(value)}
-    options={languages}
-    placeholder="All languages"
-  />
+  <div data-test-id="language-selector">
+    <Select
+      value={findLanguage(selectedValue)}
+      onChange={({ value }) => onChange(value)}
+      options={languages}
+      placeholder="All languages"
+    />
+  </div>
 );
 
 LanguageSelect.propTypes = {

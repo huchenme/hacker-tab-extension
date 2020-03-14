@@ -31,7 +31,7 @@ Cypress.Commands.add(
     cy.server();
     cy.route({
       method: 'GET',
-      url: 'https://github-trending-api.now.sh/repositories*',
+      url: 'https://github-trending-api.now.sh/repositories?since=daily',
       response,
       delay,
       status,

@@ -38,7 +38,7 @@ describe('I’m Feeling Lucky', () => {
       const names = json.map(repo => repo.name);
       cy.route({
         method: 'GET',
-        url: 'https://github-trending-api.now.sh/repositories*',
+        url: 'https://github-trending-api.now.sh/repositories?since=daily',
         response: 'fixture:trending-2',
       }).as('fetchRepos');
       cy.findByTestId('last-updated-time').click();
