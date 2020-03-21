@@ -25,9 +25,7 @@ const App = () => {
   // Clear local storage is schema version not match
   useCheckLocalStorageSchema();
 
-  const [isDark, setIsDark] = useDarkMode(
-    window.matchMedia('(prefers-color-scheme: dark)').matches
-  );
+  const [isDark, setIsDark] = useDarkMode();
 
   const {
     isLoading,
