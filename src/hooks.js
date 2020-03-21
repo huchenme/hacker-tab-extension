@@ -103,8 +103,20 @@ export const useSelectedLanguage = () =>
 export const useSelectedPeriod = () =>
   useLocalStorage(KEY_SELECTED_PERIOD, 'daily');
 
-export const useDarkMode = initialValue => {
-  return useLocalStorage(KEY_DARK_MODE, initialValue);
+export const useDarkMode = () => {
+  const preferDarkQuery = '(prefers-color-scheme: dark)';
+  const [mode, setMode] = useLocalStorage(
+    KEY_DARK_MODE,
+    Boolean(window.matchMedia(preferDarkQuery).matches)
+  );
+  useEffect(() => {
+    const mediaQuery = window.matchMedia(preferDarkQuery);
+    const handleChange = () => setMode(Boolean(mediaQuery.matches));
+    mediaQuery.addListener(handleChange);
+    return () => mediaQuery.removeListener(handleChange);
+  }, [setMode]);
+
+  return [mode, setMode];
 };
 
 export const useLastUpdatedTime = () => {

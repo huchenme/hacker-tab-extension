@@ -55,6 +55,7 @@ Cypress.Commands.add(
           .withArgs('(prefers-color-scheme: dark)')
           .returns({
             matches: darkMode,
+            addListener: () => {},
           });
       },
     });
