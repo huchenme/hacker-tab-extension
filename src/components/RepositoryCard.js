@@ -36,11 +36,11 @@ const RepositoryCard = ({
         <h3
           css={css`
             margin: 0;
-            font-size: 18px;
-            line-height: 24px;
-            font-weight: 300;
+            font-size: 20px;
+            font-family: 'TT Commons', sans-serif;
             color: ${theme.text.active};
             transition: color ${theme.transition};
+            margin-bottom: 0.2em;
           `}
         >
           <AuthorIcon
@@ -54,7 +54,7 @@ const RepositoryCard = ({
           <span
             data-test-id="author"
             css={css`
-              font-size: 0.9em;
+              font-weight: normal;
             `}
           >
             {author}
@@ -66,14 +66,7 @@ const RepositoryCard = ({
           >
             /
           </span>
-          <span
-            data-test-id="name"
-            css={css`
-              font-weight: 600;
-            `}
-          >
-            {name}
-          </span>
+          <span data-test-id="name">{name}</span>
         </h3>
         <Description>{description}</Description>
         <AdditionalInfo>
@@ -167,17 +160,15 @@ const Right = styled.div`
 const Avatar = styled.img`
   height: 40px;
   width: 40px;
-  border-radius: 2px;
+  border-radius: 40px;
   overflow: hidden;
   border: 0;
   vertical-align: bottom;
+  border: 1px #eef1f3 solid;
 `;
 
 const Description = styled.div`
-  margin-top: 5px;
   flex-grow: 1;
-  font-size: 13px;
-  line-height: 20px;
   font-weight: 400;
   color: ${props => props.theme.text.helper};
   transition: color ${props => props.theme.transition};
@@ -199,8 +190,7 @@ const AdditionalInfo = styled.div`
   align-items: center;
   color: ${props => props.theme.card.additional};
   transition: color ${props => props.theme.transition};
-  font-size: 12px;
-  margin-top: 14px;
+  margin-top: 20px;
   justify-content: space-between;
 `;
 
@@ -210,7 +200,7 @@ const AdditionalInfoSection = styled.div`
 `;
 
 const AdditionalInfoItem = styled.div`
-  margin-right: 16px;
+  margin-right: 24px;
 
   &:last-child {
     margin-right: 0;
@@ -228,10 +218,10 @@ const CurrentStar = styled.div`
   position: relative;
   left: -4px;
   top: 4px;
-  font-size: 40px;
+  font-size: 46px;
   line-height: 1;
   color: ${props => props.theme.card.currentStar};
   transition: color ${props => props.theme.transition};
-  font-weight: 100;
-  font-family: 'Futura PT';
+  font-weight: 500;
+  font-family: 'TT Commons', sans-serif;
 `;

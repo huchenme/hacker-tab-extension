@@ -3,18 +3,20 @@ import {
   render,
   fireEvent,
   cleanup,
-  bindElementToQueries,
+  getQueriesForElement,
 } from '@testing-library/react';
 
 import Popup from '../Popup';
-const bodyUtils = bindElementToQueries(document.body);
+const bodyUtils = getQueriesForElement(document.body);
 
 jest.mock('react-spring/renderprops.cjs', () => {
   const reactSpring = jest.genMockFromModule('react-spring');
   reactSpring.Transition = ({ items, keys, children, enter }) => {
     if (Array.isArray(items)) {
       return items.length > 0
-        ? items.map(item => <div key={keys(item)}>{children(item)(enter)}</div>)
+        ? items.map((item) => (
+            <div key={keys(item)}>{children(item)(enter)}</div>
+          ))
         : null;
     }
 
@@ -30,7 +32,7 @@ beforeEach(() => {
 
 afterEach(cleanup);
 
-const PopupDemo = props => (
+const PopupDemo = (props) => (
   <Popup
     content={({ close }) => (
       <div>

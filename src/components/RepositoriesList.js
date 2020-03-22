@@ -142,11 +142,10 @@ const Container = styled.div`
 
 const Title = styled.h1`
   text-align: center;
-  line-height: 1.4;
-  font-weight: 600;
-  font-family: 'Futura PT';
+  font-family: 'TT Commons', sans-serif;
   margin-bottom: 16px;
-  font-size: 20px;
+  font-size: 24px;
+  line-height: 1.1;
   transition: color 0.2s ease-in-out;
   color: rgba(
     ${props => (props.theme.isDark ? '255,255,255' : '0,0,0')},

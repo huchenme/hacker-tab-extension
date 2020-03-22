@@ -45,8 +45,11 @@ export default function ScrollTop(props) {
           transition: color 0.2s cubic-bezier(0.4, 0, 0.2, 1);
           cursor: pointer;
           border: none;
-          height: 40px;
-          width: 40px;
+          height: 20px;
+          width: 20px;
+          padding: 0;
+          margin: 0;
+          line-height: 1;
           outline: none;
           color: ${theme.icon.color};
           opacity: 0.5;
@@ -58,7 +61,13 @@ export default function ScrollTop(props) {
         onClick={scrollTop}
         {...props}
       >
-        <Icon glyph={TopIcon} />
+        <Icon
+          css={css`
+            height: 20px;
+            width: 20px;
+          `}
+          glyph={TopIcon}
+        />
       </button>
     </Fade>
   );

@@ -15,7 +15,7 @@ export default function InfoItem({ children, icon }) {
       {icon ? (
         <div
           css={css`
-            margin-right: 3px;
+            margin-right: 5px;
             display: flex;
             align-items: center;
           `}

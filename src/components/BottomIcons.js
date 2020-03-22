@@ -1,5 +1,5 @@
 /** @jsx jsx */
-import React from 'react';
+import React, { useState } from 'react';
 import { css, jsx } from '@emotion/core';
 import PropTypes from 'prop-types';
 import styled from '@emotion/styled';
@@ -9,19 +9,31 @@ import { ReactComponent as SettingIcon } from '../images/setting.svg';
 
 import ScrollTop from './ScrollTop';
 
-export default function BottomIcons({ isDark = false, setIsDark }) {
-  const showSetting = false;
+const margin = '20px';
+
+export default function BottomIcons({
+  isDark = false,
+  setIsDark,
+  shouldShowSetting = false,
+}) {
+  const [isSettingOpen, setIsSettingOpen] = useState(false);
+
   return (
     <React.Fragment>
       <div
         css={css`
           position: fixed;
-          right: 40px;
-          bottom: 40px;
+          right: ${margin};
+          bottom: ${margin};
           display: flex;
         `}
       >
-        <ScrollTop aria-label="Scroll to Top Button" />
+        <ScrollTop
+          css={css`
+            margin-right: 16px;
+          `}
+          aria-label="Scroll to Top Button"
+        />
         <ActionButton
           onClick={() => {
             setIsDark(!isDark);
@@ -34,6 +46,8 @@ export default function BottomIcons({ isDark = false, setIsDark }) {
               aria-label="Sun Icon"
               css={css`
                 fill: currentColor;
+                height: 20px;
+                width: 20px;
               `}
             />
           ) : (
@@ -41,34 +55,53 @@ export default function BottomIcons({ isDark = false, setIsDark }) {
               aria-label="Moon Icon"
               css={css`
                 fill: currentColor;
+                height: 20px;
+                width: 20px;
               `}
             />
           )}
         </ActionButton>
       </div>
-      {showSetting ? (
+
+      {shouldShowSetting && (
         <div
           css={css`
             position: fixed;
-            left: 40px;
-            bottom: 40px;
+            left: ${margin};
+            bottom: ${margin};
             display: flex;
           `}
         >
           <ActionButton
             isRotate
+            isRotated={isSettingOpen}
             onClick={() => {
-              console.log('setting');
+              setIsSettingOpen(!isSettingOpen);
             }}
           >
             <SettingIcon
               css={css`
                 fill: currentColor;
+                height: 20px;
+                width: 20px;
               `}
             />
+            <div
+              css={css`
+                width: 200px;
+                height: 200px;
+                background: white;
+                position: absolute;
+                bottom: 50px;
+                left: 0;
+                border-radius: 5px;
+              `}
+            >
+              test
+            </div>
           </ActionButton>
         </div>
-      ) : null}
+      )}
     </React.Fragment>
   );
 }
@@ -76,27 +109,32 @@ export default function BottomIcons({ isDark = false, setIsDark }) {
 BottomIcons.propTypes = {
   isDark: PropTypes.bool,
   setIsDark: PropTypes.func.isRequired,
+  shouldShowSetting: PropTypes.bool,
 };
 
 const ActionButton = styled.button`
   background-color: transparent;
+  margin: 0;
+  padding: 0;
+  line-height: 1;
   transition: color 0.2s cubic-bezier(0.4, 0, 0.2, 1);
   cursor: pointer;
   border: none;
-  height: 40px;
-  width: 40px;
+  height: 20px;
+  width: 20px;
   outline: none;
-  color: ${props => props.theme.icon.color};
+  color: ${(props) => props.theme.icon.color};
 
   svg {
     transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+    transform: ${(props) => (props.isRotated ? 'rotate(45deg)' : 'none')};
   }
 
   &:hover {
-    color: ${props => props.theme.icon.hoverColor};
+    color: ${(props) => props.theme.icon.hoverColor};
 
     svg {
-      transform: ${props => (props.isRotate ? 'rotate(45deg)' : 'none')};
+      transform: ${(props) => (props.isRotate ? 'rotate(45deg)' : 'none')};
     }
   }
 `;
