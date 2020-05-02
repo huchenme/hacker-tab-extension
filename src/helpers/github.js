@@ -1,6 +1,9 @@
 import { find, sample, uniqBy, compact } from 'lodash';
 import appendQuery from 'append-query';
-import { languages as apiLanguages } from '@huchenme/github-trending';
+import {
+  languages as apiLanguages,
+  spokenLanguages as apiSpokenLanguages,
+} from '@huchenme/github-trending';
 
 export const periodOptions = [
   { value: 'daily', label: 'Trending today' },
@@ -8,14 +11,14 @@ export const periodOptions = [
   { value: 'monthly', label: 'Trending this month' },
 ];
 
-export const findPeriod = Period => find(periodOptions, { value: Period });
+export const findPeriod = (Period) => find(periodOptions, { value: Period });
 
 export const getRandomRepositories = (repositories = [], current) => {
   if (repositories.length < 2 || !current) {
     return sample(repositories);
   }
   const otherRepos = repositories.filter(
-    repo => repo.author !== current.author && repo.name !== current.name
+    (repo) => repo.author !== current.author && repo.name !== current.name
   );
   return sample(otherRepos);
 };
@@ -53,7 +56,7 @@ export const languages = [
   allLanguagesOption,
   ...uniqBy(
     compact([
-      ...popularLanguages.map(lang => find(apiLanguages, { name: lang })),
+      ...popularLanguages.map((lang) => find(apiLanguages, { name: lang })),
       ...apiLanguages,
     ]),
     'name'
@@ -63,7 +66,27 @@ export const languages = [
   })),
 ];
 
-export const findLanguage = value =>
+export const findLanguage = (value) =>
   find(languages, { value: value }) || allLanguagesOption;
 
-export const isEmptyList = list => !list || list.length === 0;
+export const isEmptyList = (list) => !list || list.length === 0;
+
+export const allSpokenLanguagesValue = '__ALL__';
+
+export const allSpokenLanguagesLabel = 'No Preference';
+
+export const allSpokenLanguagesOption = {
+  label: allSpokenLanguagesLabel,
+  value: allSpokenLanguagesValue,
+};
+
+export const spokenLanguages = [
+  allSpokenLanguagesOption,
+  ...apiSpokenLanguages.map(({ urlParam, name }) => ({
+    label: name,
+    value: urlParam,
+  })),
+];
+
+export const findSpokenLanguage = (value) =>
+  find(spokenLanguages, { value }) || allSpokenLanguagesOption;

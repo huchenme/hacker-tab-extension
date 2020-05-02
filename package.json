@@ -15,7 +15,7 @@
     "@atlaskit/select": "^11.0.7",
     "@emotion/core": "^10.0.28",
     "@emotion/styled": "^10.0.27",
-    "@huchenme/github-trending": "^2.3.0",
+    "@huchenme/github-trending": "^2.4.0",
     "append-query": "^2.1.0",
     "date-fns": "^2.10.0",
     "emotion-theming": "^10.0.27",

@@ -5,6 +5,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { useTheme } from 'emotion-theming';
 import LanguageSelect from './LanguageSelect';
+import SpokenLanguageSelect from './SpokenLanguageSelect';
 import PeriodSelect from './PeriodSelect';
 import { ReactComponent as Logo } from '../images/logo.svg';
 
@@ -49,6 +50,8 @@ const TopBar = ({
   selectedLanguage,
   onChangePeriod,
   selectedPeriod,
+  onChangeSpokenLanguage,
+  selectedSpokenLanguage,
 }) => {
   return (
     <Container>
@@ -66,7 +69,7 @@ const TopBar = ({
       >
         <a
           href="https://github.com/huchenme/hacker-tab-extension"
-          css={theme => css`
+          css={(theme) => css`
             display: block;
             color: ${theme.rgba(0.38)};
             transition: color 0.5s cubic-bezier(0.4, 0, 0.2, 1);
@@ -83,6 +86,12 @@ const TopBar = ({
             display: flex;
           `}
         >
+          <SelectItem>
+            <SpokenLanguageSelect
+              selectedValue={selectedSpokenLanguage}
+              onChange={onChangeSpokenLanguage}
+            />
+          </SelectItem>
           <SelectItem>
             <LanguageSelect
               selectedValue={selectedLanguage}
@@ -104,8 +113,10 @@ const TopBar = ({
 TopBar.propTypes = {
   selectedLanguage: PropTypes.string,
   selectedPeriod: PropTypes.string,
+  selectedSpokenLanguage: PropTypes.string,
   onChangeLanguage: PropTypes.func.isRequired,
   onChangePeriod: PropTypes.func.isRequired,
+  onChangeSpokenLanguage: PropTypes.func.isRequired,
 };
 
 export default React.memo(TopBar);
@@ -114,10 +125,10 @@ const Container = styled.div`
   display: flex;
   align-items: center;
   position: relative;
-  background-color: ${props => props.theme.topBar.bg};
+  background-color: ${(props) => props.theme.topBar.bg};
   padding: 0 16px;
   height: 56px;
   box-shadow: 0px 4px 5px 0px rgba(0, 0, 0, 0.14),
     0px 1px 10px 0px rgba(0, 0, 0, 0.12);
-  transition: background-color ${props => props.theme.transition};
+  transition: background-color ${(props) => props.theme.transition};
 `;
