@@ -1,0 +1,935 @@
+[
+  {
+    "author": "podgorskiy",
+    "name": "ALAE",
+    "avatar": "https://github.com/podgorskiy.png",
+    "url": "https://github.com/podgorskiy/ALAE",
+    "description": "[CVPR2020] Adversarial Latent Autoencoders",
+    "language": "Python",
+    "languageColor": "#3572A5",
+    "stars": 1617,
+    "forks": 210,
+    "currentPeriodStars": 155,
+    "builtBy": [
+      {
+        "username": "podgorskiy",
+        "href": "https://github.com/podgorskiy",
+        "avatar": "https://avatars3.githubusercontent.com/u/3229783"
+      },
+      {
+        "username": "MattyBv3",
+        "href": "https://github.com/MattyBv3",
+        "avatar": "https://avatars3.githubusercontent.com/u/40623300"
+      },
+      {
+        "username": "rolisz",
+        "href": "https://github.com/rolisz",
+        "avatar": "https://avatars3.githubusercontent.com/u/426313"
+      },
+      {
+        "username": "jxcodetw",
+        "href": "https://github.com/jxcodetw",
+        "avatar": "https://avatars1.githubusercontent.com/u/5556203"
+      }
+    ]
+  },
+  {
+    "author": "aristocratos",
+    "name": "bashtop",
+    "avatar": "https://github.com/aristocratos.png",
+    "url": "https://github.com/aristocratos/bashtop",
+    "description": "Linux resource monitor",
+    "language": "Shell",
+    "languageColor": "#89e051",
+    "stars": 4856,
+    "forks": 192,
+    "currentPeriodStars": 236,
+    "builtBy": [
+      {
+        "username": "aristocratos",
+        "href": "https://github.com/aristocratos",
+        "avatar": "https://avatars1.githubusercontent.com/u/59659483"
+      },
+      {
+        "username": "Jukoo",
+        "href": "https://github.com/Jukoo",
+        "avatar": "https://avatars3.githubusercontent.com/u/34043000"
+      },
+      {
+        "username": "frederic-mahe",
+        "href": "https://github.com/frederic-mahe",
+        "avatar": "https://avatars1.githubusercontent.com/u/2270759"
+      },
+      {
+        "username": "Calinou",
+        "href": "https://github.com/Calinou",
+        "avatar": "https://avatars1.githubusercontent.com/u/180032"
+      },
+      {
+        "username": "jdenoy-saagie",
+        "href": "https://github.com/jdenoy-saagie",
+        "avatar": "https://avatars0.githubusercontent.com/u/55875303"
+      }
+    ]
+  },
+  {
+    "author": "beefytech",
+    "name": "Beef",
+    "avatar": "https://github.com/beefytech.png",
+    "url": "https://github.com/beefytech/Beef",
+    "description": "Beef Programming Language",
+    "language": "C++",
+    "languageColor": "#f34b7d",
+    "stars": 1302,
+    "forks": 56,
+    "currentPeriodStars": 75,
+    "builtBy": [
+      {
+        "username": "bfiete",
+        "href": "https://github.com/bfiete",
+        "avatar": "https://avatars2.githubusercontent.com/u/3042917"
+      },
+      {
+        "username": "damianday",
+        "href": "https://github.com/damianday",
+        "avatar": "https://avatars2.githubusercontent.com/u/1334173"
+      },
+      {
+        "username": "HydrogenC",
+        "href": "https://github.com/HydrogenC",
+        "avatar": "https://avatars3.githubusercontent.com/u/33123710"
+      },
+      {
+        "username": "ChlorineX",
+        "href": "https://github.com/ChlorineX",
+        "avatar": "https://avatars2.githubusercontent.com/u/34786330"
+      },
+      {
+        "username": "subramanivmk",
+        "href": "https://github.com/subramanivmk",
+        "avatar": "https://avatars1.githubusercontent.com/u/38209586"
+      }
+    ]
+  },
+  {
+    "author": "TheAlgorithms",
+    "name": "Java",
+    "avatar": "https://github.com/TheAlgorithms.png",
+    "url": "https://github.com/TheAlgorithms/Java",
+    "description": "All Algorithms implemented in Java",
+    "language": "Java",
+    "languageColor": "#b07219",
+    "stars": 23415,
+    "forks": 8501,
+    "currentPeriodStars": 83,
+    "builtBy": [
+      {
+        "username": "yanglbme",
+        "href": "https://github.com/yanglbme",
+        "avatar": "https://avatars3.githubusercontent.com/u/21008209"
+      },
+      {
+        "username": "dynamitechetan",
+        "href": "https://github.com/dynamitechetan",
+        "avatar": "https://avatars1.githubusercontent.com/u/14369357"
+      },
+      {
+        "username": "varunu28",
+        "href": "https://github.com/varunu28",
+        "avatar": "https://avatars1.githubusercontent.com/u/7676016"
+      },
+      {
+        "username": "christianbender",
+        "href": "https://github.com/christianbender",
+        "avatar": "https://avatars0.githubusercontent.com/u/23243382"
+      },
+      {
+        "username": "shellhub",
+        "href": "https://github.com/shellhub",
+        "avatar": "https://avatars3.githubusercontent.com/u/32572119"
+      }
+    ]
+  },
+  {
+    "author": "Qv2ray",
+    "name": "Qv2ray",
+    "avatar": "https://github.com/Qv2ray.png",
+    "url": "https://github.com/Qv2ray/Qv2ray",
+    "description": "🌟 支持 V2Ray/Trojan/SSR 的 Linux/Windows/macOS 跨平台 GUI 🔨 C++17/Qt5 ，支持订阅，自定义路由编辑，插件式设计 🌟",
+    "language": "C++",
+    "languageColor": "#f34b7d",
+    "stars": 2720,
+    "forks": 360,
+    "currentPeriodStars": 78,
+    "builtBy": [
+      {
+        "username": "Qv2ray-dev",
+        "href": "https://github.com/Qv2ray-dev",
+        "avatar": "https://avatars1.githubusercontent.com/u/59914293"
+      },
+      {
+        "username": "ymshenyu",
+        "href": "https://github.com/ymshenyu",
+        "avatar": "https://avatars2.githubusercontent.com/u/39402395"
+      },
+      {
+        "username": "D-x-D",
+        "href": "https://github.com/D-x-D",
+        "avatar": "https://avatars1.githubusercontent.com/u/63760968"
+      },
+      {
+        "username": "DuckSoft",
+        "href": "https://github.com/DuckSoft",
+        "avatar": "https://avatars2.githubusercontent.com/u/7822648"
+      },
+      {
+        "username": "himekifee",
+        "href": "https://github.com/himekifee",
+        "avatar": "https://avatars2.githubusercontent.com/u/22322294"
+      }
+    ]
+  },
+  {
+    "author": "timgrossmann",
+    "name": "InstaPy",
+    "avatar": "https://github.com/timgrossmann.png",
+    "url": "https://github.com/timgrossmann/InstaPy",
+    "description": "📷 Instagram Bot - Tool for automated Instagram interactions",
+    "language": "Python",
+    "languageColor": "#3572A5",
+    "stars": 10159,
+    "forks": 2655,
+    "currentPeriodStars": 71,
+    "builtBy": [
+      {
+        "username": "timgrossmann",
+        "href": "https://github.com/timgrossmann",
+        "avatar": "https://avatars0.githubusercontent.com/u/16529337"
+      },
+      {
+        "username": "uluQulu",
+        "href": "https://github.com/uluQulu",
+        "avatar": "https://avatars3.githubusercontent.com/u/33269249"
+      },
+      {
+        "username": "breuerfelix",
+        "href": "https://github.com/breuerfelix",
+        "avatar": "https://avatars0.githubusercontent.com/u/36931468"
+      },
+      {
+        "username": "sionking",
+        "href": "https://github.com/sionking",
+        "avatar": "https://avatars2.githubusercontent.com/u/7851877"
+      },
+      {
+        "username": "converge",
+        "href": "https://github.com/converge",
+        "avatar": "https://avatars1.githubusercontent.com/u/188671"
+      }
+    ]
+  },
+  {
+    "author": "open-telemetry",
+    "name": "opentelemetry-java",
+    "avatar": "https://github.com/open-telemetry.png",
+    "url": "https://github.com/open-telemetry/opentelemetry-java",
+    "description": "OpenTelemetry Java SDK",
+    "language": "Java",
+    "languageColor": "#b07219",
+    "stars": 431,
+    "forks": 176,
+    "currentPeriodStars": 4,
+    "builtBy": [
+      {
+        "username": "bogdandrutu",
+        "href": "https://github.com/bogdandrutu",
+        "avatar": "https://avatars0.githubusercontent.com/u/1373887"
+      },
+      {
+        "username": "carlosalberto",
+        "href": "https://github.com/carlosalberto",
+        "avatar": "https://avatars3.githubusercontent.com/u/260065"
+      },
+      {
+        "username": "jkwatson",
+        "href": "https://github.com/jkwatson",
+        "avatar": "https://avatars0.githubusercontent.com/u/858731"
+      },
+      {
+        "username": "songy23",
+        "href": "https://github.com/songy23",
+        "avatar": "https://avatars2.githubusercontent.com/u/10536136"
+      },
+      {
+        "username": "pavolloffay",
+        "href": "https://github.com/pavolloffay",
+        "avatar": "https://avatars3.githubusercontent.com/u/5618424"
+      }
+    ]
+  },
+  {
+    "author": "Unity-Technologies",
+    "name": "ml-agents",
+    "avatar": "https://github.com/Unity-Technologies.png",
+    "url": "https://github.com/Unity-Technologies/ml-agents",
+    "description": "Unity Machine Learning Agents Toolkit",
+    "language": "Python",
+    "languageColor": "#3572A5",
+    "stars": 8351,
+    "forks": 2281,
+    "currentPeriodStars": 30,
+    "builtBy": [
+      {
+        "username": "vincentpierre",
+        "href": "https://github.com/vincentpierre",
+        "avatar": "https://avatars0.githubusercontent.com/u/28320361"
+      },
+      {
+        "username": "chriselion",
+        "href": "https://github.com/chriselion",
+        "avatar": "https://avatars0.githubusercontent.com/u/6877802"
+      },
+      {
+        "username": "awjuliani",
+        "href": "https://github.com/awjuliani",
+        "avatar": "https://avatars2.githubusercontent.com/u/9065325"
+      },
+      {
+        "username": "ervteng",
+        "href": "https://github.com/ervteng",
+        "avatar": "https://avatars3.githubusercontent.com/u/5085265"
+      },
+      {
+        "username": "unityjeffrey",
+        "href": "https://github.com/unityjeffrey",
+        "avatar": "https://avatars2.githubusercontent.com/u/34355042"
+      }
+    ]
+  },
+  {
+    "author": "alpinejs",
+    "name": "alpine",
+    "avatar": "https://github.com/alpinejs.png",
+    "url": "https://github.com/alpinejs/alpine",
+    "description": "A rugged, minimal framework for composing JavaScript behavior in your markup.",
+    "language": "JavaScript",
+    "languageColor": "#f1e05a",
+    "stars": 7081,
+    "forks": 248,
+    "currentPeriodStars": 114,
+    "builtBy": [
+      {
+        "username": "calebporzio",
+        "href": "https://github.com/calebporzio",
+        "avatar": "https://avatars3.githubusercontent.com/u/3670578"
+      },
+      {
+        "username": "keyurshah",
+        "href": "https://github.com/keyurshah",
+        "avatar": "https://avatars1.githubusercontent.com/u/744385"
+      },
+      {
+        "username": "SimoTod",
+        "href": "https://github.com/SimoTod",
+        "avatar": "https://avatars2.githubusercontent.com/u/8427737"
+      },
+      {
+        "username": "HugoDF",
+        "href": "https://github.com/HugoDF",
+        "avatar": "https://avatars3.githubusercontent.com/u/6459679"
+      },
+      {
+        "username": "ryangjchandler",
+        "href": "https://github.com/ryangjchandler",
+        "avatar": "https://avatars0.githubusercontent.com/u/41837763"
+      }
+    ]
+  },
+  {
+    "author": "AliaksandrSiarohin",
+    "name": "first-order-model",
+    "avatar": "https://github.com/AliaksandrSiarohin.png",
+    "url": "https://github.com/AliaksandrSiarohin/first-order-model",
+    "description": "This repository contains the source code for the paper First Order Motion Model for Image Animation",
+    "language": "Jupyter Notebook",
+    "languageColor": "#DA5B0B",
+    "stars": 3454,
+    "forks": 672,
+    "currentPeriodStars": 35,
+    "builtBy": [
+      {
+        "username": "AliaksandrSiarohin",
+        "href": "https://github.com/AliaksandrSiarohin",
+        "avatar": "https://avatars1.githubusercontent.com/u/3857997"
+      },
+      {
+        "username": "abcdea",
+        "href": "https://github.com/abcdea",
+        "avatar": "https://avatars2.githubusercontent.com/u/61522"
+      },
+      {
+        "username": "ZeroCool940711",
+        "href": "https://github.com/ZeroCool940711",
+        "avatar": "https://avatars3.githubusercontent.com/u/5977640"
+      },
+      {
+        "username": "mikaelhg",
+        "href": "https://github.com/mikaelhg",
+        "avatar": "https://avatars1.githubusercontent.com/u/264506"
+      },
+      {
+        "username": "s1ddok",
+        "href": "https://github.com/s1ddok",
+        "avatar": "https://avatars1.githubusercontent.com/u/6384566"
+      }
+    ]
+  },
+  {
+    "author": "apache",
+    "name": "flink",
+    "avatar": "https://github.com/apache.png",
+    "url": "https://github.com/apache/flink",
+    "description": "Apache Flink",
+    "language": "Java",
+    "languageColor": "#b07219",
+    "stars": 12819,
+    "forks": 6888,
+    "currentPeriodStars": 23,
+    "builtBy": [
+      {
+        "username": "StephanEwen",
+        "href": "https://github.com/StephanEwen",
+        "avatar": "https://avatars0.githubusercontent.com/u/1727146"
+      },
+      {
+        "username": "tillrohrmann",
+        "href": "https://github.com/tillrohrmann",
+        "avatar": "https://avatars0.githubusercontent.com/u/5756858"
+      },
+      {
+        "username": "zentol",
+        "href": "https://github.com/zentol",
+        "avatar": "https://avatars1.githubusercontent.com/u/5725237"
+      },
+      {
+        "username": "aljoscha",
+        "href": "https://github.com/aljoscha",
+        "avatar": "https://avatars2.githubusercontent.com/u/68551"
+      },
+      {
+        "username": "fhueske",
+        "href": "https://github.com/fhueske",
+        "avatar": "https://avatars2.githubusercontent.com/u/2388347"
+      }
+    ]
+  },
+  {
+    "author": "3b1b",
+    "name": "manim",
+    "avatar": "https://github.com/3b1b.png",
+    "url": "https://github.com/3b1b/manim",
+    "description": "Animation engine for explanatory math videos",
+    "language": "Python",
+    "languageColor": "#3572A5",
+    "stars": 21483,
+    "forks": 2676,
+    "currentPeriodStars": 77,
+    "builtBy": [
+      {
+        "username": "3b1b",
+        "href": "https://github.com/3b1b",
+        "avatar": "https://avatars2.githubusercontent.com/u/11601040"
+      },
+      {
+        "username": "bhbr",
+        "href": "https://github.com/bhbr",
+        "avatar": "https://avatars2.githubusercontent.com/u/13440601"
+      },
+      {
+        "username": "eulertour",
+        "href": "https://github.com/eulertour",
+        "avatar": "https://avatars1.githubusercontent.com/u/43117506"
+      },
+      {
+        "username": "Sridhar3b1b",
+        "href": "https://github.com/Sridhar3b1b",
+        "avatar": "https://avatars1.githubusercontent.com/u/35234358"
+      },
+      {
+        "username": "mirefek",
+        "href": "https://github.com/mirefek",
+        "avatar": "https://avatars3.githubusercontent.com/u/25885450"
+      }
+    ]
+  },
+  {
+    "author": "arendst",
+    "name": "Tasmota",
+    "avatar": "https://github.com/arendst.png",
+    "url": "https://github.com/arendst/Tasmota",
+    "description": "Alternative firmware for ESP8266 with easy configuration using webUI, OTA updates, automation using timers or rules, expandability and entirely local control over MQTT, HTTP, Serial or KNX. Full documentation at",
+    "language": "C++",
+    "languageColor": "#f34b7d",
+    "stars": 10596,
+    "forks": 2444,
+    "currentPeriodStars": 22,
+    "builtBy": [
+      {
+        "username": "arendst",
+        "href": "https://github.com/arendst",
+        "avatar": "https://avatars1.githubusercontent.com/u/11044339"
+      },
+      {
+        "username": "ascillato",
+        "href": "https://github.com/ascillato",
+        "avatar": "https://avatars3.githubusercontent.com/u/35405447"
+      },
+      {
+        "username": "Jason2866",
+        "href": "https://github.com/Jason2866",
+        "avatar": "https://avatars1.githubusercontent.com/u/24528715"
+      },
+      {
+        "username": "andrethomas",
+        "href": "https://github.com/andrethomas",
+        "avatar": "https://avatars0.githubusercontent.com/u/470015"
+      },
+      {
+        "username": "gemu2015",
+        "href": "https://github.com/gemu2015",
+        "avatar": "https://avatars1.githubusercontent.com/u/11647075"
+      }
+    ]
+  },
+  {
+    "author": "sveltejs",
+    "name": "svelte",
+    "avatar": "https://github.com/sveltejs.png",
+    "url": "https://github.com/sveltejs/svelte",
+    "description": "Cybernetically enhanced web apps",
+    "language": "JavaScript",
+    "languageColor": "#f1e05a",
+    "stars": 33252,
+    "forks": 1536,
+    "currentPeriodStars": 57,
+    "builtBy": [
+      {
+        "username": "Rich-Harris",
+        "href": "https://github.com/Rich-Harris",
+        "avatar": "https://avatars0.githubusercontent.com/u/1162160"
+      },
+      {
+        "username": "Conduitry",
+        "href": "https://github.com/Conduitry",
+        "avatar": "https://avatars2.githubusercontent.com/u/16696352"
+      },
+      {
+        "username": "tanhauhau",
+        "href": "https://github.com/tanhauhau",
+        "avatar": "https://avatars0.githubusercontent.com/u/2338632"
+      },
+      {
+        "username": "Swatinem",
+        "href": "https://github.com/Swatinem",
+        "avatar": "https://avatars1.githubusercontent.com/u/580492"
+      },
+      {
+        "username": "jacwright",
+        "href": "https://github.com/jacwright",
+        "avatar": "https://avatars2.githubusercontent.com/u/120294"
+      }
+    ]
+  },
+  {
+    "author": "opentrace-community",
+    "name": "opentrace-android",
+    "avatar": "https://github.com/opentrace-community.png",
+    "url": "https://github.com/opentrace-community/opentrace-android",
+    "description": "OpenTrace Android app. Reference implementation of the BlueTrace protocol.",
+    "language": "Kotlin",
+    "languageColor": "#F18E33",
+    "stars": 402,
+    "forks": 147,
+    "currentPeriodStars": 11,
+    "builtBy": [
+      {
+        "username": "slxe6",
+        "href": "https://github.com/slxe6",
+        "avatar": "https://avatars3.githubusercontent.com/u/17446564"
+      }
+    ]
+  },
+  {
+    "author": "minetest",
+    "name": "minetest",
+    "avatar": "https://github.com/minetest.png",
+    "url": "https://github.com/minetest/minetest",
+    "description": "Minetest, an open source infinite-world block sandbox game engine with support for survival and crafting. Also see https://github.com/minetest/minetest_game",
+    "language": "C++",
+    "languageColor": "#f34b7d",
+    "stars": 5070,
+    "forks": 1198,
+    "currentPeriodStars": 23,
+    "builtBy": [
+      {
+        "username": "celeron55",
+        "href": "https://github.com/celeron55",
+        "avatar": "https://avatars3.githubusercontent.com/u/115571"
+      },
+      {
+        "username": "nerzhul",
+        "href": "https://github.com/nerzhul",
+        "avatar": "https://avatars1.githubusercontent.com/u/119752"
+      },
+      {
+        "username": "paramat",
+        "href": "https://github.com/paramat",
+        "avatar": "https://avatars1.githubusercontent.com/u/3686677"
+      },
+      {
+        "username": "kwolekr",
+        "href": "https://github.com/kwolekr",
+        "avatar": "https://avatars3.githubusercontent.com/u/630595"
+      },
+      {
+        "username": "sfan5",
+        "href": "https://github.com/sfan5",
+        "avatar": "https://avatars2.githubusercontent.com/u/1042418"
+      }
+    ]
+  },
+  {
+    "author": "flipped-aurora",
+    "name": "gin-vue-admin",
+    "avatar": "https://github.com/flipped-aurora.png",
+    "url": "https://github.com/flipped-aurora/gin-vue-admin",
+    "description": "基于gin+vue搭建的后台管理系统框架，集成jwt鉴权，权限管理，动态路由，分页封装，多点登录拦截，资源权限，上传下载，代码生成器，表单生成器等基础功能，更多功能正在开发中，欢迎issue和pr~",
+    "language": "Go",
+    "languageColor": "#00ADD8",
+    "stars": 1987,
+    "forks": 363,
+    "currentPeriodStars": 34,
+    "builtBy": [
+      {
+        "username": "piexlmax",
+        "href": "https://github.com/piexlmax",
+        "avatar": "https://avatars2.githubusercontent.com/u/29840023"
+      },
+      {
+        "username": "krank666",
+        "href": "https://github.com/krank666",
+        "avatar": "https://avatars1.githubusercontent.com/u/28359027"
+      },
+      {
+        "username": "granty1",
+        "href": "https://github.com/granty1",
+        "avatar": "https://avatars0.githubusercontent.com/u/53974562"
+      },
+      {
+        "username": "Ruio9244",
+        "href": "https://github.com/Ruio9244",
+        "avatar": "https://avatars2.githubusercontent.com/u/9160957"
+      },
+      {
+        "username": "rikugun",
+        "href": "https://github.com/rikugun",
+        "avatar": "https://avatars0.githubusercontent.com/u/225988"
+      }
+    ]
+  },
+  {
+    "author": "FreeCAD",
+    "name": "FreeCAD",
+    "avatar": "https://github.com/FreeCAD.png",
+    "url": "https://github.com/FreeCAD/FreeCAD",
+    "description": "This is the official source code of FreeCAD, a free and opensource multiplatform 3D parametric modeler. Issues are managed on our own bug tracker at https://www.freecadweb.org/tracker",
+    "language": "C++",
+    "languageColor": "#f34b7d",
+    "stars": 5416,
+    "forks": 1727,
+    "currentPeriodStars": 7,
+    "builtBy": [
+      {
+        "username": "wwmayer",
+        "href": "https://github.com/wwmayer",
+        "avatar": "https://avatars3.githubusercontent.com/u/7101741"
+      },
+      {
+        "username": "yorikvanhavre",
+        "href": "https://github.com/yorikvanhavre",
+        "avatar": "https://avatars0.githubusercontent.com/u/1136856"
+      },
+      {
+        "username": "berndhahnebach",
+        "href": "https://github.com/berndhahnebach",
+        "avatar": "https://avatars2.githubusercontent.com/u/6129869"
+      },
+      {
+        "username": "WandererFan",
+        "href": "https://github.com/WandererFan",
+        "avatar": "https://avatars1.githubusercontent.com/u/3587161"
+      },
+      {
+        "username": "mlampert",
+        "href": "https://github.com/mlampert",
+        "avatar": "https://avatars1.githubusercontent.com/u/7856427"
+      }
+    ]
+  },
+  {
+    "author": "pcottle",
+    "name": "learnGitBranching",
+    "avatar": "https://github.com/pcottle.png",
+    "url": "https://github.com/pcottle/learnGitBranching",
+    "description": "An interactive git visualization to challenge and educate!",
+    "language": "JavaScript",
+    "languageColor": "#f1e05a",
+    "stars": 16979,
+    "forks": 4076,
+    "currentPeriodStars": 68,
+    "builtBy": [
+      {
+        "username": "pcottle",
+        "href": "https://github.com/pcottle",
+        "avatar": "https://avatars0.githubusercontent.com/u/1135007"
+      },
+      {
+        "username": "hong4rc",
+        "href": "https://github.com/hong4rc",
+        "avatar": "https://avatars1.githubusercontent.com/u/19208123"
+      },
+      {
+        "username": "twmht",
+        "href": "https://github.com/twmht",
+        "avatar": "https://avatars3.githubusercontent.com/u/1567200"
+      },
+      {
+        "username": "JuhoKang",
+        "href": "https://github.com/JuhoKang",
+        "avatar": "https://avatars1.githubusercontent.com/u/4745294"
+      },
+      {
+        "username": "sunshowers",
+        "href": "https://github.com/sunshowers",
+        "avatar": "https://avatars1.githubusercontent.com/u/180618"
+      }
+    ]
+  },
+  {
+    "author": "Genymobile",
+    "name": "scrcpy",
+    "avatar": "https://github.com/Genymobile.png",
+    "url": "https://github.com/Genymobile/scrcpy",
+    "description": "Display and control your Android device",
+    "language": "C",
+    "languageColor": "#555555",
+    "stars": 29398,
+    "forks": 2930,
+    "currentPeriodStars": 56,
+    "builtBy": [
+      {
+        "username": "rom1v",
+        "href": "https://github.com/rom1v",
+        "avatar": "https://avatars1.githubusercontent.com/u/543275"
+      },
+      {
+        "username": "npes87184",
+        "href": "https://github.com/npes87184",
+        "avatar": "https://avatars0.githubusercontent.com/u/5494432"
+      },
+      {
+        "username": "msfjarvis",
+        "href": "https://github.com/msfjarvis",
+        "avatar": "https://avatars0.githubusercontent.com/u/13348378"
+      },
+      {
+        "username": "yangfl",
+        "href": "https://github.com/yangfl",
+        "avatar": "https://avatars0.githubusercontent.com/u/5283634"
+      },
+      {
+        "username": "schwabe",
+        "href": "https://github.com/schwabe",
+        "avatar": "https://avatars0.githubusercontent.com/u/1038539"
+      }
+    ]
+  },
+  {
+    "author": "then",
+    "name": "is-promise",
+    "avatar": "https://github.com/then.png",
+    "url": "https://github.com/then/is-promise",
+    "description": "Test whether an object looks like a promises-a+ promise",
+    "language": "JavaScript",
+    "languageColor": "#f1e05a",
+    "stars": 212,
+    "forks": 33,
+    "currentPeriodStars": 5,
+    "builtBy": [
+      {
+        "username": "ForbesLindesay",
+        "href": "https://github.com/ForbesLindesay",
+        "avatar": "https://avatars3.githubusercontent.com/u/1260646"
+      },
+      {
+        "username": "RyanZim",
+        "href": "https://github.com/RyanZim",
+        "avatar": "https://avatars0.githubusercontent.com/u/17342435"
+      },
+      {
+        "username": "nhunzaker",
+        "href": "https://github.com/nhunzaker",
+        "avatar": "https://avatars3.githubusercontent.com/u/590904"
+      },
+      {
+        "username": "edef1c",
+        "href": "https://github.com/edef1c",
+        "avatar": "https://avatars2.githubusercontent.com/u/50854"
+      },
+      {
+        "username": "nikksan",
+        "href": "https://github.com/nikksan",
+        "avatar": "https://avatars0.githubusercontent.com/u/13086078"
+      }
+    ]
+  },
+  {
+    "author": "TheAlgorithms",
+    "name": "Python",
+    "avatar": "https://github.com/TheAlgorithms.png",
+    "url": "https://github.com/TheAlgorithms/Python",
+    "description": "All Algorithms implemented in Python",
+    "language": "Python",
+    "languageColor": "#3572A5",
+    "stars": 70655,
+    "forks": 21317,
+    "currentPeriodStars": 73,
+    "builtBy": [
+      {
+        "username": "harshildarji",
+        "href": "https://github.com/harshildarji",
+        "avatar": "https://avatars1.githubusercontent.com/u/14276147"
+      },
+      {
+        "username": "cclauss",
+        "href": "https://github.com/cclauss",
+        "avatar": "https://avatars3.githubusercontent.com/u/3709715"
+      },
+      {
+        "username": "dynamitechetan",
+        "href": "https://github.com/dynamitechetan",
+        "avatar": "https://avatars1.githubusercontent.com/u/14369357"
+      },
+      {
+        "username": "AnupKumarPanwar",
+        "href": "https://github.com/AnupKumarPanwar",
+        "avatar": "https://avatars2.githubusercontent.com/u/10573038"
+      },
+      {
+        "username": "christianbender",
+        "href": "https://github.com/christianbender",
+        "avatar": "https://avatars0.githubusercontent.com/u/23243382"
+      }
+    ]
+  },
+  {
+    "author": "abseil",
+    "name": "abseil-cpp",
+    "avatar": "https://github.com/abseil.png",
+    "url": "https://github.com/abseil/abseil-cpp",
+    "description": "Abseil Common Libraries (C++)",
+    "language": "C++",
+    "languageColor": "#f34b7d",
+    "stars": 6836,
+    "forks": 1160,
+    "currentPeriodStars": 5,
+    "builtBy": [
+      {
+        "username": "rongjiecomputer",
+        "href": "https://github.com/rongjiecomputer",
+        "avatar": "https://avatars2.githubusercontent.com/u/13115060"
+      },
+      {
+        "username": "gennadiycivil",
+        "href": "https://github.com/gennadiycivil",
+        "avatar": "https://avatars1.githubusercontent.com/u/12735026"
+      },
+      {
+        "username": "romange",
+        "href": "https://github.com/romange",
+        "avatar": "https://avatars2.githubusercontent.com/u/3674760"
+      },
+      {
+        "username": "zhangxy988",
+        "href": "https://github.com/zhangxy988",
+        "avatar": "https://avatars3.githubusercontent.com/u/19511589"
+      },
+      {
+        "username": "ahedberg",
+        "href": "https://github.com/ahedberg",
+        "avatar": "https://avatars3.githubusercontent.com/u/5367112"
+      }
+    ]
+  },
+  {
+    "author": "donnemartin",
+    "name": "system-design-primer",
+    "avatar": "https://github.com/donnemartin.png",
+    "url": "https://github.com/donnemartin/system-design-primer",
+    "description": "Learn how to design large-scale systems. Prep for the system design interview. Includes Anki flashcards.",
+    "language": "Python",
+    "languageColor": "#3572A5",
+    "stars": 93183,
+    "forks": 16031,
+    "currentPeriodStars": 142,
+    "builtBy": [
+      {
+        "username": "donnemartin",
+        "href": "https://github.com/donnemartin",
+        "avatar": "https://avatars0.githubusercontent.com/u/5458997"
+      },
+      {
+        "username": "satob",
+        "href": "https://github.com/satob",
+        "avatar": "https://avatars0.githubusercontent.com/u/171818"
+      },
+      {
+        "username": "fluency03",
+        "href": "https://github.com/fluency03",
+        "avatar": "https://avatars3.githubusercontent.com/u/7440735"
+      },
+      {
+        "username": "sqrthree",
+        "href": "https://github.com/sqrthree",
+        "avatar": "https://avatars1.githubusercontent.com/u/8622362"
+      },
+      {
+        "username": "antongulikov",
+        "href": "https://github.com/antongulikov",
+        "avatar": "https://avatars1.githubusercontent.com/u/6084440"
+      }
+    ]
+  },
+  {
+    "author": "refactoringui",
+    "name": "heroicons",
+    "avatar": "https://github.com/refactoringui.png",
+    "url": "https://github.com/refactoringui/heroicons",
+    "description": "A set of free MIT-licensed high-quality SVG icons for UI development.",
+    "stars": 5133,
+    "forks": 248,
+    "currentPeriodStars": 22,
+    "builtBy": [
+      {
+        "username": "adamwathan",
+        "href": "https://github.com/adamwathan",
+        "avatar": "https://avatars3.githubusercontent.com/u/4323180"
+      },
+      {
+        "username": "sschoger",
+        "href": "https://github.com/sschoger",
+        "avatar": "https://avatars3.githubusercontent.com/u/2652515"
+      }
+    ]
+  }
+]

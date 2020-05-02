@@ -32,23 +32,33 @@ afterEach(() => {
 });
 
 test.each`
-  selectedPeriod | selectedLanguage | expectedPeriod | expectedLanguage
-  ${'weekly'}    | ${'javascript'}  | ${'weekly'}    | ${'javascript'}
-  ${undefined}   | ${undefined}     | ${undefined}   | ${undefined}
-  ${'weekly'}    | ${'__ALL__'}     | ${'weekly'}    | ${undefined}
+  selectedPeriod | selectedLanguage | selectedSpokenLanguage | expectedPeriod | expectedLanguage | expectedSpokenLanguage
+  ${'weekly'}    | ${'javascript'}  | ${'en'}                | ${'weekly'}    | ${'javascript'}  | ${'en'}
+  ${undefined}   | ${undefined}     | ${undefined}           | ${undefined}   | ${undefined}     | ${undefined}
+  ${'weekly'}    | ${'__ALL__'}     | ${'__ALL__'}           | ${'weekly'}    | ${undefined}     | ${undefined}
 `(
   'send correct param to request',
-  ({ selectedPeriod, selectedLanguage, expectedPeriod, expectedLanguage }) => {
+  ({
+    selectedPeriod,
+    selectedLanguage,
+    selectedSpokenLanguage,
+    expectedPeriod,
+    expectedLanguage,
+    expectedSpokenLanguage,
+  }) => {
     when(getObject)
       .calledWith('selectedPeriod')
       .mockReturnValue(selectedPeriod)
       .calledWith('selectedLanguage')
-      .mockReturnValue(selectedLanguage);
+      .mockReturnValue(selectedLanguage)
+      .calledWith('selectedSpokenLanguage')
+      .mockReturnValue(selectedSpokenLanguage);
     startRequest();
     expect(fetchRepositories).toHaveBeenCalledTimes(1);
     expect(fetchRepositories).toHaveBeenCalledWith({
       language: expectedLanguage,
       since: expectedPeriod,
+      spoken_language_code: expectedSpokenLanguage,
     });
   }
 );

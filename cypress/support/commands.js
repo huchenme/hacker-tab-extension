@@ -63,24 +63,21 @@ Cypress.Commands.add(
   }
 );
 
-Cypress.Commands.add('shouldHaveRepoCards', num => {
+Cypress.Commands.add('shouldHaveRepoCards', (num) => {
   cy.findByTestId('loaded-repo-list')
     .findAllByTestId('repo-card')
     .should('have.length', num);
 });
 
-Cypress.Commands.add('shouldHaveFirstCardContains', value => {
+Cypress.Commands.add('shouldHaveFirstCardContains', (value) => {
   cy.findByTestId('loaded-repo-list')
     .findAllByTestId('repo-card')
     .first()
     .contains(value);
 });
 
-Cypress.Commands.add('getLocalStorage', key => {
-  cy.window()
-    .its('localStorage')
-    .its(key)
-    .then(JSON.parse);
+Cypress.Commands.add('getLocalStorage', (key) => {
+  cy.window().its('localStorage').its(key).then(JSON.parse);
 });
 
 Cypress.Commands.add('setLocalStorage', (key, value) =>
@@ -92,6 +89,7 @@ Cypress.Commands.add(
   ({
     schemaVersion = '2',
     selectedLanguage = '__ALL__',
+    selectedSpokenLanguage = '__ALL__',
     selectedPeriod = 'daily',
     repositories = 'trending',
     lastUpdatedTime = new Date().getTime() - 10 * 60000,
@@ -102,11 +100,14 @@ Cypress.Commands.add(
     if (typeof selectedLanguage !== undefined) {
       cy.setLocalStorage('selectedLanguage', selectedLanguage);
     }
+    if (typeof selectedSpokenLanguage !== undefined) {
+      cy.setLocalStorage('selectedSpokenLanguage', selectedSpokenLanguage);
+    }
     if (typeof selectedPeriod !== undefined) {
       cy.setLocalStorage('selectedPeriod', selectedPeriod);
     }
     if (typeof repositories !== undefined) {
-      cy.fixture(repositories).then(json => {
+      cy.fixture(repositories).then((json) => {
         cy.setLocalStorage('repositories', json);
       });
     }
