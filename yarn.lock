@@ -1004,10 +1004,18 @@
     "@babel/helper-plugin-utils" "^7.8.3"
     "@babel/plugin-transform-typescript" "^7.8.3"
 
-"@babel/runtime-corejs3@^7.7.4", "@babel/runtime-corejs3@^7.8.4":
+"@babel/runtime-corejs3@^7.7.4":
   version "7.8.7"
   resolved "https://registry.yarnpkg.com/@babel/runtime-corejs3/-/runtime-corejs3-7.8.7.tgz#8209d9dff2f33aa2616cb319c83fe159ffb07b8c"
   integrity sha512-sc7A+H4I8kTd7S61dgB9RomXu/C+F4IrRr4Ytze4dnfx7AXEpCrejSNpjx7vq6y/Bak9S6Kbk65a/WgMLtg43Q==
+  dependencies:
+    core-js-pure "^3.0.0"
+    regenerator-runtime "^0.13.4"
+
+"@babel/runtime-corejs3@^7.9.2":
+  version "7.9.6"
+  resolved "https://registry.yarnpkg.com/@babel/runtime-corejs3/-/runtime-corejs3-7.9.6.tgz#67aded13fffbbc2cb93247388cf84d77a4be9a71"
+  integrity sha512-6toWAfaALQjt3KMZQc6fABqZwUDDuWzz+cAfPhqyEnzxvdWOAkjwPNxgF8xlmo7OWLsSjaKjsskpKHRLaMArOA==
   dependencies:
     core-js-pure "^3.0.0"
     regenerator-runtime "^0.13.4"
@@ -1250,12 +1258,12 @@
   dependencies:
     "@hapi/hoek" "^8.3.0"
 
-"@huchenme/github-trending@^2.3.0":
-  version "2.3.0"
-  resolved "https://registry.yarnpkg.com/@huchenme/github-trending/-/github-trending-2.3.0.tgz#233a7ddf08bbc9081fda84b1098beaa438d56f31"
-  integrity sha512-9tWf7a5AnDo8wiLyi8AN2T0h4+x+fObWtfwQgrjADJUXTMPDuSoi2bmZYLMYJKRgp5g7CXA7GD3Xe9VTSI98mQ==
+"@huchenme/github-trending@^2.4.2":
+  version "2.4.2"
+  resolved "https://registry.yarnpkg.com/@huchenme/github-trending/-/github-trending-2.4.2.tgz#9d9557342770d3e0155949ca4a91bb8b920d9a31"
+  integrity sha512-gLhydcL7nBPkMpyuJ9Vit//0KE/TnayJtKI6AIifr7oaY7VPxEN4UfYHjRfrllW5Gq+NeiJYczj29ysKcRz2uA==
   dependencies:
-    "@babel/runtime-corejs3" "^7.8.4"
+    "@babel/runtime-corejs3" "^7.9.2"
     axios "^0.19.2"
     cheerio "^1.0.0-rc.3"
     cors "^2.8.5"
