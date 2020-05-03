@@ -1,7 +1,9 @@
 describe('Selectors', () => {
   it('should fetch correct endpoint when change language selector', () => {
     cy.fetchReposAndWait();
-    cy.findByTestId('top-bar').findByText('All languages').should('be.visible');
+    cy.findByTestId('top-bar')
+      .findByText('Programming Language')
+      .should('be.visible');
     cy.findByTestId('top-bar')
       .findByText('Trending today')
       .should('be.visible');
@@ -55,7 +57,9 @@ describe('Selectors', () => {
 
   it('should fetch correct endpoint when change spoken language selector', () => {
     cy.fetchReposAndWait();
-    cy.findByTestId('top-bar').findByText('No Preference').should('be.visible');
+    cy.findByTestId('top-bar')
+      .findByText('Spoken Language')
+      .should('be.visible');
     cy.findByTestId('top-bar')
       .findByText('Trending today')
       .should('be.visible');
@@ -124,8 +128,12 @@ describe('Selectors', () => {
 
   it('should have default selectors selected when local storage was not set', () => {
     cy.fetchReposAndWait();
-    cy.findByTestId('top-bar').findByText('All languages').should('be.visible');
-    cy.findByTestId('top-bar').findByText('No Preference').should('be.visible');
+    cy.findByTestId('top-bar')
+      .findByText('Programming Language')
+      .should('be.visible');
+    cy.findByTestId('top-bar')
+      .findByText('Spoken Language')
+      .should('be.visible');
     cy.findByTestId('top-bar')
       .findByText('Trending today')
       .should('be.visible');

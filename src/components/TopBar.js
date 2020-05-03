@@ -36,7 +36,7 @@ const SelectItem = ({ title, children, width }) => {
       )}
       <div
         css={css`
-          width: ${width ? width : 150}px;
+          width: ${width ? width : 180}px;
         `}
       >
         {children}
@@ -98,7 +98,7 @@ const TopBar = ({
               onChange={onChangeLanguage}
             />
           </SelectItem>
-          <SelectItem width={180}>
+          <SelectItem>
             <PeriodSelect
               selectedValue={selectedPeriod}
               onChange={onChangePeriod}

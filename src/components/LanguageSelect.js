@@ -9,7 +9,7 @@ const LanguageSelect = ({ onChange, selectedValue }) => (
       value={findLanguage(selectedValue)}
       onChange={({ value }) => onChange(value)}
       options={languages}
-      placeholder="All languages"
+      placeholder="Programming Language"
     />
   </div>
 );

@@ -31,7 +31,7 @@ export const getAvatarString = (src, size = 160) =>
 
 export const allLanguagesValue = '__ALL__';
 
-export const allLanguagesLabel = 'All languages';
+export const allLanguagesLabel = 'Programming Language';
 
 export const allLanguagesOption = {
   label: allLanguagesLabel,
@@ -73,16 +73,40 @@ export const isEmptyList = (list) => !list || list.length === 0;
 
 export const allSpokenLanguagesValue = '__ALL__';
 
-export const allSpokenLanguagesLabel = 'No Preference';
+export const allSpokenLanguagesLabel = 'Spoken Language';
 
 export const allSpokenLanguagesOption = {
   label: allSpokenLanguagesLabel,
   value: allSpokenLanguagesValue,
 };
 
+// taken from https://octoverse.github.com/
+const popularSpokenLanguages = [
+  'English',
+  'Chinese',
+  'Hindi',
+  'German',
+  'Japanese',
+  'French',
+  'Russian',
+  'Portuguese',
+  'Dutch, Flemish',
+  'Korean',
+  'Spanish, Castilian',
+  'Turkish',
+];
+
 export const spokenLanguages = [
   allSpokenLanguagesOption,
-  ...apiSpokenLanguages.map(({ urlParam, name }) => ({
+  ...uniqBy(
+    compact([
+      ...popularSpokenLanguages.map((lang) =>
+        find(apiSpokenLanguages, { name: lang })
+      ),
+      ...apiSpokenLanguages,
+    ]),
+    'name'
+  ).map(({ urlParam, name }) => ({
     label: name,
     value: urlParam,
   })),

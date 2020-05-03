@@ -9,7 +9,7 @@ const SpokenLanguageSelect = ({ onChange, selectedValue }) => (
       value={findSpokenLanguage(selectedValue)}
       onChange={({ value }) => onChange(value)}
       options={spokenLanguages}
-      placeholder="No Preference"
+      placeholder="Spoken Language"
     />
   </div>
 );
