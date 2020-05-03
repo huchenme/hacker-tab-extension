@@ -12,7 +12,7 @@ describe('Selectors', () => {
     cy.route({
       method: 'GET',
       url:
-        'https://github-trending-api.now.sh/repositories?language=javascript&since=daily',
+        'https://ghapi.huchen.dev/repositories?language=javascript&since=daily',
       response: 'fixture:javascript',
       delay: 100,
     }).as('fetchRepos');
@@ -38,7 +38,7 @@ describe('Selectors', () => {
     cy.route({
       method: 'GET',
       url:
-        'https://github-trending-api.now.sh/repositories?language=javascript&since=monthly',
+        'https://ghapi.huchen.dev/repositories?language=javascript&since=monthly',
       response: 'fixture:javascript-monthly',
       delay: 100,
     }).as('fetchRepos');
