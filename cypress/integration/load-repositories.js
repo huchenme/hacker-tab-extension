@@ -20,9 +20,10 @@ describe('Load Repositories', () => {
     cy.fetchReposAndWait();
     cy.getLocalStorage('selectedLanguage').should('eq', '__ALL__');
     cy.getLocalStorage('selectedPeriod').should('eq', 'daily');
+    cy.getLocalStorage('selectedSpokenLanguage').should('eq', '__ALL__');
     cy.getLocalStorage('schemaVersion').should('eq', '2');
     cy.getLocalStorage('lastUpdatedTime').should('eq', now);
-    cy.fixture('trending').then(json => {
+    cy.fixture('trending').then((json) => {
       cy.getLocalStorage('repositories').should('deep.eq', json);
     });
   });
@@ -30,7 +31,7 @@ describe('Load Repositories', () => {
   it('should not fetch if repos is cached in local storage', () => {
     cy.server({ enable: false });
     cy.setLocalStorage('schemaVersion', '2');
-    cy.fixture('trending').then(json => {
+    cy.fixture('trending').then((json) => {
       cy.setLocalStorage('repositories', json);
     });
     cy.visit('/');
@@ -65,7 +66,7 @@ describe('Load Repositories', () => {
     cy.findByTestId('last-updated-time').click();
     cy.waitResponse();
     cy.getLocalStorage('lastUpdatedTime').should('eq', now);
-    cy.fixture('trending-2').then(json => {
+    cy.fixture('trending-2').then((json) => {
       cy.getLocalStorage('repositories').should('deep.eq', json);
     });
     cy.shouldHaveFirstCardContains(
@@ -82,13 +83,15 @@ describe('Load Repositories', () => {
       repositories: 'trending-2',
       selectedLanguage: 'javascript',
       selectedPeriod: 'weekly',
+      selectedSpokenLanguage: 'en',
     });
     cy.fetchReposAndWait();
-    cy.fixture('trending').then(json => {
+    cy.fixture('trending').then((json) => {
       cy.getLocalStorage('repositories').should('deep.eq', json);
     });
     cy.getLocalStorage('selectedLanguage').should('eq', '__ALL__');
     cy.getLocalStorage('selectedPeriod').should('eq', 'daily');
+    cy.getLocalStorage('selectedSpokenLanguage').should('eq', '__ALL__');
     cy.getLocalStorage('schemaVersion').should('eq', '2');
     cy.getLocalStorage('lastUpdatedTime').should('eq', now);
   });

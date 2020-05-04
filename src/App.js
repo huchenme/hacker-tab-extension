@@ -36,8 +36,10 @@ const App = () => {
     lastUpdatedTime,
     selectedLanguage,
     selectedPeriod,
+    selectedSpokenLanguage,
     setSelectedLanguage,
     setSelectedPeriod,
+    setSelectedSpokenLanguage,
   } = useRepositories();
 
   const [showError, setShowError] = useState(false);
@@ -49,7 +51,7 @@ const App = () => {
   return (
     <ThemeProvider theme={isDark ? themeDark : themeLight}>
       <div
-        css={theme => css`
+        css={(theme) => css`
           background-color: ${theme.bg};
           transition: background-color ${theme.transition};
           position: relative;
@@ -64,6 +66,8 @@ const App = () => {
             selectedLanguage={selectedLanguage}
             onChangePeriod={setSelectedPeriod}
             selectedPeriod={selectedPeriod}
+            onChangeSpokenLanguage={setSelectedSpokenLanguage}
+            selectedSpokenLanguage={selectedSpokenLanguage}
           />
         </TopBarContainer>
         <div

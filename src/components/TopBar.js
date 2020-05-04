@@ -5,6 +5,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { useTheme } from 'emotion-theming';
 import LanguageSelect from './LanguageSelect';
+import SpokenLanguageSelect from './SpokenLanguageSelect';
 import PeriodSelect from './PeriodSelect';
 import { ReactComponent as Logo } from '../images/logo.svg';
 
@@ -35,7 +36,7 @@ const SelectItem = ({ title, children, width }) => {
       )}
       <div
         css={css`
-          width: ${width ? width : 150}px;
+          width: ${width ? width : 180}px;
         `}
       >
         {children}
@@ -49,6 +50,8 @@ const TopBar = ({
   selectedLanguage,
   onChangePeriod,
   selectedPeriod,
+  onChangeSpokenLanguage,
+  selectedSpokenLanguage,
 }) => {
   return (
     <Container>
@@ -83,13 +86,19 @@ const TopBar = ({
             display: flex;
           `}
         >
-          <SelectItem>
+          <SelectItem width={190}>
+            <SpokenLanguageSelect
+              selectedValue={selectedSpokenLanguage}
+              onChange={onChangeSpokenLanguage}
+            />
+          </SelectItem>
+          <SelectItem width={150}>
             <LanguageSelect
               selectedValue={selectedLanguage}
               onChange={onChangeLanguage}
             />
           </SelectItem>
-          <SelectItem width={180}>
+          <SelectItem>
             <PeriodSelect
               selectedValue={selectedPeriod}
               onChange={onChangePeriod}
@@ -104,8 +113,10 @@ const TopBar = ({
 TopBar.propTypes = {
   selectedLanguage: PropTypes.string,
   selectedPeriod: PropTypes.string,
+  selectedSpokenLanguage: PropTypes.string,
   onChangeLanguage: PropTypes.func.isRequired,
   onChangePeriod: PropTypes.func.isRequired,
+  onChangeSpokenLanguage: PropTypes.func.isRequired,
 };
 
 export default React.memo(TopBar);

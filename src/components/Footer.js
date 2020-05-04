@@ -20,7 +20,7 @@ export default function Footer() {
     >
       <Row>
         <div
-          css={theme => css`
+          css={(theme) => css`
             font-size: 16px;
             color: ${theme.footer.text};
             display: flex;
@@ -44,7 +44,7 @@ export default function Footer() {
           {showEmail ? 'chen@huchen.dev' : 'Send Feedback'}
         </StyleFeedback>
         <div
-          css={theme => css`
+          css={(theme) => css`
             ${link};
             color: ${theme.footer.link};
             &:hover {
@@ -53,7 +53,7 @@ export default function Footer() {
           `}
           onClick={() => {
             const confirm = window.confirm(
-              'Clear cache will clear your selected language and settings.'
+              'Clear cache will clear your selected languages and settings.'
             );
             if (confirm) {
               window.localStorage.clear();
@@ -63,7 +63,7 @@ export default function Footer() {
           Clear Cache
         </div>
         <a
-          css={theme => css`
+          css={(theme) => css`
             ${link};
             color: ${theme.footer.link};
             &:hover {
@@ -103,12 +103,12 @@ const link = css`
 
 const StyleFeedback = styled.div`
   ${link};
-  color: ${props =>
+  color: ${(props) =>
     props.showEmail ? props.theme.footer.email : props.theme.footer.link};
-  cursor: ${props => (props.showEmail ? 'auto' : 'pointer')};
+  cursor: ${(props) => (props.showEmail ? 'auto' : 'pointer')};
 
   &:hover {
-    color: ${props =>
+    color: ${(props) =>
       props.showEmail
         ? props.theme.footer.email
         : props.theme.footer.linkHover};
