@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { languages, findLanguage } from '../helpers/github';
+import { languages, findLanguage, allLanguagesLabel } from '../helpers/github';
 import Select from './Select';
 
 const LanguageSelect = ({ onChange, selectedValue }) => (
@@ -9,7 +9,7 @@ const LanguageSelect = ({ onChange, selectedValue }) => (
       value={findLanguage(selectedValue)}
       onChange={({ value }) => onChange(value)}
       options={languages}
-      placeholder="Programming Language"
+      placeholder={allLanguagesLabel}
     />
   </div>
 );
