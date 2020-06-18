@@ -35,8 +35,7 @@ body {
     sans-serif;
   font-size: 14px;
   font-style: normal;
-  font-weight: 400;
-  line-height: 1.42857142857143;
+  line-height: 1.5;
   -ms-overflow-style: -ms-autohiding-scrollbar;
   text-decoration-skip-ink: auto;
 }
@@ -45,4 +44,13 @@ body {
   width: 0;
   height: 0;
   background: 0 0;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-weight: 500;
 }

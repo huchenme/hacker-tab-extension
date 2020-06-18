@@ -15,6 +15,7 @@ export default function Icon({
   label,
   size = 'medium',
   onClick,
+  ...props
 }) {
   const getSize = size
     ? css`
@@ -35,6 +36,7 @@ export default function Icon({
         line-height: 1;
         ${onClick ? 'pointer' : undefined}
       `}
+      {...props}
     />
   );
 }
