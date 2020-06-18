@@ -27,3 +27,4 @@ yarn-error.log*
 /cypress/screenshots
 
 /storybook-static
+*.local.js

@@ -3,6 +3,7 @@ import React, { useState } from 'react';
 import { css, jsx } from '@emotion/core';
 import PropTypes from 'prop-types';
 import styled from '@emotion/styled';
+import featureToggles from '../feature-toggles';
 import { ReactComponent as MoonIcon } from '../images/moon.svg';
 import { ReactComponent as SunIcon } from '../images/sun.svg';
 import { ReactComponent as SettingIcon } from '../images/setting.svg';
@@ -11,11 +12,7 @@ import ScrollTop from './ScrollTop';
 
 const margin = '20px';
 
-export default function BottomIcons({
-  isDark = false,
-  setIsDark,
-  shouldShowSetting = false,
-}) {
+export default function BottomIcons({ isDark = false, setIsDark }) {
   const [isSettingOpen, setIsSettingOpen] = useState(false);
 
   return (
@@ -63,7 +60,7 @@ export default function BottomIcons({
         </ActionButton>
       </div>
 
-      {shouldShowSetting && (
+      {Boolean(featureToggles.settings) && (
         <div
           css={css`
             position: fixed;
@@ -95,6 +92,7 @@ export default function BottomIcons({
                 bottom: 50px;
                 left: 0;
                 border-radius: 5px;
+                color: black;
               `}
             >
               test
@@ -109,7 +107,6 @@ export default function BottomIcons({
 BottomIcons.propTypes = {
   isDark: PropTypes.bool,
   setIsDark: PropTypes.func.isRequired,
-  shouldShowSetting: PropTypes.bool,
 };
 
 const ActionButton = styled.button`
