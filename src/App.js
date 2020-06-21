@@ -3,6 +3,8 @@ import { useState, useEffect } from 'react';
 import styled from '@emotion/styled';
 import { css, jsx } from '@emotion/core';
 import { ThemeProvider } from 'emotion-theming';
+import { ReactQueryConfigProvider } from 'react-query';
+import { ReactQueryDevtools } from 'react-query-devtools';
 
 import {
   TopBar,
@@ -21,6 +23,14 @@ import {
 } from './hooks';
 import { themeLight, themeDark } from './theme';
 
+const queryConfig = {
+  retry: 2,
+  staleTime: 5 * 60 * 1000,
+  cacheTime: 15 * 60 * 1000,
+  refetchOnWindowFocus: false,
+  refetchOnMount: false,
+};
+
 const App = () => {
   // Clear local storage is schema version not match
   useCheckLocalStorageSchema();
@@ -32,7 +42,7 @@ const App = () => {
     isEmpty,
     repositories,
     error,
-    reload,
+    refetch,
     lastUpdatedTime,
     selectedLanguage,
     selectedPeriod,
@@ -45,76 +55,84 @@ const App = () => {
   const [showError, setShowError] = useState(false);
 
   useEffect(() => {
-    setShowError(!!error);
+    setShowError(Boolean(error));
   }, [error]);
 
   return (
-    <ThemeProvider theme={isDark ? themeDark : themeLight}>
-      <div
-        css={(theme) => css`
-          background-color: ${theme.bg};
-          transition: background-color ${theme.transition};
-          position: relative;
-          min-height: 100vh;
-          text-rendering: optimizeLegibility;
-          -webkit-font-smoothing: antialiased;
-        `}
-      >
-        <TopBarContainer>
-          <TopBar
-            onChangeLanguage={setSelectedLanguage}
-            selectedLanguage={selectedLanguage}
-            onChangePeriod={setSelectedPeriod}
-            selectedPeriod={selectedPeriod}
-            onChangeSpokenLanguage={setSelectedSpokenLanguage}
-            selectedSpokenLanguage={selectedSpokenLanguage}
-          />
-        </TopBarContainer>
+    <ReactQueryConfigProvider config={queryConfig}>
+      <ThemeProvider theme={isDark ? themeDark : themeLight}>
         <div
-          css={css`
+          css={(theme) => css`
+            background-color: ${theme.bg};
+            transition: background-color ${theme.transition};
             position: relative;
-            padding-top: 56px;
-            min-height: calc(100vh - 161px - 56px);
+            min-height: 100vh;
+            text-rendering: optimizeLegibility;
+            -webkit-font-smoothing: antialiased;
           `}
         >
-          <Fade show={showError}>
-            <div
-              css={css`
-                margin: 0 auto;
-                width: 720px;
-                padding-top: 16px;
-              `}
-            >
-              <NetworkError
-                onClose={() => setShowError(false)}
-                onReload={() => {
-                  setShowError(false);
-                  reload();
-                }}
-              />
-            </div>
-          </Fade>
-          {!isLoading && isEmpty ? (
-            <div
-              css={css`
-                padding-top: 96px;
-              `}
-            >
-              <EmptyState onReload={reload} lastUpdatedTime={lastUpdatedTime} />
-            </div>
-          ) : (
-            <RepositoriesList
-              isLoading={isLoading}
-              repositories={repositories}
-              onReload={reload}
-              lastUpdatedTime={lastUpdatedTime}
+          <TopBarContainer>
+            <TopBar
+              onChangeLanguage={setSelectedLanguage}
+              selectedLanguage={selectedLanguage}
+              onChangePeriod={setSelectedPeriod}
+              selectedPeriod={selectedPeriod}
+              onChangeSpokenLanguage={setSelectedSpokenLanguage}
+              selectedSpokenLanguage={selectedSpokenLanguage}
             />
-          )}
+          </TopBarContainer>
+          <div
+            css={css`
+              position: relative;
+              padding-top: 56px;
+              min-height: calc(100vh - 161px - 56px);
+            `}
+          >
+            <Fade show={showError}>
+              <div
+                css={css`
+                  margin: 0 auto;
+                  width: 720px;
+                  padding-top: 16px;
+                `}
+              >
+                <NetworkError
+                  onClose={() => setShowError(false)}
+                  onReload={() => {
+                    setShowError(false);
+                    refetch();
+                  }}
+                />
+              </div>
+            </Fade>
+            {!isLoading && isEmpty ? (
+              <div
+                css={css`
+                  padding-top: 96px;
+                `}
+              >
+                <EmptyState
+                  onReload={refetch}
+                  lastUpdatedTime={lastUpdatedTime}
+                />
+              </div>
+            ) : (
+              <RepositoriesList
+                isLoading={isLoading}
+                repositories={repositories}
+                onReload={refetch}
+                lastUpdatedTime={lastUpdatedTime}
+              />
+            )}
+          </div>
+          <Footer />
+          <BottomIcons isDark={isDark} setIsDark={setIsDark} />
         </div>
-        <Footer />
-        <BottomIcons isDark={isDark} setIsDark={setIsDark} />
-      </div>
-    </ThemeProvider>
+        <ReactQueryDevtools
+          toggleButtonProps={{ style: { bottom: 40, right: 10 } }}
+        />
+      </ThemeProvider>
+    </ReactQueryConfigProvider>
   );
 };
 

@@ -1,10 +1,12 @@
-import { useMemo, useState, useEffect, useCallback, useRef } from 'react';
-import { fetchRepositories } from '@huchenme/github-trending';
+import { useEffect, useMemo } from 'react';
+import { useQuery, queryCache } from 'react-query';
+import { useDeepCompareEffectNoCheck } from 'use-deep-compare-effect';
 import useLocalStorage from './hooks/useLocalStorage';
 
 import {
   allLanguagesValue,
   allSpokenLanguagesValue,
+  fetchRepositories,
   isEmptyList,
 } from './helpers/github';
 
@@ -19,43 +21,7 @@ import {
   CURRENT_SCHEMA_VERSION,
 } from './helpers/localStorage';
 
-export const useFetchRepositories = ({ language, since, spokenLanguage }) => {
-  const [isLoading, setLoading] = useState(false);
-  const [data, setData] = useState();
-  const [error, setError] = useState(false);
-
-  const fetchData = useCallback(async () => {
-    try {
-      setLoading(true);
-      setError(false);
-      const data = await fetchRepositories({
-        language,
-        since,
-        spoken_language_code: spokenLanguage,
-      });
-      setData(data);
-    } catch (e) {
-      setError(true);
-    } finally {
-      setLoading(false);
-    }
-  }, [language, since, spokenLanguage]);
-
-  return {
-    isLoading,
-    data,
-    error,
-    fetchData,
-  };
-};
-
-export function usePrevious(value) {
-  const ref = useRef(value);
-  useEffect(() => {
-    ref.current = value;
-  });
-  return ref.current;
-}
+const getReposByParams = async (key, params) => fetchRepositories(params);
 
 export const useRepositories = () => {
   const [selectedLanguage, setSelectedLanguage] = useSelectedLanguage();
@@ -66,49 +32,55 @@ export const useRepositories = () => {
   ] = useSelectedSpokenLanguage();
   const [repositories, setRepositories] = useLocalStorage(KEY_REPOSITORIES, []);
   const [lastUpdatedTime, setLastUpdatedTime] = useLastUpdatedTime();
-  const prevLang = usePrevious(selectedLanguage);
-  const prevPeriod = usePrevious(selectedPeriod);
-  const prevSpokenLang = usePrevious(selectedSpokenLanguage);
 
-  const valueChanged =
-    (prevLang && prevLang !== selectedLanguage) ||
-    (prevSpokenLang && prevSpokenLang !== selectedSpokenLanguage) ||
-    prevPeriod !== selectedPeriod;
+  const queryKey = useMemo(
+    () => [
+      'repositories',
+      {
+        since: selectedPeriod,
+        language:
+          selectedLanguage !== allLanguagesValue ? selectedLanguage : undefined,
+        spokenLanguageCode:
+          selectedSpokenLanguage !== allSpokenLanguagesValue
+            ? selectedSpokenLanguage
+            : undefined,
+      },
+    ],
+    [selectedPeriod, selectedLanguage, selectedSpokenLanguage]
+  );
+
+  useEffect(() => {
+    if (!isEmptyList(repositories)) {
+      queryCache.setQueryData(queryKey, repositories);
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
+
+  const { status, data, refetch, isFetching } = useQuery(
+    queryKey,
+    getReposByParams,
+    {
+      onSuccess: () => {
+        setLastUpdatedTime();
+      },
+    }
+  );
+
+  useDeepCompareEffectNoCheck(() => {
+    if (!isEmptyList(data)) {
+      setRepositories(data);
+    }
+  }, [data]);
 
   const isEmpty = isEmptyList(repositories);
 
-  const { isLoading, data, error, fetchData } = useFetchRepositories({
-    since: selectedPeriod,
-    language:
-      selectedLanguage !== allLanguagesValue ? selectedLanguage : undefined,
-    spokenLanguage:
-      selectedSpokenLanguage !== allSpokenLanguagesValue
-        ? selectedSpokenLanguage
-        : undefined,
-  });
-
-  useEffect(() => {
-    if (isEmpty || valueChanged) {
-      fetchData();
-    }
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [valueChanged]);
-
-  useMemo(() => {
-    if (!isLoading && !error && data) {
-      setRepositories(data);
-      setLastUpdatedTime();
-    }
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [data, error, isLoading]);
-
   return {
     isEmpty,
-    isLoading,
+    isLoading: isFetching,
     repositories,
     lastUpdatedTime,
-    error,
-    reload: fetchData,
+    error: status === 'error',
+    refetch: () => refetch({ force: true }),
     selectedLanguage,
     selectedPeriod,
     selectedSpokenLanguage,

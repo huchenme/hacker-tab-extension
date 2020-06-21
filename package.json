@@ -17,6 +17,7 @@
     "@emotion/styled": "^10.0.27",
     "@huchenme/github-trending": "^2.4.2",
     "append-query": "^2.1.0",
+    "axios": "^0.19.2",
     "date-fns": "^2.14.0",
     "emotion-theming": "^10.0.27",
     "husky": "^4.2.5",
@@ -28,9 +29,12 @@
     "react-dom": "^16.13.1",
     "react-event-listener": "^0.6.6",
     "react-popper": "^1.3.7",
+    "react-query": "^1.5.8",
+    "react-query-devtools": "^1.1.17",
     "react-scripts": "^3.4.1",
     "react-spring": "^8.0.27",
-    "styled-components": "^3.4.10"
+    "styled-components": "^3.4.10",
+    "use-deep-compare-effect": "^1.3.1"
   },
   "devDependencies": {
     "@babel/core": "^7.10.2",

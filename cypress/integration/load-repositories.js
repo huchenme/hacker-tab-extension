@@ -41,20 +41,15 @@ describe('Load Repositories', () => {
   });
 
   it('should show last updated time', () => {
-    const now = new Date('2020-01-01T08:30:00').getTime();
-    cy.clock(now);
-    cy.seedLocalStorage({
-      lastUpdatedTime: new Date('2020-01-01T08:20:00').getTime(),
-    });
+    cy.seedLocalStorage();
     cy.visit('/');
     cy.findByText('10 minutes ago').should('exist');
   });
 
   it('click last updated time should refetch repositories', () => {
-    const now = new Date('2020-01-01T08:30:00').getTime();
-    cy.clock(new Date(now).getTime());
+    const fixtureTime = new Date('2020-01-01T08:20:00').getTime();
     cy.seedLocalStorage({
-      lastUpdatedTime: new Date('2020-01-01T08:20:00').getTime(),
+      lastUpdatedTime: fixtureTime,
     });
     cy.server();
     cy.route({
@@ -65,7 +60,7 @@ describe('Load Repositories', () => {
     cy.visit('/');
     cy.findByTestId('last-updated-time').click();
     cy.waitResponse();
-    cy.getLocalStorage('lastUpdatedTime').should('eq', now);
+    cy.getLocalStorage('lastUpdatedTime').should('be.greaterThan', fixtureTime);
     cy.fixture('trending-2').then((json) => {
       cy.getLocalStorage('repositories').should('deep.eq', json);
     });
