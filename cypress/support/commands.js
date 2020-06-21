@@ -1,28 +1,3 @@
-// ***********************************************
-// This example commands.js shows you how to
-// create various custom commands and overwrite
-// existing commands.
-//
-// For more comprehensive examples of custom
-// commands please read more here:
-// https://on.cypress.io/custom-commands
-// ***********************************************
-//
-//
-// -- This is a parent command --
-// Cypress.Commands.add("login", (email, password) => { ... })
-//
-//
-// -- This is a child command --
-// Cypress.Commands.add("drag", { prevSubject: 'element'}, (subject, options) => { ... })
-//
-//
-// -- This is a dual command --
-// Cypress.Commands.add("dismiss", { prevSubject: 'optional'}, (subject, options) => { ... })
-//
-//
-// -- This will overwrite an existing command --
-// Cypress.Commands.overwrite("visit", (originalFn, url, options) => { ... })
 import '@testing-library/cypress/add-commands';
 
 Cypress.Commands.add(
@@ -42,7 +17,7 @@ Cypress.Commands.add(
 Cypress.Commands.add('waitResponse', () => {
   cy.wait('@fetchRepos');
   // eslint-disable-next-line cypress/no-unnecessary-waiting
-  cy.wait(100); // for localstorage to set
+  cy.wait(100);
 });
 
 Cypress.Commands.add(
@@ -62,6 +37,21 @@ Cypress.Commands.add(
     cy.waitResponse();
   }
 );
+
+Cypress.Commands.add('waitAllErrors', () => {
+  cy.clock();
+  cy.wait('@fetchRepos');
+  cy.tick(2000);
+  cy.wait('@fetchRepos');
+  cy.tick(4000);
+  cy.wait('@fetchRepos');
+});
+
+Cypress.Commands.add('errorFetchReposAndWait', () => {
+  cy.fetchRepos({ status: 500 });
+  cy.visit('/');
+  cy.waitAllErrors();
+});
 
 Cypress.Commands.add('shouldHaveRepoCards', (num) => {
   cy.findByTestId('loaded-repo-list')
@@ -114,5 +104,7 @@ Cypress.Commands.add(
     if (typeof lastUpdatedTime !== undefined) {
       cy.setLocalStorage('lastUpdatedTime', lastUpdatedTime);
     }
+    // eslint-disable-next-line cypress/no-unnecessary-waiting
+    cy.wait(100);
   }
 );

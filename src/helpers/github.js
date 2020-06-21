@@ -1,4 +1,5 @@
-import { find, sample, uniqBy, compact } from 'lodash';
+import { find, sample, uniqBy, compact, snakeCase } from 'lodash';
+import axios from 'axios';
 import appendQuery from 'append-query';
 import {
   languages as apiLanguages,
@@ -11,14 +12,14 @@ export const periodOptions = [
   { value: 'monthly', label: 'Trending this month' },
 ];
 
-export const findPeriod = value => find(periodOptions, { value });
+export const findPeriod = (value) => find(periodOptions, { value });
 
 export const getRandomRepositories = (repositories = [], current) => {
   if (repositories.length < 2 || !current) {
     return sample(repositories);
   }
   const otherRepos = repositories.filter(
-    repo => repo.author !== current.author && repo.name !== current.name
+    (repo) => repo.author !== current.author && repo.name !== current.name
   );
   return sample(otherRepos);
 };
@@ -56,7 +57,7 @@ export const languages = [
   allLanguagesOption,
   ...uniqBy(
     compact([
-      ...popularLanguages.map(lang => find(apiLanguages, { name: lang })),
+      ...popularLanguages.map((lang) => find(apiLanguages, { name: lang })),
       ...apiLanguages,
     ]),
     'name'
@@ -66,10 +67,10 @@ export const languages = [
   })),
 ];
 
-export const findLanguage = value =>
+export const findLanguage = (value) =>
   find(languages, { value }) || allLanguagesOption;
 
-export const isEmptyList = list => !list || list.length === 0;
+export const isEmptyList = (list) => !list || list.length === 0;
 
 export const allSpokenLanguagesValue = '__ALL__';
 
@@ -100,7 +101,7 @@ export const spokenLanguages = [
   allSpokenLanguagesOption,
   ...uniqBy(
     compact([
-      ...popularSpokenLanguages.map(lang =>
+      ...popularSpokenLanguages.map((lang) =>
         find(apiSpokenLanguages, { name: lang })
       ),
       ...apiSpokenLanguages,
@@ -112,5 +113,24 @@ export const spokenLanguages = [
   })),
 ];
 
-export const findSpokenLanguage = value =>
+export const findSpokenLanguage = (value) =>
   find(spokenLanguages, { value }) || allSpokenLanguagesOption;
+
+export function buildUrl(baseUrl, params = {}) {
+  const queryString = Object.keys(params)
+    .filter((key) => params[key])
+    .map((key) => `${snakeCase(key)}=${params[key]}`)
+    .join('&');
+
+  return queryString === '' ? baseUrl : `${baseUrl}?${queryString}`;
+}
+
+export async function fetchRepositories(params = {}) {
+  const { data, status } = await axios(
+    buildUrl(`https://ghapi.huchen.dev/repositories`, params)
+  );
+  if (status !== 200) {
+    throw new Error('Something went wrong');
+  }
+  return data;
+}

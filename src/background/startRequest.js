@@ -1,5 +1,8 @@
-import { fetchRepositories } from '@huchenme/github-trending';
-import { allLanguagesValue, allSpokenLanguagesValue } from '../helpers/github';
+import {
+  allLanguagesValue,
+  allSpokenLanguagesValue,
+  fetchRepositories,
+} from '../helpers/github';
 import {
   KEY_REPOSITORIES,
   KEY_SELECTED_CODE_LANGUAGE,

@@ -1,10 +1,10 @@
 import startRequest from '../startRequest';
-import { fetchRepositories } from '@huchenme/github-trending';
 import { getObject, setObject } from '../../helpers/localStorage';
+import { fetchRepositories } from '../../helpers/github';
 import { when } from 'jest-when';
 
 jest.mock('../../helpers/localStorage');
-jest.mock('@huchenme/github-trending');
+jest.mock('../../helpers/github');
 
 const RealDate = Date;
 
