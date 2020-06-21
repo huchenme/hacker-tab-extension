@@ -2,11 +2,7 @@
   "manifest_version": 2,
   "name": "Hacker Tab",
   "author": "Hu Chen",
-<<<<<<< HEAD
-  "version": "1.9.0",
-=======
-  "version": "2.0.0",
->>>>>>> b6678c0... fix github action
+  "version": "1.10.0",
   "description": "Replace browser new tab screen with GitHub trending projects.",
   "icons": {
     "16": "16.png",
