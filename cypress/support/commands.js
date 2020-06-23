@@ -38,20 +38,13 @@ Cypress.Commands.add(
   }
 );
 
-Cypress.Commands.add('clockRestore', () => {
-  cy.tick().then((clock) => {
-    clock.restore();
-  });
-});
-
 Cypress.Commands.add('waitAllErrors', () => {
   cy.clock();
   cy.wait('@fetchRepos');
   cy.tick(2000);
   cy.wait('@fetchRepos');
-  cy.tick(4000);
+  cy.tick(4000).invoke('restore');
   cy.wait('@fetchRepos');
-  cy.clockRestore();
 });
 
 Cypress.Commands.add('errorFetchReposAndWait', () => {
