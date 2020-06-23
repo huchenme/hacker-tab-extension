@@ -4,7 +4,6 @@ describe('Error state', () => {
     cy.findByTestId('empty-state').should('exist');
     cy.findByTestId('network-error-banner').should('exist');
     cy.findByLabelText('Close').click();
-    cy.tick(1000); // animation finish
     cy.findByTestId('network-error-banner').should('not.exist');
   });
 
@@ -14,7 +13,6 @@ describe('Error state', () => {
     cy.findByTestId('network-error-banner').should('exist');
     cy.fetchRepos();
     cy.findByText('Retry').click();
-    cy.tick(1000); // animation finish
     cy.findByTestId('network-error-banner').should('not.exist');
     cy.shouldHaveRepoCards(25);
   });
