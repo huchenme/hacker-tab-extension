@@ -104,7 +104,5 @@ Cypress.Commands.add(
     if (typeof lastUpdatedTime !== undefined) {
       cy.setLocalStorage('lastUpdatedTime', lastUpdatedTime);
     }
-    // eslint-disable-next-line cypress/no-unnecessary-waiting
-    cy.wait(100);
   }
 );

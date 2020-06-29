@@ -1,6 +1,5 @@
 import { useEffect, useMemo } from 'react';
-import { useQuery, queryCache } from 'react-query';
-import { useDeepCompareEffectNoCheck } from 'use-deep-compare-effect';
+import { useQuery } from 'react-query';
 import useLocalStorage from './hooks/useLocalStorage';
 
 import {
@@ -49,28 +48,30 @@ export const useRepositories = () => {
     [selectedPeriod, selectedLanguage, selectedSpokenLanguage]
   );
 
-  useEffect(() => {
-    if (!isEmptyList(repositories)) {
-      queryCache.setQueryData(queryKey, repositories);
-    }
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  const initialQueryKey = useMemo(() => queryKey, []);
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  const initialRepositories = useMemo(() => repositories, []);
 
-  const { status, data, refetch, isFetching } = useQuery(
+  const { isFetching, isError, data, refetch } = useQuery(
     queryKey,
     getReposByParams,
     {
       onSuccess: () => {
         setLastUpdatedTime();
       },
+      initialData:
+        queryKey === initialQueryKey && !isEmptyList(initialRepositories)
+          ? initialRepositories
+          : undefined,
     }
   );
 
-  useDeepCompareEffectNoCheck(() => {
+  useEffect(() => {
     if (!isEmptyList(data)) {
       setRepositories(data);
     }
-  }, [data]);
+  }, [data, setRepositories]);
 
   const isEmpty = isEmptyList(repositories);
 
@@ -79,8 +80,8 @@ export const useRepositories = () => {
     isLoading: isFetching,
     repositories,
     lastUpdatedTime,
-    error: status === 'error',
-    refetch: () => refetch({ force: true }),
+    isError,
+    refetch,
     selectedLanguage,
     selectedPeriod,
     selectedSpokenLanguage,
