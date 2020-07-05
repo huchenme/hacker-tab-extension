@@ -2,8 +2,8 @@ describe('I’m Feeling Lucky', () => {
   it('should have a lucky repo', () => {
     cy.fetchReposAndWait();
 
-    cy.fixture('trending').then(json => {
-      const names = json.map(repo => repo.name);
+    cy.fixture('trending').then((json) => {
+      const names = json.map((repo) => repo.name);
       cy.findByText('I’m Feeling Lucky').should('exist');
       cy.findByTestId('random-repo-list')
         .findAllByTestId('repo-card')
@@ -26,16 +26,16 @@ describe('I’m Feeling Lucky', () => {
   it('reload should update the picked item', () => {
     cy.fetchReposAndWait();
 
-    cy.fixture('trending').then(json => {
-      const names = json.map(repo => repo.name);
+    cy.fixture('trending').then((json) => {
+      const names = json.map((repo) => repo.name);
       cy.findByTestId('random-repo-list')
         .findByTestId('name')
         .invoke('text')
         .should('be.oneOf', names);
     });
 
-    cy.fixture('trending-2').then(json => {
-      const names = json.map(repo => repo.name);
+    cy.fixture('trending-2').then((json) => {
+      const names = json.map((repo) => repo.name);
       cy.route({
         method: 'GET',
         url: 'https://ghapi.huchen.dev/repositories?since=daily',

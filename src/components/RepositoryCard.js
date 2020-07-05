@@ -126,7 +126,7 @@ const Card = styled.a`
   padding: 20px;
   box-sizing: border-box;
   display: flex;
-  transition: background-color ${props => props.theme.transition};
+  transition: background-color ${(props) => props.theme.transition};
 
   &,
   &:hover,
@@ -137,7 +137,7 @@ const Card = styled.a`
   }
 
   &:hover {
-    background-color: ${props => props.theme.card.bgHover};
+    background-color: ${(props) => props.theme.card.bgHover};
   }
 `;
 
@@ -170,8 +170,8 @@ const Avatar = styled.img`
 const Description = styled.div`
   flex-grow: 1;
   font-weight: 400;
-  color: ${props => props.theme.text.helper};
-  transition: color ${props => props.theme.transition};
+  color: ${(props) => props.theme.text.helper};
+  transition: color ${(props) => props.theme.transition};
   display: -webkit-box;
   -webkit-line-clamp: 3;
   -webkit-box-orient: vertical;
@@ -188,8 +188,8 @@ const Description = styled.div`
 const AdditionalInfo = styled.div`
   display: flex;
   align-items: center;
-  color: ${props => props.theme.card.additional};
-  transition: color ${props => props.theme.transition};
+  color: ${(props) => props.theme.card.additional};
+  transition: color ${(props) => props.theme.transition};
   margin-top: 20px;
   justify-content: space-between;
 `;
@@ -211,7 +211,7 @@ const LanguageColor = styled.div`
   height: 12px;
   width: 12px;
   border-radius: 50%;
-  background-color: ${props => props.color || props.theme.card.additional};
+  background-color: ${(props) => props.color || props.theme.card.additional};
 `;
 
 const CurrentStar = styled.div`
@@ -220,8 +220,8 @@ const CurrentStar = styled.div`
   top: 4px;
   font-size: 46px;
   line-height: 1;
-  color: ${props => props.theme.card.currentStar};
-  transition: color ${props => props.theme.transition};
+  color: ${(props) => props.theme.card.currentStar};
+  transition: color ${(props) => props.theme.transition};
   font-weight: 500;
   font-family: 'TT Commons', sans-serif;
 `;

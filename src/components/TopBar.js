@@ -69,7 +69,7 @@ const TopBar = ({
       >
         <a
           href="https://github.com/huchenme/hacker-tab-extension"
-          css={theme => css`
+          css={(theme) => css`
             display: block;
             color: ${theme.rgba(0.38)};
             transition: color 0.5s cubic-bezier(0.4, 0, 0.2, 1);
@@ -125,10 +125,10 @@ const Container = styled.div`
   display: flex;
   align-items: center;
   position: relative;
-  background-color: ${props => props.theme.topBar.bg};
+  background-color: ${(props) => props.theme.topBar.bg};
   padding: 0 16px;
   height: 56px;
   box-shadow: 0px 4px 5px 0px rgba(0, 0, 0, 0.14),
     0px 1px 10px 0px rgba(0, 0, 0, 0.12);
-  transition: background-color ${props => props.theme.transition};
+  transition: background-color ${(props) => props.theme.transition};
 `;

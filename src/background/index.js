@@ -15,10 +15,10 @@ chrome.runtime.onStartup.addListener(() => {
   startRequest();
 });
 
-chrome.alarms.onAlarm.addListener(alarm => {
+chrome.alarms.onAlarm.addListener((alarm) => {
   console.log('Alarm triggered', alarm);
   if (alarm && alarm.name === 'watchdog') {
-    chrome.alarms.get('refresh', alarm => {
+    chrome.alarms.get('refresh', (alarm) => {
       if (alarm) {
         console.log('Refresh alarm exists. Yay.');
         const repos = getObject(KEY_REPOSITORIES);
