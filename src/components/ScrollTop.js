@@ -28,7 +28,7 @@ export default function ScrollTop(props) {
       y: 0,
       reset: true,
       from: { y: window.scrollY },
-      onFrame: props => window.scroll(0, props.y),
+      onFrame: (props) => window.scroll(0, props.y),
     });
   };
 

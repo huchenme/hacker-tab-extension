@@ -12,9 +12,9 @@ const placeHolderShimmer = keyframes`
   }
 `;
 
-const Placeholder = props => (
+const Placeholder = (props) => (
   <div
-    css={theme => css`
+    css={(theme) => css`
       width: 100%;
       display: inline-block;
       display: inline-block;
@@ -43,7 +43,7 @@ const Placeholder = props => (
   </div>
 );
 
-const PlaceholderCard = props => (
+const PlaceholderCard = (props) => (
   <Card>
     <Left>
       <Placeholder
@@ -107,7 +107,7 @@ const ContentPlaceholder = ({ size = 1 }) => {
   return (
     <div
       data-test-id="loading-list"
-      css={theme => css`
+      css={(theme) => css`
         background: ${theme.card.bg};
         border-radius: 5px;
         overflow: hidden;
@@ -120,7 +120,7 @@ const ContentPlaceholder = ({ size = 1 }) => {
           <div
             data-test-id="loading-card"
             key={index}
-            css={theme => css`
+            css={(theme) => css`
               border-bottom: 1px solid ${theme.card.divider};
               overflow: hidden;
 

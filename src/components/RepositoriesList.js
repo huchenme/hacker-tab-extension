@@ -26,11 +26,15 @@ const RepositoriesList = ({
     setRandom(getRandomRepositories(repositories));
   }, [repositories]);
 
-  const transitions = useTransition(random, item => (item ? item.url : null), {
-    from: { opacity: 0 },
-    enter: { opacity: 1 },
-    leave: { position: 'absolute', opacity: 0 },
-  });
+  const transitions = useTransition(
+    random,
+    (item) => (item ? item.url : null),
+    {
+      from: { opacity: 0 },
+      enter: { opacity: 1 },
+      leave: { position: 'absolute', opacity: 0 },
+    }
+  );
 
   return (
     <Container>
@@ -62,7 +66,7 @@ const RepositoriesList = ({
             ))}
             <div
               aria-label="Random Pick Button"
-              css={theme => css`
+              css={(theme) => css`
                 position: absolute;
                 right: 0;
                 top: 50%;
@@ -99,7 +103,7 @@ const RepositoriesList = ({
           <ContentPlaceholder size={10} />
         ) : (
           <List data-test-id="loaded-repo-list">
-            {repositories.map(rep => (
+            {repositories.map((rep) => (
               <Card key={rep.url}>
                 <RepositoryCard {...rep} />
               </Card>
@@ -148,24 +152,24 @@ const Title = styled.h1`
   line-height: 1.1;
   transition: color 0.2s ease-in-out;
   color: rgba(
-    ${props => (props.theme.isDark ? '255,255,255' : '0,0,0')},
-    ${props => (props.isLoading ? '0.38' : '0.87')}
+    ${(props) => (props.theme.isDark ? '255,255,255' : '0,0,0')},
+    ${(props) => (props.isLoading ? '0.38' : '0.87')}
   );
 `;
 
 const List = styled.div`
-  background-color: ${props => props.theme.card.bg};
-  transition: background-color ${props => props.theme.transition};
+  background-color: ${(props) => props.theme.card.bg};
+  transition: background-color ${(props) => props.theme.transition};
   border-radius: 5px;
   overflow: hidden;
   box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.1);
   min-height: 120px;
-  border: 1px solid ${props => props.theme.card.border};
+  border: 1px solid ${(props) => props.theme.card.border};
 `;
 
 const Card = styled.div`
-  border-bottom: 1px solid ${props => props.theme.card.divider};
-  transition: border-color ${props => props.theme.transition};
+  border-bottom: 1px solid ${(props) => props.theme.card.divider};
+  transition: border-color ${(props) => props.theme.transition};
   overflow: hidden;
   :last-of-type {
     border-bottom: 0;
