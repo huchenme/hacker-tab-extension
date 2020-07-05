@@ -7,12 +7,10 @@
     "react",
     "github",
     "browser extension",
-    "chrome extension",
-    "firefox extension"
+    "chrome extension"
   ],
   "main": "src/index.js",
   "dependencies": {
-    "@atlaskit/select": "^11.0.14",
     "@emotion/core": "^10.0.28",
     "@emotion/styled": "^10.0.27",
     "@huchenme/github-trending": "^2.4.2",
@@ -30,9 +28,9 @@
     "react-dom": "^16.13.1",
     "react-query": "^2.4.13",
     "react-scripts": "^3.4.1",
+    "react-select": "^3.1.0",
     "react-spring": "^8.0.27",
-    "react-use": "^15.3.2",
-    "styled-components": "^3.4.10"
+    "react-use": "^15.3.2"
   },
   "devDependencies": {
     "@babel/core": "^7.10.4",
