@@ -1,28 +1,35 @@
 import React from 'react';
-import ReactSelect from '@atlaskit/select';
+import ReactSelect from 'react-select';
 import { useTheme } from 'emotion-theming';
 
-const Select = props => {
+const Select = (props) => {
   const theme = useTheme();
 
   return (
     <ReactSelect
+      components={{ IndicatorSeparator: null }}
       styles={{
-        control: styles => ({
+        control: (styles) => ({
           ...styles,
+          minHeight: 40,
           backgroundColor: theme.select.bg,
           borderColor: 'transparent',
+          boxShadow: 'none',
           ':hover': {
             ...styles[':hover'],
             backgroundColor: theme.select.bgHover,
             borderColor: 'transparent',
           },
         }),
-        singleValue: styles => ({
+        valueContainer: (styles) => ({
+          ...styles,
+          padding: `2px 6px`,
+        }),
+        singleValue: (styles) => ({
           ...styles,
           color: theme.select.text,
         }),
-        dropdownIndicator: styles => ({
+        dropdownIndicator: (styles) => ({
           ...styles,
           color: theme.select.indicator,
           ':hover': {
@@ -30,11 +37,11 @@ const Select = props => {
             color: theme.select.indicatorHover,
           },
         }),
-        input: styles => ({
+        input: (styles) => ({
           ...styles,
           color: theme.select.text,
         }),
-        menu: styles => ({
+        menu: (styles) => ({
           ...styles,
           backgroundColor: theme.select.menu,
         }),
