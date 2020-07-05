@@ -2,7 +2,7 @@ import { mix } from 'polished';
 
 const darkBaseColor = '#121212';
 
-const dark = (level = 0, color = '#fff') =>
+export const dark = (level = 0, color = '#fff') =>
   mix(level / 100, color, darkBaseColor);
 
 const baseTheme = {
@@ -18,7 +18,7 @@ export const themeLight = {
     helper: 'rgba(0, 0, 0, 0.60)',
     disabled: 'rgba(0, 0, 0, 0.38)',
   },
-  rgba: opacity => `rgba(0, 0, 0, ${opacity})`,
+  rgba: (opacity) => `rgba(0, 0, 0, ${opacity})`,
   topBar: {
     bg: '#fff',
   },
@@ -80,7 +80,7 @@ export const themeDark = {
     helper: 'rgba(255, 255, 255, 0.60)',
     disabled: 'rgba(255, 255, 255, 0.38)',
   },
-  rgba: opacity => `rgba(255, 255, 255, ${opacity})`,
+  rgba: (opacity) => `rgba(255, 255, 255, ${opacity})`,
   topBar: {
     bg: dark(9),
   },

@@ -1,8 +1,12 @@
 /** @jsx jsx */
-import React, { useState } from 'react';
+import React, { useState, useRef } from 'react';
 import { css, jsx } from '@emotion/core';
 import PropTypes from 'prop-types';
 import styled from '@emotion/styled';
+import { motion, AnimatePresence } from 'framer-motion';
+import { useClickAway } from 'react-use';
+
+import { dark } from '../theme';
 import featureToggles from '../feature-toggles';
 import { ReactComponent as MoonIcon } from '../images/moon.svg';
 import { ReactComponent as SunIcon } from '../images/sun.svg';
@@ -14,6 +18,11 @@ const margin = '20px';
 
 export default function BottomIcons({ isDark = false, setIsDark }) {
   const [isSettingOpen, setIsSettingOpen] = useState(false);
+
+  const ref = useRef(null);
+  useClickAway(ref, () => {
+    setIsSettingOpen(false);
+  });
 
   return (
     <React.Fragment>
@@ -35,33 +44,69 @@ export default function BottomIcons({ isDark = false, setIsDark }) {
           onClick={() => {
             setIsDark(!isDark);
           }}
+          whileTap={{ scale: 0.8 }}
           isRotate={isDark}
           aria-label="Toggle Dark Mode Button"
         >
-          {isDark ? (
-            <SunIcon
-              aria-label="Sun Icon"
-              css={css`
-                fill: currentColor;
-                height: 20px;
-                width: 20px;
-              `}
-            />
-          ) : (
-            <MoonIcon
-              aria-label="Moon Icon"
-              css={css`
-                fill: currentColor;
-                height: 20px;
-                width: 20px;
-              `}
-            />
-          )}
+          <AnimatePresence>
+            {isDark ? (
+              <motion.div
+                initial={{
+                  opacity: 0,
+                  scale: 0.3,
+                }}
+                animate={{
+                  opacity: 1,
+                  scale: 1,
+                }}
+                exit={{
+                  opacity: 0,
+                  scale: 0.5,
+                  transition: { duration: 0.2 },
+                }}
+              >
+                <SunIcon
+                  aria-label="Sun Icon"
+                  css={css`
+                    fill: currentColor;
+                    height: 20px;
+                    width: 20px;
+                  `}
+                />
+              </motion.div>
+            ) : (
+              <motion.div
+                initial={{
+                  opacity: 0,
+                  scale: 0.3,
+                }}
+                animate={{
+                  opacity: 1,
+                  scale: 1,
+                }}
+                exit={{
+                  opacity: 0,
+                  scale: 0.5,
+                  transition: { duration: 0.2 },
+                }}
+              >
+                <MoonIcon
+                  aria-label="Moon Icon"
+                  css={css`
+                    fill: currentColor;
+                    height: 20px;
+                    width: 20px;
+                  `}
+                />
+              </motion.div>
+            )}
+          </AnimatePresence>
         </ActionButton>
       </div>
 
       {Boolean(featureToggles.settings) && (
         <div
+          ref={ref}
           css={css`
             position: fixed;
             left: ${margin};
@@ -72,6 +117,7 @@ export default function BottomIcons({ isDark = false, setIsDark }) {
           <ActionButton
             isRotate
             isRotated={isSettingOpen}
+            whileTap={{ scale: 0.8 }}
             onClick={() => {
               setIsSettingOpen(!isSettingOpen);
             }}
@@ -83,21 +129,47 @@ export default function BottomIcons({ isDark = false, setIsDark }) {
                 width: 20px;
               `}
             />
-            <div
-              css={css`
-                width: 200px;
-                height: 200px;
-                background: white;
-                position: absolute;
-                bottom: 50px;
-                left: 0;
-                border-radius: 5px;
-                color: black;
-              `}
-            >
-              test
-            </div>
           </ActionButton>
+          <AnimatePresence>
+            {isSettingOpen && (
+              <motion.div
+                initial={{
+                  opacity: 0,
+                  scale: 0.3,
+                  y: 50,
+                  x: -50,
+                }}
+                animate={{
+                  opacity: 1,
+                  scale: 1,
+                  y: 0,
+                  x: 0,
+                }}
+                exit={{
+                  opacity: 0,
+                  scale: 0.5,
+                  y: 50,
+                  x: -50,
+                }}
+                transition={{ type: 'spring', damping: 30, stiffness: 400 }}
+                css={css`
+                  width: 200px;
+                  height: 200px;
+                  background: ${dark(9)};
+                  position: absolute;
+                  bottom: 30px;
+                  left: 0;
+                  border-radius: 5px;
+                  color: white;
+                  display: flex;
+                  align-items: center;
+                  justify-content: center;
+                `}
+              >
+                test
+              </motion.div>
+            )}
+          </AnimatePresence>
         </div>
       )}
     </React.Fragment>
@@ -109,7 +181,8 @@ BottomIcons.propTypes = {
   setIsDark: PropTypes.func.isRequired,
 };
 
-const ActionButton = styled.button`
+const ActionButton = styled(motion.button)`
+  position: relative;
   background-color: transparent;
   margin: 0;
   padding: 0;
