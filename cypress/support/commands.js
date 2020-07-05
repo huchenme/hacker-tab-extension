@@ -26,12 +26,10 @@ Cypress.Commands.add(
     cy.fetchRepos({ response, delay, status });
     cy.visit('/', {
       onBeforeLoad(win) {
-        cy.stub(win, 'matchMedia')
-          .withArgs('(prefers-color-scheme: dark)')
-          .returns({
-            matches: darkMode,
-            addListener: () => {},
-          });
+        cy.stub(win, 'matchMedia').returns({
+          matches: darkMode,
+          addListener: () => {},
+        });
       },
     });
     cy.waitResponse();
