@@ -15,7 +15,7 @@
     "@emotion/styled": "^10.0.27",
     "@huchenme/github-trending": "^2.4.2",
     "append-query": "^2.1.0",
-    "axios": "^0.19.2",
+    "axios": "^0.21.1",
     "date-fns": "^2.14.0",
     "emotion-theming": "^10.0.27",
     "framer-motion": "^1.11.1",
