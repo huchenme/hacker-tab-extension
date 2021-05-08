@@ -21,7 +21,7 @@
     "framer-motion": "^1.11.1",
     "husky": "^4.2.5",
     "lint-staged": "^10.2.11",
-    "lodash": "^4.17.15",
+    "lodash": "^4.17.21",
     "polished": "^3.6.5",
     "prop-types": "^15.7.2",
     "react": "^16.13.1",
